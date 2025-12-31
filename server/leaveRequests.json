@@ -1,0 +1,1362 @@
+[
+  {
+    "id": "req-001-laurette",
+    "teamMember": "Laurette Paswera",
+    "teamMemberName": "Laurette Paswera",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-11-15",
+    "endDate": "2025-11-20",
+    "days": 6,
+    "reason": "Family vacation",
+    "status": "approved",
+    "submittedDate": "2025-11-01T10:00:00Z",
+    "submittedBy": "Laurette Paswera",
+    "submittedAt": "2025-11-01T10:00:00Z",
+    "approvedAt": "2025-11-02T14:30:00Z",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 6,
+      "remainingPTO": 6
+    },
+    "validationPassed": true,
+    "history": []
+  },
+  {
+    "id": "req-006-laurette",
+    "teamMember": "Laurette Paswera",
+    "teamMemberName": "Laurette Paswera",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-23",
+    "endDate": "2025-12-27",
+    "days": 5,
+    "reason": "Holiday break",
+    "status": "sent-to-payroll",
+    "submittedDate": "2025-12-09T08:30:00Z",
+    "submittedBy": "Laurette Paswera",
+    "submittedAt": "2025-12-09T08:30:00Z",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "leslie@zimworx.com",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 6,
+      "remainingPTO": 6
+    },
+    "validationPassed": true,
+    "submissionMethod": "official-form",
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Laurette Paswera",
+        "timestamp": "2025-12-09T08:30:00Z",
+        "note": "Leave request submitted"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T08:30:00Z",
+        "note": "Automatically assigned to CSP: Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T12:00:15.840Z",
+        "note": "xxxxxx"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Client Representative",
+        "timestamp": "2025-12-09T12:01:30.535Z",
+        "note": "Yes "
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T12:02:11.267Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "cspApprovedAt": "2025-12-09T12:00:15.840Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "xxxxxx",
+    "clientApprovedAt": "2025-12-09T12:01:30.535Z",
+    "clientApprovedBy": "Client Representative",
+    "clientApprovalMethod": "system",
+    "clientNotes": "Yes ",
+    "sentToPayrollAt": "2025-12-09T12:02:11.267Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "id": "req-004-shawn",
+    "teamMember": "Shawn Buka",
+    "teamMemberName": "Shawn Buka",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-18",
+    "days": 4,
+    "reason": "Personal",
+    "status": "payroll-processing",
+    "submittedDate": "2025-12-08T09:00:00Z",
+    "submittedBy": "Shawn Buka",
+    "submittedAt": "2025-12-08T09:00:00Z",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "leslie@zimworx.com",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12
+    },
+    "validationPassed": true,
+    "submissionMethod": "official-form",
+    "history": [
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-08T16:53:13.739Z",
+        "note": "n/a"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Client Representative",
+        "timestamp": "2025-12-08T16:59:53.149Z",
+        "note": "ffff"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-08T17:50:07.546Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "cspApprovedAt": "2025-12-08T16:53:13.739Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "n/a",
+    "clientApprovedAt": "2025-12-08T16:59:53.149Z",
+    "clientApprovedBy": "Client Representative",
+    "clientApprovalMethod": "system",
+    "clientNotes": "ffff",
+    "sentToPayrollAt": "2025-12-08T17:50:07.546Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "id": "req-005-roy",
+    "teamMember": "Roy Kagoro",
+    "teamMemberName": "Roy Kagoro",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-20",
+    "endDate": "2025-12-24",
+    "days": 5,
+    "reason": "Christmas holiday",
+    "status": "payroll-processing",
+    "submittedDate": "2025-12-08T17:15:00Z",
+    "submittedBy": "Roy Kagoro",
+    "submittedAt": "2025-12-08T17:15:00Z",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "leslie@zimworx.com",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12
+    },
+    "validationPassed": true,
+    "submissionMethod": "official-form",
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Roy Kagoro",
+        "timestamp": "2025-12-08T17:15:00Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-08T17:15:00Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T15:47:57.696Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:20:36.850Z",
+        "note": "Client approved the leave request via system"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:27:36.378Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "cspApprovedAt": "2025-12-09T15:47:57.696Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-09T16:20:36.850Z",
+    "clientApprovedBy": "Leslie Chasinda",
+    "clientApprovalMethod": "system",
+    "clientNotes": "",
+    "sentToPayrollAt": "2025-12-09T16:27:36.378Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Shawn Buka",
+    "leaveType": "Study Leave",
+    "startDate": "2025-12-16",
+    "endDate": "2025-12-19",
+    "reason": "exam coming up",
+    "days": 4,
+    "submittedBy": "Shawn Buka",
+    "submissionMethod": "official-form",
+    "id": "1765216509320",
+    "submittedAt": "2025-12-08T17:55:09.320Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Shawn Buka",
+        "timestamp": "2025-12-08T17:55:09.320Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-08T17:55:09.320Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-08T17:56:10.914Z",
+        "note": "xxxxx"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Client Representative",
+        "timestamp": "2025-12-08T17:57:19.723Z",
+        "note": "xxxxx"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-08T17:58:09.929Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-08T17:56:10.914Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "xxxxx",
+    "clientApprovedAt": "2025-12-08T17:57:19.723Z",
+    "clientApprovedBy": "Client Representative",
+    "clientApprovalMethod": "system",
+    "clientNotes": "xxxxx",
+    "sentToPayrollAt": "2025-12-08T17:58:09.929Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Shawn Buka",
+    "leaveType": "Study Leave",
+    "startDate": "2025-12-22",
+    "endDate": "2025-12-25",
+    "reason": "Writing my final software engineering exam",
+    "days": 4,
+    "submittedBy": "Shawn Buka",
+    "submissionMethod": "official-form",
+    "id": "1765280430572",
+    "submittedAt": "2025-12-09T11:40:30.572Z",
+    "status": "csp-review",
+    "assignedTo": "Tsungirirai Samhungu",
+    "assignedToEmail": "tsungirirai.samhungu@zimworx.com",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Shawn Buka",
+        "timestamp": "2025-12-09T11:40:30.572Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Laurette Paswera",
+    "leaveType": "Maternity Leave",
+    "startDate": "2025-12-22",
+    "endDate": "2025-12-24",
+    "reason": "Going for doctors review ",
+    "days": 3,
+    "submittedBy": "Laurette Paswera",
+    "submissionMethod": "official-form",
+    "id": "1765281493541",
+    "submittedAt": "2025-12-09T11:58:13.541Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 11,
+      "remainingPTO": 9
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Laurette Paswera",
+        "timestamp": "2025-12-09T11:58:13.541Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T11:58:13.541Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T15:48:03.420Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:20:44.671Z",
+        "note": "Client approved the leave request via system"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:37:29.391Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T15:48:03.419Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-09T16:20:44.671Z",
+    "clientApprovedBy": "Leslie Chasinda",
+    "clientApprovalMethod": "system",
+    "clientNotes": "",
+    "sentToPayrollAt": "2025-12-09T16:37:29.391Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Study Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-17",
+    "reason": "Exam sitting ",
+    "days": 3,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765286089154",
+    "submittedAt": "2025-12-09T13:14:49.154Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T13:14:49.155Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T13:14:49.155Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T13:16:16.755Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Client Representative",
+        "timestamp": "2025-12-09T13:25:19.692Z",
+        "note": "yes"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T13:26:04.430Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T13:16:16.755Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-09T13:25:19.692Z",
+    "clientApprovedBy": "Client Representative",
+    "clientApprovalMethod": "system",
+    "clientNotes": "yes",
+    "sentToPayrollAt": "2025-12-09T13:26:04.430Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Tsitsi Geza",
+    "leaveType": "Sick Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-18",
+    "reason": "Doc check up",
+    "days": 4,
+    "submittedBy": "Tsitsi Geza",
+    "submissionMethod": "official-form",
+    "id": "1765288159994",
+    "submittedAt": "2025-12-09T13:49:19.994Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 20
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tsitsi Geza",
+        "timestamp": "2025-12-09T13:49:19.994Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T13:49:19.994Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T15:48:06.697Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:20:47.313Z",
+        "note": "Client approved the leave request via system"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:37:32.372Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T15:48:06.697Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-09T16:20:47.313Z",
+    "clientApprovedBy": "Leslie Chasinda",
+    "clientApprovalMethod": "system",
+    "clientNotes": "",
+    "sentToPayrollAt": "2025-12-09T16:37:32.372Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-17",
+    "reason": "Need to de-stress",
+    "days": 3,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765290143436",
+    "submittedAt": "2025-12-09T14:22:23.436Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 20
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T14:22:23.441Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T14:22:23.441Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T14:23:55.892Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Client Representative",
+        "timestamp": "2025-12-09T14:39:11.522Z",
+        "note": "Client approved the leave request via system"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T14:40:16.630Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T14:23:55.892Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-09T14:39:11.521Z",
+    "clientApprovedBy": "Client Representative",
+    "clientApprovalMethod": "system",
+    "clientNotes": "",
+    "sentToPayrollAt": "2025-12-09T14:40:16.630Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-16",
+    "reason": "ffffff",
+    "days": 2,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765293126643",
+    "submittedAt": "2025-12-09T15:12:06.643Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 20
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T15:12:06.643Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T15:12:06.643Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T15:13:36.907Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Client Representative",
+        "timestamp": "2025-12-09T15:17:21.890Z",
+        "note": "yes"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T15:17:55.353Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T15:13:36.907Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-09T15:17:21.890Z",
+    "clientApprovedBy": "Client Representative",
+    "clientApprovalMethod": "system",
+    "clientNotes": "yes",
+    "sentToPayrollAt": "2025-12-09T15:17:55.353Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-18",
+    "reason": "yes yes ",
+    "days": 4,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765294466306",
+    "submittedAt": "2025-12-09T15:34:26.306Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 20
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T15:34:26.306Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T15:34:26.306Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T15:35:16.480Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:20:50.241Z",
+        "note": "Client approved the leave request via system"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:37:35.332Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T15:35:16.480Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-09T16:20:50.241Z",
+    "clientApprovedBy": "Leslie Chasinda",
+    "clientApprovalMethod": "system",
+    "clientNotes": "",
+    "sentToPayrollAt": "2025-12-09T16:37:35.332Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-16",
+    "endDate": "2025-12-19",
+    "reason": "ffrfrrgrgrg",
+    "days": 4,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765296364497",
+    "submittedAt": "2025-12-09T16:06:04.497Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 4,
+      "remainingPTO": 16
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T16:06:04.497Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T16:06:04.497Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:08:20.804Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:20:52.541Z",
+        "note": "Client approved the leave request via system"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:37:37.717Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T16:08:20.804Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-09T16:20:52.541Z",
+    "clientApprovedBy": "Leslie Chasinda",
+    "clientApprovalMethod": "system",
+    "clientNotes": "",
+    "sentToPayrollAt": "2025-12-09T16:37:37.717Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-16",
+    "endDate": "2025-12-19",
+    "reason": "yes",
+    "days": 4,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765296399844",
+    "submittedAt": "2025-12-09T16:06:39.844Z",
+    "status": "payroll-processing",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 8,
+      "remainingPTO": 12
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T16:06:39.844Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T16:06:39.844Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:27:30.736Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved-offline",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-11T11:07:08.267Z",
+        "note": "Client approved via call. yes"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-11T11:07:31.168Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T16:27:30.736Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-11T11:07:08.267Z",
+    "clientApprovedBy": "dental.org",
+    "clientApprovalMethod": "call",
+    "clientNotes": "yes",
+    "sentToPayrollAt": "2025-12-11T11:07:31.168Z",
+    "sentToPayrollBy": "Leslie Chasinda"
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-16",
+    "endDate": "2025-12-19",
+    "reason": "rrrrr",
+    "days": 4,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765298173798",
+    "submittedAt": "2025-12-09T16:36:13.798Z",
+    "status": "pending-client-approval",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 20,
+      "usedPTO": 12,
+      "remainingPTO": 8
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T16:36:13.798Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T16:36:13.798Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T16:36:46.670Z",
+        "note": "CSP verified and forwarded to client for approval"
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T16:36:46.670Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": ""
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-16",
+    "reason": "rrr",
+    "days": 2,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765299632257",
+    "submittedAt": "2025-12-09T17:00:32.258Z",
+    "status": "pending-client-approval",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 8,
+      "remainingPTO": 4
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T17:00:32.258Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T17:00:32.258Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T17:12:14.228Z",
+        "note": "CSP verified and forwarded to client for approval"
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T17:12:14.228Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": ""
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-16",
+    "reason": "yes ",
+    "days": 2,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765300236674",
+    "submittedAt": "2025-12-09T17:10:36.674Z",
+    "status": "pending-client-approval",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 10,
+      "remainingPTO": 2
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-09T17:10:36.674Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T17:10:36.674Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T17:17:33.772Z",
+        "note": "CSP verified and forwarded to client for approval"
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T17:17:33.772Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": ""
+  },
+  {
+    "teamMember": "Tsitsi Geza",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-16",
+    "reason": "rrrrr",
+    "days": 2,
+    "submittedBy": "Tsitsi Geza",
+    "submissionMethod": "official-form",
+    "id": "1765301422327",
+    "submittedAt": "2025-12-09T17:30:22.327Z",
+    "status": "pending-client-approval",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tsitsi Geza",
+        "timestamp": "2025-12-09T17:30:22.327Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T17:30:22.327Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T17:32:30.687Z",
+        "note": "CSP verified and forwarded to client for approval"
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T17:32:30.687Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": ""
+  },
+  {
+    "teamMember": "Tsitsi Geza",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-17",
+    "reason": "yes",
+    "days": 3,
+    "submittedBy": "Tsitsi Geza",
+    "submissionMethod": "official-form",
+    "id": "1765303406981",
+    "submittedAt": "2025-12-09T18:03:26.981Z",
+    "status": "pending-client-approval",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 2,
+      "remainingPTO": 10
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tsitsi Geza",
+        "timestamp": "2025-12-09T18:03:26.981Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T18:03:26.981Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T18:04:10.488Z",
+        "note": "CSP verified and forwarded to client for approval"
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T18:04:10.488Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": ""
+  },
+  {
+    "teamMember": "Tsitsi Geza",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-16",
+    "reason": "Yes",
+    "days": 2,
+    "submittedBy": "Tsitsi Geza",
+    "submissionMethod": "official-form",
+    "id": "1765305077585",
+    "submittedAt": "2025-12-09T18:31:17.585Z",
+    "status": "pending-client-approval",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 5,
+      "remainingPTO": 7
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tsitsi Geza",
+        "timestamp": "2025-12-09T18:31:17.585Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-09T18:31:17.585Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-09T18:34:05.207Z",
+        "note": "CSP verified and forwarded to client for approval"
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-09T18:34:05.207Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": ""
+  },
+  {
+    "teamMember": "Shawn Buka",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-19",
+    "reason": "",
+    "days": 5,
+    "submittedBy": "Shawn Buka",
+    "submissionMethod": "official-form",
+    "id": "1765450618751",
+    "submittedAt": "2025-12-11T10:56:58.751Z",
+    "status": "pending-client-approval",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "Leslie Chasinda",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 4,
+      "remainingPTO": 8
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Shawn Buka",
+        "timestamp": "2025-12-11T10:56:58.751Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-11T10:56:58.751Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-11T11:04:18.239Z",
+        "note": "CSP verified and forwarded to client for approval"
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-11T11:04:18.239Z",
+    "cspApprovedBy": "Leslie Chasinda",
+    "cspNotes": ""
+  },
+  {
+    "teamMember": "Getrude Nyemba",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-29",
+    "endDate": "2025-12-30",
+    "reason": "xxxx",
+    "days": 2,
+    "submittedBy": "Getrude Nyemba",
+    "submissionMethod": "official-form",
+    "id": "1765468244644",
+    "submittedAt": "2025-12-11T15:50:44.644Z",
+    "status": "payroll-processing",
+    "assignedTo": "Tsungirirai Samhungu",
+    "assignedToEmail": "tsungirirai.samhungu@zimworx.com",
+    "clientName": "Adelberg Montalvan",
+    "teamMemberRole": "Dental Coordinator",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Getrude Nyemba",
+        "timestamp": "2025-12-11T15:50:44.644Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-11T15:50:44.644Z",
+        "note": "Automatically assigned to Getrude Nyemba"
+      },
+      {
+        "action": "csp-approved",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2025-12-30T10:11:46.532Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved-offline",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2025-12-30T10:16:05.556Z",
+        "note": "Client approved via call. 333333"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2025-12-30T10:16:16.526Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "validationPassed": true,
+    "cspApprovedAt": "2025-12-30T10:11:46.532Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
+    "cspNotes": "",
+    "clientApprovedAt": "2025-12-30T10:16:05.555Z",
+    "clientApprovedBy": "rrrrrr",
+    "clientApprovalMethod": "call",
+    "clientNotes": "333333",
+    "sentToPayrollAt": "2025-12-30T10:16:16.525Z",
+    "sentToPayrollBy": "Tsungirirai Samhungu"
+  },
+  {
+    "teamMember": "Getrude Nyemba",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-16",
+    "reason": "xxx",
+    "days": 2,
+    "submittedBy": "Getrude Nyemba",
+    "submissionMethod": "official-form",
+    "id": "1765479381768",
+    "submittedAt": "2025-12-11T18:56:21.768Z",
+    "status": "csp-review",
+    "assignedTo": "Getrude Nyemba",
+    "assignedToEmail": "getrude.nyemba@zimworx.org",
+    "clientName": "Adelberg Montalvan",
+    "teamMemberRole": "Dental Coordinator",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 2,
+      "remainingPTO": 10
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Getrude Nyemba",
+        "timestamp": "2025-12-11T18:56:21.768Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-11T18:56:21.768Z",
+        "note": "Automatically assigned to Getrude Nyemba"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Getrude Nyemba",
+    "leaveType": "Annual Leave",
+    "startDate": "2025-12-30",
+    "endDate": "2025-12-31",
+    "reason": "yes",
+    "days": 2,
+    "submittedBy": "Getrude Nyemba",
+    "submissionMethod": "official-form",
+    "id": "1765539640599",
+    "submittedAt": "2025-12-12T11:40:40.599Z",
+    "status": "csp-review",
+    "assignedTo": "Getrude Nyemba",
+    "assignedToEmail": "getrude.nyemba@zimworx.org",
+    "clientName": "Adelberg Montalvan",
+    "teamMemberRole": "Dental Coordinator",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 4,
+      "remainingPTO": 8
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Getrude Nyemba",
+        "timestamp": "2025-12-12T11:40:40.599Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-12T11:40:40.599Z",
+        "note": "Automatically assigned to Getrude Nyemba"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Sick Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-16",
+    "reason": "sick",
+    "days": 2,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765554905844",
+    "submittedAt": "2025-12-12T15:55:05.844Z",
+    "status": "csp-review",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "leslie.chasinda@zimworx.org",
+    "clientName": "Wave Dental",
+    "teamMemberRole": "Accounts Payable Officer",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 8,
+      "remainingPTO": 4
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-12T15:55:05.844Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-12T15:55:05.844Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Tatenda Gusha",
+    "leaveType": "Sick Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-16",
+    "reason": "",
+    "days": 2,
+    "submittedBy": "Tatenda Gusha",
+    "submissionMethod": "official-form",
+    "id": "1765555256511",
+    "submittedAt": "2025-12-12T16:00:56.511Z",
+    "status": "csp-review",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "leslie.chasinda@zimworx.org",
+    "clientName": "Wave Dental",
+    "teamMemberRole": "Accounts Payable Officer",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 10,
+      "remainingPTO": 2
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tatenda Gusha",
+        "timestamp": "2025-12-12T16:00:56.511Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-12T16:00:56.511Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Tsitsi Geza",
+    "leaveType": "Sick Leave",
+    "startDate": "2025-12-22",
+    "endDate": "2025-12-23",
+    "reason": "eeee",
+    "days": 2,
+    "submittedBy": "Tsitsi Geza",
+    "submissionMethod": "official-form",
+    "id": "1765811784941",
+    "submittedAt": "2025-12-15T15:16:24.942Z",
+    "status": "csp-review",
+    "assignedTo": "Leslie Chasinda",
+    "assignedToEmail": "leslie.chasinda@zimworx.org",
+    "clientName": "Dental Arts of Boynton",
+    "teamMemberRole": "Operations",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 7,
+      "remainingPTO": 5
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Tsitsi Geza",
+        "timestamp": "2025-12-15T15:16:24.942Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2025-12-15T15:16:24.942Z",
+        "note": "Automatically assigned to Leslie Chasinda"
+      }
+    ],
+    "validationPassed": true
+  }
+]

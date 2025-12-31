@@ -1,0 +1,6 @@
+{
+  "sheets": [
+    { "spreadsheetId": "id1", "range": "Sheet1!A1:D10" },
+    { "spreadsheetId": "id2", "range": "Sheet2!A1:D10" }
+  ]
+}

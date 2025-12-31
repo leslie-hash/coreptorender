@@ -1,0 +1,98 @@
+# CorePTO Docker Ignore
+# Prevents unnecessary files from being copied into Docker image
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testing
+coverage/
+*.test.js
+*.spec.js
+__tests__/
+
+# Development
+.git/
+.github/
+.gitignore
+.env
+.env.local
+.env.development
+.env.test
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts (will be built inside Docker)
+dist/
+build/
+
+# Documentation
+*.md
+!README.md
+docs/
+
+# AWS/Infrastructure (not needed in container)
+aws-iac/
+
+# Local data files (should use volumes or external storage)
+server/teamMembers.json
+server/leaveRequests.json
+server/teamMemberMeta.json
+server/clients.json
+server/clientData.json
+server/absenteeismRecords.json
+server/absenteeismReports.json
+server/approvalHistory.json
+server/attendanceRecords.json
+server/emailSettings.json
+server/integrationSettings.json
+server/syncSettings.json
+server/notifications.json
+server/payrollNotifications.json
+server/users.json
+server/leaveQueries.json
+server/*.backup.json
+server/Untitled-*.json
+
+# Credentials (should come from secrets/env vars)
+server/google-credentials.json
+server/google-tokens.json
+google-credentials.json
+google-tokens.json
+*.pem
+*.key
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+server/cache/
+
+# Test files
+test/
+tests/
+*.test.ts
+*.spec.ts
+
+# Config examples
+server/cspSheetConfig.example.json
+
+# Sample data
+team_members_template.csv
+leaveRequests.json
+
+# Scripts
+get-network-info.ps1

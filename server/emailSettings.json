@@ -1,0 +1,25 @@
+{
+  "enabled": false,
+  "smtpHost": "smtp.gmail.com",
+  "smtpPort": 587,
+  "smtpUser": "",
+  "smtpPassword": "",
+  "fromEmail": "noreply@company.com",
+  "fromName": "Team Leave Management",
+  "payrollRecipients": [
+    "leslie@zimworx.com"
+  ],
+  "notifications": {
+    "newRequest": true,
+    "approval": true,
+    "rejection": true,
+    "upcomingLeave": true,
+    "pendingReminder": true
+  },
+  "digest": {
+    "enabled": true,
+    "frequency": "daily",
+    "time": "09:00",
+    "recipients": []
+  }
+}

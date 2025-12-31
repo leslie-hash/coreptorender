@@ -1,0 +1,14 @@
+{
+  "slack": {
+    "enabled": false,
+    "webhookUrl": "",
+    "notifyOnSubmit": true,
+    "notifyOnApproval": true,
+    "notifyOnRejection": true
+  },
+  "googleSheets": {
+    "enabled": false,
+    "spreadsheetId": "",
+    "autoSync": false
+  }
+}

@@ -1,0 +1,147 @@
+[
+  {
+    "id": "1765216207550",
+    "leaveRequestId": "req-004-shawn",
+    "teamMember": "Shawn Buka",
+    "sentTo": [
+      "payroll@zimworx.com"
+    ],
+    "sentAt": "2025-12-08T17:50:07.550Z",
+    "subject": "APPROVED: Leave Request for Shawn Buka",
+    "status": "sent"
+  },
+  {
+    "id": "1765216689937",
+    "leaveRequestId": "1765216509320",
+    "teamMember": "Shawn Buka",
+    "sentTo": [
+      "payroll@zimworx.com"
+    ],
+    "sentAt": "2025-12-08T17:58:09.937Z",
+    "subject": "APPROVED: Leave Request for Shawn Buka",
+    "status": "sent"
+  },
+  {
+    "id": "1765281731272",
+    "leaveRequestId": "req-006-laurette",
+    "teamMember": "Laurette Paswera",
+    "sentTo": [
+      "payroll@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T12:02:11.272Z",
+    "subject": "APPROVED: Leave Request for Laurette Paswera",
+    "status": "sent"
+  },
+  {
+    "id": "1765286764456",
+    "leaveRequestId": "1765286089154",
+    "teamMember": "Tatenda Gusha",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T13:26:04.456Z",
+    "subject": "APPROVED: Leave Request for Tatenda Gusha",
+    "status": "sent"
+  },
+  {
+    "id": "1765291216685",
+    "leaveRequestId": "1765290143436",
+    "teamMember": "Tatenda Gusha",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T14:40:16.685Z",
+    "subject": "APPROVED: Leave Request for Tatenda Gusha",
+    "status": "sent"
+  },
+  {
+    "id": "1765293475569",
+    "leaveRequestId": "1765293126643",
+    "teamMember": "Tatenda Gusha",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T15:17:55.569Z",
+    "subject": "APPROVED: Leave Request for Tatenda Gusha",
+    "status": "sent"
+  },
+  {
+    "id": "1765297656394",
+    "leaveRequestId": "req-005-roy",
+    "teamMember": "Roy Kagoro",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T16:27:36.394Z",
+    "subject": "APPROVED: Leave Request for Roy Kagoro",
+    "status": "sent"
+  },
+  {
+    "id": "1765298249407",
+    "leaveRequestId": "1765281493541",
+    "teamMember": "Laurette Paswera",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T16:37:29.407Z",
+    "subject": "APPROVED: Leave Request for Laurette Paswera",
+    "status": "sent"
+  },
+  {
+    "id": "1765298252397",
+    "leaveRequestId": "1765288159994",
+    "teamMember": "Tsitsi Geza",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T16:37:32.397Z",
+    "subject": "APPROVED: Leave Request for Tsitsi Geza",
+    "status": "sent"
+  },
+  {
+    "id": "1765298255369",
+    "leaveRequestId": "1765294466306",
+    "teamMember": "Tatenda Gusha",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T16:37:35.369Z",
+    "subject": "APPROVED: Leave Request for Tatenda Gusha",
+    "status": "sent"
+  },
+  {
+    "id": "1765298257747",
+    "leaveRequestId": "1765296364497",
+    "teamMember": "Tatenda Gusha",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-09T16:37:37.747Z",
+    "subject": "APPROVED: Leave Request for Tatenda Gusha",
+    "status": "sent"
+  },
+  {
+    "id": "1765451251173",
+    "leaveRequestId": "1765296399844",
+    "teamMember": "Tatenda Gusha",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-11T11:07:31.173Z",
+    "subject": "APPROVED: Leave Request for Tatenda Gusha",
+    "excelDocument": null,
+    "status": "sent"
+  },
+  {
+    "id": "1767089776537",
+    "leaveRequestId": "1765468244644",
+    "teamMember": "Getrude Nyemba",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2025-12-30T10:16:16.537Z",
+    "subject": "APPROVED: Leave Request for Getrude Nyemba",
+    "excelDocument": null,
+    "status": "sent"
+  }
+]

@@ -1,0 +1,2871 @@
+[
+  {
+    "id": "June/July",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Lauryn",
+    "teamMemberName": "Taylor",
+    "leaveType": "Admin Assistant",
+    "startDate": "3 October 2024",
+    "endDate": "7 October 2024",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyasha",
+    "teamMemberName": "Majoko",
+    "leaveType": "Dental Coordinator",
+    "startDate": "13 June",
+    "endDate": "14 June",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe",
+    "teamMemberName": "Gambara",
+    "leaveType": "Dental Coordinator",
+    "startDate": "27 June 2024",
+    "endDate": "1 July",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "7 July 2025",
+    "endDate": "7 July 2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Nhova",
+    "leaveType": "Dental Coordinator",
+    "startDate": "5 July 2024",
+    "endDate": "12 July 2024",
+    "status": "6",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rudo",
+    "teamMemberName": "Mazvimba",
+    "leaveType": "Dental Coordinator",
+    "startDate": "22 July 2024",
+    "endDate": "23 July 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rudolph",
+    "teamMemberName": "Matanga",
+    "leaveType": "RCM team member",
+    "startDate": "13 June 2025",
+    "endDate": "13 June 2025",
+    "status": "pending",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nelson",
+    "teamMemberName": "Chikuku",
+    "leaveType": "Scheduling",
+    "startDate": "14 July 2025",
+    "endDate": "18 July",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237264-10",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237264-11",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237264-12",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237264-13",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "August",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Tafadzwa",
+    "teamMemberName": "Mapfumo",
+    "leaveType": "Dental Coordinator",
+    "startDate": "14 August 2024",
+    "endDate": "16 August 2024",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe",
+    "teamMemberName": "Gura",
+    "leaveType": "Dental Coordinator",
+    "startDate": "30 August 2024",
+    "endDate": "30 August 2024",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsitsi",
+    "teamMemberName": "Geza",
+    "leaveType": "Ins Verification Specialist",
+    "startDate": "30 August 2024",
+    "endDate": "30 August 2024",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise",
+    "teamMemberName": "Chiwandire",
+    "leaveType": "Accounting Coordinator",
+    "startDate": "8 August",
+    "endDate": "12 August",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237264-20",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237264-21",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237264-22",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-23",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "September",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Chido",
+    "teamMemberName": "Mawire",
+    "leaveType": "Dental Coordinator",
+    "startDate": "12 September",
+    "endDate": "13 September",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tendai",
+    "teamMemberName": "Zaranyika",
+    "leaveType": "Dental Coordinator",
+    "startDate": "19 September 2024",
+    "endDate": "21 September",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sandisiwe",
+    "teamMemberName": "Ncube",
+    "leaveType": "Dental Coordinator",
+    "startDate": "23 September 2024",
+    "endDate": "23 September 2024",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-29",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-30",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-31",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-32",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "October",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Tadiwanashe",
+    "teamMemberName": "Chibwe",
+    "leaveType": "Dental Coordinator",
+    "startDate": "4 October",
+    "endDate": "4 October",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sean",
+    "teamMemberName": "Chakuchichi",
+    "leaveType": "Billing & Collection Specialist",
+    "startDate": "4 October 2024",
+    "endDate": "7 October 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel",
+    "teamMemberName": "Deda",
+    "leaveType": "Dental Coordinator",
+    "startDate": "11 October",
+    "endDate": "11 October",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Munyaradzi",
+    "teamMemberName": "Musarurwa",
+    "leaveType": "Dental Coordinator",
+    "startDate": "07 0ctober 2024",
+    "endDate": "11 October 2024",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Lauryn",
+    "teamMemberName": "Taylor",
+    "leaveType": "Admin Assistant",
+    "startDate": "3 October 2024",
+    "endDate": "7 October 2024",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-40",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-41",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-42",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-43",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-44",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "November",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Rutendo",
+    "teamMemberName": "Murape",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "30 October",
+    "endDate": "1 November",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Munyaradzi",
+    "teamMemberName": "Musarurwa",
+    "leaveType": "Dental Coordinator",
+    "startDate": "4 November 2024",
+    "endDate": "8 November 2024",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Farai",
+    "teamMemberName": "Chikamhi",
+    "leaveType": "RCM Specialist",
+    "startDate": "08 November",
+    "endDate": "11 November",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Nhova",
+    "leaveType": "Dental Coordinator",
+    "startDate": "14 November 2024",
+    "endDate": "18 November 2024",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tafadzwa",
+    "teamMemberName": "Mapfumo",
+    "leaveType": "Dental Coordinator",
+    "startDate": "22 November 2024",
+    "endDate": "25 November 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene",
+    "teamMemberName": "Nyaundi",
+    "leaveType": "Dental Coordinator",
+    "startDate": "29 November",
+    "endDate": "29 November",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Machamire",
+    "leaveType": "Revenue reconciliation officer",
+    "startDate": "29 November",
+    "endDate": "29 November",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai",
+    "teamMemberName": "Choto",
+    "leaveType": "Dental Coordinator",
+    "startDate": "29 November",
+    "endDate": "29 November",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyaradzo",
+    "teamMemberName": "Musindo",
+    "leaveType": "Dental Coordinator",
+    "startDate": "29 November",
+    "endDate": "29 November",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-56",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-57",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-58",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-59",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "December",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Lisa",
+    "teamMemberName": "Takaona",
+    "leaveType": "General Ledger Assistant",
+    "startDate": "2 December",
+    "endDate": "2 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tadiwanashe",
+    "teamMemberName": "Chibwe",
+    "leaveType": "Dental Coordinator",
+    "startDate": "2 December",
+    "endDate": "2 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsakani",
+    "teamMemberName": "Muzamani",
+    "leaveType": "Dental Coordinator",
+    "startDate": "05 December",
+    "endDate": "06 December",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai",
+    "teamMemberName": "Choto",
+    "leaveType": "Dental Coordinator",
+    "startDate": "6 December",
+    "endDate": "6 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tamanda",
+    "teamMemberName": "Mandeya",
+    "leaveType": "Dental Coordinator",
+    "startDate": "5 December",
+    "endDate": "9 December",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsakani",
+    "teamMemberName": "Muzamani",
+    "leaveType": "Dental Coordinator",
+    "startDate": "09 December",
+    "endDate": "09 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Lisa",
+    "teamMemberName": "Takaona",
+    "leaveType": "General Ledger Assistant",
+    "startDate": "9 December",
+    "endDate": "10 December",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tadiwanashe",
+    "teamMemberName": "Chibwe",
+    "leaveType": "Dental Coordinator",
+    "startDate": "10 December",
+    "endDate": "10 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Marcia",
+    "teamMemberName": "Mukono",
+    "leaveType": "Marketing Assistant",
+    "startDate": "6 December",
+    "endDate": "11 December 2024",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe",
+    "teamMemberName": "Gura",
+    "leaveType": "Dental Coordinator",
+    "startDate": "13 December 2024",
+    "endDate": "13 December 2024",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Jennyfer",
+    "teamMemberName": "Lopez",
+    "leaveType": "Dental Coordinator",
+    "startDate": "09 December 2024",
+    "endDate": "13 December 2024",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "13 December",
+    "endDate": "13 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "16 December",
+    "endDate": "16 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Gamuchirai",
+    "teamMemberName": "Chigoro",
+    "leaveType": "Digitai Marketing Assistant",
+    "startDate": "13 Dec 2024",
+    "endDate": "17 Dec 2024",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Taral",
+    "teamMemberName": "Masvanhise",
+    "leaveType": "Dental Coordinator",
+    "startDate": "13 Dec 2024",
+    "endDate": "17 Dec 2024",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinotenda",
+    "teamMemberName": "Mubvumbi",
+    "leaveType": "Dental Coordinator",
+    "startDate": "16 December",
+    "endDate": "17 December 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Farai",
+    "teamMemberName": "Chikamhi",
+    "leaveType": "RCM Specialist",
+    "startDate": "16 December",
+    "endDate": "18 December",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatendaishe",
+    "teamMemberName": "Chikuku",
+    "leaveType": "Dental Coordinator",
+    "startDate": "18 December",
+    "endDate": "20 December",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe",
+    "teamMemberName": "Gura",
+    "leaveType": "Dental Coordinator",
+    "startDate": "24 December 2024",
+    "endDate": "24 December 2024",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ryan",
+    "teamMemberName": "Hambury",
+    "leaveType": "Dental Coordinator",
+    "startDate": "18 December",
+    "endDate": "24 December",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tendai",
+    "teamMemberName": "Zaranyika",
+    "leaveType": "Dental Coordinator",
+    "startDate": "23 December 2024",
+    "endDate": "24 December 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sandisiwe",
+    "teamMemberName": "Ncube",
+    "leaveType": "Medical Business Team Assistant",
+    "startDate": "24 December",
+    "endDate": "24 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Taral",
+    "teamMemberName": "Masvanhise",
+    "leaveType": "Dental Coordinator",
+    "startDate": "26 Dec 2024",
+    "endDate": "27 Dec 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Gamuchirai",
+    "teamMemberName": "Chigoro",
+    "leaveType": "Digitai Marketing Assistant",
+    "startDate": "27 Dec 2024",
+    "endDate": "27 Dec 2024",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Machamire",
+    "leaveType": "Revenue reconciliation officer",
+    "startDate": "27 December",
+    "endDate": "27 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rudo",
+    "teamMemberName": "Mazvimba",
+    "leaveType": "Dental Coordinator",
+    "startDate": "30 December 2024",
+    "endDate": "31 December 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe",
+    "teamMemberName": "Gura",
+    "leaveType": "Dental Coordinator",
+    "startDate": "30 December 2024",
+    "endDate": "31 December 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ruth",
+    "teamMemberName": "Mushaninga",
+    "leaveType": "Graphic Designer",
+    "startDate": "24 December",
+    "endDate": "31 December",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe",
+    "teamMemberName": "Gambara",
+    "leaveType": "Dental Coordinator",
+    "startDate": "26 December",
+    "endDate": "31 December",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-91",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Irene",
+    "teamMemberName": "Nyaundi",
+    "leaveType": "Dental Coordinator",
+    "startDate": "27 December",
+    "endDate": "31 December",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rudolph",
+    "teamMemberName": "Matanga",
+    "leaveType": "rcm Specialist",
+    "startDate": "30 December",
+    "endDate": "31 December",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sandisiwe",
+    "teamMemberName": "Ncube",
+    "leaveType": "Medical Business Team Assistant",
+    "startDate": "31 December",
+    "endDate": "31 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Zandiswa S",
+    "teamMemberName": "Tshuma",
+    "leaveType": "Revenue reconciliation officer",
+    "startDate": "31 December 2024",
+    "endDate": "31 December 2024",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai",
+    "teamMemberName": "Choto",
+    "leaveType": "Dental Coordinator",
+    "startDate": "18 December",
+    "endDate": "20 December",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai",
+    "teamMemberName": "Choto",
+    "leaveType": "Dental Coordinator",
+    "startDate": "27 December",
+    "endDate": "27 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tafara",
+    "teamMemberName": "Pesanai",
+    "leaveType": "Dental Coordinator",
+    "startDate": "16 December",
+    "endDate": "20 December",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Zandile",
+    "teamMemberName": "Mkhwananzi",
+    "leaveType": "Dental Coordinator",
+    "startDate": "24 Decemeber 2024",
+    "endDate": "27 December 2024",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyaradzo",
+    "teamMemberName": "Musindo",
+    "leaveType": "Dental Coordinator",
+    "startDate": "23 December",
+    "endDate": "24 December",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyaradzo",
+    "teamMemberName": "Musindo",
+    "leaveType": "Dental Coordinator",
+    "startDate": "27 December",
+    "endDate": "31 December",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise",
+    "teamMemberName": "Chiwandire",
+    "leaveType": "Accounting Coordinator",
+    "startDate": "13 December",
+    "endDate": "13 December",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise",
+    "teamMemberName": "Chiwandire",
+    "leaveType": "Accounting Coordinator",
+    "startDate": "8 August",
+    "endDate": "12 August",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Kudakwashe",
+    "teamMemberName": "Kunira",
+    "leaveType": "Dental Coordinator",
+    "startDate": "23 December",
+    "endDate": "27 December",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Noreen",
+    "teamMemberName": "Thondhlana",
+    "leaveType": "Dental Coordinator",
+    "startDate": "20 Dcember 2024",
+    "endDate": "26 December 2024",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Miriro",
+    "teamMemberName": "Dzuda",
+    "leaveType": "Dental Coordinator",
+    "startDate": "23 December 2024",
+    "endDate": "27 December",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Hillary",
+    "teamMemberName": "Mudondo",
+    "leaveType": "rcm Specialist",
+    "startDate": "26 December 2024",
+    "endDate": "27 December 2024",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ndumiso Theo",
+    "teamMemberName": "Ndebele",
+    "leaveType": "Operations Admin Specialist",
+    "startDate": "10 December 2024",
+    "endDate": "13 December 2024",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel",
+    "teamMemberName": "Nyoni",
+    "leaveType": "Dental Coordinator",
+    "startDate": "23 December2024",
+    "endDate": "30 December 2024",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Jenyfer",
+    "teamMemberName": "Lopez",
+    "leaveType": "Dental Coordinator",
+    "startDate": "9 December2024",
+    "endDate": "13 December2024",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-111",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-112",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-113",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-114",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "January 2025",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Ryan",
+    "teamMemberName": "Hambury",
+    "leaveType": "Dental Coordinator",
+    "startDate": "2 January",
+    "endDate": "2 January",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Gamuchirai",
+    "teamMemberName": "Chigoro",
+    "leaveType": "Digitai Marketing Assistant",
+    "startDate": "2 Jan 2025",
+    "endDate": "6 Jan 2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Taral",
+    "teamMemberName": "Masvanhise",
+    "leaveType": "Dental Coordinator",
+    "startDate": "2 Jan 2025",
+    "endDate": "3 Jan 2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatendaishe",
+    "teamMemberName": "Chikuku",
+    "leaveType": "Dental Coordinator",
+    "startDate": "10 Jan 2025",
+    "endDate": "13 Jan 2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido",
+    "teamMemberName": "Mawire",
+    "leaveType": "Dental Coordinator",
+    "startDate": "14 January",
+    "endDate": "17 January",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel",
+    "teamMemberName": "Deda",
+    "leaveType": "Dental Coordinator",
+    "startDate": "22 January 2025",
+    "endDate": "28 January 2025",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sean",
+    "teamMemberName": "Chakuchichi",
+    "leaveType": "Billing & Collection Specialist",
+    "startDate": "27 December 2024",
+    "endDate": "6 January 2025",
+    "status": "6",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsitsi T",
+    "teamMemberName": "Geza",
+    "leaveType": "Ins Verification Specialist",
+    "startDate": "16 January2025",
+    "endDate": "21 January 2025",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyasha",
+    "teamMemberName": "Majoko",
+    "leaveType": "Dental Coordinator",
+    "startDate": "31 December2024",
+    "endDate": "3 January 2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe",
+    "teamMemberName": "Gura",
+    "leaveType": "Dental Coordinator",
+    "startDate": "2 January 2025",
+    "endDate": "3 January 2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-127",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-128",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-129",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-130",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "February 2025",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Farai",
+    "teamMemberName": "Chikamhi",
+    "leaveType": "RCM",
+    "startDate": "24/02/2025",
+    "endDate": "25/02/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe",
+    "teamMemberName": "Gambara",
+    "leaveType": "Dental Coordinator",
+    "startDate": "25/02/2025",
+    "endDate": "25/02/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-135",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-136",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-137",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-138",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-139",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-140",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-141",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-142",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "March 2025",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Hillary",
+    "teamMemberName": "Mudondo",
+    "leaveType": "RCM",
+    "startDate": "03/12/2025",
+    "endDate": "03/18/2025",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ngaatendwe",
+    "teamMemberName": "Muchapirei",
+    "leaveType": "Accounting",
+    "startDate": "03/20/2025",
+    "endDate": "03/23/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Makanaka",
+    "teamMemberName": "Mutapi",
+    "leaveType": "Dental Coordinator",
+    "startDate": "03/17/2025",
+    "endDate": "03/18/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Theo",
+    "teamMemberName": "Ndebele",
+    "leaveType": "Human Resources",
+    "startDate": "",
+    "endDate": "",
+    "status": "pending",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Tadiwanashe",
+    "teamMemberName": "Chibwe",
+    "leaveType": "Dental Coordinator",
+    "startDate": "03/11/2025",
+    "endDate": "03/12/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai",
+    "teamMemberName": "Shamuyedova",
+    "leaveType": "RCM",
+    "startDate": "03/07/2025",
+    "endDate": "03/07/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Muchamire",
+    "leaveType": "Accounting",
+    "startDate": "03/31/2025",
+    "endDate": "03/31/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise",
+    "teamMemberName": "Chiwandire",
+    "leaveType": "Accounting",
+    "startDate": "03/31/2025",
+    "endDate": "03/31/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-153",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-154",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-155",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-156",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "April",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Muchamire",
+    "leaveType": "Accounting",
+    "startDate": "04/01/2025",
+    "endDate": "04/01/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe",
+    "teamMemberName": "Gura",
+    "leaveType": "Dental Coordinator",
+    "startDate": "04/03/2025",
+    "endDate": "04/04/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Gusha",
+    "leaveType": "Accounting",
+    "startDate": "04/11/2025",
+    "endDate": "04/11/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido",
+    "teamMemberName": "Mawire",
+    "leaveType": "Dental Coordinator",
+    "startDate": "11 Apr 2025",
+    "endDate": "11 Apr 2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel",
+    "teamMemberName": "Deda",
+    "leaveType": "Dental Coordinator",
+    "startDate": "24 April",
+    "endDate": "24 April",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise",
+    "teamMemberName": "Chiwandire",
+    "leaveType": "Accounting",
+    "startDate": "16 April 2025",
+    "endDate": "16 April 2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "rudolph",
+    "teamMemberName": "Matanga",
+    "leaveType": "RCM",
+    "startDate": "9 April 2025",
+    "endDate": "9 April 2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Noreen",
+    "teamMemberName": "Thondhlana",
+    "leaveType": "Dental Coordinator",
+    "startDate": "04/21/2025",
+    "endDate": "04/21/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsitsi",
+    "teamMemberName": "Geza",
+    "leaveType": "Dental Coordinator",
+    "startDate": "4/21/2025",
+    "endDate": "04/21/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tadiwanashe",
+    "teamMemberName": "Mhlanga",
+    "leaveType": "Insurance Coordinator",
+    "startDate": "21 April 2025",
+    "endDate": "04/21/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Taral",
+    "teamMemberName": "Masvanhise",
+    "leaveType": "Insurance Coordinator",
+    "startDate": "28 April 2025",
+    "endDate": "05/09/2025",
+    "status": "10",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Hillary",
+    "teamMemberName": "Mudondo",
+    "leaveType": "RCM",
+    "startDate": "21 April 2025",
+    "endDate": "04/21/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-171",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-172",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "May",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Rudo",
+    "teamMemberName": "Mazvimba",
+    "leaveType": "Dental Coordinator",
+    "startDate": "05/26/2025",
+    "endDate": "05/30/2025",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene",
+    "teamMemberName": "Nyaundi",
+    "leaveType": "Dental Coordinator",
+    "startDate": "05/02/2025",
+    "endDate": "05/02/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinotenda",
+    "teamMemberName": "Mubvumbi",
+    "leaveType": "Dental Coordinator",
+    "startDate": "05/29/2025",
+    "endDate": "05/30/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tendai",
+    "teamMemberName": "Zaranyika",
+    "leaveType": "Dental Coordinator",
+    "startDate": "05/15/2025",
+    "endDate": "05/16/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Hillary",
+    "teamMemberName": "Mudondo",
+    "leaveType": "RCM",
+    "startDate": "28 May",
+    "endDate": "30 August",
+    "status": "90",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-180",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-181",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-182",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-183",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-184",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "June",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Tsitsi",
+    "teamMemberName": "Geza",
+    "leaveType": "Dental Coordinator",
+    "startDate": "06/06/2025",
+    "endDate": "06/10/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tamanda",
+    "teamMemberName": "Mandeya",
+    "leaveType": "Dental Coordinator",
+    "startDate": "06/09/2025",
+    "endDate": "06/09/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe",
+    "teamMemberName": "Gambara",
+    "leaveType": "Dental Coordinator",
+    "startDate": "06/30/2025",
+    "endDate": "07/03/2025",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rudolph",
+    "teamMemberName": "Matanga",
+    "leaveType": "RCM team member",
+    "startDate": "06/13/2025",
+    "endDate": "06/13/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Kudakwashe",
+    "teamMemberName": "Kunira",
+    "leaveType": "Dental Coordinator",
+    "startDate": "06/18/2025",
+    "endDate": "06/20/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-192",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-193",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-194",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-195",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-196",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-197",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-198",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "July",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Sandisiwe",
+    "teamMemberName": "Ncube",
+    "leaveType": "Medical Business Team Assistant",
+    "startDate": "07/04/2025",
+    "endDate": "07/04/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido",
+    "teamMemberName": "Mawire",
+    "leaveType": "Dental Coordinator",
+    "startDate": "07/18/2025",
+    "endDate": "07/18/2025",
+    "status": "1",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Nyasha",
+    "teamMemberName": "Majoko",
+    "leaveType": "Dental Coordinator",
+    "startDate": "07/21/2025",
+    "endDate": "07/25/2025",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Gamuchirai",
+    "teamMemberName": "Chigoro",
+    "leaveType": "Digital Marketing Assistant",
+    "startDate": "07/04/2025",
+    "endDate": "07/04/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mufaro Chantelle",
+    "teamMemberName": "Chinwada",
+    "leaveType": "Dental Coordinator",
+    "startDate": "07/11/2025",
+    "endDate": "07/14/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tafadzwa",
+    "teamMemberName": "Mapfumo",
+    "leaveType": "Dental Coordinator",
+    "startDate": "07/03/2025",
+    "endDate": "07/07/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe",
+    "teamMemberName": "Gura",
+    "leaveType": "Dental Coordinator",
+    "startDate": "07/11/2025",
+    "endDate": "07/11/2025",
+    "status": "1",
+    "submittedDate": "Waiting for approval"
+  },
+  {
+    "id": "Ruvarashe",
+    "teamMemberName": "Nyakatswau",
+    "leaveType": "RCM Specialist",
+    "startDate": "07/09/2025",
+    "endDate": "07/09/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Getrude",
+    "teamMemberName": "Nyemba",
+    "leaveType": "Dental Coordinator",
+    "startDate": "07/18/2025",
+    "endDate": "07/18/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ryan",
+    "teamMemberName": "Hambury",
+    "leaveType": "Dental Coordinator",
+    "startDate": "07/25/2025",
+    "endDate": "07/29/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-211",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-212",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-213",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-214",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-215",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-216",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "August",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Tadiwanashe",
+    "teamMemberName": "Mhlanga",
+    "leaveType": "Insurance Coordinator",
+    "startDate": "08/15/2025",
+    "endDate": "08/15/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido",
+    "teamMemberName": "Mawire",
+    "leaveType": "Dental Coordinator",
+    "startDate": "08/26/2025",
+    "endDate": "08/26/2025",
+    "status": "1",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Mufaro Chantelle",
+    "teamMemberName": "Chinwada",
+    "leaveType": "Dental Coordinator",
+    "startDate": "08/28/2025",
+    "endDate": "08/29/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Machamire",
+    "leaveType": "Claims Submissions",
+    "startDate": "08/13/2025",
+    "endDate": "08/15/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Machamire",
+    "leaveType": "Claims Submissions",
+    "startDate": "08/29/2025",
+    "endDate": "08/29/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Amanda Fikile",
+    "teamMemberName": "Mkandla",
+    "leaveType": "Dental Coordinator",
+    "startDate": "08/01/2025",
+    "endDate": "08/01/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Munotida",
+    "teamMemberName": "Sibanda",
+    "leaveType": "RCM Specialist",
+    "startDate": "08/21/2025",
+    "endDate": "08/22/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ruth",
+    "teamMemberName": "Mushaninga",
+    "leaveType": "Graphic Designer",
+    "startDate": "08/04/2025",
+    "endDate": "08/08/2025",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ngaatendwe",
+    "teamMemberName": "Muchapirei",
+    "leaveType": "General Ledger Accountant",
+    "startDate": "08/14/2025",
+    "endDate": "08/15/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe",
+    "teamMemberName": "Gambara",
+    "leaveType": "Dental Coordinator",
+    "startDate": "08/14/2025",
+    "endDate": "08/15/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise",
+    "teamMemberName": "Chiwandire",
+    "leaveType": "Accounting",
+    "startDate": "08/19/2025",
+    "endDate": "08/21/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Joseph",
+    "teamMemberName": "Hove",
+    "leaveType": "Accounting",
+    "startDate": "08/18/2025",
+    "endDate": "08/19/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-231",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-232",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-233",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-234",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-235",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-236",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-237",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-238",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-239",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-240",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-241",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "September",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of Leave",
+    "endDate": "End of Leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Ruth",
+    "teamMemberName": "Mushaninga",
+    "leaveType": "Graphic Designer",
+    "startDate": "09/08/2025",
+    "endDate": "09/08/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene",
+    "teamMemberName": "Nyaundi",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/04/2025",
+    "endDate": "09/08/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sandisiwe",
+    "teamMemberName": "Ncube",
+    "leaveType": "Medical Business Team Assistant",
+    "startDate": "09/01/2025",
+    "endDate": "09/01/2025",
+    "status": "1",
+    "submittedDate": "Leave form submitted"
+  },
+  {
+    "id": "Sandisiwe",
+    "teamMemberName": "Ncube",
+    "leaveType": "Medical Business Team Assistant",
+    "startDate": "09/15/2025",
+    "endDate": "09/15/2025",
+    "status": "1",
+    "submittedDate": "Leave form submitted"
+  },
+  {
+    "id": "Nigel",
+    "teamMemberName": "Deda",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/26/2025",
+    "endDate": "09/29/2025",
+    "status": "2",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Mandlaenkosi",
+    "teamMemberName": "Haltshwayo",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/11/2025",
+    "endDate": "09/12/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tamanda",
+    "teamMemberName": "Mandeya",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/12/2025",
+    "endDate": "09/15/2025",
+    "status": "2",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Rudo",
+    "teamMemberName": "Mazvimba",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/22/2025",
+    "endDate": "09/22/2025",
+    "status": "1",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Denise",
+    "teamMemberName": "Chiwandire",
+    "leaveType": "Accounting",
+    "startDate": "09/01/2025",
+    "endDate": "09/01/2025",
+    "status": "1",
+    "submittedDate": "Leave form submitted"
+  },
+  {
+    "id": "Isabel",
+    "teamMemberName": "Mapanga",
+    "leaveType": "Accounting",
+    "startDate": "09/10/2025",
+    "endDate": "09/19/2025",
+    "status": "8",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-254",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-255",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-256",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-257",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-258",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-259",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "October",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Ngaatendwe",
+    "teamMemberName": "Muchapirei",
+    "leaveType": "General Ledger Accountant",
+    "startDate": "10/27/2025",
+    "endDate": "10/29/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinotenda",
+    "teamMemberName": "Mubvumbi",
+    "leaveType": "Scheduling",
+    "startDate": "10/01/2025",
+    "endDate": "10/01/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Kimberly",
+    "teamMemberName": "Mwendamberi",
+    "leaveType": "Treatment Navigator",
+    "startDate": "10/10/2025",
+    "endDate": "10/17/2025",
+    "status": "6",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Makanaka",
+    "teamMemberName": "Mutapi",
+    "leaveType": "Recall and Treatment",
+    "startDate": "10/09/2025",
+    "endDate": "10/10/2025",
+    "status": "2",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Tsitsi",
+    "teamMemberName": "Geza",
+    "leaveType": "Dental Coordinator",
+    "startDate": "10/09/2025",
+    "endDate": "10/10/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "10/23/2025",
+    "endDate": "10/24/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Isabel",
+    "teamMemberName": "Mapanga",
+    "leaveType": "Accounts Payable Analyst",
+    "startDate": "10/30/25",
+    "endDate": "10/31/25",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-269",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-270",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-271",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-272",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-273",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "November",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Tinotenda",
+    "teamMemberName": "Mubvumbi",
+    "leaveType": "Scheduling",
+    "startDate": "11/20/2025",
+    "endDate": "11/25/2025",
+    "status": "4",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Lisa",
+    "teamMemberName": "Takaona",
+    "leaveType": "General Ledger Assistant",
+    "startDate": "11/14/2025",
+    "endDate": "11/17/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Amanda",
+    "teamMemberName": "Mkandla",
+    "leaveType": "Recare and treatment",
+    "startDate": "11/13/2025",
+    "endDate": "11/17/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Joy",
+    "teamMemberName": "Kupamupindi",
+    "leaveType": "RCM Specialist - Claims",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel",
+    "teamMemberName": "Deda",
+    "leaveType": "Dental Cordinator",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Natasha",
+    "teamMemberName": "Makweche",
+    "leaveType": "VOB Specialist",
+    "startDate": "11/27/2025",
+    "endDate": "11/28/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsitsi",
+    "teamMemberName": "Geza",
+    "leaveType": "Dental Cordinator",
+    "startDate": "11/27/2027",
+    "endDate": "11/28/25",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Lisa",
+    "teamMemberName": "Takaona",
+    "leaveType": "General Ledger Assistant",
+    "startDate": "11/26/2025",
+    "endDate": "11/26/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene",
+    "teamMemberName": "Nyaundi",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Amanda",
+    "teamMemberName": "Samakande",
+    "leaveType": "Annual Leave",
+    "startDate": "11/27/2025",
+    "endDate": "11/28/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tadiwanashe",
+    "teamMemberName": "Mhlanga",
+    "leaveType": "Annual Leave",
+    "startDate": "11/14/2025",
+    "endDate": "11/14/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Makanaka",
+    "teamMemberName": "Mutapi",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Michelle",
+    "teamMemberName": "Bure",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Nisha L",
+    "teamMemberName": "Chigutei",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Mandlaenkosi",
+    "teamMemberName": "Hlatshwayo",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "12/2/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyasha N",
+    "teamMemberName": "Makoni",
+    "leaveType": "Annual Leave",
+    "startDate": "11/27/2025",
+    "endDate": "11/28/2025",
+    "status": "2",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Isabel",
+    "teamMemberName": "Mapanga",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Machamire",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1764954237265-295",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237265-296",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-297",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-298",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-299",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-300",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-301",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-302",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-303",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-304",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-305",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-306",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-307",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-308",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-309",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "December",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Lisa",
+    "teamMemberName": "Takaona",
+    "leaveType": "General Ledger Assistant",
+    "startDate": "12/22/2025",
+    "endDate": "12/29/2025",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Kashangura",
+    "leaveType": "Treatment Navigator",
+    "startDate": "12/12/2025",
+    "endDate": "12/18/2025",
+    "status": "5",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Amanda",
+    "teamMemberName": "Mkandla",
+    "leaveType": "Recare and treatment",
+    "startDate": "12/17/2025",
+    "endDate": "12/19/2025",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Adrian",
+    "teamMemberName": "Magwenzi",
+    "leaveType": "Recare and treatment",
+    "startDate": "12/10/2025",
+    "endDate": "",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinotenda",
+    "teamMemberName": "Mubvumbi",
+    "leaveType": "Scheduling",
+    "startDate": "12/31/2025",
+    "endDate": "12/31/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Wadzanayi",
+    "teamMemberName": "Dangirwa",
+    "leaveType": "Recare and treatment",
+    "startDate": "12/29/2025",
+    "endDate": "12/30/2025",
+    "status": "2",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Anesu",
+    "teamMemberName": "Mlambo",
+    "leaveType": "Integrated Practice Advisor Virtual Support",
+    "startDate": "12/26/2025",
+    "endDate": "01/02/2026",
+    "status": "6",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Tatenda",
+    "teamMemberName": "Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "12/26/2025",
+    "endDate": "12/31/2026",
+    "status": "2",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Tinashe",
+    "teamMemberName": "Gambara",
+    "leaveType": "Dental Cordinator",
+    "startDate": "12/26",
+    "endDate": "12/26/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Joy",
+    "teamMemberName": "Kupamupindi",
+    "leaveType": "RCM Specialist - Claims",
+    "startDate": "12/19/2025",
+    "endDate": "12/19/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Joy",
+    "teamMemberName": "Kupamupindi",
+    "leaveType": "RCM Specialist - Claims",
+    "startDate": "12/26/2025",
+    "endDate": "12/26/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Paidamoyo",
+    "teamMemberName": "Kufa",
+    "leaveType": "IT Support",
+    "startDate": "12/30/2025",
+    "endDate": "01/02/2026",
+    "status": "3",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido",
+    "teamMemberName": "Mawire",
+    "leaveType": "Insurance Department",
+    "startDate": "12/01/2025",
+    "endDate": "12/10/2025",
+    "status": "8",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene",
+    "teamMemberName": "Nyaundi",
+    "leaveType": "Insurance Department",
+    "startDate": "12/26/2025",
+    "endDate": "01/02/2026",
+    "status": "5",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ashleigh",
+    "teamMemberName": "Satiya",
+    "leaveType": "VOB Specialist",
+    "startDate": "12/22/2025",
+    "endDate": "12/24/2025",
+    "status": "3",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Ashleigh",
+    "teamMemberName": "Satiya",
+    "leaveType": "VOB Specialist",
+    "startDate": "12/30/2025",
+    "endDate": "12/31/2025",
+    "status": "2",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Nigel",
+    "teamMemberName": "Deda",
+    "leaveType": "Dental Cordinator",
+    "startDate": "12/18/2025",
+    "endDate": "12/18/2025",
+    "status": "1",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Tambudzai",
+    "teamMemberName": "Dube",
+    "leaveType": "Annual Leave",
+    "startDate": "12/24/2025",
+    "endDate": "12/24/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Allan",
+    "teamMemberName": "Chimangah",
+    "leaveType": "Annual Leave",
+    "startDate": "12/26/2025",
+    "endDate": "12/26/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Amanda",
+    "teamMemberName": "Samakande",
+    "leaveType": "Annual Leave",
+    "startDate": "12/01/2025",
+    "endDate": "12/01/2025",
+    "status": "1",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Makanaka",
+    "teamMemberName": "Mutapi",
+    "leaveType": "Annual Leave",
+    "startDate": "12/23",
+    "endDate": "12/24/2025",
+    "status": "2",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Makanaka",
+    "teamMemberName": "Mutapi",
+    "leaveType": "Annual Leave",
+    "startDate": "12/31/2025",
+    "endDate": "12/31/2025",
+    "status": "1",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Ryan",
+    "teamMemberName": "Hambury",
+    "leaveType": "Annual Leave",
+    "startDate": "12/18/2025",
+    "endDate": "12/19/2025",
+    "status": "2",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Ryan",
+    "teamMemberName": "Hambury",
+    "leaveType": "Annual Leave",
+    "startDate": "12/23/2025",
+    "endDate": "12/23/2025",
+    "status": "1",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-336",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-337",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-338",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-339",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-340",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-341",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-342",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-343",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-344",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-345",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-346",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-347",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-348",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-349",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-350",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-351",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-352",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-353",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "LR1764954237266-354",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "January",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2025-12-05"
+  },
+  {
+    "id": "Name",
+    "teamMemberName": "Surname",
+    "leaveType": "Role",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "status": "number of days taken",
+    "submittedDate": "Approved/ Declined"
+  },
+  {
+    "id": "Sharon",
+    "teamMemberName": "Nyamande",
+    "leaveType": "VOB Specialist",
+    "startDate": "01/12/2025",
+    "endDate": "01/23/2025",
+    "status": "10",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "teamMember": "ll",
+    "leaveType": "Maternity Leave",
+    "startDate": "2025-12-11",
+    "endDate": "2025-12-14",
+    "reason": "ggggg",
+    "days": 4,
+    "submittedBy": "Leslie Chasinda",
+    "submissionMethod": "official-form",
+    "id": "1765208202281",
+    "submittedAt": "2025-12-08T15:36:42.281Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "ptoBalance": {
+      "annualPTO": 20,
+      "usedPTO": 0,
+      "remainingPTO": 20
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Leslie Chasinda",
+        "timestamp": "2025-12-08T15:36:42.282Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Shawn Buka",
+    "leaveType": "Study Leave",
+    "startDate": "2025-12-15",
+    "endDate": "2025-12-18",
+    "reason": "attending exams",
+    "days": 4,
+    "submittedBy": "Shawn Buka",
+    "submissionMethod": "official-form",
+    "id": "1765209332703",
+    "submittedAt": "2025-12-08T15:55:32.703Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "ptoBalance": {
+      "annualPTO": 20,
+      "usedPTO": 0,
+      "remainingPTO": 20
+    },
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Shawn Buka",
+        "timestamp": "2025-12-08T15:55:32.703Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  }
+]

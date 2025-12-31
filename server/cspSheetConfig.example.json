@@ -1,0 +1,20 @@
+[
+  {
+    "cspEmail": "leslie.chasinda@zimworx.org",
+    "cspName": "Leslie Chasinda",
+    "spreadsheetId": "YOUR_SHEET_ID_HERE",
+    "range": "Team Member Work Details!A2:I"
+  },
+  {
+    "cspEmail": "csp2@zimworx.org",
+    "cspName": "CSP Name 2",
+    "spreadsheetId": "SHEET_ID_2",
+    "range": "Team Member Work Details!A2:I"
+  },
+  {
+    "cspEmail": "csp3@zimworx.org",
+    "cspName": "CSP Name 3",
+    "spreadsheetId": "SHEET_ID_3",
+    "range": "Team Member Work Details!A2:I"
+  }
+]
