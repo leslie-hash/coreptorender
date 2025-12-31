@@ -5,6 +5,7 @@ import { Button } from './ui/button';
 import { Badge } from './ui/badge';
 import { ScrollArea } from './ui/scroll-area';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
+import { getApiUrl } from '@/utils/api';
 
 interface Notification {
   id: string;
@@ -49,7 +50,7 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
   const fetchNotifications = async () => {
     try {
       console.log('🔔 Fetching notifications...');
-      const response = await fetch('/api/notifications', {
+      const response = await fetch(getApiUrl('/api/notifications'), {
         credentials: 'include',
       });
       console.log('📡 Response status:', response.status);
@@ -71,7 +72,7 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
 
   const markAsRead = async (notificationId: string) => {
     try {
-      const response = await fetch(`/api/notifications/${notificationId}/read`, {
+      const response = await fetch(getApiUrl(`/api/notifications/${notificationId}/read`), {
         method: 'PATCH',
         credentials: 'include',
       });

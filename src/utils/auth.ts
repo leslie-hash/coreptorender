@@ -1,3 +1,5 @@
+import { getApiUrl } from './api';
+
 export const getAuthHeaders = (): HeadersInit => {
   const token = localStorage.getItem('token');
   return {
@@ -12,8 +14,11 @@ export const authenticatedFetch = async (url: string, options: RequestInit = {})
     ...options.headers,
   };
   
-  return fetch(url, {
+  const fullUrl = getApiUrl(url);
+  
+  return fetch(fullUrl, {
     ...options,
+    credentials: 'include',
     headers,
   });
 };

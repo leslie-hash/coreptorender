@@ -15,10 +15,34 @@ function safeJsonParse(filePath) {
   return JSON.parse(cleanContent);
 }
 
+/**
+ * Get Google Service Account credentials from env or file
+ */
+function getGoogleCredentials() {
+  try {
+    // Option 1: Try environment variable (for production/Render)
+    if (process.env.GOOGLE_CREDENTIALS) {
+      console.log('📋 Using GOOGLE_CREDENTIALS from environment variable');
+      return JSON.parse(process.env.GOOGLE_CREDENTIALS);
+    }
+    
+    // Option 2: Try file (for local development)
+    const credentialsPath = path.join(__dirname, 'google-credentials.json');
+    if (fs.existsSync(credentialsPath)) {
+      console.log('📁 Using google-credentials.json file');
+      return safeJsonParse(credentialsPath);
+    }
+    
+    throw new Error('Google credentials not found. Set GOOGLE_CREDENTIALS environment variable or provide google-credentials.json file');
+  } catch (error) {
+    console.error('❌ Error loading Google credentials:', error.message);
+    throw error;
+  }
+}
+
 // Google Sheets configuration
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 const TOKEN_PATH = path.join(__dirname, 'google-tokens.json');
-const CREDENTIALS_PATH = path.join(__dirname, 'google-credentials.json');
 
 /**
  * Get authenticated Google Sheets client
@@ -26,11 +50,7 @@ const CREDENTIALS_PATH = path.join(__dirname, 'google-credentials.json');
 async function getAuthClient() {
   try {
     // Load credentials
-    if (!fs.existsSync(CREDENTIALS_PATH)) {
-      throw new Error('Google credentials file not found. Please set up OAuth2 credentials.');
-    }
-
-    const credentials = safeJsonParse(CREDENTIALS_PATH);
+    const credentials = getGoogleCredentials();
     
     // Check if it's a service account (preferred for server-to-server)
     if (credentials.type === 'service_account') {

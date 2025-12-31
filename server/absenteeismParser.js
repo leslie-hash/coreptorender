@@ -1,4 +1,4 @@
-import { google } from 'googleapis';
+import { google } from 'googleapis';  
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -6,7 +6,6 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const CREDENTIALS_PATH = path.join(__dirname, 'google-credentials.json');
 const SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
 
 /**
@@ -19,10 +18,29 @@ function safeJsonParse(filePath) {
 }
 
 /**
+ * Get Google Service Account credentials from env or file
+ */
+function getGoogleCredentials() {
+  try {
+    if (process.env.GOOGLE_CREDENTIALS) {
+      return JSON.parse(process.env.GOOGLE_CREDENTIALS);
+    }
+    const credentialsPath = path.join(__dirname, 'google-credentials.json');
+    if (fs.existsSync(credentialsPath)) {
+      return safeJsonParse(credentialsPath);
+    }
+    throw new Error('Google credentials not found');
+  } catch (error) {
+    console.error('Error loading Google credentials:', error.message);
+    throw error;
+  }
+}
+
+/**
  * Get authenticated Google Sheets client
  */
 async function getAuthClient() {
-  const credentials = safeJsonParse(CREDENTIALS_PATH);
+  const credentials = getGoogleCredentials();
   
   if (credentials.type === 'service_account') {
     const auth = new google.auth.GoogleAuth({

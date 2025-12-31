@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAppContext } from '@/contexts/AppContext';
+import { getApiUrl } from '@/utils/api';
 import { Calendar, Users, Database, FileText, BarChart3, Bell, Plus, UsersRound, CalendarDays, TrendingUp, Mail, Search, Zap, ChevronDown, ChevronRight, Home, User, LogOut, Menu, X, ClipboardCheck, FileDown, RefreshCw, HelpCircle, Link2, Settings, CheckSquare, Send, ClipboardList } from 'lucide-react';
 import StatusCard from './StatusCard';
 import ApprovalHistory from './ApprovalHistory';
@@ -132,7 +133,7 @@ export default function AppLayout() {
     if (activeModule !== 'notifications') {
       const fetchUnreadCount = async () => {
         try {
-          const response = await fetch('/api/notifications', {
+          const response = await fetch(getApiUrl('/api/notifications'), {
             credentials: 'include',
           });
           if (response.ok) {
@@ -152,7 +153,7 @@ export default function AppLayout() {
   useEffect(() => {
     const fetchLeaveRequestsCount = async () => {
       try {
-        const response = await fetch('/api/leave-requests', {
+        const response = await fetch(getApiUrl('/api/leave-requests'), {
           credentials: 'include',
         });
         if (response.ok) {

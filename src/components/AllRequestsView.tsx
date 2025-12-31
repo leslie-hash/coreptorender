@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FileDown, Filter, Calendar, User, Clock, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 import { useAppContext } from '@/contexts/AppContext';
+import { getApiUrl } from '@/utils/api';
 import { apiService } from '../services/api.service';
 
 interface LeaveRequest {
@@ -52,10 +53,11 @@ export default function AllRequestsView() {
   const fetchAllRequests = async () => {
     try {
       const token = sessionStorage.getItem('authToken');
-      const response = await fetch('/api/leave-requests?page=1&limit=1000', {
+      const response = await fetch(getApiUrl('/api/leave-requests?page=1&limit=1000'), {
         headers: {
           'Authorization': `Bearer ${token}`
-        }
+        },
+        credentials: 'include'
       });
       
       if (!response.ok) throw new Error('Failed to fetch requests');
