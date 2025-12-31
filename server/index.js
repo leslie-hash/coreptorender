@@ -42,7 +42,11 @@ const TOKEN_PATH = './google-tokens.json';
 
 // Configure CORS to allow credentials
 app.use(cors({
-  origin: true, // Allow all origins in development
+  origin: [
+    'http://localhost:8080',
+    'https://corepto-zimworx.web.app',
+    'https://corepto-zimworx.firebaseapp.com'
+  ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
