@@ -9,6 +9,7 @@ import { Label } from './ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Textarea } from './ui/textarea';
 import { useAppContext } from '@/contexts/AppContext';
+import { getApiUrl } from '@/utils/api';
 
 interface FormMetadata {
   available: boolean;
@@ -63,7 +64,7 @@ export default function OfficialLeaveForm() {
 
   const fetchFormMetadata = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/leave-form/metadata');
+      const response = await fetch(getApiUrl('/api/leave-form/metadata'));
       const data = await response.json();
       setFormMetadata(data);
     } catch (error) {
@@ -79,7 +80,7 @@ export default function OfficialLeaveForm() {
     
     setLoadingBalance(true);
     try {
-      const response = await fetch(`http://localhost:4000/api/pto-balance/${encodeURIComponent(teamMemberName)}`, {
+      const response = await fetch(getApiUrl(`/api/pto-balance/${encodeURIComponent(teamMemberName)}`), {
         credentials: 'include',
       });
       
@@ -121,7 +122,7 @@ export default function OfficialLeaveForm() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/leave-form/generate', {
+      const response = await fetch(getApiUrl('/api/leave-form/generate'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -197,7 +198,7 @@ export default function OfficialLeaveForm() {
 
       // Submit leave request through the official PTO workflow
       const token = localStorage.getItem('token');
-      const response = await fetch('/api/submit-leave-request', {
+      const response = await fetch(getApiUrl('/api/submit-leave-request'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -601,7 +602,7 @@ function LeaveQueryMessaging() {
     setSent(false);
 
     try {
-      const response = await fetch('/api/leave-queries', {
+      const response = await fetch(getApiUrl('/api/leave-queries'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

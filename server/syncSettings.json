@@ -6,7 +6,7 @@
   "ptoUpdateRange": "PTO Update!A2:BJ",
   "autoSync": true,
   "syncIntervalMinutes": 15,
-  "lastSync": "2025-12-08T14:17:49.508Z",
+  "lastSync": "2026-01-05T15:04:12.630Z",
   "cspSettings": {
     "Tsungi": {
       "spreadsheetId": "1XYwfboWvDpwQc43HakjEtybt1kxKEWt59Zlv8xK-_Es",
@@ -24,6 +24,15 @@
       "ptoUpdateRange": "PTO Update!A2:BJ",
       "lastSync": "2025-12-08T18:05:38.986Z",
       "lastSyncBy": "leslie@zimworx.com"
+    },
+    "Tsungirirai Samhungu": {
+      "spreadsheetId": "1XYwfboWvDpwQc43HakjEtybt1kxKEWt59Zlv8xK-_Es",
+      "teamMembersRange": "Team member work details!A1:Z",
+      "leaveTrackerRange": "Leave Tracker!A1:Z",
+      "absenteeismRange": "Absenteesim tracker !A1:AH1000",
+      "ptoUpdateRange": "PTO Update!A2:BJ",
+      "lastSync": "2026-01-05T15:11:07.180Z",
+      "lastSyncBy": "tsungirirai.samhungu@zimworx.com"
     }
   }
 }

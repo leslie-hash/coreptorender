@@ -1358,5 +1358,81 @@
       }
     ],
     "validationPassed": true
+  },
+  {
+    "teamMember": "Getrude Nyemba",
+    "leaveType": "Annual Leave",
+    "startDate": "2026-01-12",
+    "endDate": "2026-01-14",
+    "reason": "Annual",
+    "days": 3,
+    "submittedBy": "Getrude Nyemba",
+    "submissionMethod": "official-form",
+    "id": "1767628140075",
+    "submittedAt": "2026-01-05T15:49:00.075Z",
+    "status": "csp-review",
+    "assignedTo": "Getrude Nyemba",
+    "assignedToEmail": "getrude.nyemba@zimworx.org",
+    "clientName": "Adelberg Montalvan",
+    "teamMemberRole": "Dental Coordinator",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Getrude Nyemba",
+        "timestamp": "2026-01-05T15:49:00.076Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2026-01-05T15:49:00.076Z",
+        "note": "Automatically assigned to Getrude Nyemba"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Getrude Nyemba",
+    "leaveType": "Annual Leave",
+    "startDate": "2026-01-12",
+    "endDate": "2026-01-14",
+    "reason": "Annual",
+    "days": 3,
+    "submittedBy": "Getrude Nyemba",
+    "submissionMethod": "official-form",
+    "id": "1767630870590",
+    "submittedAt": "2026-01-05T16:34:30.590Z",
+    "status": "csp-review",
+    "assignedTo": "Getrude Nyemba",
+    "assignedToEmail": "getrude.nyemba@zimworx.org",
+    "clientName": "Adelberg Montalvan",
+    "teamMemberRole": "Dental Coordinator",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 3,
+      "remainingPTO": 9
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Getrude Nyemba",
+        "timestamp": "2026-01-05T16:34:30.590Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2026-01-05T16:34:30.590Z",
+        "note": "Automatically assigned to Getrude Nyemba"
+      }
+    ],
+    "validationPassed": true
   }
 ]
