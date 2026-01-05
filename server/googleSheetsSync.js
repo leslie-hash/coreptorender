@@ -354,7 +354,7 @@ export async function syncTeamMembersFromSheets(spreadsheetId, range = 'Input Sp
  * Fetch leave requests from Google Sheets
  * Expected columns: Request ID | Team Member Name | Leave Type | Start Date | End Date | Status | Submitted Date
  */
-export async function syncLeaveRequestsFromSheets(spreadsheetId, range = 'LeaveRequests!A2:G') {
+export async function syncLeaveRequestsFromSheets(spreadsheetId, range = 'Leave Tracker!A2:G') {
   try {
     const auth = await getAuthClient();
     const sheets = google.sheets({ version: 'v4', auth });
