@@ -324,11 +324,13 @@ function calculatePTOBalance(teamMemberName) {
   
   // Get team member's annual PTO allowance (default 12 days)
   let annualPTO = 12;
+  let clientName = null;
   if (fs.existsSync(metaPath)) {
     const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
     // Match by employeeId (the actual person name) not teamMemberName (client name)
     const member = metaData.find(m => m.employeeId === teamMemberName || m.teamMemberName === teamMemberName);
     annualPTO = member?.annualPTO || 12;
+    clientName = member?.clientName || null;
   }
   
   // Calculate used PTO from approved/pending requests for current year
@@ -346,7 +348,8 @@ function calculatePTOBalance(teamMemberName) {
   return {
     annualPTO,
     usedPTO,
-    remainingPTO: annualPTO - usedPTO
+    remainingPTO: annualPTO - usedPTO,
+    clientName
   };
 }
 

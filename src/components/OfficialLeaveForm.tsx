@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, FileText, CheckCircle, AlertCircle, Info, FileDown } from 'lucide-react';
+import { Download, FileText, CheckCircle, AlertCircle, Info, FileDown, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Alert, AlertDescription } from './ui/alert';
@@ -26,7 +26,7 @@ export default function OfficialLeaveForm() {
   const [generating, setGenerating] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitResult, setSubmitResult] = useState<{ success: boolean; message?: string; requestId?: string } | null>(null);
-  const [ptoBalance, setPtoBalance] = useState<{ annualPTO: number; usedPTO: number; remainingPTO: number } | null>(null);
+  const [ptoBalance, setPtoBalance] = useState<{ annualPTO: number; usedPTO: number; remainingPTO: number; clientName?: string } | null>(null);
   const [loadingBalance, setLoadingBalance] = useState(false);
   const { user, userRole } = useAppContext();
   
@@ -273,23 +273,26 @@ export default function OfficialLeaveForm() {
         <Card className="w-full border-blue-200 bg-blue-50">
           <CardHeader className="pb-3">
             <CardTitle className="text-base text-blue-900">Your PTO Balance</CardTitle>
+            <CardDescription className="text-xs text-blue-700 mt-1">
+              Based on {ptoBalance.clientName ? 'Client days (as per client agreement)' : 'ZimWorx standard days'}
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center">
                 <p className="text-sm text-blue-600 mb-1">Annual PTO</p>
                 <p className="text-2xl font-bold text-blue-900">{ptoBalance.annualPTO}</p>
-                <p className="text-xs text-blue-600">days</p>
+                <p className="text-xs text-blue-600">{ptoBalance.clientName ? 'client days' : 'ZimWorx days'}</p>
               </div>
               <div className="text-center">
                 <p className="text-sm text-orange-600 mb-1">Used</p>
                 <p className="text-2xl font-bold text-orange-700">{ptoBalance.usedPTO}</p>
-                <p className="text-xs text-orange-600">days</p>
+                <p className="text-xs text-orange-600">{ptoBalance.clientName ? 'client days' : 'ZimWorx days'}</p>
               </div>
               <div className="text-center">
                 <p className="text-sm text-green-600 mb-1">Remaining</p>
                 <p className="text-2xl font-bold text-green-700">{ptoBalance.remainingPTO}</p>
-                <p className="text-xs text-green-600">days</p>
+                <p className="text-xs text-green-600">{ptoBalance.clientName ? 'client days' : 'ZimWorx days'}</p>
               </div>
             </div>
             
@@ -514,6 +517,10 @@ export default function OfficialLeaveForm() {
                 <div className="flex-1">
                   <p className="font-medium text-green-800">1. Request Received</p>
                   <p className="text-sm text-green-600">Leave request submitted and validated</p>
+                  <div className="mt-1 flex items-center gap-1 text-xs text-green-700">
+                    <Mail className="h-3 w-3" />
+                    <span>Confirmation email sent to team member</span>
+                  </div>
                 </div>
               </div>
               
@@ -535,6 +542,10 @@ export default function OfficialLeaveForm() {
                 <div className="flex-1">
                   <p className="font-medium text-gray-500">3. Client Approval</p>
                   <p className="text-sm text-gray-400">Pending CSP review completion</p>
+                  <div className="mt-1 flex items-center gap-1 text-xs text-gray-400">
+                    <Mail className="h-3 w-3" />
+                    <span>Email will be sent to client for approval</span>
+                  </div>
                 </div>
               </div>
               
@@ -543,8 +554,18 @@ export default function OfficialLeaveForm() {
                   4
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-500">4. Payroll Notification</p>
-                  <p className="text-sm text-gray-400">Will notify after approval</p>
+                  <p className="font-medium text-gray-500">4. Approval Notifications</p>
+                  <p className="text-sm text-gray-400">Email notifications after client approval</p>
+                  <div className="mt-1 space-y-0.5">
+                    <div className="flex items-center gap-1 text-xs text-gray-400">
+                      <Mail className="h-3 w-3" />
+                      <span>Team member (approval confirmation)</span>
+                    </div>
+                    <div className="flex items-center gap-1 text-xs text-gray-400">
+                      <Mail className="h-3 w-3" />
+                      <span>Payroll department (for processing)</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               
