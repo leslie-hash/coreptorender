@@ -11,8 +11,8 @@ import { calculateBusinessDays as calculateBusinessDaysWithHolidays } from './ho
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Path to official leave form template
-const OFFICIAL_FORM_PATH = "C:\\Users\\leslie.chasinda\\Pictures\\Screenshots\\LABOR OUTSORSING LEAVE APPLICATION FORM.docx";
+// Path to official leave form template (in server's public directory)
+const OFFICIAL_FORM_PATH = path.join(__dirname, 'public', 'LABOR_OUTSOURCING_LEAVE_APPLICATION_FORM.docx');
 
 /**
  * Check if official form exists
