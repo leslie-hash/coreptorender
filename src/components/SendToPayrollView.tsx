@@ -3,13 +3,54 @@ import { useAppContext } from '@/contexts/AppContext';
 import { Send, RefreshCw, CheckCircle, AlertCircle } from 'lucide-react';
 import { apiService } from '../services/api.service';
 
+// Helper function to calculate days between two dates
+function calculateDays(startDate: string, endDate: string): number {
+  try {
+    const parseDate = (dateStr: string): Date | null => {
+      if (!dateStr) return null;
+      
+      // Try ISO format first (2025-01-15)
+      let date = new Date(dateStr);
+      if (!isNaN(date.getTime())) return date;
+      
+      // Try "30 August 2024" format
+      const monthNames = ['january', 'february', 'march', 'april', 'may', 'june', 
+                         'july', 'august', 'september', 'october', 'november', 'december'];
+      const parts = dateStr.toLowerCase().split(' ');
+      if (parts.length >= 2) {
+        const day = parseInt(parts[0]);
+        const monthIdx = monthNames.indexOf(parts[1]);
+        const year = parts[2] ? parseInt(parts[2]) : new Date().getFullYear();
+        if (!isNaN(day) && monthIdx !== -1) {
+          return new Date(year, monthIdx, day);
+        }
+      }
+      return null;
+    };
+    
+    const start = parseDate(startDate);
+    const end = parseDate(endDate);
+    
+    if (start && end) {
+      const diffTime = Math.abs(end.getTime() - start.getTime());
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      return diffDays;
+    }
+    return 1;
+  } catch {
+    return 1;
+  }
+}
+
 interface LeaveRequest {
   id: string;
   teamMember: string;
+  teamMemberName?: string;
+  client?: string;
   leaveType: string;
   startDate: string;
   endDate: string;
-  days: number;
+  days?: number;
   status: string;
   reason?: string;
   clientApprovedBy?: string;
@@ -17,6 +58,31 @@ interface LeaveRequest {
   clientApprovalNotes?: string;
   assignedTo?: string;
   assignedToEmail?: string;
+}
+
+// Helper to get actual days
+function getDays(request: LeaveRequest): number {
+  // First try the days field
+  if (request.days && typeof request.days === 'number' && request.days > 0) {
+    return request.days;
+  }
+  // Then calculate from dates
+  if (request.startDate && request.endDate) {
+    const calculated = calculateDays(request.startDate, request.endDate);
+    if (calculated > 0) return calculated;
+  }
+  // Fallback to 1
+  return 1;
+}
+
+// Helper to get team member name (handle legacy data)
+function getTeamMemberName(request: LeaveRequest): string {
+  // For legacy data where id is first name and teamMemberName is last name
+  const isLegacyData = request.id && !request.id.startsWith('LR') && !request.id.includes('-');
+  if (isLegacyData && request.teamMemberName) {
+    return `${request.id} ${request.teamMemberName}`;
+  }
+  return request.teamMember || request.teamMemberName || 'Unknown';
 }
 
 export default function SendToPayrollView() {
@@ -58,11 +124,27 @@ export default function SendToPayrollView() {
   const handleSendToPayroll = async (id: string) => {
     setSending({ ...sending, [id]: true });
     try {
-      await apiService.post(`/api/leave-requests/${id}/send-to-payroll`, {
+      const response = await apiService.post(`/api/leave-requests/${id}/send-to-payroll`, {
         cspName: user?.name
       });
 
-      alert('Request successfully sent to payroll!');
+      if (response.data.packageUrl) {
+        const downloadConfirm = window.confirm(
+          '✅ Comprehensive payroll package created!\n\n' +
+          'Package includes:\n' +
+          '• Official Leave Application Form (DOCX)\n' +
+          '• Detailed Summary Sheet (Excel)\n' +
+          '• All Supporting Documents\n' +
+          '• README with Instructions\n\n' +
+          'Would you like to download the package now?'
+        );
+        
+        if (downloadConfirm) {
+          window.open(response.data.packageUrl, '_blank');
+        }
+      }
+
+      alert('✅ Complete payroll package sent successfully!');
       fetchRequests();
     } catch (err) {
       console.error('Failed to send to payroll:', err);
@@ -123,17 +205,30 @@ export default function SendToPayrollView() {
                     <div className="flex items-center gap-2 mb-2">
                       <CheckCircle className="w-5 h-5 text-green-600" />
                       <h5 className="font-semibold text-lg text-gray-900">
-                        {request.teamMember}
+                        {getTeamMemberName(request)}
                       </h5>
+                      {request.client && (
+                        <span className="text-sm bg-blue-100 text-blue-700 px-2 py-0.5 rounded">
+                          {request.client}
+                        </span>
+                      )}
                     </div>
                     <div className="text-sm text-gray-700 space-y-1">
                       <div className="grid grid-cols-2 gap-2">
                         <div>
-                          <span className="font-medium">Leave Type:</span>{' '}
-                          <span className="capitalize">{request.leaveType}</span>
+                          <span className="font-medium">Team Member:</span>{' '}
+                          <span>{getTeamMemberName(request)}</span>
                         </div>
                         <div>
-                          <span className="font-medium">Duration:</span> {request.days} days
+                          <span className="font-medium">Client:</span>{' '}
+                          <span>{request.client || 'N/A'}</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Leave Type:</span>{' '}
+                          <span>PTO</span>
+                        </div>
+                        <div>
+                          <span className="font-medium">Duration:</span> {getDays(request)} days
                         </div>
                       </div>
                       <div>

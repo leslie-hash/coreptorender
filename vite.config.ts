@@ -4,6 +4,9 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  optimizeDeps: {
+    include: ['lodash', 'recharts'],
+  },
   server: {
     host: "::",
     port: 8080,
@@ -31,7 +34,7 @@ export default defineConfig(({ mode }) => ({
       'X-Content-Type-Options': 'nosniff',
       'X-XSS-Protection': '1; mode=block',
       'Referrer-Policy': 'strict-origin-when-cross-origin',
-      'Content-Security-Policy': `default-src 'self' http://localhost:4000; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' http://localhost:4000 https://sheets.googleapis.com *.sentry.io; worker-src 'self' blob:;`,
+      'Content-Security-Policy': `default-src 'self' http://localhost:4000 http://172.16.7.127:4000; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self' http://localhost:4000 http://172.16.7.127:4000 https://sheets.googleapis.com *.sentry.io; worker-src 'self' blob:;`,
     },
   },
   plugins: [

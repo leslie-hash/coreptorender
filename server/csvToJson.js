@@ -9,6 +9,15 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+// Centralized file paths
+const FILE_PATHS = {
+  leaveRequests: path.join(__dirname, 'leaveRequests.json'),
+  teamMemberMeta: path.join(__dirname, 'teamMemberMeta.json'),
+  users: path.join(__dirname, 'users.json'),
+  emailSettings: path.join(__dirname, 'emailSettings.json'),
+  integrationSettings: path.join(__dirname, 'integrationSettings.json'),
+  approvalHistory: path.join(__dirname, 'approvalHistory.json')
+};
 
 const csvFile = process.argv[2];
 
@@ -73,7 +82,7 @@ fs.writeFileSync(
 );
 
 fs.writeFileSync(
-  path.join(__dirname, 'teamMemberMeta.json'),
+  FILE_PATHS.teamMemberMeta,
   JSON.stringify(teamMemberMeta, null, 2)
 );
 
@@ -93,3 +102,5 @@ console.log('\n📊 Team members by CSP:');
 Object.entries(cspGroups).forEach(([csp, count]) => {
   console.log(`   ${csp}: ${count} member(s)`);
 });
+
+

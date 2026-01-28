@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, CheckCircle, AlertCircle, RefreshCw } from 'lucide-react';
+import { Loader2, CheckCircle, AlertCircle, RefreshCw, Settings, Save } from 'lucide-react';
+import { useAppContext } from '@/contexts/AppContext';
+import { toast } from 'sonner';
 
 interface AbsenteeismRecord {
   id: string;
@@ -16,15 +18,70 @@ interface AbsenteeismRecord {
 }
 
 export default function GoogleSheetsAbsenteeismSync() {
+  const { user } = useAppContext();
   const [syncing, setSyncing] = useState(false);
   const [records, setRecords] = useState<AbsenteeismRecord[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
   const [sheetName, setSheetName] = useState('Absenteeism');
+  const [showSettings, setShowSettings] = useState(false);
+  const [savingSettings, setSavingSettings] = useState(false);
+  
+  // Settings state
+  const [spreadsheetId, setSpreadsheetId] = useState('');
+  const [absenteeismRange, setAbsenteeismRange] = useState('Absenteesim tracker !A1:AH1000');
 
   useEffect(() => {
     fetchRecords();
+    fetchSettings();
   }, []);
+
+  const fetchSettings = async () => {
+    try {
+      const response = await fetch('/api/sync/settings', {
+        credentials: 'include'
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSpreadsheetId(data.settings.spreadsheetId || '');
+        setAbsenteeismRange(data.settings.absenteeismRange || 'Absenteesim tracker !A1:AH1000');
+      }
+    } catch (err) {
+      console.error('Failed to fetch settings:', err);
+    }
+  };
+
+  const saveSettings = async () => {
+    if (!spreadsheetId) {
+      toast.error('Please enter a spreadsheet ID');
+      return;
+    }
+    
+    try {
+      setSavingSettings(true);
+      const response = await fetch('/api/sync/settings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({
+          spreadsheetId,
+          absenteeismRange
+        })
+      });
+      
+      const data = await response.json();
+      if (data.success) {
+        toast.success(data.isCspSpecific ? 'Your spreadsheet settings saved successfully!' : 'Settings saved');
+        setShowSettings(false);
+      } else {
+        toast.error(data.error || 'Failed to save settings');
+      }
+    } catch (err) {
+      toast.error('Failed to save settings');
+    } finally {
+      setSavingSettings(false);
+    }
+  };
 
   const fetchRecords = async () => {
     try {
@@ -42,6 +99,12 @@ export default function GoogleSheetsAbsenteeismSync() {
   };
 
   const handleSync = async () => {
+    if (!spreadsheetId) {
+      setError('Please configure your spreadsheet ID first');
+      setShowSettings(true);
+      return;
+    }
+    
     try {
       setSyncing(true);
       setError(null);
@@ -50,8 +113,9 @@ export default function GoogleSheetsAbsenteeismSync() {
       const response = await fetch('/api/sync/absenteeism-from-google-sheets', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
         body: JSON.stringify({
-          spreadsheetId: '1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8',
+          spreadsheetId,
           apiKey: 'AIzaSyAAeI_njG0BVNK4XkNDxxF0piq281MR4IU',
           sheetName: sheetName || 'Absenteeism',
         }),
@@ -62,6 +126,7 @@ export default function GoogleSheetsAbsenteeismSync() {
       if (response.ok && data.success) {
         setSuccess(true);
         await fetchRecords();
+        toast.success(`Synced ${data.count || 0} absenteeism records successfully`);
         setTimeout(() => setSuccess(false), 3000);
       } else {
         setError(data.error || 'Sync failed');
@@ -76,18 +141,32 @@ export default function GoogleSheetsAbsenteeismSync() {
   return (
     <div className="space-y-4 p-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">Absenteeism Sync</h1>
+        <div>
+          <h1 className="text-2xl font-bold dark:text-white">Absenteeism Sync</h1>
+          {spreadsheetId && (
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              Connected to: {spreadsheetId.substring(0, 20)}...
+            </p>
+          )}
+        </div>
         <div className="flex gap-2">
+          <button
+            onClick={() => setShowSettings(!showSettings)}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg font-semibold transition-colors"
+          >
+            <Settings className="w-4 h-4" />
+            {showSettings ? 'Hide' : 'Settings'}
+          </button>
           <input
             type="text"
             value={sheetName}
             onChange={(e) => setSheetName(e.target.value)}
             placeholder="Sheet name"
-            className="px-3 py-2 border border-gray-300 rounded-md text-sm"
+            className="px-3 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md text-sm"
           />
           <button
             onClick={handleSync}
-            disabled={syncing}
+            disabled={syncing || !spreadsheetId}
             className="flex items-center gap-2 px-4 py-2 bg-[#14B8A6] hover:bg-teal-700 disabled:bg-gray-400 text-white rounded-lg font-semibold transition-colors"
           >
             {syncing ? (
@@ -104,6 +183,78 @@ export default function GoogleSheetsAbsenteeismSync() {
           </button>
         </div>
       </div>
+
+      {/* Settings Panel */}
+      {showSettings && (
+        <Card className="p-6 bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-700">
+          <h2 className="text-lg font-semibold mb-4 dark:text-white">📝 Spreadsheet Configuration</h2>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium mb-2 dark:text-gray-300">
+                Your Google Spreadsheet ID *
+              </label>
+              <input
+                type="text"
+                value={spreadsheetId}
+                onChange={(e) => setSpreadsheetId(e.target.value)}
+                placeholder="e.g., 1XYwfboWvDpwQc43HakjEtybt1kxKEWt59Zlv8xK-_Es"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md"
+              />
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+                Find this in your Google Sheet URL: <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded">https://docs.google.com/spreadsheets/d/<strong>SPREADSHEET_ID</strong>/edit</code>
+              </p>
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-2 dark:text-gray-300">
+                Absenteeism Sheet Range
+              </label>
+              <input
+                type="text"
+                value={absenteeismRange}
+                onChange={(e) => setAbsenteeismRange(e.target.value)}
+                placeholder="Absenteesim tracker !A1:AH1000"
+                className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white rounded-md"
+              />
+            </div>
+
+            <div className="bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-700 rounded-lg p-4">
+              <h3 className="text-sm font-semibold text-yellow-800 dark:text-yellow-300 mb-2">📋 Important:</h3>
+              <ul className="text-xs text-yellow-700 dark:text-yellow-400 space-y-1 list-disc list-inside">
+                <li>Share your spreadsheet with: <code className="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">reportinghub@reportinghub-479913.iam.gserviceaccount.com</code></li>
+                <li>Grant <strong>Viewer</strong> or <strong>Editor</strong> access</li>
+                <li>Make sure your sheet has the correct tab name (e.g., "Absenteesim tracker ")</li>
+              </ul>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={saveSettings}
+                disabled={savingSettings || !spreadsheetId}
+                className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 disabled:bg-gray-400 text-white rounded-lg font-semibold transition-colors"
+              >
+                {savingSettings ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    Saving...
+                  </>
+                ) : (
+                  <>
+                    <Save className="w-4 h-4" />
+                    Save Settings
+                  </>
+                )}
+              </button>
+              <button
+                onClick={() => setShowSettings(false)}
+                className="px-4 py-2 bg-gray-300 hover:bg-gray-400 dark:bg-gray-600 dark:hover:bg-gray-700 text-gray-700 dark:text-white rounded-lg font-semibold transition-colors"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </Card>
+      )}
 
       {error && (
         <Alert className="bg-red-50 border-red-200">

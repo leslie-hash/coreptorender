@@ -1,1413 +1,3029 @@
 [
   {
-    "id": "req-001-laurette",
-    "teamMember": "Laurette Paswera",
-    "teamMemberName": "Laurette Paswera",
+    "id": "LR-TEST-TSUNG-001",
+    "teamMember": "Joseph Hove",
+    "teamMemberName": "Joseph Hove",
+    "client": "Wave Dental",
     "leaveType": "Annual Leave",
-    "startDate": "2025-11-15",
-    "endDate": "2025-11-20",
-    "days": 6,
+    "startDate": "2025-02-03",
+    "endDate": "2025-02-07",
+    "days": 5,
     "reason": "Family vacation",
-    "status": "approved",
-    "submittedDate": "2025-11-01T10:00:00Z",
-    "submittedBy": "Laurette Paswera",
-    "submittedAt": "2025-11-01T10:00:00Z",
-    "approvedAt": "2025-11-02T14:30:00Z",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 6,
-      "remainingPTO": 6
-    },
-    "validationPassed": true,
-    "history": []
-  },
-  {
-    "id": "req-006-laurette",
-    "teamMember": "Laurette Paswera",
-    "teamMemberName": "Laurette Paswera",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-23",
-    "endDate": "2025-12-27",
-    "days": 5,
-    "reason": "Holiday break",
-    "status": "sent-to-payroll",
-    "submittedDate": "2025-12-09T08:30:00Z",
-    "submittedBy": "Laurette Paswera",
-    "submittedAt": "2025-12-09T08:30:00Z",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "leslie@zimworx.com",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 6,
-      "remainingPTO": 6
-    },
-    "validationPassed": true,
-    "submissionMethod": "official-form",
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Laurette Paswera",
-        "timestamp": "2025-12-09T08:30:00Z",
-        "note": "Leave request submitted"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T08:30:00Z",
-        "note": "Automatically assigned to CSP: Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T12:00:15.840Z",
-        "note": "xxxxxx"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Client Representative",
-        "timestamp": "2025-12-09T12:01:30.535Z",
-        "note": "Yes "
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T12:02:11.267Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "cspApprovedAt": "2025-12-09T12:00:15.840Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "xxxxxx",
-    "clientApprovedAt": "2025-12-09T12:01:30.535Z",
-    "clientApprovedBy": "Client Representative",
-    "clientApprovalMethod": "system",
-    "clientNotes": "Yes ",
-    "sentToPayrollAt": "2025-12-09T12:02:11.267Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "id": "req-004-shawn",
-    "teamMember": "Shawn Buka",
-    "teamMemberName": "Shawn Buka",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-18",
-    "days": 4,
-    "reason": "Personal",
-    "status": "payroll-processing",
-    "submittedDate": "2025-12-08T09:00:00Z",
-    "submittedBy": "Shawn Buka",
-    "submittedAt": "2025-12-08T09:00:00Z",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "leslie@zimworx.com",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 12
-    },
-    "validationPassed": true,
-    "submissionMethod": "official-form",
-    "history": [
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-08T16:53:13.739Z",
-        "note": "n/a"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Client Representative",
-        "timestamp": "2025-12-08T16:59:53.149Z",
-        "note": "ffff"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-08T17:50:07.546Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "cspApprovedAt": "2025-12-08T16:53:13.739Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "n/a",
-    "clientApprovedAt": "2025-12-08T16:59:53.149Z",
-    "clientApprovedBy": "Client Representative",
-    "clientApprovalMethod": "system",
-    "clientNotes": "ffff",
-    "sentToPayrollAt": "2025-12-08T17:50:07.546Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "id": "req-005-roy",
-    "teamMember": "Roy Kagoro",
-    "teamMemberName": "Roy Kagoro",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-20",
-    "endDate": "2025-12-24",
-    "days": 5,
-    "reason": "Christmas holiday",
-    "status": "payroll-processing",
-    "submittedDate": "2025-12-08T17:15:00Z",
-    "submittedBy": "Roy Kagoro",
-    "submittedAt": "2025-12-08T17:15:00Z",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "leslie@zimworx.com",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 12
-    },
-    "validationPassed": true,
-    "submissionMethod": "official-form",
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Roy Kagoro",
-        "timestamp": "2025-12-08T17:15:00Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-08T17:15:00Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T15:47:57.696Z",
-        "note": "CSP verified and forwarded to client for approval"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:20:36.850Z",
-        "note": "Client approved the leave request via system"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:27:36.378Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "cspApprovedAt": "2025-12-09T15:47:57.696Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-09T16:20:36.850Z",
-    "clientApprovedBy": "Leslie Chasinda",
-    "clientApprovalMethod": "system",
-    "clientNotes": "",
-    "sentToPayrollAt": "2025-12-09T16:27:36.378Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "teamMember": "Shawn Buka",
-    "leaveType": "Study Leave",
-    "startDate": "2025-12-16",
-    "endDate": "2025-12-19",
-    "reason": "exam coming up",
-    "days": 4,
-    "submittedBy": "Shawn Buka",
-    "submissionMethod": "official-form",
-    "id": "1765216509320",
-    "submittedAt": "2025-12-08T17:55:09.320Z",
-    "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 12
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Shawn Buka",
-        "timestamp": "2025-12-08T17:55:09.320Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-08T17:55:09.320Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-08T17:56:10.914Z",
-        "note": "xxxxx"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Client Representative",
-        "timestamp": "2025-12-08T17:57:19.723Z",
-        "note": "xxxxx"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-08T17:58:09.929Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-08T17:56:10.914Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "xxxxx",
-    "clientApprovedAt": "2025-12-08T17:57:19.723Z",
-    "clientApprovedBy": "Client Representative",
-    "clientApprovalMethod": "system",
-    "clientNotes": "xxxxx",
-    "sentToPayrollAt": "2025-12-08T17:58:09.929Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "teamMember": "Shawn Buka",
-    "leaveType": "Study Leave",
-    "startDate": "2025-12-22",
-    "endDate": "2025-12-25",
-    "reason": "Writing my final software engineering exam",
-    "days": 4,
-    "submittedBy": "Shawn Buka",
-    "submissionMethod": "official-form",
-    "id": "1765280430572",
-    "submittedAt": "2025-12-09T11:40:30.572Z",
-    "status": "csp-review",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-19",
+    "submittedBy": "Joseph Hove",
     "assignedTo": "Tsungirirai Samhungu",
     "assignedToEmail": "tsungirirai.samhungu@zimworx.com",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 12
-    },
     "history": [
       {
         "action": "submitted",
-        "actor": "Shawn Buka",
-        "timestamp": "2025-12-09T11:40:30.572Z",
-        "note": "Submitted via LeavePoint"
+        "actor": "Joseph Hove",
+        "timestamp": "2026-01-19T17:19:34.165Z",
+        "note": "Leave request submitted"
       }
-    ],
-    "validationPassed": true
+    ]
   },
   {
-    "teamMember": "Laurette Paswera",
-    "leaveType": "Maternity Leave",
-    "startDate": "2025-12-22",
-    "endDate": "2025-12-24",
-    "reason": "Going for doctors review ",
-    "days": 3,
-    "submittedBy": "Laurette Paswera",
-    "submissionMethod": "official-form",
-    "id": "1765281493541",
-    "submittedAt": "2025-12-09T11:58:13.541Z",
-    "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 11,
-      "remainingPTO": 9
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Laurette Paswera",
-        "timestamp": "2025-12-09T11:58:13.541Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T11:58:13.541Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T15:48:03.420Z",
-        "note": "CSP verified and forwarded to client for approval"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:20:44.671Z",
-        "note": "Client approved the leave request via system"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:37:29.391Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T15:48:03.419Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-09T16:20:44.671Z",
-    "clientApprovedBy": "Leslie Chasinda",
-    "clientApprovalMethod": "system",
-    "clientNotes": "",
-    "sentToPayrollAt": "2025-12-09T16:37:29.391Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Study Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-17",
-    "reason": "Exam sitting ",
-    "days": 3,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765286089154",
-    "submittedAt": "2025-12-09T13:14:49.154Z",
-    "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 12
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T13:14:49.155Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T13:14:49.155Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T13:16:16.755Z",
-        "note": "CSP verified and forwarded to client for approval"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Client Representative",
-        "timestamp": "2025-12-09T13:25:19.692Z",
-        "note": "yes"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T13:26:04.430Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T13:16:16.755Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-09T13:25:19.692Z",
-    "clientApprovedBy": "Client Representative",
-    "clientApprovalMethod": "system",
-    "clientNotes": "yes",
-    "sentToPayrollAt": "2025-12-09T13:26:04.430Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "teamMember": "Tsitsi Geza",
+    "id": "LR-TEST-TSUNG-002",
+    "teamMember": "Sarah Moyo",
+    "teamMemberName": "Sarah Moyo",
+    "client": "Wave Dental",
     "leaveType": "Sick Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-18",
-    "reason": "Doc check up",
-    "days": 4,
-    "submittedBy": "Tsitsi Geza",
-    "submissionMethod": "official-form",
-    "id": "1765288159994",
-    "submittedAt": "2025-12-09T13:49:19.994Z",
-    "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 20
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tsitsi Geza",
-        "timestamp": "2025-12-09T13:49:19.994Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T13:49:19.994Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T15:48:06.697Z",
-        "note": "CSP verified and forwarded to client for approval"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:20:47.313Z",
-        "note": "Client approved the leave request via system"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:37:32.372Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T15:48:06.697Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-09T16:20:47.313Z",
-    "clientApprovedBy": "Leslie Chasinda",
-    "clientApprovalMethod": "system",
-    "clientNotes": "",
-    "sentToPayrollAt": "2025-12-09T16:37:32.372Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-17",
-    "reason": "Need to de-stress",
+    "startDate": "2025-01-28",
+    "endDate": "2025-01-30",
     "days": 3,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765290143436",
-    "submittedAt": "2025-12-09T14:22:23.436Z",
-    "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 20
-    },
+    "reason": "Medical appointment and recovery",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-19",
+    "submittedBy": "Sarah Moyo",
+    "assignedTo": "Tsungirirai Samhungu",
+    "assignedToEmail": "tsungirirai.samhungu@zimworx.com",
     "history": [
       {
         "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T14:22:23.441Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T14:22:23.441Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T14:23:55.892Z",
-        "note": "CSP verified and forwarded to client for approval"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Client Representative",
-        "timestamp": "2025-12-09T14:39:11.522Z",
-        "note": "Client approved the leave request via system"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T14:40:16.630Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
+        "actor": "Sarah Moyo",
+        "timestamp": "2026-01-19T17:19:34.165Z",
+        "note": "Leave request submitted"
       }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T14:23:55.892Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-09T14:39:11.521Z",
-    "clientApprovedBy": "Client Representative",
-    "clientApprovalMethod": "system",
-    "clientNotes": "",
-    "sentToPayrollAt": "2025-12-09T14:40:16.630Z",
-    "sentToPayrollBy": "Leslie Chasinda"
+    ]
   },
   {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-16",
-    "reason": "ffffff",
-    "days": 2,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765293126643",
-    "submittedAt": "2025-12-09T15:12:06.643Z",
-    "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 20
-    },
+    "id": "LR-TEST-TSUNG-003",
+    "teamMember": "Brian Chirwa",
+    "teamMemberName": "Brian Chirwa",
+    "client": "Wave Dental",
+    "leaveType": "Compassionate Leave",
+    "startDate": "2025-02-10",
+    "endDate": "2025-02-14",
+    "days": 5,
+    "reason": "Family emergency",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-19",
+    "submittedBy": "Brian Chirwa",
+    "assignedTo": "Tsungirirai Samhungu",
+    "assignedToEmail": "tsungirirai.samhungu@zimworx.com",
     "history": [
       {
         "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T15:12:06.643Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T15:12:06.643Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T15:13:36.907Z",
-        "note": "CSP verified and forwarded to client for approval"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Client Representative",
-        "timestamp": "2025-12-09T15:17:21.890Z",
-        "note": "yes"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T15:17:55.353Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
+        "actor": "Brian Chirwa",
+        "timestamp": "2026-01-19T17:19:34.165Z",
+        "note": "Leave request submitted"
       }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T15:13:36.907Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-09T15:17:21.890Z",
-    "clientApprovedBy": "Client Representative",
-    "clientApprovalMethod": "system",
-    "clientNotes": "yes",
-    "sentToPayrollAt": "2025-12-09T15:17:55.353Z",
-    "sentToPayrollBy": "Leslie Chasinda"
+    ]
   },
   {
-    "teamMember": "Tatenda Gusha",
+    "id": "Lauryn",
+    "teamMemberName": "Lauryn Taylor",
     "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-18",
-    "reason": "yes yes ",
-    "days": 4,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765294466306",
-    "submittedAt": "2025-12-09T15:34:26.306Z",
+    "startDate": "3 October 2024",
+    "endDate": "7 October 2024",
     "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 20
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T15:34:26.306Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T15:34:26.306Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T15:35:16.480Z",
-        "note": "CSP verified and forwarded to client for approval"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:20:50.241Z",
-        "note": "Client approved the leave request via system"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:37:35.332Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T15:35:16.480Z",
-    "cspApprovedBy": "Leslie Chasinda",
+    "submittedDate": "Approved and taken",
+    "cspApprovedAt": "2026-01-08T14:58:23.927Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
     "cspNotes": "",
-    "clientApprovedAt": "2025-12-09T16:20:50.241Z",
-    "clientApprovedBy": "Leslie Chasinda",
-    "clientApprovalMethod": "system",
-    "clientNotes": "",
-    "sentToPayrollAt": "2025-12-09T16:37:35.332Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-16",
-    "endDate": "2025-12-19",
-    "reason": "ffrfrrgrgrg",
-    "days": 4,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765296364497",
-    "submittedAt": "2025-12-09T16:06:04.497Z",
-    "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 4,
-      "remainingPTO": 16
-    },
     "history": [
       {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T16:06:04.497Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T16:06:04.497Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
         "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:08:20.804Z",
-        "note": "CSP verified and forwarded to client for approval"
-      },
-      {
-        "action": "client-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:20:52.541Z",
-        "note": "Client approved the leave request via system"
-      },
-      {
-        "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:37:37.717Z",
-        "note": "Sent to payroll for processing",
-        "documentGenerated": false
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T16:08:20.804Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-09T16:20:52.541Z",
-    "clientApprovedBy": "Leslie Chasinda",
-    "clientApprovalMethod": "system",
-    "clientNotes": "",
-    "sentToPayrollAt": "2025-12-09T16:37:37.717Z",
-    "sentToPayrollBy": "Leslie Chasinda"
-  },
-  {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-16",
-    "endDate": "2025-12-19",
-    "reason": "yes",
-    "days": 4,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765296399844",
-    "submittedAt": "2025-12-09T16:06:39.844Z",
-    "status": "payroll-processing",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 8,
-      "remainingPTO": 12
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T16:06:39.844Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T16:06:39.844Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:27:30.736Z",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-08T14:58:23.927Z",
         "note": "CSP verified and forwarded to client for approval"
       },
       {
         "action": "client-approved-offline",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-11T11:07:08.267Z",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-08T15:23:26.001Z",
         "note": "Client approved via call. yes"
       },
       {
         "action": "sent-to-payroll",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-11T11:07:31.168Z",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T13:28:31.725Z",
         "note": "Sent to payroll for processing",
         "documentGenerated": false
       }
     ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T16:27:30.736Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-11T11:07:08.267Z",
-    "clientApprovedBy": "dental.org",
+    "clientApprovedAt": "2026-01-08T15:23:26.001Z",
+    "clientApprovedBy": "les",
     "clientApprovalMethod": "call",
     "clientNotes": "yes",
-    "sentToPayrollAt": "2025-12-11T11:07:31.168Z",
-    "sentToPayrollBy": "Leslie Chasinda"
+    "sentToPayrollAt": "2026-01-13T13:28:31.725Z",
+    "sentToPayrollBy": "Tsungirirai Samhungu"
   },
   {
-    "teamMember": "Tatenda Gusha",
+    "id": "Nyasha",
+    "teamMemberName": "Nyasha Majoko",
     "leaveType": "Annual Leave",
-    "startDate": "2025-12-16",
-    "endDate": "2025-12-19",
-    "reason": "rrrrr",
-    "days": 4,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765298173798",
-    "submittedAt": "2025-12-09T16:36:13.798Z",
-    "status": "pending-client-approval",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 20,
-      "usedPTO": 12,
-      "remainingPTO": 8
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T16:36:13.798Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T16:36:13.798Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T16:36:46.670Z",
-        "note": "CSP verified and forwarded to client for approval"
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T16:36:46.670Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": ""
-  },
-  {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-16",
-    "reason": "rrr",
-    "days": 2,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765299632257",
-    "submittedAt": "2025-12-09T17:00:32.258Z",
-    "status": "pending-client-approval",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 8,
-      "remainingPTO": 4
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T17:00:32.258Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T17:00:32.258Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T17:12:14.228Z",
-        "note": "CSP verified and forwarded to client for approval"
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T17:12:14.228Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": ""
-  },
-  {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-16",
-    "reason": "yes ",
-    "days": 2,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765300236674",
-    "submittedAt": "2025-12-09T17:10:36.674Z",
-    "status": "pending-client-approval",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 10,
-      "remainingPTO": 2
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-09T17:10:36.674Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T17:10:36.674Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T17:17:33.772Z",
-        "note": "CSP verified and forwarded to client for approval"
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T17:17:33.772Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": ""
-  },
-  {
-    "teamMember": "Tsitsi Geza",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-16",
-    "reason": "rrrrr",
-    "days": 2,
-    "submittedBy": "Tsitsi Geza",
-    "submissionMethod": "official-form",
-    "id": "1765301422327",
-    "submittedAt": "2025-12-09T17:30:22.327Z",
-    "status": "pending-client-approval",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 12
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tsitsi Geza",
-        "timestamp": "2025-12-09T17:30:22.327Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T17:30:22.327Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T17:32:30.687Z",
-        "note": "CSP verified and forwarded to client for approval"
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T17:32:30.687Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": ""
-  },
-  {
-    "teamMember": "Tsitsi Geza",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-17",
-    "reason": "yes",
-    "days": 3,
-    "submittedBy": "Tsitsi Geza",
-    "submissionMethod": "official-form",
-    "id": "1765303406981",
-    "submittedAt": "2025-12-09T18:03:26.981Z",
-    "status": "pending-client-approval",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 2,
-      "remainingPTO": 10
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tsitsi Geza",
-        "timestamp": "2025-12-09T18:03:26.981Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T18:03:26.981Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T18:04:10.488Z",
-        "note": "CSP verified and forwarded to client for approval"
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T18:04:10.488Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": ""
-  },
-  {
-    "teamMember": "Tsitsi Geza",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-16",
-    "reason": "Yes",
-    "days": 2,
-    "submittedBy": "Tsitsi Geza",
-    "submissionMethod": "official-form",
-    "id": "1765305077585",
-    "submittedAt": "2025-12-09T18:31:17.585Z",
-    "status": "pending-client-approval",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 5,
-      "remainingPTO": 7
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Tsitsi Geza",
-        "timestamp": "2025-12-09T18:31:17.585Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-09T18:31:17.585Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-09T18:34:05.207Z",
-        "note": "CSP verified and forwarded to client for approval"
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-09T18:34:05.207Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": ""
-  },
-  {
-    "teamMember": "Shawn Buka",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-19",
-    "reason": "",
-    "days": 5,
-    "submittedBy": "Shawn Buka",
-    "submissionMethod": "official-form",
-    "id": "1765450618751",
-    "submittedAt": "2025-12-11T10:56:58.751Z",
-    "status": "pending-client-approval",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "Leslie Chasinda",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 4,
-      "remainingPTO": 8
-    },
-    "history": [
-      {
-        "action": "submitted",
-        "actor": "Shawn Buka",
-        "timestamp": "2025-12-11T10:56:58.751Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-11T10:56:58.751Z",
-        "note": "Automatically assigned to Leslie Chasinda"
-      },
-      {
-        "action": "csp-approved",
-        "actor": "Leslie Chasinda",
-        "timestamp": "2025-12-11T11:04:18.239Z",
-        "note": "CSP verified and forwarded to client for approval"
-      }
-    ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-11T11:04:18.239Z",
-    "cspApprovedBy": "Leslie Chasinda",
-    "cspNotes": ""
-  },
-  {
-    "teamMember": "Getrude Nyemba",
-    "leaveType": "Annual Leave",
-    "startDate": "2025-12-29",
-    "endDate": "2025-12-30",
-    "reason": "xxxx",
-    "days": 2,
-    "submittedBy": "Getrude Nyemba",
-    "submissionMethod": "official-form",
-    "id": "1765468244644",
-    "submittedAt": "2025-12-11T15:50:44.644Z",
+    "startDate": "13 June",
+    "endDate": "14 June",
     "status": "payroll-processing",
-    "assignedTo": "Tsungirirai Samhungu",
-    "assignedToEmail": "tsungirirai.samhungu@zimworx.com",
-    "clientName": "Adelberg Montalvan",
-    "teamMemberRole": "Dental Coordinator",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 0,
-      "remainingPTO": 12
-    },
+    "submittedDate": "Approved and taken",
+    "cspApprovedAt": "2026-01-08T14:58:47.187Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
+    "cspNotes": "",
     "history": [
-      {
-        "action": "submitted",
-        "actor": "Getrude Nyemba",
-        "timestamp": "2025-12-11T15:50:44.644Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-11T15:50:44.644Z",
-        "note": "Automatically assigned to Getrude Nyemba"
-      },
       {
         "action": "csp-approved",
         "actor": "Tsungirirai Samhungu",
-        "timestamp": "2025-12-30T10:11:46.532Z",
+        "timestamp": "2026-01-08T14:58:47.187Z",
         "note": "CSP verified and forwarded to client for approval"
       },
       {
         "action": "client-approved-offline",
         "actor": "Tsungirirai Samhungu",
-        "timestamp": "2025-12-30T10:16:05.556Z",
-        "note": "Client approved via call. 333333"
+        "timestamp": "2026-01-13T13:30:40.339Z",
+        "note": "Client approved via offline. Client approved via email"
       },
       {
         "action": "sent-to-payroll",
         "actor": "Tsungirirai Samhungu",
-        "timestamp": "2025-12-30T10:16:16.526Z",
+        "timestamp": "2026-01-13T13:30:57.557Z",
         "note": "Sent to payroll for processing",
         "documentGenerated": false
       }
     ],
-    "validationPassed": true,
-    "cspApprovedAt": "2025-12-30T10:11:46.532Z",
-    "cspApprovedBy": "Tsungirirai Samhungu",
-    "cspNotes": "",
-    "clientApprovedAt": "2025-12-30T10:16:05.555Z",
-    "clientApprovedBy": "rrrrrr",
-    "clientApprovalMethod": "call",
-    "clientNotes": "333333",
-    "sentToPayrollAt": "2025-12-30T10:16:16.525Z",
+    "clientApprovedAt": "2026-01-13T13:30:40.339Z",
+    "clientApprovedBy": "leslie",
+    "clientApprovalMethod": "offline",
+    "clientNotes": "Client approved via email",
+    "sentToPayrollAt": "2026-01-13T13:30:57.556Z",
     "sentToPayrollBy": "Tsungirirai Samhungu"
   },
   {
-    "teamMember": "Getrude Nyemba",
+    "id": "Tinashe",
+    "teamMemberName": "Tinashe Gambara",
     "leaveType": "Annual Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-16",
-    "reason": "xxx",
-    "days": 2,
-    "submittedBy": "Getrude Nyemba",
-    "submissionMethod": "official-form",
-    "id": "1765479381768",
-    "submittedAt": "2025-12-11T18:56:21.768Z",
-    "status": "csp-review",
-    "assignedTo": "Getrude Nyemba",
-    "assignedToEmail": "getrude.nyemba@zimworx.org",
-    "clientName": "Adelberg Montalvan",
-    "teamMemberRole": "Dental Coordinator",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 2,
-      "remainingPTO": 10
-    },
+    "startDate": "27 June 2024",
+    "endDate": "1 July",
+    "status": "payroll-processing",
+    "submittedDate": "Approved and taken",
+    "cspApprovedAt": "2026-01-08T14:59:49.480Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
+    "cspNotes": "",
     "history": [
       {
-        "action": "submitted",
-        "actor": "Getrude Nyemba",
-        "timestamp": "2025-12-11T18:56:21.768Z",
-        "note": "Submitted via LeavePoint"
+        "action": "csp-approved",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-08T14:59:49.480Z",
+        "note": "CSP verified and forwarded to client for approval"
       },
       {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-11T18:56:21.768Z",
-        "note": "Automatically assigned to Getrude Nyemba"
+        "action": "client-approved-offline",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T16:06:37.178Z",
+        "note": "Client approved via offline. yes"
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T17:23:40.295Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
       }
     ],
-    "validationPassed": true
+    "clientApprovedAt": "2026-01-13T16:06:37.178Z",
+    "clientApprovedBy": "yyyy",
+    "clientApprovalMethod": "offline",
+    "clientNotes": "yes",
+    "sentToPayrollAt": "2026-01-13T17:23:40.295Z",
+    "sentToPayrollBy": "Tsungirirai Samhungu"
   },
   {
-    "teamMember": "Getrude Nyemba",
+    "id": "Tatenda",
+    "teamMemberName": "Tatenda Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "7 July 2025",
+    "endDate": "7 July 2025",
+    "status": "payroll-processing",
+    "submittedDate": "Approved and taken",
+    "cspApprovedAt": "2026-01-08T15:16:08.574Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
+    "cspNotes": "",
+    "history": [
+      {
+        "action": "csp-approved",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-08T15:16:08.574Z",
+        "note": "CSP verified and forwarded to client for approval"
+      },
+      {
+        "action": "client-approved-offline",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T17:23:20.391Z",
+        "note": "Client approved via call.  "
+      },
+      {
+        "action": "sent-to-payroll",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T17:23:42.843Z",
+        "note": "Sent to payroll for processing",
+        "documentGenerated": false
+      }
+    ],
+    "clientApprovedAt": "2026-01-13T17:23:20.391Z",
+    "clientApprovedBy": "Client",
+    "clientApprovalMethod": "call",
+    "clientNotes": " ",
+    "sentToPayrollAt": "2026-01-13T17:23:42.843Z",
+    "sentToPayrollBy": "Tsungirirai Samhungu"
+  },
+  {
+    "id": "Tatenda-2",
+    "teamMemberName": "Tatenda Nhova",
     "leaveType": "Annual Leave",
-    "startDate": "2025-12-30",
-    "endDate": "2025-12-31",
-    "reason": "yes",
-    "days": 2,
-    "submittedBy": "Getrude Nyemba",
-    "submissionMethod": "official-form",
-    "id": "1765539640599",
-    "submittedAt": "2025-12-12T11:40:40.599Z",
-    "status": "csp-review",
-    "assignedTo": "Getrude Nyemba",
-    "assignedToEmail": "getrude.nyemba@zimworx.org",
-    "clientName": "Adelberg Montalvan",
-    "teamMemberRole": "Dental Coordinator",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 4,
-      "remainingPTO": 8
-    },
+    "startDate": "5 July 2024",
+    "endDate": "12 July 2024",
+    "status": "client-approved",
+    "submittedDate": "Approved and taken",
+    "cspApprovedAt": "2026-01-13T13:27:06.819Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
+    "cspNotes": "",
     "history": [
       {
-        "action": "submitted",
-        "actor": "Getrude Nyemba",
-        "timestamp": "2025-12-12T11:40:40.599Z",
-        "note": "Submitted via LeavePoint"
+        "action": "csp-approved",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T13:27:06.819Z",
+        "note": "CSP verified and forwarded to client for approval"
       },
       {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-12T11:40:40.599Z",
-        "note": "Automatically assigned to Getrude Nyemba"
+        "action": "client-approved-offline",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T17:31:09.547Z",
+        "note": "Client approved via offline. YES"
       }
     ],
-    "validationPassed": true
+    "clientApprovedAt": "2026-01-13T17:31:09.547Z",
+    "clientApprovedBy": "Leslie",
+    "clientApprovalMethod": "offline",
+    "clientNotes": "YES"
   },
   {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Sick Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-16",
-    "reason": "sick",
-    "days": 2,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765554905844",
-    "submittedAt": "2025-12-12T15:55:05.844Z",
-    "status": "csp-review",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "leslie.chasinda@zimworx.org",
-    "clientName": "Wave Dental",
-    "teamMemberRole": "Accounts Payable Officer",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 8,
-      "remainingPTO": 4
-    },
+    "id": "Rudo",
+    "teamMemberName": "Rudo Mazvimba",
+    "leaveType": "Annual Leave",
+    "startDate": "22 July 2024",
+    "endDate": "23 July 2024",
+    "status": "pending-client-approval",
+    "submittedDate": "Approved and taken",
+    "cspApprovedAt": "2026-01-13T13:27:11.658Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
+    "cspNotes": "",
     "history": [
       {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-12T15:55:05.844Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-12T15:55:05.844Z",
-        "note": "Automatically assigned to Leslie Chasinda"
+        "action": "csp-approved",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T13:27:11.658Z",
+        "note": "CSP verified and forwarded to client for approval"
       }
-    ],
-    "validationPassed": true
+    ]
   },
   {
-    "teamMember": "Tatenda Gusha",
-    "leaveType": "Sick Leave",
-    "startDate": "2025-12-15",
-    "endDate": "2025-12-16",
-    "reason": "",
-    "days": 2,
-    "submittedBy": "Tatenda Gusha",
-    "submissionMethod": "official-form",
-    "id": "1765555256511",
-    "submittedAt": "2025-12-12T16:00:56.511Z",
-    "status": "csp-review",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "leslie.chasinda@zimworx.org",
-    "clientName": "Wave Dental",
-    "teamMemberRole": "Accounts Payable Officer",
-    "ptoBalance": {
-      "annualPTO": 12,
-      "usedPTO": 10,
-      "remainingPTO": 2
-    },
+    "id": "Rudolph",
+    "teamMemberName": "Rudolph Matanga",
+    "leaveType": "RCM team member",
+    "startDate": "13 June 2025",
+    "endDate": "13 June 2025",
+    "status": "pending",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nelson",
+    "teamMemberName": "Nelson Chikuku",
+    "leaveType": "Scheduling",
+    "startDate": "14 July 2025",
+    "endDate": "18 July",
+    "status": "pending-client-approval",
+    "submittedDate": "Approved and taken",
+    "cspApprovedAt": "2026-01-13T16:06:25.511Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
+    "cspNotes": "",
     "history": [
       {
-        "action": "submitted",
-        "actor": "Tatenda Gusha",
-        "timestamp": "2025-12-12T16:00:56.511Z",
-        "note": "Submitted via LeavePoint"
-      },
-      {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2025-12-12T16:00:56.511Z",
-        "note": "Automatically assigned to Leslie Chasinda"
+        "action": "csp-approved",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T16:06:25.511Z",
+        "note": "CSP verified and forwarded to client for approval"
       }
-    ],
-    "validationPassed": true
+    ]
   },
   {
-    "teamMember": "Tsitsi Geza",
-    "leaveType": "Sick Leave",
-    "startDate": "2025-12-22",
-    "endDate": "2025-12-23",
-    "reason": "eeee",
-    "days": 2,
-    "submittedBy": "Tsitsi Geza",
+    "id": "LR1767723055385-9",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-10",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-11",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-12",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "August",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Tafadzwa",
+    "teamMemberName": "Tafadzwa Mapfumo",
+    "leaveType": "Annual Leave",
+    "startDate": "14 August 2024",
+    "endDate": "16 August 2024",
+    "status": "pending-client-approval",
+    "submittedDate": "Approved and taken",
+    "cspApprovedAt": "2026-01-13T17:22:16.414Z",
+    "cspApprovedBy": "Tsungirirai Samhungu",
+    "cspNotes": "",
+    "history": [
+      {
+        "action": "csp-approved",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-13T17:22:16.414Z",
+        "note": "CSP verified and forwarded to client for approval"
+      }
+    ]
+  },
+  {
+    "id": "Fadzaishe",
+    "teamMemberName": "Fadzaishe Gura",
+    "leaveType": "Annual Leave",
+    "startDate": "30 August 2024",
+    "endDate": "30 August 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsitsi",
+    "teamMemberName": "Tsitsi Geza",
+    "leaveType": "Annual Leave",
+    "startDate": "30 August 2024",
+    "endDate": "30 August 2024",
+    "status": "csp-rejected",
+    "submittedDate": "Approved and taken",
+    "cspRejectedAt": "2026-01-20T10:34:14.603Z",
+    "cspRejectedBy": "Tsungirirai Samhungu",
+    "cspNotes": "not required",
+    "history": [
+      {
+        "action": "csp-rejected",
+        "actor": "Tsungirirai Samhungu",
+        "timestamp": "2026-01-20T10:34:14.603Z",
+        "note": "not required"
+      }
+    ]
+  },
+  {
+    "id": "Denise",
+    "teamMemberName": "Denise Chiwandire",
+    "leaveType": "Annual Leave",
+    "startDate": "8 August",
+    "endDate": "12 August",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055386-19",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-20",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-21",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-22",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "September",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Chido",
+    "teamMemberName": "Chido Mawire",
+    "leaveType": "Annual Leave",
+    "startDate": "12 September",
+    "endDate": "13 September",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tendai",
+    "teamMemberName": "Tendai Zaranyika",
+    "leaveType": "Annual Leave",
+    "startDate": "19 September 2024",
+    "endDate": "21 September",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sandisiwe",
+    "teamMemberName": "Sandisiwe Ncube",
+    "leaveType": "Annual Leave",
+    "startDate": "23 September 2024",
+    "endDate": "23 September 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055386-28",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-29",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-30",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-31",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "October",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Tadiwanashe",
+    "teamMemberName": "Tadiwanashe Chibwe",
+    "leaveType": "Annual Leave",
+    "startDate": "4 October",
+    "endDate": "4 October",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sean",
+    "teamMemberName": "Sean Chakuchichi",
+    "leaveType": "Annual Leave",
+    "startDate": "4 October 2024",
+    "endDate": "7 October 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel",
+    "teamMemberName": "Nigel Deda",
+    "leaveType": "Annual Leave",
+    "startDate": "11 October",
+    "endDate": "11 October",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Munyaradzi",
+    "teamMemberName": "Munyaradzi Musarurwa",
+    "leaveType": "Annual Leave",
+    "startDate": "07 0ctober 2024",
+    "endDate": "11 October 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Lauryn-2",
+    "teamMemberName": "Lauryn Taylor",
+    "leaveType": "Annual Leave",
+    "startDate": "3 October 2024",
+    "endDate": "7 October 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055386-39",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-40",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-41",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-42",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055386-43",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Rutendo",
+    "teamMemberName": "Rutendo Murape",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "30 October",
+    "endDate": "1 November",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Munyaradzi-2",
+    "teamMemberName": "Munyaradzi Musarurwa",
+    "leaveType": "Annual Leave",
+    "startDate": "4 November 2024",
+    "endDate": "8 November 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Farai",
+    "teamMemberName": "Farai Chikamhi",
+    "leaveType": "Annual Leave",
+    "startDate": "08 November",
+    "endDate": "11 November",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda-3",
+    "teamMemberName": "Tatenda Nhova",
+    "leaveType": "Annual Leave",
+    "startDate": "14 November 2024",
+    "endDate": "18 November 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tafadzwa-2",
+    "teamMemberName": "Tafadzwa Mapfumo",
+    "leaveType": "Annual Leave",
+    "startDate": "22 November 2024",
+    "endDate": "25 November 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene",
+    "teamMemberName": "Irene Nyaundi",
+    "leaveType": "Annual Leave",
+    "startDate": "29 November",
+    "endDate": "29 November",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa",
+    "teamMemberName": "Mutsa Machamire",
+    "leaveType": "Revenue reconciliation officer",
+    "startDate": "29 November",
+    "endDate": "29 November",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai",
+    "teamMemberName": "Rumbidzai Choto",
+    "leaveType": "Annual Leave",
+    "startDate": "29 November",
+    "endDate": "29 November",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyaradzo",
+    "teamMemberName": "Nyaradzo Musindo",
+    "leaveType": "Annual Leave",
+    "startDate": "29 November",
+    "endDate": "29 November",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055387-55",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-56",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-57",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-58",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Lisa",
+    "teamMemberName": "Lisa Takaona",
+    "leaveType": "Annual Leave",
+    "startDate": "2 December",
+    "endDate": "2 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tadiwanashe-2",
+    "teamMemberName": "Tadiwanashe Chibwe",
+    "leaveType": "Annual Leave",
+    "startDate": "2 December",
+    "endDate": "2 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsakani",
+    "teamMemberName": "Tsakani Muzamani",
+    "leaveType": "Annual Leave",
+    "startDate": "05 December",
+    "endDate": "06 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai-2",
+    "teamMemberName": "Rumbidzai Choto",
+    "leaveType": "Annual Leave",
+    "startDate": "6 December",
+    "endDate": "6 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tamanda",
+    "teamMemberName": "Tamanda Mandeya",
+    "leaveType": "Annual Leave",
+    "startDate": "5 December",
+    "endDate": "9 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsakani-2",
+    "teamMemberName": "Tsakani Muzamani",
+    "leaveType": "Annual Leave",
+    "startDate": "09 December",
+    "endDate": "09 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Lisa-2",
+    "teamMemberName": "Lisa Takaona",
+    "leaveType": "Annual Leave",
+    "startDate": "9 December",
+    "endDate": "10 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tadiwanashe-3",
+    "teamMemberName": "Tadiwanashe Chibwe",
+    "leaveType": "Annual Leave",
+    "startDate": "10 December",
+    "endDate": "10 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Marcia",
+    "teamMemberName": "Marcia Mukono",
+    "leaveType": "Annual Leave",
+    "startDate": "6 December",
+    "endDate": "11 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe-2",
+    "teamMemberName": "Fadzaishe Gura",
+    "leaveType": "Annual Leave",
+    "startDate": "13 December 2024",
+    "endDate": "13 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Jennyfer",
+    "teamMemberName": "Jennyfer Lopez",
+    "leaveType": "Annual Leave",
+    "startDate": "09 December 2024",
+    "endDate": "13 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda-4",
+    "teamMemberName": "Tatenda Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "13 December",
+    "endDate": "13 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda-5",
+    "teamMemberName": "Tatenda Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "16 December",
+    "endDate": "16 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Gamuchirai",
+    "teamMemberName": "Gamuchirai Chigoro",
+    "leaveType": "Annual Leave",
+    "startDate": "13 Dec 2024",
+    "endDate": "17 Dec 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Taral",
+    "teamMemberName": "Taral Masvanhise",
+    "leaveType": "Annual Leave",
+    "startDate": "13 Dec 2024",
+    "endDate": "17 Dec 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinotenda",
+    "teamMemberName": "Tinotenda Mubvumbi",
+    "leaveType": "Annual Leave",
+    "startDate": "16 December",
+    "endDate": "17 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Farai-2",
+    "teamMemberName": "Farai Chikamhi",
+    "leaveType": "Annual Leave",
+    "startDate": "16 December",
+    "endDate": "18 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatendaishe",
+    "teamMemberName": "Tatendaishe Chikuku",
+    "leaveType": "Annual Leave",
+    "startDate": "18 December",
+    "endDate": "20 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe-3",
+    "teamMemberName": "Fadzaishe Gura",
+    "leaveType": "Annual Leave",
+    "startDate": "24 December 2024",
+    "endDate": "24 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ryan",
+    "teamMemberName": "Ryan Hambury",
+    "leaveType": "Annual Leave",
+    "startDate": "18 December",
+    "endDate": "24 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tendai-2",
+    "teamMemberName": "Tendai Zaranyika",
+    "leaveType": "Annual Leave",
+    "startDate": "23 December 2024",
+    "endDate": "24 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sandisiwe-2",
+    "teamMemberName": "Sandisiwe Ncube",
+    "leaveType": "Annual Leave",
+    "startDate": "24 December",
+    "endDate": "24 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Taral-2",
+    "teamMemberName": "Taral Masvanhise",
+    "leaveType": "Annual Leave",
+    "startDate": "26 Dec 2024",
+    "endDate": "27 Dec 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Gamuchirai-2",
+    "teamMemberName": "Gamuchirai Chigoro",
+    "leaveType": "Annual Leave",
+    "startDate": "27 Dec 2024",
+    "endDate": "27 Dec 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa-2",
+    "teamMemberName": "Mutsa Machamire",
+    "leaveType": "Revenue reconciliation officer",
+    "startDate": "27 December",
+    "endDate": "27 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rudo-2",
+    "teamMemberName": "Rudo Mazvimba",
+    "leaveType": "Annual Leave",
+    "startDate": "30 December 2024",
+    "endDate": "31 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe-4",
+    "teamMemberName": "Fadzaishe Gura",
+    "leaveType": "Annual Leave",
+    "startDate": "30 December 2024",
+    "endDate": "31 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ruth",
+    "teamMemberName": "Ruth Mushaninga",
+    "leaveType": "Graphic Designer",
+    "startDate": "24 December",
+    "endDate": "31 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe-2",
+    "teamMemberName": "Tinashe Gambara",
+    "leaveType": "Annual Leave",
+    "startDate": "26 December",
+    "endDate": "31 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055387-90",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Irene-2",
+    "teamMemberName": "Irene Nyaundi",
+    "leaveType": "Annual Leave",
+    "startDate": "27 December",
+    "endDate": "31 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rudolph-2",
+    "teamMemberName": "Rudolph Matanga",
+    "leaveType": "Annual Leave",
+    "startDate": "30 December",
+    "endDate": "31 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sandisiwe-3",
+    "teamMemberName": "Sandisiwe Ncube",
+    "leaveType": "Annual Leave",
+    "startDate": "31 December",
+    "endDate": "31 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Zandiswa S",
+    "teamMemberName": "Zandiswa S Tshuma",
+    "leaveType": "Revenue reconciliation officer",
+    "startDate": "31 December 2024",
+    "endDate": "31 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai-3",
+    "teamMemberName": "Rumbidzai Choto",
+    "leaveType": "Annual Leave",
+    "startDate": "18 December",
+    "endDate": "20 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai-4",
+    "teamMemberName": "Rumbidzai Choto",
+    "leaveType": "Annual Leave",
+    "startDate": "27 December",
+    "endDate": "27 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tafara",
+    "teamMemberName": "Tafara Pesanai",
+    "leaveType": "Annual Leave",
+    "startDate": "16 December",
+    "endDate": "20 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Zandile",
+    "teamMemberName": "Zandile Mkhwananzi",
+    "leaveType": "Annual Leave",
+    "startDate": "24 Decemeber 2024",
+    "endDate": "27 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyaradzo-2",
+    "teamMemberName": "Nyaradzo Musindo",
+    "leaveType": "Annual Leave",
+    "startDate": "23 December",
+    "endDate": "24 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyaradzo-3",
+    "teamMemberName": "Nyaradzo Musindo",
+    "leaveType": "Annual Leave",
+    "startDate": "27 December",
+    "endDate": "31 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise-2",
+    "teamMemberName": "Denise Chiwandire",
+    "leaveType": "Annual Leave",
+    "startDate": "13 December",
+    "endDate": "13 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise-3",
+    "teamMemberName": "Denise Chiwandire",
+    "leaveType": "Annual Leave",
+    "startDate": "8 August",
+    "endDate": "12 August",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Kudakwashe",
+    "teamMemberName": "Kudakwashe Kunira",
+    "leaveType": "Annual Leave",
+    "startDate": "23 December",
+    "endDate": "27 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Noreen",
+    "teamMemberName": "Noreen Thondhlana",
+    "leaveType": "Annual Leave",
+    "startDate": "20 Dcember 2024",
+    "endDate": "26 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Miriro",
+    "teamMemberName": "Miriro Dzuda",
+    "leaveType": "Annual Leave",
+    "startDate": "23 December 2024",
+    "endDate": "27 December",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Hillary",
+    "teamMemberName": "Hillary Mudondo",
+    "leaveType": "Annual Leave",
+    "startDate": "26 December 2024",
+    "endDate": "27 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ndumiso Theo",
+    "teamMemberName": "Ndumiso Theo Ndebele",
+    "leaveType": "Annual Leave",
+    "startDate": "10 December 2024",
+    "endDate": "13 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel-2",
+    "teamMemberName": "Nigel Nyoni",
+    "leaveType": "Annual Leave",
+    "startDate": "23 December2024",
+    "endDate": "30 December 2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Jenyfer",
+    "teamMemberName": "Jenyfer Lopez",
+    "leaveType": "Annual Leave",
+    "startDate": "9 December2024",
+    "endDate": "13 December2024",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055387-110",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-111",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-112",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-113",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "January 2025",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Ryan-2",
+    "teamMemberName": "Ryan Hambury",
+    "leaveType": "Annual Leave",
+    "startDate": "2 January",
+    "endDate": "2 January",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Gamuchirai-3",
+    "teamMemberName": "Gamuchirai Chigoro",
+    "leaveType": "Annual Leave",
+    "startDate": "2 Jan 2025",
+    "endDate": "6 Jan 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Taral-3",
+    "teamMemberName": "Taral Masvanhise",
+    "leaveType": "Annual Leave",
+    "startDate": "2 Jan 2025",
+    "endDate": "3 Jan 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatendaishe-2",
+    "teamMemberName": "Tatendaishe Chikuku",
+    "leaveType": "Annual Leave",
+    "startDate": "10 Jan 2025",
+    "endDate": "13 Jan 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido-2",
+    "teamMemberName": "Chido Mawire",
+    "leaveType": "Annual Leave",
+    "startDate": "14 January",
+    "endDate": "17 January",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel-3",
+    "teamMemberName": "Nigel Deda",
+    "leaveType": "Annual Leave",
+    "startDate": "22 January 2025",
+    "endDate": "28 January 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sean-2",
+    "teamMemberName": "Sean Chakuchichi",
+    "leaveType": "Annual Leave",
+    "startDate": "27 December 2024",
+    "endDate": "6 January 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsitsi T",
+    "teamMemberName": "Tsitsi T Geza",
+    "leaveType": "Annual Leave",
+    "startDate": "16 January2025",
+    "endDate": "21 January 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyasha-2",
+    "teamMemberName": "Nyasha Majoko",
+    "leaveType": "Annual Leave",
+    "startDate": "31 December2024",
+    "endDate": "3 January 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe-5",
+    "teamMemberName": "Fadzaishe Gura",
+    "leaveType": "Annual Leave",
+    "startDate": "2 January 2025",
+    "endDate": "3 January 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055387-126",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-127",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-128",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-129",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "February 2025",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Farai-3",
+    "teamMemberName": "Farai Chikamhi",
+    "leaveType": "RCM",
+    "startDate": "24/02/2025",
+    "endDate": "25/02/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe-3",
+    "teamMemberName": "Tinashe Gambara",
+    "leaveType": "Annual Leave",
+    "startDate": "25/02/2025",
+    "endDate": "25/02/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055387-134",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-135",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-136",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-137",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-138",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-139",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-140",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-141",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "March 2025",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Hillary-2",
+    "teamMemberName": "Hillary Mudondo",
+    "leaveType": "RCM",
+    "startDate": "03/12/2025",
+    "endDate": "03/18/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ngaatendwe",
+    "teamMemberName": "Ngaatendwe Muchapirei",
+    "leaveType": "Accounting",
+    "startDate": "03/20/2025",
+    "endDate": "03/23/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Makanaka",
+    "teamMemberName": "Makanaka Mutapi",
+    "leaveType": "Annual Leave",
+    "startDate": "03/17/2025",
+    "endDate": "03/18/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Theo",
+    "teamMemberName": "Theo Ndebele",
+    "leaveType": "Annual Leave",
+    "startDate": "",
+    "endDate": "",
+    "status": "pending",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Tadiwanashe-4",
+    "teamMemberName": "Tadiwanashe Chibwe",
+    "leaveType": "Annual Leave",
+    "startDate": "03/11/2025",
+    "endDate": "03/12/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rumbidzai-5",
+    "teamMemberName": "Rumbidzai Shamuyedova",
+    "leaveType": "RCM",
+    "startDate": "03/07/2025",
+    "endDate": "03/07/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa-3",
+    "teamMemberName": "Mutsa Muchamire",
+    "leaveType": "Accounting",
+    "startDate": "03/31/2025",
+    "endDate": "03/31/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise-4",
+    "teamMemberName": "Denise Chiwandire",
+    "leaveType": "Accounting",
+    "startDate": "03/31/2025",
+    "endDate": "03/31/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055387-152",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-153",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-154",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055387-155",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "April",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Mutsa-4",
+    "teamMemberName": "Mutsa Muchamire",
+    "leaveType": "Accounting",
+    "startDate": "04/01/2025",
+    "endDate": "04/01/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe-6",
+    "teamMemberName": "Fadzaishe Gura",
+    "leaveType": "Annual Leave",
+    "startDate": "04/03/2025",
+    "endDate": "04/04/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda-6",
+    "teamMemberName": "Tatenda Gusha",
+    "leaveType": "Accounting",
+    "startDate": "04/11/2025",
+    "endDate": "04/11/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido-3",
+    "teamMemberName": "Chido Mawire",
+    "leaveType": "Annual Leave",
+    "startDate": "11 Apr 2025",
+    "endDate": "11 Apr 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel-4",
+    "teamMemberName": "Nigel Deda",
+    "leaveType": "Annual Leave",
+    "startDate": "24 April",
+    "endDate": "24 April",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise-5",
+    "teamMemberName": "Denise Chiwandire",
+    "leaveType": "Accounting",
+    "startDate": "16 April 2025",
+    "endDate": "16 April 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "rudolph-3",
+    "teamMemberName": "rudolph Matanga",
+    "leaveType": "RCM",
+    "startDate": "9 April 2025",
+    "endDate": "9 April 2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Noreen-2",
+    "teamMemberName": "Noreen Thondhlana",
+    "leaveType": "Annual Leave",
+    "startDate": "04/21/2025",
+    "endDate": "04/21/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsitsi-2",
+    "teamMemberName": "Tsitsi Geza",
+    "leaveType": "Annual Leave",
+    "startDate": "4/21/2025",
+    "endDate": "04/21/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tadiwanashe-5",
+    "teamMemberName": "Tadiwanashe Mhlanga",
+    "leaveType": "Annual Leave",
+    "startDate": "21 April 2025",
+    "endDate": "04/21/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Taral-4",
+    "teamMemberName": "Taral Masvanhise",
+    "leaveType": "Annual Leave",
+    "startDate": "28 April 2025",
+    "endDate": "05/09/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Hillary-3",
+    "teamMemberName": "Hillary Mudondo",
+    "leaveType": "RCM",
+    "startDate": "21 April 2025",
+    "endDate": "04/21/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055388-170",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-171",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "May",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Rudo-3",
+    "teamMemberName": "Rudo Mazvimba",
+    "leaveType": "Annual Leave",
+    "startDate": "05/26/2025",
+    "endDate": "05/30/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene-3",
+    "teamMemberName": "Irene Nyaundi",
+    "leaveType": "Annual Leave",
+    "startDate": "05/02/2025",
+    "endDate": "05/02/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinotenda-2",
+    "teamMemberName": "Tinotenda Mubvumbi",
+    "leaveType": "Annual Leave",
+    "startDate": "05/29/2025",
+    "endDate": "05/30/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tendai-3",
+    "teamMemberName": "Tendai Zaranyika",
+    "leaveType": "Annual Leave",
+    "startDate": "05/15/2025",
+    "endDate": "05/16/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Hillary-4",
+    "teamMemberName": "Hillary Mudondo",
+    "leaveType": "RCM",
+    "startDate": "28 May",
+    "endDate": "30 August",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055388-179",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-180",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-181",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-182",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-183",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "June",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Tsitsi-3",
+    "teamMemberName": "Tsitsi Geza",
+    "leaveType": "Annual Leave",
+    "startDate": "06/06/2025",
+    "endDate": "06/10/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tamanda-2",
+    "teamMemberName": "Tamanda Mandeya",
+    "leaveType": "Annual Leave",
+    "startDate": "06/09/2025",
+    "endDate": "06/09/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe-4",
+    "teamMemberName": "Tinashe Gambara",
+    "leaveType": "Annual Leave",
+    "startDate": "06/30/2025",
+    "endDate": "07/03/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Rudolph-4",
+    "teamMemberName": "Rudolph Matanga",
+    "leaveType": "RCM team member",
+    "startDate": "06/13/2025",
+    "endDate": "06/13/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Kudakwashe-2",
+    "teamMemberName": "Kudakwashe Kunira",
+    "leaveType": "Annual Leave",
+    "startDate": "06/18/2025",
+    "endDate": "06/20/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055388-191",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-192",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-193",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-194",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-195",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-196",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-197",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "July",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Sandisiwe-4",
+    "teamMemberName": "Sandisiwe Ncube",
+    "leaveType": "Annual Leave",
+    "startDate": "07/04/2025",
+    "endDate": "07/04/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido-4",
+    "teamMemberName": "Chido Mawire",
+    "leaveType": "Annual Leave",
+    "startDate": "07/18/2025",
+    "endDate": "07/18/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Nyasha-3",
+    "teamMemberName": "Nyasha Majoko",
+    "leaveType": "Annual Leave",
+    "startDate": "07/21/2025",
+    "endDate": "07/25/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Gamuchirai-4",
+    "teamMemberName": "Gamuchirai Chigoro",
+    "leaveType": "Annual Leave",
+    "startDate": "07/04/2025",
+    "endDate": "07/04/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mufaro Chantelle",
+    "teamMemberName": "Mufaro Chantelle Chinwada",
+    "leaveType": "Annual Leave",
+    "startDate": "07/11/2025",
+    "endDate": "07/14/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tafadzwa-3",
+    "teamMemberName": "Tafadzwa Mapfumo",
+    "leaveType": "Annual Leave",
+    "startDate": "07/03/2025",
+    "endDate": "07/07/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Fadzaishe-7",
+    "teamMemberName": "Fadzaishe Gura",
+    "leaveType": "Annual Leave",
+    "startDate": "07/11/2025",
+    "endDate": "07/11/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Waiting for approval"
+  },
+  {
+    "id": "Ruvarashe",
+    "teamMemberName": "Ruvarashe Nyakatswau",
+    "leaveType": "Annual Leave",
+    "startDate": "07/09/2025",
+    "endDate": "07/09/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Getrude",
+    "teamMemberName": "Getrude Nyemba",
+    "leaveType": "Annual Leave",
+    "startDate": "07/18/2025",
+    "endDate": "07/18/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ryan-3",
+    "teamMemberName": "Ryan Hambury",
+    "leaveType": "Annual Leave",
+    "startDate": "07/25/2025",
+    "endDate": "07/29/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055388-210",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-211",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-212",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-213",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-214",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-215",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "August-2",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Tadiwanashe-6",
+    "teamMemberName": "Tadiwanashe Mhlanga",
+    "leaveType": "Annual Leave",
+    "startDate": "08/15/2025",
+    "endDate": "08/15/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido-5",
+    "teamMemberName": "Chido Mawire",
+    "leaveType": "Annual Leave",
+    "startDate": "08/26/2025",
+    "endDate": "08/26/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Mufaro Chantelle-2",
+    "teamMemberName": "Mufaro Chantelle Chinwada",
+    "leaveType": "Annual Leave",
+    "startDate": "08/28/2025",
+    "endDate": "08/29/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa-5",
+    "teamMemberName": "Mutsa Machamire",
+    "leaveType": "Claims Submissions",
+    "startDate": "08/13/2025",
+    "endDate": "08/15/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa-6",
+    "teamMemberName": "Mutsa Machamire",
+    "leaveType": "Claims Submissions",
+    "startDate": "08/29/2025",
+    "endDate": "08/29/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Amanda Fikile",
+    "teamMemberName": "Amanda Fikile Mkandla",
+    "leaveType": "Annual Leave",
+    "startDate": "08/01/2025",
+    "endDate": "08/01/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Munotida",
+    "teamMemberName": "Munotida Sibanda",
+    "leaveType": "Annual Leave",
+    "startDate": "08/21/2025",
+    "endDate": "08/22/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ruth-2",
+    "teamMemberName": "Ruth Mushaninga",
+    "leaveType": "Graphic Designer",
+    "startDate": "08/04/2025",
+    "endDate": "08/08/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ngaatendwe-2",
+    "teamMemberName": "Ngaatendwe Muchapirei",
+    "leaveType": "General Ledger Accountant",
+    "startDate": "08/14/2025",
+    "endDate": "08/15/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinashe-5",
+    "teamMemberName": "Tinashe Gambara",
+    "leaveType": "Annual Leave",
+    "startDate": "08/14/2025",
+    "endDate": "08/15/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Denise-6",
+    "teamMemberName": "Denise Chiwandire",
+    "leaveType": "Accounting",
+    "startDate": "08/19/2025",
+    "endDate": "08/21/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Joseph",
+    "teamMemberName": "Joseph Hove",
+    "leaveType": "Accounting",
+    "startDate": "08/18/2025",
+    "endDate": "08/19/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055388-230",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-231",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-232",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-233",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-234",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-235",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-236",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-237",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-238",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-239",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-240",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "September-2",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Ruth-3",
+    "teamMemberName": "Ruth Mushaninga",
+    "leaveType": "Graphic Designer",
+    "startDate": "09/08/2025",
+    "endDate": "09/08/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene-4",
+    "teamMemberName": "Irene Nyaundi",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/04/2025",
+    "endDate": "09/08/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Sandisiwe-5",
+    "teamMemberName": "Sandisiwe Ncube",
+    "leaveType": "Annual Leave",
+    "startDate": "09/01/2025",
+    "endDate": "09/01/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Leave form submitted"
+  },
+  {
+    "id": "Sandisiwe-6",
+    "teamMemberName": "Sandisiwe Ncube",
+    "leaveType": "Annual Leave",
+    "startDate": "09/15/2025",
+    "endDate": "09/15/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Leave form submitted"
+  },
+  {
+    "id": "Nigel-5",
+    "teamMemberName": "Nigel Deda",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/26/2025",
+    "endDate": "09/29/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Mandlaenkosi",
+    "teamMemberName": "Mandlaenkosi Haltshwayo",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/11/2025",
+    "endDate": "09/12/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tamanda-3",
+    "teamMemberName": "Tamanda Mandeya",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/12/2025",
+    "endDate": "09/15/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Rudo-4",
+    "teamMemberName": "Rudo Mazvimba",
+    "leaveType": "Dental Coordiantor",
+    "startDate": "09/22/2025",
+    "endDate": "09/22/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Denise-7",
+    "teamMemberName": "Denise Chiwandire",
+    "leaveType": "Accounting",
+    "startDate": "09/01/2025",
+    "endDate": "09/01/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Leave form submitted"
+  },
+  {
+    "id": "Isabel",
+    "teamMemberName": "Isabel Mapanga",
+    "leaveType": "Accounting",
+    "startDate": "09/10/2025",
+    "endDate": "09/19/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055388-253",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-254",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-255",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-256",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-257",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-258",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "October-2",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Ngaatendwe-3",
+    "teamMemberName": "Ngaatendwe Muchapirei",
+    "leaveType": "General Ledger Accountant",
+    "startDate": "10/27/2025",
+    "endDate": "10/29/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinotenda-3",
+    "teamMemberName": "Tinotenda Mubvumbi",
+    "leaveType": "Scheduling",
+    "startDate": "10/01/2025",
+    "endDate": "10/01/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Kimberly",
+    "teamMemberName": "Kimberly Mwendamberi",
+    "leaveType": "Treatment Navigator",
+    "startDate": "10/10/2025",
+    "endDate": "10/17/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Makanaka-2",
+    "teamMemberName": "Makanaka Mutapi",
+    "leaveType": "Recall and Treatment",
+    "startDate": "10/09/2025",
+    "endDate": "10/10/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Tsitsi-4",
+    "teamMemberName": "Tsitsi Geza",
+    "leaveType": "Annual Leave",
+    "startDate": "10/09/2025",
+    "endDate": "10/10/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda-7",
+    "teamMemberName": "Tatenda Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "10/23/2025",
+    "endDate": "10/24/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Isabel-2",
+    "teamMemberName": "Isabel Mapanga",
+    "leaveType": "Accounts Payable Analyst",
+    "startDate": "10/30/25",
+    "endDate": "10/31/25",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055388-268",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-269",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-270",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-271",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-272",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Tinotenda-4",
+    "teamMemberName": "Tinotenda Mubvumbi",
+    "leaveType": "Scheduling",
+    "startDate": "11/20/2025",
+    "endDate": "11/25/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Lisa-3",
+    "teamMemberName": "Lisa Takaona",
+    "leaveType": "Annual Leave",
+    "startDate": "11/14/2025",
+    "endDate": "11/17/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Amanda",
+    "teamMemberName": "Amanda Mkandla",
+    "leaveType": "Recare and treatment",
+    "startDate": "11/13/2025",
+    "endDate": "11/17/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tatenda-8",
+    "teamMemberName": "Tatenda Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Joy",
+    "teamMemberName": "Joy Kupamupindi",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nigel-6",
+    "teamMemberName": "Nigel Deda",
+    "leaveType": "Dental Cordinator",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Natasha",
+    "teamMemberName": "Natasha Makweche",
+    "leaveType": "Annual Leave",
+    "startDate": "11/27/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tsitsi-5",
+    "teamMemberName": "Tsitsi Geza",
+    "leaveType": "Dental Cordinator",
+    "startDate": "11/27/2027",
+    "endDate": "11/28/25",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Lisa-4",
+    "teamMemberName": "Lisa Takaona",
+    "leaveType": "Annual Leave",
+    "startDate": "11/26/2025",
+    "endDate": "11/26/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene-5",
+    "teamMemberName": "Irene Nyaundi",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Amanda-2",
+    "teamMemberName": "Amanda Samakande",
+    "leaveType": "Annual Leave",
+    "startDate": "11/27/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tadiwanashe-7",
+    "teamMemberName": "Tadiwanashe Mhlanga",
+    "leaveType": "Annual Leave",
+    "startDate": "11/14/2025",
+    "endDate": "11/14/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Makanaka-3",
+    "teamMemberName": "Makanaka Mutapi",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Michelle",
+    "teamMemberName": "Michelle Bure",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Nisha L",
+    "teamMemberName": "Nisha L Chigutei",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Mandlaenkosi-2",
+    "teamMemberName": "Mandlaenkosi Hlatshwayo",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "12/2/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Nyasha N",
+    "teamMemberName": "Nyasha N Makoni",
+    "leaveType": "Annual Leave",
+    "startDate": "11/27/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Isabel-3",
+    "teamMemberName": "Isabel Mapanga",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Mutsa-7",
+    "teamMemberName": "Mutsa Machamire",
+    "leaveType": "Annual Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "LR1767723055388-294",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-295",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-296",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-297",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-298",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-299",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055388-300",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-301",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-302",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-303",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-304",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-305",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-306",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-307",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-308",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Lisa-5",
+    "teamMemberName": "Lisa Takaona",
+    "leaveType": "Annual Leave",
+    "startDate": "12/22/2025",
+    "endDate": "12/29/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Mutsa-8",
+    "teamMemberName": "Mutsa Kashangura",
+    "leaveType": "Treatment Navigator",
+    "startDate": "12/12/2025",
+    "endDate": "12/18/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Amanda-3",
+    "teamMemberName": "Amanda Mkandla",
+    "leaveType": "Recare and treatment",
+    "startDate": "12/17/2025",
+    "endDate": "12/19/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Adrian",
+    "teamMemberName": "Adrian Magwenzi",
+    "leaveType": "Recare and treatment",
+    "startDate": "12/10/2025",
+    "endDate": "",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Tinotenda-5",
+    "teamMemberName": "Tinotenda Mubvumbi",
+    "leaveType": "Scheduling",
+    "startDate": "12/31/2025",
+    "endDate": "12/31/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Wadzanayi",
+    "teamMemberName": "Wadzanayi Dangirwa",
+    "leaveType": "Recare and treatment",
+    "startDate": "12/29/2025",
+    "endDate": "12/30/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Anesu",
+    "teamMemberName": "Anesu Mlambo",
+    "leaveType": "Integrated Practice Advisor Virtual Support",
+    "startDate": "12/26/2025",
+    "endDate": "01/02/2026",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Tatenda-9",
+    "teamMemberName": "Tatenda Gusha",
+    "leaveType": "Accounts Payable Officer",
+    "startDate": "12/26/2025",
+    "endDate": "12/31/2026",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Tinashe-6",
+    "teamMemberName": "Tinashe Gambara",
+    "leaveType": "Dental Cordinator",
+    "startDate": "12/26",
+    "endDate": "12/26/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Joy-2",
+    "teamMemberName": "Joy Kupamupindi",
+    "leaveType": "Annual Leave",
+    "startDate": "12/19/2025",
+    "endDate": "12/19/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Joy-3",
+    "teamMemberName": "Joy Kupamupindi",
+    "leaveType": "Annual Leave",
+    "startDate": "12/26/2025",
+    "endDate": "12/26/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Paidamoyo",
+    "teamMemberName": "Paidamoyo Kufa",
+    "leaveType": "IT Support",
+    "startDate": "12/30/2025",
+    "endDate": "01/02/2026",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Chido-6",
+    "teamMemberName": "Chido Mawire",
+    "leaveType": "Insurance Department",
+    "startDate": "12/01/2025",
+    "endDate": "12/10/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Irene-6",
+    "teamMemberName": "Irene Nyaundi",
+    "leaveType": "Insurance Department",
+    "startDate": "12/26/2025",
+    "endDate": "01/02/2026",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Ashleigh",
+    "teamMemberName": "Ashleigh Satiya",
+    "leaveType": "Annual Leave",
+    "startDate": "12/22/2025",
+    "endDate": "12/24/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Ashleigh-2",
+    "teamMemberName": "Ashleigh Satiya",
+    "leaveType": "Annual Leave",
+    "startDate": "12/30/2025",
+    "endDate": "12/31/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Nigel-7",
+    "teamMemberName": "Nigel Deda",
+    "leaveType": "Dental Cordinator",
+    "startDate": "12/18/2025",
+    "endDate": "12/18/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Waiting approval"
+  },
+  {
+    "id": "Tambudzai",
+    "teamMemberName": "Tambudzai Dube",
+    "leaveType": "Annual Leave",
+    "startDate": "12/24/2025",
+    "endDate": "12/24/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Allan",
+    "teamMemberName": "Allan Chimangah",
+    "leaveType": "Annual Leave",
+    "startDate": "12/26/2025",
+    "endDate": "12/26/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Amanda-4",
+    "teamMemberName": "Amanda Samakande",
+    "leaveType": "Annual Leave",
+    "startDate": "12/01/2025",
+    "endDate": "12/01/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "id": "Makanaka-4",
+    "teamMemberName": "Makanaka Mutapi",
+    "leaveType": "Annual Leave",
+    "startDate": "12/23",
+    "endDate": "12/24/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Makanaka-5",
+    "teamMemberName": "Makanaka Mutapi",
+    "leaveType": "Annual Leave",
+    "startDate": "12/31/2025",
+    "endDate": "12/31/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Ryan-4",
+    "teamMemberName": "Ryan Hambury",
+    "leaveType": "Annual Leave",
+    "startDate": "12/18/2025",
+    "endDate": "12/19/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Ryan-5",
+    "teamMemberName": "Ryan Hambury",
+    "leaveType": "Annual Leave",
+    "startDate": "12/23/2025",
+    "endDate": "12/23/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-335",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-336",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-337",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-338",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-339",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-340",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-341",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-342",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-343",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-344",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-345",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-346",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-347",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-348",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-349",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-350",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-351",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-352",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "LR1767723055389-353",
+    "leaveType": "Annual Leave",
+    "status": "pending",
+    "submittedDate": "2026-01-06"
+  },
+  {
+    "id": "Sharon",
+    "teamMemberName": "Sharon Nyamande",
+    "leaveType": "Annual Leave",
+    "startDate": "01/12/2025",
+    "endDate": "01/23/2025",
+    "status": "pending-csp-review",
+    "submittedDate": "Approved and taken"
+  },
+  {
+    "teamMember": "Shawn Buka",
+    "department": "",
+    "leaveType": "Annual",
+    "startDate": "2026-01-13",
+    "endDate": "2026-01-16",
+    "days": 9,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "Les",
+    "coveragePosition": "Yes",
+    "coverageAware": "Yes",
+    "reason": "NONE",
+    "submittedBy": "Shawn Buka",
     "submissionMethod": "official-form",
-    "id": "1765811784941",
-    "submittedAt": "2025-12-15T15:16:24.942Z",
-    "status": "csp-review",
-    "assignedTo": "Leslie Chasinda",
-    "assignedToEmail": "leslie.chasinda@zimworx.org",
-    "clientName": "Dental Arts of Boynton",
-    "teamMemberRole": "Operations",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Shawn Buka",
+      "date": "2026-01-07T11:13:35.049Z"
+    },
+    "id": "1767784415057",
+    "submittedAt": "2026-01-07T11:13:35.057Z",
+    "status": "approved",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "clientName": null,
+    "teamMemberRole": null,
     "ptoBalance": {
       "annualPTO": 12,
-      "usedPTO": 7,
-      "remainingPTO": 5
+      "usedPTO": 9,
+      "remainingPTO": 3,
+      "clientName": null
     },
     "sickNoteUrl": null,
     "history": [
       {
         "action": "submitted",
-        "actor": "Tsitsi Geza",
-        "timestamp": "2025-12-15T15:16:24.942Z",
+        "actor": "Shawn Buka",
+        "timestamp": "2026-01-07T11:13:35.057Z",
         "note": "Submitted via LeavePoint"
       },
       {
-        "action": "auto-assigned",
+        "action": "approved",
         "actor": "System",
-        "timestamp": "2025-12-15T15:16:24.942Z",
-        "note": "Automatically assigned to Leslie Chasinda"
+        "timestamp": "2026-01-07T11:15:00.000Z",
+        "note": "Approved for testing - 9 days used, 3 days remaining"
       }
     ],
     "validationPassed": true
   },
   {
     "teamMember": "Getrude Nyemba",
-    "leaveType": "Annual Leave",
-    "startDate": "2026-01-12",
-    "endDate": "2026-01-14",
-    "reason": "Annual",
+    "department": "GTS",
+    "leaveType": "Unpaid",
+    "startDate": "2026-01-20",
+    "endDate": "2026-01-22",
     "days": 3,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "e",
+    "coveragePosition": "e",
+    "coverageAware": "Yes",
+    "reason": "",
     "submittedBy": "Getrude Nyemba",
     "submissionMethod": "official-form",
-    "id": "1767628140075",
-    "submittedAt": "2026-01-05T15:49:00.075Z",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Getrude Nyemba",
+      "date": "2026-01-07T12:16:49.525Z"
+    },
+    "id": "1767788209532",
+    "submittedAt": "2026-01-07T12:16:49.532Z",
     "status": "csp-review",
-    "assignedTo": "Getrude Nyemba",
-    "assignedToEmail": "getrude.nyemba@zimworx.org",
+    "assignedTo": null,
+    "assignedToEmail": null,
     "clientName": "Adelberg Montalvan",
     "teamMemberRole": "Dental Coordinator",
     "ptoBalance": {
       "annualPTO": 12,
       "usedPTO": 0,
-      "remainingPTO": 12
+      "remainingPTO": 12,
+      "clientName": null
     },
     "sickNoteUrl": null,
     "history": [
       {
         "action": "submitted",
         "actor": "Getrude Nyemba",
-        "timestamp": "2026-01-05T15:49:00.076Z",
+        "timestamp": "2026-01-07T12:16:49.532Z",
         "note": "Submitted via LeavePoint"
-      },
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Runnies Manja",
+    "department": "GTS",
+    "leaveType": "Unpaid",
+    "startDate": "2026-01-12",
+    "endDate": "2026-01-13",
+    "days": 2,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "h",
+    "coveragePosition": "a",
+    "coverageAware": "Yes",
+    "reason": "ddddfrrr",
+    "submittedBy": "Runnies Manja",
+    "submissionMethod": "official-form",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Runnies Manja",
+      "date": "2026-01-07T12:22:10.455Z"
+    },
+    "id": "1767788530454",
+    "submittedAt": "2026-01-07T12:22:10.454Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "clientName": "VIVOS",
+    "teamMemberRole": "Admin Support",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12,
+      "clientName": null
+    },
+    "sickNoteUrl": null,
+    "history": [
       {
-        "action": "auto-assigned",
-        "actor": "System",
-        "timestamp": "2026-01-05T15:49:00.076Z",
-        "note": "Automatically assigned to Getrude Nyemba"
+        "action": "submitted",
+        "actor": "Runnies Manja",
+        "timestamp": "2026-01-07T12:22:10.454Z",
+        "note": "Submitted via LeavePoint"
       }
     ],
     "validationPassed": true
   },
   {
     "teamMember": "Getrude Nyemba",
-    "leaveType": "Annual Leave",
+    "department": "GTS",
+    "leaveType": "Annual",
     "startDate": "2026-01-12",
-    "endDate": "2026-01-14",
-    "reason": "Annual",
-    "days": 3,
+    "endDate": "2026-01-15",
+    "days": 4,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "e",
+    "coveragePosition": "e",
+    "coverageAware": "Yes",
+    "reason": "eeee",
     "submittedBy": "Getrude Nyemba",
     "submissionMethod": "official-form",
-    "id": "1767630870590",
-    "submittedAt": "2026-01-05T16:34:30.590Z",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Getrude Nyemba",
+      "date": "2026-01-07T15:08:23.716Z"
+    },
+    "id": "1767798503723",
+    "submittedAt": "2026-01-07T15:08:23.723Z",
     "status": "csp-review",
     "assignedTo": "Getrude Nyemba",
     "assignedToEmail": "getrude.nyemba@zimworx.org",
@@ -1416,21 +3032,551 @@
     "ptoBalance": {
       "annualPTO": 12,
       "usedPTO": 3,
-      "remainingPTO": 9
+      "remainingPTO": 9,
+      "clientName": null
     },
     "sickNoteUrl": null,
     "history": [
       {
         "action": "submitted",
         "actor": "Getrude Nyemba",
-        "timestamp": "2026-01-05T16:34:30.590Z",
+        "timestamp": "2026-01-07T15:08:23.723Z",
         "note": "Submitted via LeavePoint"
       },
       {
         "action": "auto-assigned",
         "actor": "System",
-        "timestamp": "2026-01-05T16:34:30.590Z",
+        "timestamp": "2026-01-07T15:08:23.723Z",
         "note": "Automatically assigned to Getrude Nyemba"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Getrude Nyemba",
+    "department": "GTS",
+    "leaveType": "Sick Leave",
+    "startDate": "2026-01-12",
+    "endDate": "2026-01-14",
+    "days": 3,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "Tutsi",
+    "coveragePosition": "Data expert",
+    "coverageAware": "Yes",
+    "reason": "yes",
+    "submittedBy": "Getrude Nyemba",
+    "submissionMethod": "official-form",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Getrude Nyemba",
+      "date": "2026-01-08T13:39:07.114Z"
+    },
+    "id": "1767879547126",
+    "submittedAt": "2026-01-08T13:39:07.126Z",
+    "status": "csp-review",
+    "assignedTo": "Getrude Nyemba",
+    "assignedToEmail": "getrude.nyemba@zimworx.org",
+    "clientName": "Adelberg Montalvan",
+    "teamMemberRole": "Dental Coordinator",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 7,
+      "remainingPTO": 5,
+      "clientName": null
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Getrude Nyemba",
+        "timestamp": "2026-01-08T13:39:07.126Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2026-01-08T13:39:07.126Z",
+        "note": "Automatically assigned to Getrude Nyemba"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Getrude Nyemba",
+    "department": "GTS",
+    "leaveType": "Annual",
+    "startDate": "2026-01-20",
+    "endDate": "2026-01-21",
+    "days": 2,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "Tutsi",
+    "coveragePosition": "Data",
+    "coverageAware": "Yes",
+    "reason": "YES",
+    "submittedBy": "Getrude Nyemba",
+    "submissionMethod": "official-form",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Getrude Nyemba",
+      "date": "2026-01-13T17:05:15.461Z"
+    },
+    "id": "1768323915487",
+    "submittedAt": "2026-01-13T17:05:15.487Z",
+    "status": "csp-review",
+    "assignedTo": "Getrude Nyemba",
+    "assignedToEmail": "getrude.nyemba@zimworx.org",
+    "clientName": "Adelberg Montalvan",
+    "teamMemberRole": "Dental Coordinator",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 10,
+      "remainingPTO": 2,
+      "clientName": null
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Getrude Nyemba",
+        "timestamp": "2026-01-13T17:05:15.487Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2026-01-13T17:05:15.487Z",
+        "note": "Automatically assigned to Getrude Nyemba"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Shawn Buka",
+    "department": "GTS",
+    "leaveType": "Sick Leave",
+    "startDate": "2026-01-27",
+    "endDate": "2026-01-28",
+    "days": 2,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "tutsi",
+    "coveragePosition": "data",
+    "coverageAware": "Yes",
+    "reason": "yes",
+    "submittedBy": "Shawn Buka",
+    "submissionMethod": "official-form",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Shawn Buka",
+      "date": "2026-01-19T11:47:28.640Z"
+    },
+    "id": "1768823248647",
+    "submittedAt": "2026-01-19T11:47:28.647Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "clientName": null,
+    "teamMemberRole": null,
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 9,
+      "remainingPTO": 3,
+      "clientName": null
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Shawn Buka",
+        "timestamp": "2026-01-19T11:47:28.647Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Shawn Buka",
+    "department": "GTS",
+    "leaveType": "Annual",
+    "startDate": "2026-02-03",
+    "endDate": "2026-02-03",
+    "days": 1,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "tutsi",
+    "coveragePosition": "data",
+    "coverageAware": "Yes",
+    "reason": "yes",
+    "submittedBy": "Shawn Buka",
+    "submissionMethod": "official-form",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Shawn Buka",
+      "date": "2026-01-19T14:23:22.587Z"
+    },
+    "id": "1768832602600",
+    "submittedAt": "2026-01-19T14:23:22.600Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "clientName": null,
+    "teamMemberRole": null,
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 11,
+      "remainingPTO": 1,
+      "clientName": null,
+      "email": null
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Shawn Buka",
+        "timestamp": "2026-01-19T14:23:22.600Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "coverageAware": "Yes",
+    "leaveType": "annual",
+    "phoneNumber": "0772123456",
+    "coverageName": "Jane Doe",
+    "coveragePosition": "IT Support",
+    "endDate": "2026-01-30",
+    "applicantSignature": {
+      "date": "2026-01-19T19:14:24.1777014+02:00",
+      "name": "John Smith",
+      "signed": true
+    },
+    "days": 6,
+    "startDate": "2026-01-25",
+    "reason": "Family vacation",
+    "teamMemberName": "1768842866504 John Smith",
+    "teamMember": "John Smith",
+    "department": "IT Support",
+    "submittedBy": "John Smith",
+    "address": "123 Main St, Harare",
+    "id": "1768842866504",
+    "submittedAt": "2026-01-19T17:14:26.504Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "clientName": null,
+    "teamMemberRole": null,
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12,
+      "clientName": null,
+      "email": null
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "John Smith",
+        "timestamp": "2026-01-19T17:14:26.505Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "coverageAware": "Yes",
+    "leaveType": "annual",
+    "phoneNumber": "0772123456",
+    "coverageName": "Jane Doe",
+    "coveragePosition": "IT Support",
+    "endDate": "2026-02-14",
+    "applicantSignature": {
+      "date": "2026-01-19T19:15:22.7361359+02:00",
+      "name": "John Smith",
+      "signed": true
+    },
+    "days": 5,
+    "startDate": "2026-02-10",
+    "reason": "Family vacation",
+    "teamMemberName": "1768842925059 John Smith",
+    "teamMember": "John Smith",
+    "department": "IT Support",
+    "submittedBy": "John Smith",
+    "address": "123 Main St, Harare",
+    "id": "1768842925059",
+    "submittedAt": "2026-01-19T17:15:25.059Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "clientName": null,
+    "teamMemberRole": null,
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 6,
+      "remainingPTO": 6,
+      "clientName": null,
+      "email": null
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "John Smith",
+        "timestamp": "2026-01-19T17:15:25.059Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "coverageAware": "Yes",
+    "leaveType": "sick",
+    "phoneNumber": "0773456789",
+    "coverageName": "Mike Brown",
+    "coveragePosition": "HR Manager",
+    "endDate": "2026-01-24",
+    "applicantSignature": {
+      "date": "2026-01-19T19:16:14.7852099+02:00",
+      "name": "Sarah Johnson",
+      "signed": true
+    },
+    "days": 3,
+    "startDate": "2026-01-22",
+    "reason": "Medical appointment",
+    "teamMemberName": "1768842974876 Sarah Johnson",
+    "teamMember": "Sarah Johnson",
+    "department": "HR",
+    "submittedBy": "Sarah Johnson",
+    "address": "456 Oak Ave",
+    "id": "1768842974876",
+    "submittedAt": "2026-01-19T17:16:14.876Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "clientName": null,
+    "teamMemberRole": null,
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12,
+      "clientName": null,
+      "email": null
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Sarah Johnson",
+        "timestamp": "2026-01-19T17:16:14.876Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "coverageAware": "Yes",
+    "leaveType": "annual",
+    "phoneNumber": "0774567890",
+    "coverageName": "Lisa Chen",
+    "coveragePosition": "Accountant",
+    "endDate": "2026-02-03",
+    "applicantSignature": {
+      "date": "2026-01-19T19:16:14.7852099+02:00",
+      "name": "Mike Wilson",
+      "signed": true
+    },
+    "days": 3,
+    "startDate": "2026-02-01",
+    "reason": "Personal business",
+    "teamMemberName": "1768842974905 Mike Wilson",
+    "teamMember": "Mike Wilson",
+    "department": "Finance",
+    "submittedBy": "Mike Wilson",
+    "address": "789 Pine Rd",
+    "id": "1768842974905",
+    "submittedAt": "2026-01-19T17:16:14.905Z",
+    "status": "csp-review",
+    "assignedTo": null,
+    "assignedToEmail": null,
+    "clientName": null,
+    "teamMemberRole": null,
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12,
+      "clientName": null,
+      "email": null
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Mike Wilson",
+        "timestamp": "2026-01-19T17:16:14.905Z",
+        "note": "Submitted via LeavePoint"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Nigel Nyoni",
+    "department": "GTS",
+    "leaveType": "Annual",
+    "startDate": "2026-02-03",
+    "endDate": "2026-02-04",
+    "days": 2,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "tutsi",
+    "coveragePosition": "data",
+    "coverageAware": "Yes",
+    "reason": "yes",
+    "submittedBy": "Nigel Nyoni",
+    "submissionMethod": "official-form",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Nigel Nyoni",
+      "date": "2026-01-20T10:26:45.065Z"
+    },
+    "id": "1768904805074",
+    "submittedAt": "2026-01-20T10:26:45.075Z",
+    "status": "csp-review",
+    "assignedTo": "Nigel Nyoni",
+    "assignedToEmail": "nigel.nyoni@zimworx.org",
+    "clientName": "Adelberg Montalvan",
+    "teamMemberRole": "Dental Coordinator",
+    "ptoBalance": {
+      "annualPTO": 12,
+      "usedPTO": 0,
+      "remainingPTO": 12,
+      "clientName": null,
+      "email": "595848924"
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Nigel Nyoni",
+        "timestamp": "2026-01-20T10:26:45.075Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2026-01-20T10:26:45.075Z",
+        "note": "Automatically assigned to Nigel Nyoni"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Sandisiwe Nkala",
+    "department": "GTS",
+    "leaveType": "Sick Leave",
+    "startDate": "2026-02-09",
+    "endDate": "2026-02-10",
+    "days": 2,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "tutsi",
+    "coveragePosition": "data",
+    "coverageAware": "Yes",
+    "reason": "none",
+    "submittedBy": "Sandisiwe Nkala",
+    "submissionMethod": "official-form",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Sandisiwe Nkala",
+      "date": "2026-01-22T13:24:41.706Z"
+    },
+    "id": "1769088282060",
+    "submittedAt": "2026-01-22T13:24:42.060Z",
+    "status": "csp-review",
+    "assignedTo": "Joseph Ayema",
+    "assignedToEmail": "joseph.ayema@zimworx.com",
+    "clientName": "Sandisiwe Nkala",
+    "teamMemberRole": "Unassigned",
+    "ptoBalance": {
+      "annualPTO": 20,
+      "usedPTO": 0,
+      "remainingPTO": 20,
+      "clientName": "Integrity Dental Specialists/EAOFDFW",
+      "email": "sandisiwe.nkala@zimworx.org"
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Sandisiwe Nkala",
+        "timestamp": "2026-01-22T13:24:42.060Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2026-01-22T13:24:42.060Z",
+        "note": "Automatically assigned to Joseph Ayema"
+      }
+    ],
+    "validationPassed": true
+  },
+  {
+    "teamMember": "Paidaishe Mbishi",
+    "department": "GTS",
+    "leaveType": "Sick Leave",
+    "startDate": "2026-02-09",
+    "endDate": "2026-02-10",
+    "days": 2,
+    "attachDoctorsNote": false,
+    "address": "529W+9VG, Julius Nyerere, Jason Moyo Ave, Harare",
+    "phoneNumber": "0772839867",
+    "coverageName": "tutsi",
+    "coveragePosition": "data",
+    "coverageAware": "Yes",
+    "reason": "yes",
+    "submittedBy": "Paidaishe Mbishi",
+    "submissionMethod": "official-form",
+    "applicantSignature": {
+      "signed": true,
+      "name": "Paidaishe Mbishi",
+      "date": "2026-01-23T10:19:30.424Z"
+    },
+    "id": "1769163570766",
+    "submittedAt": "2026-01-23T10:19:30.766Z",
+    "status": "csp-review",
+    "assignedTo": "Mike",
+    "assignedToEmail": "mike@zimworx.com",
+    "clientName": "Paidaishe Mbishi",
+    "teamMemberRole": "Unassigned",
+    "ptoBalance": {
+      "annualPTO": 20,
+      "usedPTO": 0,
+      "remainingPTO": 20,
+      "clientName": "Icon Dental Partners",
+      "email": "paidaishe.mbishi@zimworx.org"
+    },
+    "sickNoteUrl": null,
+    "history": [
+      {
+        "action": "submitted",
+        "actor": "Paidaishe Mbishi",
+        "timestamp": "2026-01-23T10:19:30.766Z",
+        "note": "Submitted via LeavePoint"
+      },
+      {
+        "action": "auto-assigned",
+        "actor": "System",
+        "timestamp": "2026-01-23T10:19:30.766Z",
+        "note": "Automatically assigned to Mike"
       }
     ],
     "validationPassed": true

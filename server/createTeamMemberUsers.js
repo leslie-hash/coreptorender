@@ -4,9 +4,18 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+// Centralized file paths
+const FILE_PATHS = {
+  leaveRequests: path.join(__dirname, 'leaveRequests.json'),
+  teamMemberMeta: path.join(__dirname, 'teamMemberMeta.json'),
+  users: path.join(__dirname, 'users.json'),
+  emailSettings: path.join(__dirname, 'emailSettings.json'),
+  integrationSettings: path.join(__dirname, 'integrationSettings.json'),
+  approvalHistory: path.join(__dirname, 'approvalHistory.json')
+};
 
 // Read team member metadata
-const teamMemberMeta = JSON.parse(fs.readFileSync(path.join(__dirname, 'teamMemberMeta.json'), 'utf8'));
+const teamMemberMeta = JSON.parse(fs.readFileSync(FILE_PATHS.teamMemberMeta, 'utf8'));
 const existingUsers = JSON.parse(fs.readFileSync(path.join(__dirname, 'users.json'), 'utf8'));
 
 // Default password hash for "password123"
@@ -77,3 +86,5 @@ if (newUsers.length > 0) {
 } else {
   console.log('✅ All team members already have user accounts!');
 }
+
+

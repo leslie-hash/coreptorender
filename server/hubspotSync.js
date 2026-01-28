@@ -8,6 +8,15 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+// Centralized file paths
+const FILE_PATHS = {
+  leaveRequests: path.join(__dirname, 'leaveRequests.json'),
+  teamMemberMeta: path.join(__dirname, 'teamMemberMeta.json'),
+  users: path.join(__dirname, 'users.json'),
+  emailSettings: path.join(__dirname, 'emailSettings.json'),
+  integrationSettings: path.join(__dirname, 'integrationSettings.json'),
+  approvalHistory: path.join(__dirname, 'approvalHistory.json')
+};
 
 /**
  * Sync HubSpot contacts to local team members
@@ -78,7 +87,7 @@ export async function syncHubSpotToTeamMembers() {
     
     // Save to JSON files
     const teamMembersPath = path.join(__dirname, 'teamMembers.json');
-    const teamMemberMetaPath = path.join(__dirname, 'teamMemberMeta.json');
+    const teamMemberMetaPath = FILE_PATHS.teamMemberMeta;
     
     fs.writeFileSync(teamMembersPath, JSON.stringify(teamMembers, null, 2));
     fs.writeFileSync(teamMemberMetaPath, JSON.stringify(teamMemberMeta, null, 2));
@@ -165,7 +174,7 @@ function determineAnnualPTO(jobtitle) {
 export function getHubSpotSyncStats() {
   try {
     const teamMembersPath = path.join(__dirname, 'teamMembers.json');
-    const teamMemberMetaPath = path.join(__dirname, 'teamMemberMeta.json');
+    const teamMemberMetaPath = FILE_PATHS.teamMemberMeta;
     
     if (!fs.existsSync(teamMemberMetaPath)) {
       return { synced: false };
@@ -186,3 +195,5 @@ export function getHubSpotSyncStats() {
     return { synced: false, error: error.message };
   }
 }
+
+

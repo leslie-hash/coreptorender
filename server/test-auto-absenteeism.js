@@ -14,6 +14,16 @@ import { calculateBusinessDays } from './holidays.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Centralized file paths
+const FILE_PATHS = {
+  leaveRequests: path.join(__dirname, 'leaveRequests.json'),
+  teamMemberMeta: path.join(__dirname, 'teamMemberMeta.json'),
+  users: path.join(__dirname, 'users.json'),
+  emailSettings: path.join(__dirname, 'emailSettings.json'),
+  integrationSettings: path.join(__dirname, 'integrationSettings.json'),
+  approvalHistory: path.join(__dirname, 'approvalHistory.json')
+};
+
 dotenv.config();
 
 console.log('\n🧪 TESTING AUTOMATIC ABSENTEEISM GENERATION\n');
@@ -44,7 +54,7 @@ console.log(`Status: ${testRequest.status}`);
 console.log(`Assigned To: ${testRequest.assignedTo}`);
 
 // Read team member metadata
-const metaPath = path.join(__dirname, 'teamMemberMeta.json');
+const metaPath = FILE_PATHS.teamMemberMeta;
 let teamMemberMeta = null;
 if (fs.existsSync(metaPath)) {
   const allMeta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
@@ -153,3 +163,4 @@ console.log('7. Check the absenteeism report to see the auto-generated entry!');
 
 console.log('\n' + '='.repeat(60));
 console.log('✨ TEST COMPLETE - Automatic generation ready to work!\n');
+

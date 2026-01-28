@@ -8,6 +8,15 @@ import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+// Centralized file paths
+const FILE_PATHS = {
+  leaveRequests: path.join(__dirname, 'leaveRequests.json'),
+  teamMemberMeta: path.join(__dirname, 'teamMemberMeta.json'),
+  users: path.join(__dirname, 'users.json'),
+  emailSettings: path.join(__dirname, 'emailSettings.json'),
+  integrationSettings: path.join(__dirname, 'integrationSettings.json'),
+  approvalHistory: path.join(__dirname, 'approvalHistory.json')
+};
 
 /**
  * Sync HubSpot companies to local clients
@@ -107,7 +116,7 @@ export async function linkTeamMembersToClients() {
   try {
     console.log('\n🔗 Linking team members to clients...');
     
-    const teamMemberMetaPath = path.join(__dirname, 'teamMemberMeta.json');
+    const teamMemberMetaPath = FILE_PATHS.teamMemberMeta;
     const clientsPath = path.join(__dirname, 'clients.json');
     
     if (!fs.existsSync(teamMemberMetaPath) || !fs.existsSync(clientsPath)) {
@@ -301,3 +310,5 @@ function determineDefaultBillingRate(industry, numberOfEmployees) {
   
   return Math.round(baseRate);
 }
+
+

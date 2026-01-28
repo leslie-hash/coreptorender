@@ -41,16 +41,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
 
-  // Load from localStorage on mount
+  // DISABLED: Don't load from localStorage on mount to prevent stale data
+  // Cache clearing is handled in Login.tsx before each login
+  // This ensures fresh data every time
   useEffect(() => {
-    const savedToken = localStorage.getItem('token');
-    const savedUser = localStorage.getItem('user');
-    if (savedToken && savedUser) {
-      setToken(savedToken);
-      const parsedUser = JSON.parse(savedUser);
-      setUser(parsedUser);
-      setUserRole(parsedUser.role || '');
-    }
+    // Intentionally empty - don't auto-load cached user data
+    // User must login fresh each time to get correct data
   }, []);
 
   // Save to localStorage when they change

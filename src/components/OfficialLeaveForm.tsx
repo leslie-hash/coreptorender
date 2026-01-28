@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Download, FileText, CheckCircle, AlertCircle, Info, FileDown, Mail } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Download, FileText, CheckCircle, AlertCircle, Info, FileDown, Mail, Upload, X, Copy, Check, History, Calendar } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Alert, AlertDescription } from './ui/alert';
@@ -25,25 +25,59 @@ export default function OfficialLeaveForm() {
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
   const [submitting, setSubmitting] = useState(false);
-  const [submitResult, setSubmitResult] = useState<{ success: boolean; message?: string; requestId?: string } | null>(null);
-  const [ptoBalance, setPtoBalance] = useState<{ annualPTO: number; usedPTO: number; remainingPTO: number; clientName?: string } | null>(null);
+  const [submitResult, setSubmitResult] = useState<{ success: boolean; message?: string; requestId?: string; error?: string; validation?: any; validationErrors?: any[] } | null>(null);
+  const [ptoBalance, setPtoBalance] = useState<{ annualPTO?: number; usedPTO?: number; remainingPTO?: number; remaining?: number; used?: number; clientName?: string } | null>(null);
   const [loadingBalance, setLoadingBalance] = useState(false);
+  const [copiedRequestId, setCopiedRequestId] = useState(false);
+  const [leaveHistory, setLeaveHistory] = useState<any[]>([]);
+  const [loadingHistory, setLoadingHistory] = useState(false);
+  const [showHistory, setShowHistory] = useState(false);
+  const [holidays, setHolidays] = useState<{ date: string; name: string; region: string }[]>([]);
   const { user, userRole } = useAppContext();
   
   // Check if user is a team member
   const isTeamMember = userRole === 'team-member' || (!userRole && user && !user.role);
   
-  // Form data for generating pre-filled form
+  // Form data for generating pre-filled form - matching official LABOR_OUTSOURCING_LEAVE_APPLICATION_FORM
   const [formData, setFormData] = useState({
+    // Team Member Information
     teamMemberName: '',
-    leaveType: 'Annual Leave',
+    department: 'GTS',
+    
+    // Leave Details
+    leaveType: 'Annual',
     startDate: '',
     endDate: '',
+    attachDoctorsNote: false,
+    maternityEligibilityConfirmed: false,
+    
+    // Contactable Options
+    address: '',
+    phoneNumber: '',
+    
+    // Coverage Information
+    coverageName: '',
+    coveragePosition: '',
+    coverageAware: 'Yes',
+    
+    // Signature
+    signatureAcknowledge: false,
+    
+    // Legacy field
     reason: ''
   });
 
+  // State for EDD document attachment (maternity leave)
+  const [eddDocument, setEddDocument] = useState<File | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  // State for Doctor's note attachment (sick leave)
+  const [doctorsNoteDocument, setDoctorsNoteDocument] = useState<File | null>(null);
+  const doctorsNoteInputRef = useRef<HTMLInputElement>(null);
+
   useEffect(() => {
     fetchFormMetadata();
+    fetchHolidays();
     // Auto-populate team member name if user is a team member
     if (isTeamMember && user?.name) {
       setFormData(prev => ({
@@ -55,16 +89,42 @@ export default function OfficialLeaveForm() {
     }
   }, [isTeamMember, user]);
 
+  const fetchHolidays = async () => {
+    try {
+      const year = new Date().getFullYear();
+      const response = await fetch(getApiUrl(`/api/holidays/${year}`), {
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache'
+        },
+        cache: 'no-store'
+      });
+      if (response.ok) {
+        const data = await response.json();
+        setHolidays(data.holidays || []);
+      }
+    } catch (error) {
+      console.error('Error fetching holidays:', error);
+    }
+  };
+
   // Fetch PTO balance when team member name changes
   useEffect(() => {
     if (formData.teamMemberName) {
       fetchPTOBalance(formData.teamMemberName);
+      fetchLeaveHistory(formData.teamMemberName);
     }
   }, [formData.teamMemberName]);
 
   const fetchFormMetadata = async () => {
     try {
-      const response = await fetch(getApiUrl('/api/leave-form/metadata'));
+      const response = await fetch(getApiUrl('/api/leave-form/metadata'), {
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache'
+        },
+        cache: 'no-store'
+      });
       const data = await response.json();
       setFormMetadata(data);
     } catch (error) {
@@ -80,15 +140,22 @@ export default function OfficialLeaveForm() {
     
     setLoadingBalance(true);
     try {
+      console.log('Fetching PTO balance for:', teamMemberName);
       const response = await fetch(getApiUrl(`/api/pto-balance/${encodeURIComponent(teamMemberName)}`), {
         credentials: 'include',
+        headers: {
+          'Cache-Control': 'no-cache, no-store, must-revalidate',
+          'Pragma': 'no-cache'
+        },
+        cache: 'no-store'
       });
       
       if (response.ok) {
         const data = await response.json();
+        console.log('PTO balance data:', data);
         setPtoBalance(data);
       } else {
-        console.error('Failed to fetch PTO balance');
+        console.error('Failed to fetch PTO balance, status:', response.status);
         setPtoBalance(null);
       }
     } catch (error) {
@@ -96,6 +163,50 @@ export default function OfficialLeaveForm() {
       setPtoBalance(null);
     } finally {
       setLoadingBalance(false);
+    }
+  };
+
+  const copyRequestId = (requestId: string) => {
+    navigator.clipboard.writeText(requestId).then(() => {
+      setCopiedRequestId(true);
+      setTimeout(() => setCopiedRequestId(false), 2000);
+    });
+  };
+
+  const fetchLeaveHistory = async (teamMemberName: string) => {
+    if (!teamMemberName) return;
+    
+    setLoadingHistory(true);
+    try {
+      const token = sessionStorage.getItem('authToken');
+      const response = await fetch(getApiUrl('/api/leave-requests'), {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        },
+        credentials: 'include',
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        const requests = data.data || data.requests || data;
+        
+        // Filter to only approved/completed requests for this team member
+        const memberHistory = requests.filter((req: any) => 
+          (req.teamMember === teamMemberName || req.teamMemberName === teamMemberName) &&
+          (req.status === 'approved' || req.status === 'client-approved' || req.status === 'sent-to-payroll')
+        );
+        
+        // Sort by date, most recent first
+        memberHistory.sort((a: any, b: any) => 
+          new Date(b.startDate).getTime() - new Date(a.startDate).getTime()
+        );
+        
+        setLeaveHistory(memberHistory);
+      }
+    } catch (error) {
+      console.error('Error fetching leave history:', error);
+    } finally {
+      setLoadingHistory(false);
     }
   };
 
@@ -153,10 +264,19 @@ export default function OfficialLeaveForm() {
         
         // Reset form
         setFormData({
-          teamMemberName: '',
-          leaveType: 'Annual Leave',
+          teamMemberName: isTeamMember && user?.name ? user.name : '',
+          department: 'GTS',
+          leaveType: 'Annual',
           startDate: '',
           endDate: '',
+          attachDoctorsNote: false,
+          maternityEligibilityConfirmed: false,
+          address: '',
+          phoneNumber: '',
+          coverageName: '',
+          coveragePosition: '',
+          coverageAware: 'Yes',
+          signatureAcknowledge: false,
           reason: ''
         });
       } else {
@@ -178,8 +298,39 @@ export default function OfficialLeaveForm() {
       return;
     }
 
+    // Validate 2-week advance notice
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const startDate = new Date(formData.startDate);
+    startDate.setHours(0, 0, 0, 0);
+    const daysInAdvance = Math.floor((startDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+    
+    if (daysInAdvance < 14) {
+      alert('Leave requests must be submitted at least 2 weeks (14 days) in advance of your start date.\n\nThis allows sufficient time for approval processing. Please select a start date that is at least 2 weeks from today.');
+      return;
+    }
+
+    // Validate maternity leave eligibility confirmation
+    if (formData.leaveType === 'Maternity' && !formData.maternityEligibilityConfirmed) {
+      alert('For maternity leave, you must first notify your CSP and receive eligibility confirmation before submitting this form.\n\nPlease check the confirmation box once you have received approval from your CSP.');
+      return;
+    }
+
+    // Validate maternity leave requires EDD document
+    if (formData.leaveType === 'Maternity' && !eddDocument) {
+      alert('For maternity leave, you must upload your doctor\'s letter confirming your Expected Date of Delivery (EDD).');
+      return;
+    }
+
+    // Validate sick leave requires medical certificate (always required)
+    if (formData.leaveType === 'Sick Leave' && !doctorsNoteDocument) {
+      alert('A medical certificate is required for all sick leave requests.\n\nPlease upload your medical certificate from your healthcare provider.');
+      return;
+    }
+
     setSubmitting(true);
     setSubmitResult(null);
+    setCopiedRequestId(false); // Reset copy state
 
     try {
       // Calculate days
@@ -206,13 +357,26 @@ export default function OfficialLeaveForm() {
         },
         body: JSON.stringify({
           teamMember: formData.teamMemberName,
+          department: formData.department,
           leaveType: formData.leaveType,
           startDate: formData.startDate,
           endDate: formData.endDate,
-          reason: formData.reason,
           days: days,
+          attachDoctorsNote: formData.attachDoctorsNote,
+          address: formData.address,
+          phoneNumber: formData.phoneNumber,
+          coverageName: formData.coverageName,
+          coveragePosition: formData.coveragePosition,
+          coverageAware: formData.coverageAware,
+          reason: formData.reason,
           submittedBy: user?.name || formData.teamMemberName,
-          submissionMethod: 'official-form'
+          submissionMethod: 'official-form',
+          // Signature information
+          applicantSignature: {
+            signed: true,
+            name: formData.teamMemberName,
+            date: new Date().toISOString(),
+          }
         }),
       });
 
@@ -226,10 +390,19 @@ export default function OfficialLeaveForm() {
 
         // Reset form on success
         setFormData({
-          teamMemberName: '',
-          leaveType: 'Annual Leave',
+          teamMemberName: isTeamMember && user?.name ? user.name : '',
+          department: 'GTS',
+          leaveType: 'Annual',
           startDate: '',
           endDate: '',
+          attachDoctorsNote: false,
+          maternityEligibilityConfirmed: false,
+          address: '',
+          phoneNumber: '',
+          coverageName: '',
+          coveragePosition: '',
+          coverageAware: 'Yes',
+          signatureAcknowledge: false,
           reason: ''
         });
       } else {
@@ -252,15 +425,15 @@ export default function OfficialLeaveForm() {
 
   if (loading) {
     return (
-      <Card className="w-full">
+      <Card className="w-full dark:bg-gray-800 dark:border-gray-700">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <CardTitle className="flex items-center gap-2 dark:text-white">
             <FileText className="w-5 h-5" />
             Official Leave Application Form
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground">Loading form information...</p>
+          <p className="text-sm text-muted-foreground dark:text-gray-400">Loading form information...</p>
         </CardContent>
       </Card>
     );
@@ -269,143 +442,625 @@ export default function OfficialLeaveForm() {
   return (
     <div className="space-y-4">
       {/* PTO Balance Card */}
-      {ptoBalance && (
-        <Card className="w-full border-blue-200 bg-blue-50">
-          <CardHeader className="pb-3">
-            <CardTitle className="text-base text-blue-900">Your PTO Balance</CardTitle>
-            <CardDescription className="text-xs text-blue-700 mt-1">
-              Based on {ptoBalance.clientName ? 'Client days (as per client agreement)' : 'ZimWorx standard days'}
+      <Card className="w-full border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30">
+        <CardHeader className="pb-3">
+          <CardTitle className="text-base text-blue-900 dark:text-blue-300">Your PTO Balance</CardTitle>
+          <CardDescription className="text-xs text-blue-700 dark:text-blue-400 mt-1">
+            Based on Client PTO allocation
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          {loadingBalance ? (
+            <p className="text-sm text-gray-600 dark:text-gray-400 text-center py-4">Loading PTO balance...</p>
+          ) : ptoBalance ? (
+            ptoBalance.annualPTO !== undefined ? (
+              // Show only Used and Remaining for all users
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-4 bg-orange-50 dark:bg-orange-900/30 rounded-lg border border-orange-200 dark:border-orange-700">
+                  <p className="text-sm text-orange-600 dark:text-orange-400 mb-2 font-semibold">Used</p>
+                  <p className="text-4xl font-bold text-orange-700 dark:text-orange-300">{ptoBalance.usedPTO}</p>
+                  <p className="text-xs text-orange-600 dark:text-orange-400 mt-2">days</p>
+                </div>
+                <div className="text-center p-4 bg-green-50 dark:bg-green-900/30 rounded-lg border border-green-200 dark:border-green-700">
+                  <p className="text-sm text-green-600 dark:text-green-400 mb-2 font-semibold">Remaining</p>
+                  <p className="text-4xl font-bold text-green-700 dark:text-green-300">{ptoBalance.remainingPTO}</p>
+                  <p className="text-xs text-green-600 dark:text-green-400 mt-2">days</p>
+                </div>
+              </div>
+            ) : (
+              // Simplified view for team members - only used and remaining
+              <div className="grid grid-cols-2 gap-6">
+                <div className="text-center p-4 bg-orange-50 dark:bg-orange-900/30 rounded-lg border border-orange-200 dark:border-orange-700">
+                  <p className="text-sm text-orange-600 dark:text-orange-400 mb-2 font-semibold">Used</p>
+                  <p className="text-4xl font-bold text-orange-700 dark:text-orange-300">{ptoBalance.used || 0}</p>
+                  <p className="text-xs text-orange-600 dark:text-orange-400 mt-2">days</p>
+                </div>
+                <div className="text-center p-4 bg-green-50 dark:bg-green-900/30 rounded-lg border border-green-200 dark:border-green-700">
+                  <p className="text-sm text-green-600 dark:text-green-400 mb-2 font-semibold">Remaining</p>
+                  <p className="text-4xl font-bold text-green-700 dark:text-green-300">{ptoBalance.remainingPTO || ptoBalance.remaining || 0}</p>
+                  <p className="text-xs text-green-600 dark:text-green-400 mt-2">days</p>
+                </div>
+              </div>
+            )
+          ) : (
+            <p className="text-sm text-gray-600 dark:text-gray-400 text-center py-4">PTO balance not available</p>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* PTO History Section */}
+      {isTeamMember && leaveHistory.length > 0 && (
+        <Card className="w-full border-purple-200 dark:border-purple-800 bg-purple-50 dark:bg-purple-900/30">
+          <CardHeader className="pb-3 cursor-pointer" onClick={() => setShowHistory(!showHistory)}>
+            <CardTitle className="text-base text-purple-900 dark:text-purple-300 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <History className="w-5 h-5" />
+                PTO History
+              </div>
+              <Badge variant="secondary" className="bg-purple-200 dark:bg-purple-800 text-purple-900 dark:text-purple-100">
+                {leaveHistory.length} {leaveHistory.length === 1 ? 'record' : 'records'}
+              </Badge>
+            </CardTitle>
+            <CardDescription className="text-xs text-purple-700 dark:text-purple-400 mt-1">
+              {showHistory ? 'Click to hide' : 'Click to view'} your approved leave history
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-3 gap-4">
-              <div className="text-center">
-                <p className="text-sm text-blue-600 mb-1">Annual PTO</p>
-                <p className="text-2xl font-bold text-blue-900">{ptoBalance.annualPTO}</p>
-                <p className="text-xs text-blue-600">{ptoBalance.clientName ? 'client days' : 'ZimWorx days'}</p>
-              </div>
-              <div className="text-center">
-                <p className="text-sm text-orange-600 mb-1">Used</p>
-                <p className="text-2xl font-bold text-orange-700">{ptoBalance.usedPTO}</p>
-                <p className="text-xs text-orange-600">{ptoBalance.clientName ? 'client days' : 'ZimWorx days'}</p>
-              </div>
-              <div className="text-center">
-                <p className="text-sm text-green-600 mb-1">Remaining</p>
-                <p className="text-2xl font-bold text-green-700">{ptoBalance.remainingPTO}</p>
-                <p className="text-xs text-green-600">{ptoBalance.clientName ? 'client days' : 'ZimWorx days'}</p>
-              </div>
-            </div>
-            
-            {/* Visual progress bar */}
-            <div className="mt-4">
-              <div className="w-full bg-gray-200 rounded-full h-3">
-                <div 
-                  className={`h-3 rounded-full transition-all ${
-                    ptoBalance.remainingPTO > 10 ? 'bg-green-500' : 
-                    ptoBalance.remainingPTO > 5 ? 'bg-yellow-500' : 'bg-red-500'
-                  }`}
-                  style={{ width: `${(ptoBalance.remainingPTO / ptoBalance.annualPTO) * 100}%` }}
-                ></div>
-              </div>
-              <p className="text-xs text-center text-gray-600 mt-1">
-                {Math.round((ptoBalance.remainingPTO / ptoBalance.annualPTO) * 100)}% remaining
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-      )}
-
-      {loadingBalance && (
-        <Card className="w-full border-gray-200">
-          <CardContent className="py-4">
-            <p className="text-sm text-gray-600 text-center">Loading PTO balance...</p>
-          </CardContent>
+          
+          {showHistory && (
+            <CardContent className="space-y-3">
+              {leaveHistory.slice(0, 5).map((request, index) => (
+                <div key={request.id || index} className="bg-white dark:bg-gray-800 p-3 rounded-lg border border-purple-200 dark:border-purple-700">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <Calendar className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                        <span className="font-semibold text-sm text-gray-900 dark:text-white">
+                          {new Date(request.startDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                          {request.endDate && request.startDate !== request.endDate && (
+                            <> - {new Date(request.endDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</>
+                          )}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-3 text-xs text-gray-600 dark:text-gray-400">
+                        <span className="font-medium text-purple-700 dark:text-purple-300">{request.leaveType || 'Leave'}</span>
+                        <span>•</span>
+                        <span>{request.days || 1} {request.days === 1 ? 'day' : 'days'}</span>
+                        {request.reason && (
+                          <>
+                            <span>•</span>
+                            <span className="truncate max-w-[200px]" title={request.reason}>{request.reason}</span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                    <Badge variant="outline" className="bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 border-green-300 dark:border-green-700 text-xs">
+                      Approved
+                    </Badge>
+                  </div>
+                </div>
+              ))}
+              
+              {leaveHistory.length > 5 && (
+                <p className="text-xs text-center text-purple-600 dark:text-purple-400 pt-2">
+                  Showing 5 most recent records out of {leaveHistory.length} total
+                </p>
+              )}
+            </CardContent>
+          )}
         </Card>
       )}
 
       {/* Generate Pre-Filled Form Section */}
-      <Card className="w-full">
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+      <Card className="w-full dark:bg-gray-800 dark:border-gray-700">
+        <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 dark:from-blue-700 dark:to-blue-800 text-white rounded-t-lg">
+          <CardTitle className="flex items-center gap-2 text-white">
             <FileDown className="w-5 h-5" />
-            Submit Leave Request
+            Leave Application Form
           </CardTitle>
-          <CardDescription>
-            Fill in your leave details below to submit your request
+          <CardDescription className="text-blue-100">
+            Labor Outsourcing - Official Leave Request Form
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="teamMemberName">Team Member Name *</Label>
-              <Input
-                id="teamMemberName"
-                placeholder="Enter full name"
-                value={formData.teamMemberName}
-                onChange={(e) => setFormData({ ...formData, teamMemberName: e.target.value })}
-                disabled={isTeamMember}
-                className={isTeamMember ? 'bg-gray-100' : ''}
-              />
-              {isTeamMember && (
-                <p className="text-xs text-gray-500">Your name is automatically filled</p>
+        <CardContent className="space-y-6 pt-6">
+          
+          {/* Section 1: Team Member Information */}
+          <div className="border dark:border-gray-700 rounded-lg overflow-hidden">
+            <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 border-b dark:border-gray-600">
+              <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Team Member Information</h4>
+            </div>
+            <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="teamMemberName" className="dark:text-gray-300">Name *</Label>
+                <Input
+                  id="teamMemberName"
+                  placeholder="Enter full name"
+                  value={formData.teamMemberName}
+                  onChange={(e) => setFormData({ ...formData, teamMemberName: e.target.value })}
+                  disabled={isTeamMember}
+                  className={isTeamMember ? 'bg-gray-100 dark:bg-gray-700' : 'dark:bg-gray-700 dark:border-gray-600 dark:text-white'}
+                />
+                {isTeamMember && (
+                  <p className="text-xs text-gray-500 dark:text-gray-400">Your name is automatically filled</p>
+                )}
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="department" className="dark:text-gray-300">Department</Label>
+                <Input
+                  id="department"
+                  value={formData.department}
+                  onChange={(e) => setFormData({ ...formData, department: e.target.value })}
+                  className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Section 2: Type of Leave */}
+          <div className="border dark:border-gray-700 rounded-lg overflow-hidden">
+            <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 border-b dark:border-gray-600">
+              <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Type of Leave *</h4>
+            </div>
+            <div className="p-4">
+              <div className="flex flex-wrap gap-3">
+                {(isTeamMember ? ['Annual', 'Compassionate', 'Maternity', 'Sick Leave'] : ['Annual', 'Compassionate', 'Maternity', 'Sick Leave', 'AWOL']).map((type) => (
+                  <button
+                    key={type}
+                    type="button"
+                    onClick={() => setFormData({ ...formData, leaveType: type, attachDoctorsNote: type === 'Sick Leave' ? formData.attachDoctorsNote : false })}
+                    className={`px-4 py-2 rounded-lg border-2 font-medium transition-all ${
+                      formData.leaveType === type
+                        ? type === 'AWOL' 
+                          ? 'border-red-600 bg-red-50 dark:bg-red-900/50 text-red-700 dark:text-red-300'
+                          : 'border-blue-600 bg-blue-50 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300'
+                        : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:border-gray-400 dark:hover:border-gray-500'
+                    }`}
+                  >
+                    {type}
+                  </button>
+                ))}
+              </div>
+              
+              {/* AWOL Notice */}
+              {formData.leaveType === 'AWOL' && (
+                <div className="mt-4 p-4 bg-red-50 dark:bg-red-900/30 rounded-lg border border-red-200 dark:border-red-800">
+                  <div className="mb-3">
+                    <p className="text-sm font-semibold text-red-900 dark:text-red-200 mb-2">🚨 AWOL (Absent Without Leave)</p>
+                    <ul className="text-xs text-red-800 dark:text-red-300 space-y-1 list-disc list-inside">
+                      <li>Use this when a team member fails to show up without notice</li>
+                      <li>Team member has not responded to communication attempts</li>
+                      <li>This will be flagged for HR review and disciplinary process</li>
+                      <li>Days marked as AWOL are unpaid unless later justified</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+              
+              {formData.leaveType === 'Sick Leave' && (
+                <div className="mt-4 p-4 bg-yellow-50 dark:bg-yellow-900/30 rounded-lg border border-yellow-200 dark:border-yellow-800">
+                  <div className="mb-3">
+                    <p className="text-sm font-semibold text-yellow-900 dark:text-yellow-200 mb-2">📋 Sick Leave Policy</p>
+                    <ul className="text-xs text-yellow-800 dark:text-yellow-300 space-y-1 list-disc list-inside">
+                      <li>Up to 90 days per year available</li>
+                      <li>Can be taken separately or consecutively</li>
+                      <li>Days do not carry over to the next year</li>
+                      <li>Medical certificate is required for all sick leave</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="mt-3 pt-3 border-t border-yellow-200 dark:border-yellow-700">
+                    <div className="p-3 bg-yellow-100 dark:bg-yellow-800/50 rounded border border-yellow-300 dark:border-yellow-700">
+                      <p className="font-medium text-yellow-800 dark:text-yellow-300 mb-2">📎 Upload Medical Certificate (Required)</p>
+                      
+                      <input
+                        ref={doctorsNoteInputRef}
+                        type="file"
+                        id="doctorsNoteDocument"
+                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0] || null;
+                          setDoctorsNoteDocument(file);
+                        }}
+                        className="hidden"
+                      />
+                      
+                      {!doctorsNoteDocument ? (
+                        <button
+                          type="button"
+                          onClick={() => doctorsNoteInputRef.current?.click()}
+                          className="flex items-center gap-2 px-4 py-2 bg-yellow-600 hover:bg-yellow-700 text-white rounded-lg transition-colors"
+                        >
+                          <Upload className="w-4 h-4" />
+                          Upload Medical Certificate
+                        </button>
+                      ) : (
+                        <div className="flex items-center gap-3 p-2 bg-white dark:bg-gray-700 rounded border border-yellow-300 dark:border-yellow-600">
+                          <FileText className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
+                          <span className="flex-1 text-sm text-gray-700 dark:text-gray-300 truncate">
+                            {doctorsNoteDocument.name}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setDoctorsNoteDocument(null);
+                              if (doctorsNoteInputRef.current) {
+                                doctorsNoteInputRef.current.value = '';
+                              }
+                            }}
+                            className="p-1 text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30 rounded"
+                            title="Remove file"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      )}
+                      
+                      <p className="text-xs text-yellow-600 dark:text-yellow-400 mt-2">
+                        Accepted formats: PDF, DOC, DOCX, JPG, PNG
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {formData.leaveType === 'Compassionate' && (
+                <div className="mt-4 p-4 bg-purple-50 dark:bg-purple-900/30 rounded-lg border border-purple-200 dark:border-purple-800">
+                  <div className="mb-2">
+                    <p className="text-sm font-semibold text-purple-900 dark:text-purple-200 mb-2">💜 Compassionate Leave Policy</p>
+                    <ul className="text-xs text-purple-800 dark:text-purple-300 space-y-1 list-disc list-inside">
+                      <li>Up to 10 days available per year</li>
+                      <li>Granted for bereavement or family emergencies</li>
+                      <li>Contact your CSP for approval</li>
+                    </ul>
+                  </div>
+                </div>
+              )}
+              {formData.leaveType === 'Maternity' && (
+                <div className="mt-4 p-4 bg-pink-50 dark:bg-pink-900/30 rounded-lg border border-pink-200 dark:border-pink-800">
+                  <h5 className="font-semibold text-pink-800 dark:text-pink-300 mb-3 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                    </svg>
+                    Maternity Leave - Important Steps
+                  </h5>
+                  
+                  <div className="space-y-3 text-sm text-pink-900 dark:text-pink-200">
+                    <div className="p-3 bg-yellow-100 dark:bg-yellow-900/50 rounded border border-yellow-300 dark:border-yellow-700">
+                      <p className="font-semibold text-yellow-800 dark:text-yellow-300">⚠️ Before completing this form:</p>
+                      <p className="text-yellow-700 dark:text-yellow-400 mt-1">Have you notified your CSP and received eligibility confirmation?</p>
+                    </div>
+                    
+                    <p className="font-medium">📌 Steps to follow:</p>
+                    <ol className="list-decimal list-inside space-y-2 ml-2">
+                      <li><span className="font-semibold">First:</span> Contact your CSP to notify them of your pregnancy, due date, and preferred leave start date <span className="text-pink-600 dark:text-pink-400">(at least 4 months before your due date)</span>.</li>
+                      <li><span className="font-semibold">Wait:</span> Your CSP will confirm your eligibility and entitled leave days.</li>
+                      <li><span className="font-semibold">Then:</span> Once confirmed eligible, return here to complete this form.</li>
+                    </ol>
+                    
+                    <div className="mt-4 p-3 bg-pink-100 dark:bg-pink-800/50 rounded border border-pink-300 dark:border-pink-700">
+                      <p className="font-medium mb-2">📎 Required: Doctor's letter confirming your Expected Date of Delivery (EDD)</p>
+                      
+                      <input
+                        ref={fileInputRef}
+                        type="file"
+                        id="eddDocument"
+                        accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0] || null;
+                          setEddDocument(file);
+                        }}
+                        className="hidden"
+                      />
+                      
+                      {!eddDocument ? (
+                        <button
+                          type="button"
+                          onClick={() => fileInputRef.current?.click()}
+                          className="flex items-center gap-2 px-4 py-2 bg-pink-600 hover:bg-pink-700 text-white rounded-lg transition-colors"
+                        >
+                          <Upload className="w-4 h-4" />
+                          Upload EDD Document
+                        </button>
+                      ) : (
+                        <div className="flex items-center gap-3 p-2 bg-white dark:bg-gray-700 rounded border border-pink-300 dark:border-pink-600">
+                          <FileText className="w-5 h-5 text-pink-600 dark:text-pink-400" />
+                          <span className="flex-1 text-sm text-gray-700 dark:text-gray-300 truncate">
+                            {eddDocument.name}
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setEddDocument(null);
+                              if (fileInputRef.current) {
+                                fileInputRef.current.value = '';
+                              }
+                            }}
+                            className="p-1 text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30 rounded"
+                            title="Remove file"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      )}
+                      
+                      <p className="text-xs text-pink-600 dark:text-pink-400 mt-2">
+                        Accepted formats: PDF, DOC, DOCX, JPG, PNG
+                      </p>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 mt-4 p-2 bg-green-50 dark:bg-green-900/30 rounded border border-green-200 dark:border-green-700">
+                      <input
+                        type="checkbox"
+                        id="maternityEligibilityConfirmed"
+                        checked={formData.maternityEligibilityConfirmed || false}
+                        onChange={(e) => setFormData({ ...formData, maternityEligibilityConfirmed: e.target.checked })}
+                        className="w-4 h-4 text-green-600 rounded"
+                      />
+                      <Label htmlFor="maternityEligibilityConfirmed" className="text-green-800 dark:text-green-300 text-sm">
+                        I have notified my CSP and received eligibility confirmation
+                      </Label>
+                    </div>
+                    
+                    <p className="text-xs text-pink-600 dark:text-pink-400 mt-2">
+                      ℹ️ Standard maternity leave is 98 days. Your CSP will handle all client communication and coordination.
+                    </p>
+                  </div>
+                </div>
               )}
             </div>
+          </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="leaveType">Leave Type *</Label>
-              <Select
-                value={formData.leaveType}
-                onValueChange={(value) => setFormData({ ...formData, leaveType: value })}
-              >
-                <SelectTrigger>
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="Annual Leave">Annual Leave</SelectItem>
-                  <SelectItem value="Sick Leave">Sick Leave</SelectItem>
-                  <SelectItem value="Maternity Leave">Maternity Leave</SelectItem>
-                  <SelectItem value="Bereavement Leave">Bereavement Leave</SelectItem>
-                  <SelectItem value="Unpaid Leave">Unpaid Leave</SelectItem>
-                </SelectContent>
-              </Select>
+          {/* Section 3: Leave Period */}
+          <div className="border dark:border-gray-700 rounded-lg overflow-hidden">
+            <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 border-b dark:border-gray-600">
+              <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Leave Period</h4>
             </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="startDate">Start Date *</Label>
-              <Input
-                id="startDate"
-                type="date"
-                value={formData.startDate}
-                onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-              />
+            <div className="p-4 space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="startDate" className="dark:text-gray-300">Request From *</Label>
+                  <Input
+                    id="startDate"
+                    type="date"
+                    value={formData.startDate}
+                    onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
+                    className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="endDate" className="dark:text-gray-300">To *</Label>
+                  <Input
+                    id="endDate"
+                    type="date"
+                    value={formData.endDate}
+                    onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
+                    className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label className="dark:text-gray-300">No. of Days</Label>
+                  <div className="h-10 flex items-center px-3 bg-gray-100 dark:bg-gray-700 rounded-md border dark:border-gray-600">
+                    <span className="font-semibold text-gray-900 dark:text-white">
+                      {formData.startDate && formData.endDate ? (() => {
+                        const start = new Date(formData.startDate);
+                        const end = new Date(formData.endDate);
+                      let days = 0;
+                      const current = new Date(start);
+                      while (current <= end) {
+                        const dayOfWeek = current.getDay();
+                        if (dayOfWeek !== 0 && dayOfWeek !== 6) days++;
+                        current.setDate(current.getDate() + 1);
+                      }
+                      return `${days} ${days === 1 ? 'day' : 'days'}`;
+                    })() : '0 days'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Holidays Warning */}
+              {holidays.length > 0 && (() => {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                const endDate = new Date(today);
+                endDate.setDate(endDate.getDate() + 90); // Next 90 days
+                
+                const upcomingHolidays = holidays
+                  .filter(h => {
+                    const holidayDate = new Date(h.date);
+                    return holidayDate >= today && holidayDate <= endDate;
+                  })
+                  .sort((a, b) => {
+                    const dateA = new Date(a.date).getTime();
+                    const dateB = new Date(b.date).getTime();
+                    // First sort by date
+                    if (dateA !== dateB) return dateA - dateB;
+                    // If same date, prioritize Zimbabwe holidays
+                    if (a.region === 'zimbabwe' && b.region !== 'zimbabwe') return -1;
+                    if (a.region !== 'zimbabwe' && b.region === 'zimbabwe') return 1;
+                    return 0;
+                  })
+                  .slice(0, 5);
+                
+                if (upcomingHolidays.length > 0) {
+                  return (
+                    <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-lg border-2 border-blue-200 dark:border-blue-700">
+                      <div className="flex items-start gap-3">
+                        <Calendar className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 flex-shrink-0" />
+                        <div className="flex-1">
+                          <h5 className="font-semibold text-blue-900 dark:text-blue-200 text-sm mb-2">
+                            📅 Upcoming Holidays - Next 90 Days
+                          </h5>
+                          <div className="space-y-2">
+                            {upcomingHolidays.map((holiday, idx) => {
+                              const holidayDate = new Date(holiday.date);
+                              const regionFlag = holiday.region === 'zimbabwe' ? '🇿🇼' : '🇺🇸';
+                              const regionLabel = holiday.region === 'zimbabwe' ? 'ZW' : 'US';
+                              return (
+                                <div key={idx} className="flex items-center justify-between text-sm bg-white dark:bg-gray-800 p-2 rounded border border-blue-200 dark:border-blue-700">
+                                  <div className="flex items-center gap-2">
+                                    <span className="text-lg">{regionFlag}</span>
+                                    <span className="font-medium text-gray-900 dark:text-white">{holiday.name}</span>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <Badge variant="outline" className="bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-600 text-xs">
+                                      {regionLabel}
+                                    </Badge>
+                                    <span className="text-gray-600 dark:text-gray-400 text-xs">
+                                      {holidayDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                    </span>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }
+                return null;
+              })()}
             </div>
+          </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="endDate">End Date *</Label>
-              <Input
-                id="endDate"
-                type="date"
-                value={formData.endDate}
-                onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-              />
+          {/* Section 4: Contactable Options */}
+          <div className="border dark:border-gray-700 rounded-lg overflow-hidden">
+            <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 border-b dark:border-gray-600">
+              <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Contactable Options</h4>
             </div>
+            <div className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="address" className="dark:text-gray-300">Address</Label>
+                <Input
+                  id="address"
+                  placeholder="Enter address while on leave"
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="phoneNumber" className="dark:text-gray-300">Phone Number</Label>
+                <Input
+                  id="phoneNumber"
+                  placeholder="Enter contact number"
+                  value={formData.phoneNumber}
+                  onChange={(e) => setFormData({ ...formData, phoneNumber: e.target.value })}
+                  className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                />
+              </div>
+            </div>
+          </div>
 
-            <div className="space-y-2 md:col-span-2">
-              <Label htmlFor="reason">Reason for Leave</Label>
+          {/* Section 5: Coverage */}
+          <div className="border dark:border-gray-700 rounded-lg overflow-hidden">
+            <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 border-b dark:border-gray-600">
+              <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Coverage (Who will handle your responsibilities)</h4>
+            </div>
+            <div className="p-4 grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="coverageName" className="dark:text-gray-300">Team Member Name</Label>
+                <Input
+                  id="coverageName"
+                  placeholder="Enter coverage person's name"
+                  value={formData.coverageName}
+                  onChange={(e) => setFormData({ ...formData, coverageName: e.target.value })}
+                  className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="coveragePosition" className="dark:text-gray-300">Position</Label>
+                <Input
+                  id="coveragePosition"
+                  placeholder="Enter position"
+                  value={formData.coveragePosition}
+                  onChange={(e) => setFormData({ ...formData, coveragePosition: e.target.value })}
+                  className="dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label className="dark:text-gray-300">Is the Team Member Aware?</Label>
+                <div className="flex gap-4 h-10 items-center">
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="coverageAware"
+                      value="Yes"
+                      checked={formData.coverageAware === 'Yes'}
+                      onChange={(e) => setFormData({ ...formData, coverageAware: e.target.value })}
+                      className="w-4 h-4 text-blue-600"
+                    />
+                    <span className="text-gray-900 dark:text-white">Yes</span>
+                  </label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="radio"
+                      name="coverageAware"
+                      value="No"
+                      checked={formData.coverageAware === 'No'}
+                      onChange={(e) => setFormData({ ...formData, coverageAware: e.target.value })}
+                      className="w-4 h-4 text-blue-600"
+                    />
+                    <span className="text-gray-900 dark:text-white">No</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 6: Additional Notes */}
+          <div className="border dark:border-gray-700 rounded-lg overflow-hidden">
+            <div className="bg-gray-100 dark:bg-gray-700 px-4 py-2 border-b dark:border-gray-600">
+              <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Additional Notes (Optional)</h4>
+            </div>
+            <div className="p-4">
               <Textarea
                 id="reason"
-                placeholder="Enter reason for leave request"
+                placeholder="Enter any additional notes or reason for leave"
                 value={formData.reason}
                 onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
                 rows={3}
+                className="dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
               />
             </div>
           </div>
 
+          {/* Section 7: Applicant Signature/Acknowledgment */}
+          <div className="border dark:border-gray-700 rounded-lg overflow-hidden border-blue-300 dark:border-blue-700">
+            <div className="bg-blue-50 dark:bg-blue-900/30 px-4 py-2 border-b dark:border-blue-700">
+              <h4 className="font-semibold text-blue-900 dark:text-blue-200 text-sm">✍️ Applicant Signature</h4>
+            </div>
+            <div className="p-4 space-y-4">
+              <div className="flex items-start gap-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                <input
+                  type="checkbox"
+                  id="signatureAcknowledge"
+                  checked={formData.signatureAcknowledge || false}
+                  onChange={(e) => setFormData({ ...formData, signatureAcknowledge: e.target.checked })}
+                  className="w-5 h-5 mt-0.5 text-blue-600 rounded"
+                />
+                <label htmlFor="signatureAcknowledge" className="text-sm text-gray-700 dark:text-gray-300">
+                  I, <strong className="text-gray-900 dark:text-white">{formData.teamMemberName || '[Your Name]'}</strong>, hereby confirm that the information provided in this leave application is accurate and complete. I understand that this submission serves as my electronic signature and consent for this leave request to be processed.
+                </label>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <label className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Applicant Name</label>
+                  <p className="font-semibold text-gray-900 dark:text-white">{formData.teamMemberName || '-'}</p>
+                </div>
+                <div>
+                  <label className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wide">Date of Signature</label>
+                  <p className="font-semibold text-gray-900 dark:text-white">{new Date().toLocaleDateString('en-GB')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Submit Buttons */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             <Button 
               onClick={handleSubmitLeaveRequest}
-              disabled={submitting || !formData.teamMemberName || !formData.startDate || !formData.endDate}
+              disabled={submitting || !formData.teamMemberName || !formData.startDate || !formData.endDate || !formData.signatureAcknowledge}
               className="w-full"
               size="lg"
               variant="default"
@@ -439,20 +1094,39 @@ export default function OfficialLeaveForm() {
           </div>
 
           {submitResult && (
-            <Alert className={submitResult.success ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50'}>
+            <Alert className={submitResult.success ? 'border-green-500 bg-green-50 dark:bg-green-900/30 dark:border-green-700' : 'border-red-500 bg-red-50 dark:bg-red-900/30 dark:border-red-700'}>
               {submitResult.success ? (
-                <CheckCircle className="h-4 w-4 text-green-600" />
+                <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
               ) : (
-                <AlertCircle className="h-4 w-4 text-red-600" />
+                <AlertCircle className="h-4 w-4 text-red-600 dark:text-red-400" />
               )}
               <AlertDescription>
                 {submitResult.success ? (
                   <div className="space-y-2">
-                    <p className="font-semibold text-green-800">
+                    <p className="font-semibold text-green-800 dark:text-green-300">
                       ✅ Leave request submitted successfully!
                     </p>
-                    <div className="text-sm text-green-700 space-y-1">
-                      <p><strong>Request ID:</strong> {submitResult.requestId}</p>
+                    <div className="text-sm text-green-700 dark:text-green-400 space-y-1">
+                      <div className="bg-green-100 dark:bg-green-800/40 p-3 rounded-lg border border-green-300 dark:border-green-600">
+                        <p className="text-xs font-semibold text-green-600 dark:text-green-300 mb-1">YOUR REQUEST ID (Auto-Generated)</p>
+                        <div className="flex items-center gap-2">
+                          <p className="text-2xl font-bold text-green-800 dark:text-green-200 font-mono tracking-wider flex-1">{submitResult.requestId}</p>
+                          <button
+                            onClick={() => copyRequestId(submitResult.requestId!)}
+                            className="p-2 bg-green-200 dark:bg-green-700 hover:bg-green-300 dark:hover:bg-green-600 rounded-md transition-colors"
+                            title="Copy Request ID"
+                          >
+                            {copiedRequestId ? (
+                              <Check className="w-4 h-4 text-green-800 dark:text-green-200" />
+                            ) : (
+                              <Copy className="w-4 h-4 text-green-800 dark:text-green-200" />
+                            )}
+                          </button>
+                        </div>
+                        <p className="text-xs text-green-600 dark:text-green-400 mt-1">
+                          {copiedRequestId ? '✓ Copied to clipboard!' : 'Click to copy this ID to track your request'}
+                        </p>
+                      </div>
                       <p><strong>Status:</strong> Ready for CSP Review</p>
                       {submitResult.validation && (
                         <p className="text-xs">
@@ -460,7 +1134,7 @@ export default function OfficialLeaveForm() {
                           {submitResult.validation.balance?.remainingPTO} days remaining
                         </p>
                       )}
-                      <p className="text-xs mt-2 pt-2 border-t border-green-300">
+                      <p className="text-xs mt-2 pt-2 border-t border-green-300 dark:border-green-700">
                         <strong>Next Steps:</strong><br />
                         1️⃣ CSP will review and validate<br />
                         2️⃣ Request forwarded to client for approval<br />
@@ -471,11 +1145,11 @@ export default function OfficialLeaveForm() {
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    <p className="font-semibold text-red-800">
+                    <p className="font-semibold text-red-800 dark:text-red-300">
                       ❌ {submitResult.error}
                     </p>
                     {submitResult.validationErrors && submitResult.validationErrors.length > 0 && (
-                      <ul className="text-sm text-red-700 list-disc list-inside">
+                      <ul className="text-sm text-red-700 dark:text-red-400 list-disc list-inside">
                         {submitResult.validationErrors.map((err: string, idx: number) => (
                           <li key={idx}>{err}</li>
                         ))}
@@ -486,27 +1160,14 @@ export default function OfficialLeaveForm() {
               </AlertDescription>
             </Alert>
           )}
-
-          <Alert>
-            <Info className="h-4 w-4" />
-            <AlertDescription className="text-xs space-y-2">
-              <p><strong>Two Options Available:</strong></p>
-              <ul className="list-disc list-inside space-y-1 ml-2">
-                <li><strong>Submit Leave Request:</strong> Directly enters the 5-step approval workflow 
-                (CSP Review → Client Approval → Payroll Notification → Records Update)</li>
-                <li><strong>Download Pre-Filled Form:</strong> Generate DOCX for printing, signing, 
-                or record-keeping purposes</li>
-              </ul>
-            </AlertDescription>
-          </Alert>
         </CardContent>
       </Card>
 
       {/* Workflow Status Section */}
       {submitResult?.success && (
-        <Card className="w-full border-green-200 bg-green-50">
+        <Card className="w-full border-green-200 dark:border-green-800 bg-green-50 dark:bg-green-900/30">
           <CardHeader>
-            <CardTitle className="text-base text-green-800">5-Step PTO Workflow Status</CardTitle>
+            <CardTitle className="text-base text-green-800 dark:text-green-300">5-Step PTO Workflow Status</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
@@ -515,9 +1176,9 @@ export default function OfficialLeaveForm() {
                   ✓
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-green-800">1. Request Received</p>
-                  <p className="text-sm text-green-600">Leave request submitted and validated</p>
-                  <div className="mt-1 flex items-center gap-1 text-xs text-green-700">
+                  <p className="font-medium text-green-800 dark:text-green-300">1. Request Received</p>
+                  <p className="text-sm text-green-600 dark:text-green-400">Leave request submitted and validated</p>
+                  <div className="mt-1 flex items-center gap-1 text-xs text-green-700 dark:text-green-400">
                     <Mail className="h-3 w-3" />
                     <span>Confirmation email sent to team member</span>
                   </div>
@@ -529,39 +1190,39 @@ export default function OfficialLeaveForm() {
                   2
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-800">2. CSP Review (Current)</p>
-                  <p className="text-sm text-gray-600">Checking PTO balance and parameters</p>
+                  <p className="font-medium text-gray-800 dark:text-gray-200">2. CSP Review (Current)</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Checking PTO balance and parameters</p>
                   <Badge className="mt-1 bg-yellow-500">In Progress</Badge>
                 </div>
               </div>
               
               <div className="flex items-start gap-3">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-600 font-bold text-sm">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-300 font-bold text-sm">
                   3
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-500">3. Client Approval</p>
-                  <p className="text-sm text-gray-400">Pending CSP review completion</p>
-                  <div className="mt-1 flex items-center gap-1 text-xs text-gray-400">
+                  <p className="font-medium text-gray-500 dark:text-gray-400">3. Approval Status</p>
+                  <p className="text-sm text-gray-400 dark:text-gray-500">Pending CSP review completion</p>
+                  <div className="mt-1 flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500">
                     <Mail className="h-3 w-3" />
-                    <span>Email will be sent to client for approval</span>
+                    <span>Email will be sent for approval</span>
                   </div>
                 </div>
               </div>
               
               <div className="flex items-start gap-3">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-600 font-bold text-sm">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-300 font-bold text-sm">
                   4
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-500">4. Approval Notifications</p>
-                  <p className="text-sm text-gray-400">Email notifications after client approval</p>
+                  <p className="font-medium text-gray-500 dark:text-gray-400">4. Approval Notifications</p>
+                  <p className="text-sm text-gray-400 dark:text-gray-500">Email notifications after client approval</p>
                   <div className="mt-1 space-y-0.5">
-                    <div className="flex items-center gap-1 text-xs text-gray-400">
+                    <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500">
                       <Mail className="h-3 w-3" />
                       <span>Team member (approval confirmation)</span>
                     </div>
-                    <div className="flex items-center gap-1 text-xs text-gray-400">
+                    <div className="flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500">
                       <Mail className="h-3 w-3" />
                       <span>Payroll department (for processing)</span>
                     </div>
@@ -570,12 +1231,12 @@ export default function OfficialLeaveForm() {
               </div>
               
               <div className="flex items-start gap-3">
-                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 text-gray-600 font-bold text-sm">
+                <div className="flex items-center justify-center w-8 h-8 rounded-full bg-gray-300 dark:bg-gray-600 text-gray-600 dark:text-gray-300 font-bold text-sm">
                   5
                 </div>
                 <div className="flex-1">
-                  <p className="font-medium text-gray-500">5. Update Records</p>
-                  <p className="text-sm text-gray-400">Absenteeism tracker will be updated</p>
+                  <p className="font-medium text-gray-500 dark:text-gray-400">5. Update Records</p>
+                  <p className="text-sm text-gray-400 dark:text-gray-500">Absenteeism tracker will be updated</p>
                 </div>
               </div>
             </div>
@@ -585,18 +1246,18 @@ export default function OfficialLeaveForm() {
 
       {/* Quick Query / Message CSP Component */}
       {isTeamMember && (
-        <Card className="border-blue-200 bg-blue-50">
+        <Card className="border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/30">
           <CardHeader>
-            <CardTitle className="text-lg flex items-center gap-2">
-              <Info className="h-5 w-5 text-blue-600" />
+            <CardTitle className="text-lg flex items-center gap-2 dark:text-white">
+              <Info className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               Have Questions About Your Leave Request?
             </CardTitle>
-            <CardDescription>
+            <CardDescription className="dark:text-gray-400">
               Send a quick message to your CSP about leave request queries or concerns
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <LeaveQueryMessaging />
+            <LeaveQueryMessaging defaultRequestId={submitResult?.requestId} />
           </CardContent>
         </Card>
       )}
@@ -606,12 +1267,19 @@ export default function OfficialLeaveForm() {
 }
 
 // Simple Leave Query Messaging Component
-function LeaveQueryMessaging() {
+function LeaveQueryMessaging({ defaultRequestId }: { defaultRequestId?: string }) {
   const [message, setMessage] = useState('');
-  const [requestId, setRequestId] = useState('');
+  const [requestId, setRequestId] = useState(defaultRequestId || '');
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const { user } = useAppContext();
+
+  // Update requestId when defaultRequestId changes (after form submission)
+  useEffect(() => {
+    if (defaultRequestId) {
+      setRequestId(defaultRequestId);
+    }
+  }, [defaultRequestId]);
 
   const handleSendQuery = async () => {
     if (!message.trim()) {
@@ -654,33 +1322,33 @@ function LeaveQueryMessaging() {
   return (
     <div className="space-y-4">
       <div>
-        <Label htmlFor="requestId">Request ID (Optional)</Label>
+        <Label htmlFor="requestId" className="dark:text-gray-300">Request ID (Optional)</Label>
         <Input
           id="requestId"
           type="text"
           placeholder="Enter Request ID if asking about specific request"
           value={requestId}
           onChange={(e) => setRequestId(e.target.value)}
-          className="mt-1"
+          className="mt-1 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
         />
       </div>
 
       <div>
-        <Label htmlFor="queryMessage">Your Message to CSP</Label>
+        <Label htmlFor="queryMessage" className="dark:text-gray-300">Your Message to CSP</Label>
         <Textarea
           id="queryMessage"
           placeholder="Example: When will my leave request be reviewed? Can I change my dates?"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           rows={4}
-          className="mt-1"
+          className="mt-1 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
         />
       </div>
 
       {sent && (
-        <Alert className="bg-green-50 border-green-200">
-          <CheckCircle className="h-4 w-4 text-green-600" />
-          <AlertDescription className="text-green-800">
+        <Alert className="bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-700">
+          <CheckCircle className="h-4 w-4 text-green-600 dark:text-green-400" />
+          <AlertDescription className="text-green-800 dark:text-green-300">
             ✓ Message sent to your CSP! They will respond shortly.
           </AlertDescription>
         </Alert>
@@ -694,7 +1362,7 @@ function LeaveQueryMessaging() {
         {sending ? 'Sending...' : 'Send Message to CSP'}
       </Button>
 
-      <p className="text-xs text-gray-500 text-center">
+      <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
         💡 Your CSP will receive this message and can respond via email or the system
       </p>
     </div>

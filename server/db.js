@@ -84,7 +84,21 @@ async function getAbsenteeismReports(csp) {
     }));
   } catch (error) {
     console.error('Database error in getAbsenteeismReports:', error.message);
-    // Return empty array as fallback
+    // Fallback to JSON file if database fails
+    try {
+      const __dirname = path.dirname(new URL(import.meta.url).pathname).replace(/^\/([A-Z]:)/, '$1');
+      const jsonPath = path.join(__dirname, 'absenteeismReports.json');
+      if (fs.existsSync(jsonPath)) {
+        const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+        console.log(`📁 Fallback: Loaded ${data.length} reports from JSON file`);
+        if (csp) {
+          return data.filter(r => r.csp === csp);
+        }
+        return data;
+      }
+    } catch (jsonError) {
+      console.error('JSON fallback error:', jsonError.message);
+    }
     return [];
   }
 }

@@ -57,12 +57,18 @@ async function getAuthClient() {
  * Structure:
  * - Row 1: Legend header (0)
  * - Rows 2-8: Legend (Sick, PTO, Holiday, No show/No Call, Offboarded, Emergency, Funeral)
- * - Row 10: MONTH NAME (e.g., JANUARY)
+ * - Row 10: MONTH NAME (e.g., JANUARY) or YEAR marker (e.g., 2024)
  * - Row 11: Headers (Team Member Name | day numbers)
  * - Rows 12+: Attendance data per employee
  * - Repeats for each month
+ * 
+ * Historical Data Support:
+ * - Automatically detects year markers (e.g., "2024", "2025")
+ * - Detects year rollovers (December -> January)
+ * - Defaults to starting from 2024 for historical tracking
+ * - Captures all months from all years in the sheet
  */
-export async function syncAbsenteeismFromSheets(spreadsheetId, range = 'Absenteesim tracker !A1:AH1000') {
+export async function syncAbsenteeismFromSheets(spreadsheetId, range = 'Absenteesim tracker !A1:AH1000', startYear = 2024) {
   try {
     const auth = await getAuthClient();
     const sheets = google.sheets({ version: 'v4', auth });
@@ -79,7 +85,9 @@ export async function syncAbsenteeismFromSheets(spreadsheetId, range = 'Absentee
     }
 
     const absenteeismRecords = [];
-    const currentYear = new Date().getFullYear();
+    let currentYear = startYear || 2024; // Start from specified year or default to 2024
+    
+    console.log(`📊 Starting absenteeism sync from year: ${currentYear}`);
     
     // Parse legend (rows 2-8)
     const legend = {
@@ -92,11 +100,22 @@ export async function syncAbsenteeismFromSheets(spreadsheetId, range = 'Absentee
       funeral: 'Funeral'
     };
 
-    // Find month sections
+    // Find month sections - track all months across years
     let i = 0;
+    let lastMonthNumber = 0; // Track to detect year transitions
+    
     while (i < rows.length) {
       const row = rows[i];
       const firstCell = row[0]?.trim().toUpperCase();
+      
+      // Check if this row contains a year marker (e.g., "2024", "2025", "2026")
+      const yearMatch = firstCell?.match(/^(20\d{2})$/);
+      if (yearMatch) {
+        currentYear = parseInt(yearMatch[1]);
+        console.log(`📅 Detected year marker: ${currentYear}`);
+        i++;
+        continue;
+      }
       
       // Check if this is a month header
       const months = ['JANUARY', 'FEBRUARY', 'MARCH', 'APRIL', 'MAY', 'JUNE', 
@@ -105,6 +124,13 @@ export async function syncAbsenteeismFromSheets(spreadsheetId, range = 'Absentee
       if (months.includes(firstCell)) {
         const monthName = firstCell;
         const monthNumber = months.indexOf(firstCell) + 1;
+        
+        // Detect year rollover: if we go from December (12) back to January (1), increment year
+        if (lastMonthNumber === 12 && monthNumber === 1) {
+          currentYear++;
+          console.log(`📅 Year rollover detected, now processing: ${currentYear}`);
+        }
+        lastMonthNumber = monthNumber;
         
         i++; // Move to header row (Team Member Name | day numbers)
         const headerRow = rows[i];

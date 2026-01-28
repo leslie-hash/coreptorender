@@ -128,15 +128,28 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
       
       console.log(`🎯 Navigating to module: '${targetModule}'`);
       
-      // Navigate - this triggers the parent component state change
-      onNavigate(targetModule);
-      
-      console.log('✅ Navigation command sent successfully');
-      
-      // Scroll to top after a brief delay to ensure DOM has updated
-      setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, 100);
+      // Force navigation by first going to a different module if already on target
+      // This ensures the useEffect triggers in AppLayout
+      if (targetModule === 'csp-review') {
+        onNavigate('notifications'); // Temporarily stay in notifications
+        setTimeout(() => {
+          onNavigate('csp-review'); // Then navigate to review queue
+          console.log('✅ Navigation to csp-review triggered');
+          
+          // Scroll to top after navigation
+          setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }, 100);
+        }, 50);
+      } else {
+        onNavigate(targetModule);
+        console.log('✅ Navigation command sent successfully');
+        
+        // Scroll to top after a brief delay
+        setTimeout(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }, 100);
+      }
     } else {
       console.error('❌ onNavigate is not defined! Cannot navigate.');
     }
@@ -193,13 +206,13 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
   const getPriorityColor = (priority: string) => {
     switch (priority) {
       case 'high':
-        return 'bg-red-100 text-red-800 border-red-300';
+        return 'bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 border-red-300 dark:border-red-700';
       case 'medium':
-        return 'bg-yellow-100 text-yellow-800 border-yellow-300';
+        return 'bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300 border-yellow-300 dark:border-yellow-700';
       case 'low':
-        return 'bg-blue-100 text-blue-800 border-blue-300';
+        return 'bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 border-blue-300 dark:border-blue-700';
       default:
-        return 'bg-gray-100 text-gray-800 border-gray-300';
+        return 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 border-gray-300 dark:border-gray-600';
     }
   };
 
@@ -228,7 +241,7 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 dark:border-blue-400"></div>
       </div>
     );
   }
@@ -237,18 +250,18 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-3xl font-bold tracking-tight">Notifications Center</h2>
-          <p className="text-muted-foreground">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Notifications Center</h2>
+          <p className="text-muted-foreground dark:text-gray-400">
             Stay updated on PTO requests, approvals, and upcoming leaves
           </p>
         </div>
         <div className="flex items-center gap-2">
-          <Badge variant="secondary" className="text-lg px-4 py-2">
+          <Badge variant="secondary" className="text-lg px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100">
             <Bell className="h-4 w-4 mr-2" />
             {unreadCount} Unread
           </Badge>
           {unreadCount > 0 && (
-            <Button onClick={markAllAsRead} variant="outline" size="sm">
+            <Button onClick={markAllAsRead} variant="outline" size="sm" className="dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700">
               <Check className="h-4 w-4 mr-2" />
               Mark All Read
             </Button>
@@ -262,6 +275,7 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
             variant={filter === 'all' ? 'default' : 'outline'}
             size="sm"
             onClick={() => setFilter('all')}
+            className={filter !== 'all' ? 'dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700' : ''}
           >
             All ({notifications.length})
           </Button>
@@ -269,6 +283,7 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
             variant={filter === 'unread' ? 'default' : 'outline'}
             size="sm"
             onClick={() => setFilter('unread')}
+            className={filter !== 'unread' ? 'dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700' : ''}
           >
             Unread ({notifications.filter(n => !n.read).length})
           </Button>
@@ -276,17 +291,18 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
             variant={filter === 'read' ? 'default' : 'outline'}
             size="sm"
             onClick={() => setFilter('read')}
+            className={filter !== 'read' ? 'dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700' : ''}
           >
             Read ({notifications.filter(n => n.read).length})
           </Button>
         </div>
 
         <Select value={typeFilter} onValueChange={setTypeFilter}>
-          <SelectTrigger className="w-[200px]">
+          <SelectTrigger className="w-[200px] dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
             <Filter className="h-4 w-4 mr-2" />
             <SelectValue placeholder="Filter by type" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="dark:bg-gray-800 dark:border-gray-700">
             <SelectItem value="all">All Types</SelectItem>
             <SelectItem value="new_request">New Requests</SelectItem>
             <SelectItem value="approved">Approved</SelectItem>
@@ -297,13 +313,13 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
         </Select>
       </div>
 
-      <ScrollArea className="h-[600px] rounded-md border">
+      <ScrollArea className="h-[600px] rounded-md border dark:border-gray-700 dark:bg-gray-900/50">
         <div className="space-y-4 p-4">
           {filteredNotifications.length === 0 ? (
-            <div className="text-center py-12 text-muted-foreground">
-              <Bell className="h-12 w-12 mx-auto mb-4 opacity-20" />
-              <p className="text-lg font-medium">No notifications</p>
-              <p className="text-sm">You're all caught up!</p>
+            <div className="text-center py-12 text-muted-foreground dark:text-gray-400">
+              <Bell className="h-12 w-12 mx-auto mb-4 opacity-20 dark:opacity-30" />
+              <p className="text-lg font-medium dark:text-gray-300">No notifications</p>
+              <p className="text-sm dark:text-gray-500">You're all caught up!</p>
             </div>
           ) : (
             filteredNotifications.map((notification) => (
@@ -311,8 +327,8 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
                 key={notification.id}
                 className={`transition-all duration-200 hover:shadow-lg hover:scale-[1.01] cursor-pointer border-2 ${
                   !notification.read 
-                    ? 'bg-blue-50 border-blue-300 hover:border-blue-400' 
-                    : 'bg-white border-gray-200 hover:border-gray-300'
+                    ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-300 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-500' 
+                    : 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600'
                 }`}
                 onClick={() => handleNotificationClick(notification)}
               >
@@ -325,22 +341,20 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
                     <div className="flex-1 space-y-2">
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1">
-                          <h3 className={`font-semibold ${!notification.read ? 'text-blue-900' : ''}`}>
+                          <h3 className={`font-semibold ${!notification.read ? 'text-blue-900 dark:text-blue-300' : 'text-gray-900 dark:text-white'}`}>
                             {notification.title}
                           </h3>
                           {notification.teamMember && (
-                            <p className="text-sm text-muted-foreground">
+                            <p className="text-sm text-muted-foreground dark:text-gray-400">
                               Team Member: {notification.teamMember}
                             </p>
                           )}
                         </div>
                         <div className="flex items-center gap-2">
-                          <Badge className={getPriorityColor(notification.priority)}>
-                            {notification.priority}
-                          </Badge>
                           <Button
                             variant="ghost"
                             size="sm"
+                            className="dark:text-gray-400 dark:hover:text-gray-200 dark:hover:bg-gray-700"
                             onClick={(e) => {
                               e.stopPropagation();
                               deleteNotification(notification.id);
@@ -351,20 +365,20 @@ const NotificationsCenter: React.FC<NotificationsCenterProps> = ({ onNavigate })
                         </div>
                       </div>
 
-                      <p className="text-sm text-gray-700">{notification.message}</p>
+                      <p className="text-sm text-gray-700 dark:text-gray-300">{notification.message}</p>
 
                       {notification.leaveType && (
-                        <Badge variant="outline" className="text-xs">
+                        <Badge variant="outline" className="text-xs dark:border-gray-600 dark:text-gray-300">
                           {notification.leaveType}
                         </Badge>
                       )}
 
                       <div className="flex items-center justify-between mt-3">
-                        <span className="text-xs text-muted-foreground">
+                        <span className="text-xs text-muted-foreground dark:text-gray-500">
                           {formatTimestamp(notification.timestamp)}
                         </span>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs text-blue-600 font-medium hover:text-blue-700">
+                          <span className="text-xs text-blue-600 dark:text-blue-400 font-medium hover:text-blue-700 dark:hover:text-blue-300">
                             Click to view →
                           </span>
                           {!notification.read && (

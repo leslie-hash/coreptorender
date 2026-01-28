@@ -8,7 +8,7 @@ import ExcelJS from 'exceljs';
 import dotenv from 'dotenv';
 import { google } from 'googleapis';
 import { createSession, verifySession } from './session.js';
-import { registerUser, validateLogin, resetPassword } from './auth.js';
+import { registerUser, validateLogin, resetPassword, getAllUsers, getUserByEmail } from './auth.js';
 import { bulkImportTeamMetaFromExcel } from './bulkImportTeamMeta.js';
 import { exportApprovedLeaveToExcel } from './exportBelinaLeave.js';
 import { getAttendanceRecords, updateAttendanceForLeave } from './attendance.js';
@@ -20,7 +20,7 @@ import { normalizeSheetData } from './normalizeSheetData.js';
 import { setupOfficialForm, getOfficialFormPath, isOfficialFormAvailable, getFormMetadata, parseLeaveFormUpload, generateFilledLeaveForm } from './officialLeaveForm.js';
 import { init as dbInit, getAbsenteeismReports, createAbsenteeismReport, updateAbsenteeismReport, deleteAbsenteeismReport } from './db.js';
 import { syncAbsenteeismFromSheets, deduplicateRecords, validateAbsenteeismRecord, getCachedRecords } from './absenteeismSync.js';
-import { readAbsenteeismFromGoogleSheets, getCachedAbsenteeismRecords, getAbsenteeismCacheMetadata } from './googleSheetsAbsenteeism.js';
+import { readAbsenteeismFromGoogleSheets, getCachedAbsenteeismRecords, getAbsenteeismCacheMetadata, getCSPAbsenteeismData } from './googleSheetsAbsenteeism.js';
 import { aggregate, groupBy, trend, predict, analyzeSentiment } from './analytics.js';
 import { validateRow, deduplicate } from './automation.js';
 import { syncTeamMembersFromSheets, syncTeamMembersFromWorkDetails, syncCSPSheet, syncAllCSPSheets, syncLeaveRequestsFromSheets, appendLeaveRequestToSheet, validateSheetConnection, syncPTOBalancesFromSheets } from './googleSheetsSync.js';
@@ -28,30 +28,99 @@ import syncAllSheets from './comprehensiveSync.js';
 import { syncAbsenteeismFromSheets as syncAbsenteeismGrid, getAbsenteeismSummary } from './absenteeismParser.js';
 import { syncCILLVerificationSchedule, updateCILLRecord, getCILLRecords } from './cillVerificationSync.js';
 import { calculateBusinessDays as calculateBusinessDaysWithHolidays, getUSFederalHolidayNames, countHolidaysInRange } from './holidays.js';
+import { sendNewLeaveRequestEmail, sendCSPApprovalToClientEmail, sendClientApprovalToPayrollEmail, sendPayrollPackageEmail, sendRejectionEmail, getEmailLogs } from './emailService.js';
+import { syncFromCentralizedSheet, syncFromPublishedCsv, loadClientCspMapping, syncFromMultiTabSheet } from './centralizedSheetSync.js';
 import multer from 'multer';
+import compression from 'compression';
 import './automation.js'; // Start scheduled jobs
+
+// MongoDB imports
+import { connectMongoDB, isMongoConnected } from './mongodb.js';
+import { User, TeamMember, LeaveRequest, CSPSummary, Notification, ApprovalHistory, Client, AbsenteeismReport } from './models/index.js';
 
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// File paths (avoid redundant path.join calls)
+const FILE_PATHS = {
+  leaveRequests: path.join(__dirname, 'leaveRequests.json'),
+  teamMemberMeta: path.join(__dirname, 'teamMemberMeta.json'),
+  users: path.join(__dirname, 'users.json'),
+  emailSettings: path.join(__dirname, 'emailSettings.json'),
+  integrationSettings: path.join(__dirname, 'integrationSettings.json'),
+  approvalHistory: path.join(__dirname, 'approvalHistory.json')
+};
+
+// In-memory cache for performance (5-30 second TTL)
+const dataCache = {
+  leaveRequests: { data: null, timestamp: 0, ttl: 5000 },
+  teamMemberMeta: { data: null, timestamp: 0, ttl: 10000 }
+};
+
+function getCachedData(key, filePath) {
+  const cache = dataCache[key];
+  const now = Date.now();
+  if (cache.data && (now - cache.timestamp) < cache.ttl) return cache.data;
+  if (fs.existsSync(filePath)) {
+    cache.data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    cache.timestamp = now;
+    return cache.data;
+  }
+  return null;
+}
+
+function clearCache(key) {
+  if (dataCache[key]) {
+    dataCache[key].data = null;
+    dataCache[key].timestamp = 0;
+  }
+}
+
 const app = express();
 const PORT = process.env.PORT || 4000;
 const TOKEN_PATH = './google-tokens.json';
 
+// Enable gzip compression for 60-80% smaller responses
+app.use(compression());
+
 // Configure CORS to allow credentials
 app.use(cors({
-  origin: [
-    'http://localhost:8080',
-    'https://corepto-zimworx.web.app',
-    'https://corepto-zimworx.firebaseapp.com'
-  ],
+  origin: function(origin, callback) {
+    // Allow requests from localhost, network IPs, and Firebase
+    const allowedOrigins = [
+      'http://localhost:8080',
+      'http://localhost:8081',
+      'https://corepto-zimworx.web.app',
+      'https://corepto-zimworx.firebaseapp.com'
+    ];
+    
+    // Allow any origin from local network (172.x.x.x, 192.168.x.x, 10.x.x.x) or localhost
+    if (!origin || 
+        allowedOrigins.includes(origin) ||
+        origin.startsWith('http://localhost:') ||
+        origin.startsWith('http://127.0.0.1:') ||
+        origin.match(/^http:\/\/(172|192|10)\.\d+\.\d+\.\d+:\d+$/)) {
+      callback(null, true);
+    } else {
+      callback(null, true); // For development, allow all origins
+    }
+  },
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'cache-control', 'pragma', 'expires', 'x-requested-with']
 }));
 app.use(express.json());
+
+// Disable all caching for API responses
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.set('Pragma', 'no-cache');
+  res.set('Expires', '0');
+  res.set('Surrogate-Control', 'no-store');
+  next();
+});
 
 // Serve public directory for static files (official forms)
 app.use('/public', express.static(path.join(__dirname, 'public')));
@@ -79,6 +148,14 @@ const getUserFromRequest = (req) => {
   } catch (error) {
     return null;
   }
+};
+
+// Pagination helper - extract and validate pagination params
+const getPaginationParams = (req) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+  return { page, limit, skip };
 };
 
 // AI-powered meeting notes endpoint using Mistral 7B
@@ -145,13 +222,241 @@ app.post('/api/meeting-notes/ai', async (req, res) => {
   }
 });
 
+// ============= EMAIL NOTIFICATION SYSTEM =============
+
+/**
+ * Send email notifications for leave request workflow
+ * @param {string} stage - 'submission', 'csp-approval', 'csp-rejection', 'client-approval', 'client-rejection', 'final-approval'
+ * @param {object} request - Leave request object
+ * @param {object} options - Additional options (cspName, clientEmail, notes, etc.)
+ */
+async function sendLeaveNotificationEmails(stage, request, options = {}) {
+  const emailSettingsPath = path.join(__dirname, 'emailSettings.json');
+  
+  if (!fs.existsSync(emailSettingsPath)) {
+    console.log('⚠️  Email settings not found, skipping email notifications');
+    return;
+  }
+  
+  const emailSettings = JSON.parse(fs.readFileSync(emailSettingsPath, 'utf8'));
+  
+  if (!emailSettings.enabled) {
+    console.log('📧 Email notifications disabled in settings');
+    return;
+  }
+  
+  try {
+    const nodemailer = await import('nodemailer');
+    const transporter = nodemailer.default.createTransport({
+      host: emailSettings.smtpHost,
+      port: emailSettings.smtpPort,
+      secure: false,
+      auth: {
+        user: emailSettings.smtpUser,
+        pass: emailSettings.smtpPassword
+      }
+    });
+    
+    const { cspName, clientEmail, notes, hrEmail, teamExperienceEmail } = options;
+    
+    // Determine recipients and email content based on stage
+    switch (stage) {
+      case 'submission':
+        // Team member submits → notify CSP
+        if (request.assignedToEmail) {
+          await transporter.sendMail({
+            from: `"${emailSettings.fromName}" <${emailSettings.fromEmail}>`,
+            to: request.assignedToEmail,
+            subject: `🔔 New Leave Request: ${request.teamMember}`,
+            html: `
+              <h2>New Leave Request Assigned to You</h2>
+              <p><strong>Team Member:</strong> ${request.teamMember}</p>
+              <p><strong>Client:</strong> ${request.clientName || 'N/A'}</p>
+              <p><strong>Leave Type:</strong> ${request.leaveType}</p>
+              <p><strong>Duration:</strong> ${request.startDate} to ${request.endDate} (${request.days} days)</p>
+              <p><strong>Reason:</strong> ${request.reason || 'N/A'}</p>
+              ${request.sickNoteUrl ? '<p><strong>Medical Certificate:</strong> Attached</p>' : ''}
+              <p><strong>PTO Balance:</strong> ${request.ptoBalance?.remainingPTO || 0} days remaining</p>
+              <br>
+              <p>Please review and approve/reject this request in the system.</p>
+            `
+          });
+          console.log(`✅ Email sent to CSP: ${request.assignedToEmail}`);
+        }
+        break;
+        
+      case 'csp-approval':
+        // CSP approves → notify team member, client, and optionally HR/Team Experience
+        const cspApprovalRecipients = [];
+        
+        // 1. Team member
+        if (request.submittedBy) {
+          cspApprovalRecipients.push({
+            email: request.submittedBy,
+            name: request.teamMember,
+            role: 'Team Member'
+          });
+        }
+        
+        // 2. Client (if email provided)
+        if (clientEmail) {
+          cspApprovalRecipients.push({
+            email: clientEmail,
+            name: request.clientName || 'Client',
+            role: 'Client'
+          });
+        }
+        
+        // Send individual emails
+        for (const recipient of cspApprovalRecipients) {
+          const isTeamMember = recipient.role === 'Team Member';
+          await transporter.sendMail({
+            from: `"${emailSettings.fromName}" <${emailSettings.fromEmail}>`,
+            to: recipient.email,
+            subject: isTeamMember 
+              ? `✅ Leave Request Approved by CSP` 
+              : `📋 Leave Request Pending Your Approval: ${request.teamMember}`,
+            html: isTeamMember 
+              ? `
+                <h2>Your Leave Request Has Been Approved by CSP</h2>
+                <p><strong>Leave Type:</strong> ${request.leaveType}</p>
+                <p><strong>Duration:</strong> ${request.startDate} to ${request.endDate} (${request.days} days)</p>
+                <p><strong>Approved By:</strong> ${cspName || request.cspApprovedBy}</p>
+                ${notes ? `<p><strong>Notes:</strong> ${notes}</p>` : ''}
+                <br>
+                <p>Your request is now pending ${request.clientName || 'client'} approval.</p>
+              `
+              : `
+                <h2>Leave Request Approval Needed</h2>
+                <p><strong>Team Member:</strong> ${request.teamMember}</p>
+                <p><strong>Leave Type:</strong> ${request.leaveType}</p>
+                <p><strong>Duration:</strong> ${request.startDate} to ${request.endDate} (${request.days} days)</p>
+                <p><strong>Reason:</strong> ${request.reason || 'N/A'}</p>
+                <p><strong>CSP Verified By:</strong> ${cspName || request.cspApprovedBy}</p>
+                ${notes ? `<p><strong>CSP Notes:</strong> ${notes}</p>` : ''}
+                <br>
+                <p>Please review and approve/reject this leave request.</p>
+              `
+          });
+          console.log(`✅ Email sent to ${recipient.role}: ${recipient.email}`);
+        }
+        break;
+        
+      case 'csp-rejection':
+        // CSP rejects → notify team member only
+        if (request.submittedBy) {
+          await transporter.sendMail({
+            from: `"${emailSettings.fromName}" <${emailSettings.fromEmail}>`,
+            to: request.submittedBy,
+            subject: `❌ Leave Request Rejected`,
+            html: `
+              <h2>Your Leave Request Has Been Rejected</h2>
+              <p><strong>Leave Type:</strong> ${request.leaveType}</p>
+              <p><strong>Duration:</strong> ${request.startDate} to ${request.endDate} (${request.days} days)</p>
+              <p><strong>Rejected By:</strong> ${cspName || request.cspRejectedBy}</p>
+              <p><strong>Reason:</strong> ${notes || request.cspNotes || 'Policy violation or insufficient information'}</p>
+              <br>
+              <p>Please contact your CSP if you have any questions.</p>
+            `
+          });
+          console.log(`✅ Rejection email sent to: ${request.submittedBy}`);
+        }
+        break;
+        
+      case 'client-approval':
+      case 'final-approval':
+        // Client/Final approval → notify team member, CSP, HR/Payroll, Team Experience
+        const approvalRecipients = [];
+        
+        // 1. Team member
+        if (request.submittedBy) {
+          approvalRecipients.push(request.submittedBy);
+        }
+        
+        // 2. CSP
+        if (request.assignedToEmail) {
+          approvalRecipients.push(request.assignedToEmail);
+        }
+        
+        // 3. HR/Payroll (from emailSettings)
+        if (emailSettings.payrollRecipients && emailSettings.payrollRecipients.length > 0) {
+          approvalRecipients.push(...emailSettings.payrollRecipients);
+        }
+        
+        // 4. Team Experience (if provided)
+        if (teamExperienceEmail) {
+          approvalRecipients.push(teamExperienceEmail);
+        }
+        
+        // Remove duplicates
+        const uniqueRecipients = [...new Set(approvalRecipients)];
+        
+        await transporter.sendMail({
+          from: `"${emailSettings.fromName}" <${emailSettings.fromEmail}>`,
+          to: uniqueRecipients.join(','),
+          subject: `✅ Leave Request Approved: ${request.teamMember}`,
+          html: `
+            <h2>Leave Request Fully Approved</h2>
+            <p><strong>Team Member:</strong> ${request.teamMember}</p>
+            <p><strong>Client:</strong> ${request.clientName || 'N/A'}</p>
+            <p><strong>Leave Type:</strong> ${request.leaveType}</p>
+            <p><strong>Duration:</strong> ${request.startDate} to ${request.endDate} (${request.days} days)</p>
+            <p><strong>Reason:</strong> ${request.reason || 'N/A'}</p>
+            <p><strong>Approved By CSP:</strong> ${request.cspApprovedBy}</p>
+            ${request.clientApprovedBy ? `<p><strong>Approved By Client:</strong> ${request.clientApprovedBy}</p>` : ''}
+            ${notes ? `<p><strong>Notes:</strong> ${notes}</p>` : ''}
+            <br>
+            <p><strong>Action Required:</strong></p>
+            <ul>
+              <li>HR/Payroll: Update payroll system</li>
+              <li>Team Experience: Update team calendar</li>
+              <li>CSP: Confirm leave tracking</li>
+            </ul>
+          `
+        });
+        console.log(`✅ Approval emails sent to: ${uniqueRecipients.join(', ')}`);
+        break;
+        
+      case 'client-rejection':
+        // Client rejects → notify team member and CSP
+        const rejectionRecipients = [];
+        
+        if (request.submittedBy) {
+          rejectionRecipients.push(request.submittedBy);
+        }
+        
+        if (request.assignedToEmail) {
+          rejectionRecipients.push(request.assignedToEmail);
+        }
+        
+        await transporter.sendMail({
+          from: `"${emailSettings.fromName}" <${emailSettings.fromEmail}>`,
+          to: rejectionRecipients.join(','),
+          subject: `❌ Leave Request Rejected by Client`,
+          html: `
+            <h2>Leave Request Rejected</h2>
+            <p><strong>Team Member:</strong> ${request.teamMember}</p>
+            <p><strong>Leave Type:</strong> ${request.leaveType}</p>
+            <p><strong>Duration:</strong> ${request.startDate} to ${request.endDate} (${request.days} days)</p>
+            <p><strong>Rejected By:</strong> ${request.clientName || 'Client'}</p>
+            <p><strong>Reason:</strong> ${notes || 'Business requirements'}</p>
+          `
+        });
+        console.log(`✅ Rejection emails sent to: ${rejectionRecipients.join(', ')}`);
+        break;
+    }
+  } catch (error) {
+    console.error('❌ Error sending email notifications:', error);
+  }
+}
+
 // ============= LEAVE REQUEST ENDPOINTS =============
 
 // Endpoint to update leave request status
 app.patch('/api/leave-requests/:id', async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const filePath = FILE_PATHS.leaveRequests;
   
   if (!['approved', 'rejected', 'pending'].includes(status)) {
     return res.status(400).json({ error: 'Invalid status value.' });
@@ -241,96 +546,202 @@ app.patch('/api/leave-requests/:id', async (req, res) => {
   }
 });
 
-// Endpoint to get all submitted leave requests with pagination
-app.get('/api/leave-requests', (req, res) => {
+// Endpoint to get all submitted leave requests with pagination - MongoDB version
+app.get('/api/leave-requests', async (req, res) => {
   const user = getUserFromRequest(req);
-  const filePath = path.join(__dirname, 'leaveRequests.json');
-  let leaveRequests = [];
   
-  if (fs.existsSync(filePath)) {
-    try {
-      leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    } catch (e) {
-      return res.status(500).json({ error: 'Failed to read leave requests.' });
-    }
-  }
-  
-  // Filter by CSP if user is CSP role
-  if (user && user.role === 'csp') {
-    const metaPath = path.join(__dirname, 'teamMemberMeta.json');
-    if (fs.existsSync(metaPath)) {
-      const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+  try {
+    let leaveRequests = [];
+    
+    if (isMongoConnected()) {
+      // Use MongoDB
+      let query = {};
       
-      // Match by email (with domain tolerance) or by name
-      const userEmailPrefix = user.email ? user.email.split('@')[0].toLowerCase() : '';
-      const userName = user.name ? user.name.toLowerCase() : '';
-      const cspName = user.cspName ? user.cspName.toLowerCase() : '';
+      // CSP filter - only show their team's requests
+      if (user && user.role === 'csp' && user.email) {
+        const teamMembers = await TeamMember.find({ csp: user.email }).select('teamMemberName').lean();
+        const allowedNames = teamMembers.map(m => m.teamMemberName);
+        console.log(`CSP Filter (MongoDB) - User: ${user.email}, Allowed team members: ${allowedNames.length}`);
+        
+        if (allowedNames.length > 0) {
+          query.$or = [
+            { teamMemberName: { $in: allowedNames } },
+            { teamMember: { $in: allowedNames } }
+          ];
+        } else {
+          // No team members, show nothing
+          return res.json({ data: [], page: 1, limit: 10, total: 0 });
+        }
+      }
       
-      const allowedNames = metaData
-        .filter(m => {
-          if (!m.csp) return false;
-          const cspEmailPrefix = m.csp.split('@')[0].toLowerCase();
-          const cspFullName = m.csp.toLowerCase();
-          
-          // Match by email prefix (ignore domain) or full name
-          return cspEmailPrefix === userEmailPrefix || 
-                 cspFullName === userName || 
-                 cspFullName === cspName ||
-                 m.csp === user.email ||
-                 m.csp === user.name;
-        })
-        .map(m => m.employeeId || m.teamMemberName);
+      // Client filter
+      if (user && user.role === 'client' && user.clientName) {
+        const teamMembers = await TeamMember.find({ 
+          $or: [{ client: user.clientName }, { clientEmail: user.email }]
+        }).select('teamMemberName').lean();
+        const allowedNames = teamMembers.map(m => m.teamMemberName);
+        query.$and = [
+          { $or: [{ teamMemberName: { $in: allowedNames } }, { teamMember: { $in: allowedNames } }] },
+          { status: 'pending-client-approval' }
+        ];
+      }
       
-      console.log(`CSP Filter - User: ${user.email}, Allowed team members: ${allowedNames.length}`);
-      leaveRequests = leaveRequests.filter(lr => allowedNames.includes(lr.teamMemberName) || allowedNames.includes(lr.teamMember));
-      console.log(`After CSP filter: ${leaveRequests.length} requests`);
+      // Team member filter - their own requests
+      const emailFilter = req.query.email;
+      if (emailFilter && user && (user.role === 'team-member' || !user.role)) {
+        const member = await TeamMember.findOne({ email: emailFilter.toLowerCase() }).lean();
+        const userRecord = await User.findOne({ email: emailFilter.toLowerCase() }).lean();
+        const teamMemberName = member?.teamMemberName || member?.employeeId || userRecord?.name;
+        
+        if (teamMemberName) {
+          query.$or = [
+            { teamMember: { $regex: new RegExp(`^${teamMemberName}$`, 'i') } },
+            { teamMemberName: { $regex: new RegExp(`^${teamMemberName}$`, 'i') } },
+            { submittedBy: { $regex: new RegExp(`^${teamMemberName}$`, 'i') } }
+          ];
+        } else {
+          return res.json({ data: [], page: 1, limit: 10, total: 0 });
+        }
+      }
+      
+      const total = await LeaveRequest.countDocuments(query);
+      const page = parseInt(req.query.page) || 1;
+      const limit = parseInt(req.query.limit) || 10;
+      const skip = (page - 1) * limit;
+      
+      leaveRequests = await LeaveRequest.find(query)
+        .sort({ submittedDate: -1, createdAt: -1 })
+        .skip(skip)
+        .limit(limit)
+        .lean();
+      
+      // Transform _id to id for frontend compatibility
+      leaveRequests = leaveRequests.map(req => ({
+        ...req,
+        id: req._id?.toString() || req.requestId || req.id,
+      }));
+      
+      console.log(`MongoDB: Found ${leaveRequests.length} leave requests (total: ${total})`);
+      
+      return res.json({ data: leaveRequests, page, limit, total });
     }
-  }
-  
-  // Filter by Client if user is client role
-  if (user && user.role === 'client' && user.clientName) {
-    const metaPath = path.join(__dirname, 'teamMemberMeta.json');
-    if (fs.existsSync(metaPath)) {
-      const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
-      // Find team members assigned to this client
-      const allowedNames = metaData
-        .filter(m => m.client === user.clientName || m.clientEmail === user.email)
-        .map(m => m.teamMemberName);
-      leaveRequests = leaveRequests.filter(lr => allowedNames.includes(lr.teamMember) && lr.status === 'pending-client-approval');
+    
+    // Fallback to JSON file
+    const filePath = FILE_PATHS.leaveRequests;
+    if (fs.existsSync(filePath)) {
+      try {
+        const content = fs.readFileSync(filePath, 'utf8');
+        leaveRequests = JSON.parse(content);
+        
+        if (!Array.isArray(leaveRequests)) {
+          console.error('leaveRequests.json is not an array:', typeof leaveRequests);
+          return res.status(500).json({ error: 'Invalid data format in leave requests file.' });
+        }
+      } catch (e) {
+        console.error('Error reading/parsing leaveRequests.json:', e.message);
+        return res.status(500).json({ error: 'Failed to read leave requests: ' + e.message });
+      }
     }
+    
+    // Filter by CSP if user is CSP role
+    if (user && user.role === 'csp' && user.email) {
+      const metaPath = FILE_PATHS.teamMemberMeta;
+      if (fs.existsSync(metaPath)) {
+        const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+        const allowedNames = metaData
+          .filter(m => m.csp === user.email)
+          .map(m => m.teamMemberName);
+        
+        console.log(`CSP Filter - User: ${user.email}, Allowed team members: ${allowedNames.length}`);
+        leaveRequests = leaveRequests.filter(lr => {
+          const teamMemberName = lr.teamMemberName || lr.teamMember || '';
+          return teamMemberName && allowedNames.includes(teamMemberName);
+        });
+        console.log(`After CSP filter: ${leaveRequests.length} requests for ${user.email}`);
+      }
+    }
+    
+    // Filter by Client if user is client role
+    if (user && user.role === 'client' && user.clientName) {
+      const metaPath = FILE_PATHS.teamMemberMeta;
+      if (fs.existsSync(metaPath)) {
+        const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+        const allowedNames = metaData
+          .filter(m => m.client === user.clientName || m.clientEmail === user.email)
+          .map(m => m.teamMemberName);
+        leaveRequests = leaveRequests.filter(lr => allowedNames.includes(lr.teamMember) && lr.status === 'pending-client-approval');
+      }
+    }
+    
+    // Filter by email for team members viewing their own requests
+    const emailFilter = req.query.email;
+    if (emailFilter && user && (user.role === 'team-member' || !user.role)) {
+      const metaPath = FILE_PATHS.teamMemberMeta;
+      let teamMemberName = null;
+      
+      if (fs.existsSync(metaPath)) {
+        const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+        const member = metaData.find(m => m.email && m.email.toLowerCase() === emailFilter.toLowerCase());
+        if (member) {
+          teamMemberName = member.employeeId || member.teamMemberName;
+        }
+      }
+      
+      const usersPath = FILE_PATHS.users;
+      if (!teamMemberName && fs.existsSync(usersPath)) {
+        const users = JSON.parse(fs.readFileSync(usersPath, 'utf-8'));
+        const matchedUser = users.find(u => u.email && u.email.toLowerCase() === emailFilter.toLowerCase());
+        if (matchedUser) {
+          teamMemberName = matchedUser.name;
+        }
+      }
+      
+      if (teamMemberName) {
+        leaveRequests = leaveRequests.filter(lr => 
+          (lr.teamMember && lr.teamMember.toLowerCase() === teamMemberName.toLowerCase()) ||
+          (lr.teamMemberName && lr.teamMemberName.toLowerCase() === teamMemberName.toLowerCase()) ||
+          (lr.submittedBy && lr.submittedBy.toLowerCase() === teamMemberName.toLowerCase())
+        );
+      } else {
+        leaveRequests = [];
+      }
+    }
+    
+    // Pagination logic
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const start = (page - 1) * limit;
+    const end = start + limit;
+    const paginated = leaveRequests.slice(start, end);
+    
+    res.json({
+      data: paginated,
+      page,
+      limit,
+      total: leaveRequests.length
+    });
+  } catch (error) {
+    console.error('Error fetching leave requests:', error);
+    res.status(500).json({ error: 'Failed to fetch leave requests' });
   }
-  
-  // Directors see all leave requests
-  
-  // Pagination logic
-  const page = parseInt(req.query.page) || 1;
-  const limit = parseInt(req.query.limit) || 10;
-  const start = (page - 1) * limit;
-  const end = start + limit;
-  const paginated = leaveRequests.slice(start, end);
-  
-  res.json({
-    data: paginated,
-    page,
-    limit,
-    total: leaveRequests.length
-  });
 });
 
 // Helper: Calculate PTO balance for team member
 function calculatePTOBalance(teamMemberName) {
-  const metaPath = path.join(__dirname, 'teamMemberMeta.json');
+  const metaPath = FILE_PATHS.teamMemberMeta;
   const leaveRequestsPath = path.join(__dirname, 'leaveRequests.json');
   
   // Get team member's annual PTO allowance (default 12 days)
   let annualPTO = 12;
   let clientName = null;
+  let email = null;
   if (fs.existsSync(metaPath)) {
     const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
     // Match by employeeId (the actual person name) not teamMemberName (client name)
     const member = metaData.find(m => m.employeeId === teamMemberName || m.teamMemberName === teamMemberName);
     annualPTO = member?.annualPTO || 12;
     clientName = member?.clientName || null;
+    email = member?.email || null;
   }
   
   // Calculate used PTO from approved/pending requests for current year
@@ -349,7 +760,8 @@ function calculatePTOBalance(teamMemberName) {
     annualPTO,
     usedPTO,
     remainingPTO: annualPTO - usedPTO,
-    clientName
+    clientName,
+    email
   };
 }
 
@@ -400,7 +812,21 @@ app.get('/api/pto-balance/:teamMemberName', (req, res) => {
   try {
     const { teamMemberName } = req.params;
     const balance = calculatePTOBalance(decodeURIComponent(teamMemberName));
-    res.json(balance);
+    
+    // Check if user is a team member viewing their own balance
+    const user = getUserFromRequest(req);
+    const isTeamMemberViewingOwn = user && user.role === 'team-member' && 
+                                    (user.name === decodeURIComponent(teamMemberName) || user.email === balance.email);
+    
+    // Return simplified balance for team members
+    if (isTeamMemberViewingOwn) {
+      res.json({
+        used: balance.usedPTO,
+        remaining: balance.remainingPTO
+      });
+    } else {
+      res.json(balance);
+    }
   } catch (error) {
     console.error('Error calculating PTO balance:', error);
     res.status(500).json({ error: 'Failed to calculate PTO balance' });
@@ -408,9 +834,9 @@ app.get('/api/pto-balance/:teamMemberName', (req, res) => {
 });
 
 // Endpoint to submit leave request (STEP 1: CSP submits)
-app.post('/api/submit-leave-request', (req, res) => {
+app.post('/api/submit-leave-request', async (req, res) => {
   const leaveRequest = req.body;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const filePath = FILE_PATHS.leaveRequests;
   let leaveRequests = [];
   
   if (fs.existsSync(filePath)) {
@@ -428,43 +854,69 @@ app.post('/api/submit-leave-request', (req, res) => {
   let teamMemberRole = null;
   
   try {
-    const teamMetaPath = path.join(__dirname, 'teamMemberMeta.json');
-    if (fs.existsSync(teamMetaPath)) {
-      const teamMeta = JSON.parse(fs.readFileSync(teamMetaPath, 'utf8'));
-      
-      // Search by employeeId (which contains the actual team member name in your structure)
-      const teamMemberData = teamMeta.find(tm => 
-        tm.employeeId === leaveRequest.teamMember || 
-        tm.teamMemberName === leaveRequest.teamMember ||
-        (tm.email && tm.email.toLowerCase().includes(leaveRequest.teamMember.toLowerCase()))
-      );
+    // First try MongoDB
+    if (isMongoConnected()) {
+      const teamMemberData = await TeamMember.findOne({
+        $or: [
+          { employeeId: leaveRequest.teamMember },
+          { teamMemberName: leaveRequest.teamMember },
+          { email: { $regex: new RegExp(leaveRequest.teamMember, 'i') } }
+        ]
+      }).lean();
       
       if (teamMemberData) {
-        // Extract CSP information
         if (teamMemberData.csp) {
-          // Check if csp field contains email or name
           if (teamMemberData.csp.includes('@')) {
             assignedCSPEmail = teamMemberData.csp;
             assignedCSP = teamMemberData.csp.split('@')[0].replace(/\./g, ' ').replace(/\b\w/g, l => l.toUpperCase());
           } else {
-            // CSP field contains name, try to find email
             assignedCSP = teamMemberData.csp;
-            // Construct likely email format
-            const cspEmailGuess = teamMemberData.csp.toLowerCase().replace(/\s+/g, '.') + '@zimworx.org';
-            assignedCSPEmail = cspEmailGuess;
+            assignedCSPEmail = teamMemberData.csp.toLowerCase().replace(/\s+/g, '.') + '@zimworx.com';
           }
         }
-        
-        // Extract client information (teamMemberName contains client in your structure)
-        clientName = teamMemberData.teamMemberName || 'Unassigned Client';
+        clientName = teamMemberData.clientName || teamMemberData.client || 'Unassigned Client';
         teamMemberRole = teamMemberData.department || 'Unassigned';
         
         console.log(`✓ Team Member: ${leaveRequest.teamMember}`);
         console.log(`✓ Client: ${clientName}`);
         console.log(`✓ CSP: ${assignedCSP} (${assignedCSPEmail})`);
         console.log(`✓ Role: ${teamMemberRole}`);
-      } else {
-        console.log(`⚠ Team member not found in metadata: ${leaveRequest.teamMember}`);
+      }
+    }
+    
+    // Fallback to JSON file if not found in MongoDB
+    if (!assignedCSPEmail) {
+      const teamMetaPath = path.join(__dirname, 'teamMemberMeta.json');
+      if (fs.existsSync(teamMetaPath)) {
+        const teamMeta = JSON.parse(fs.readFileSync(teamMetaPath, 'utf8'));
+        
+        const teamMemberData = teamMeta.find(tm => 
+          tm.employeeId === leaveRequest.teamMember || 
+          tm.teamMemberName === leaveRequest.teamMember ||
+          (tm.email && tm.email.toLowerCase().includes(leaveRequest.teamMember.toLowerCase()))
+        );
+        
+        if (teamMemberData) {
+          if (teamMemberData.csp) {
+            if (teamMemberData.csp.includes('@')) {
+              assignedCSPEmail = teamMemberData.csp;
+              assignedCSP = teamMemberData.csp.split('@')[0].replace(/\./g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+            } else {
+              assignedCSP = teamMemberData.csp;
+              const cspEmailGuess = teamMemberData.csp.toLowerCase().replace(/\s+/g, '.') + '@zimworx.org';
+              assignedCSPEmail = cspEmailGuess;
+            }
+          }
+          clientName = teamMemberData.teamMemberName || 'Unassigned Client';
+          teamMemberRole = teamMemberData.department || 'Unassigned';
+          
+          console.log(`✓ Team Member: ${leaveRequest.teamMember}`);
+          console.log(`✓ Client: ${clientName}`);
+          console.log(`✓ CSP: ${assignedCSP} (${assignedCSPEmail})`);
+          console.log(`✓ Role: ${teamMemberRole}`);
+        } else {
+          console.log(`⚠ Team member not found in metadata: ${leaveRequest.teamMember}`);
+        }
       }
     }
   } catch (error) {
@@ -516,6 +968,37 @@ app.post('/api/submit-leave-request', (req, res) => {
   
   fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
   
+  // Also save to MongoDB if connected
+  if (isMongoConnected()) {
+    try {
+      await LeaveRequest.create({
+        requestId: newRequest.id,
+        teamMember: newRequest.teamMember || newRequest.teamMemberName,
+        teamMemberName: newRequest.teamMemberName || newRequest.teamMember,
+        teamMemberEmail: newRequest.teamMemberEmail,
+        client: clientName,
+        clientName: clientName,
+        leaveType: newRequest.leaveType,
+        startDate: newRequest.startDate,
+        endDate: newRequest.endDate,
+        days: newRequest.days,
+        reason: newRequest.reason,
+        status: newRequest.status,
+        assignedTo: assignedCSP,
+        assignedToEmail: assignedCSPEmail,
+        sickNoteUrl: newRequest.sickNoteUrl,
+        submittedDate: new Date(),
+        createdAt: new Date()
+      });
+      console.log('✅ Leave request saved to MongoDB:', newRequest.id);
+    } catch (mongoErr) {
+      console.error('⚠️ Failed to save to MongoDB:', mongoErr.message);
+    }
+  }
+  
+  // Send email notification to CSP
+  await sendLeaveNotificationEmails('submission', newRequest);
+  
   // Create notification for assigned CSP
   createNotification({
     type: 'new_request',
@@ -543,30 +1026,58 @@ app.post('/api/submit-leave-request', (req, res) => {
 });
 
 // STEP 3: CSP Review & Forward to Client
-app.post('/api/leave-requests/:id/csp-review', (req, res) => {
+app.post('/api/leave-requests/:id/csp-review', async (req, res) => {
   const { id } = req.params;
   const { approved, notes, cspName } = req.body;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const filePath = FILE_PATHS.leaveRequests;
   
   console.log(`CSP Review endpoint called - ID: ${id}, Approved: ${approved}, CSP: ${cspName}`);
   
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: 'No leave requests found' });
+  let request = null;
+  let requestIndex = -1;
+  let leaveRequests = [];
+  let foundInMongo = false;
+  
+  // First try MongoDB
+  if (isMongoConnected()) {
+    try {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      const mongoRequest = await LeaveRequest.findOne(mongoQuery).lean();
+      if (mongoRequest) {
+        request = { ...mongoRequest, id: mongoRequest._id?.toString() || mongoRequest.requestId };
+        foundInMongo = true;
+        console.log(`Found request in MongoDB: ${request.id}, status: ${request.status}`);
+      }
+    } catch (mongoErr) {
+      console.error('MongoDB lookup error:', mongoErr.message);
+    }
   }
   
-  let leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const requestIndex = leaveRequests.findIndex(r => r.id === id);
+  // Fallback to JSON file
+  if (!request && fs.existsSync(filePath)) {
+    leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    requestIndex = leaveRequests.findIndex(r => r.id === id);
+    if (requestIndex !== -1) {
+      request = leaveRequests[requestIndex];
+      console.log(`Found request in JSON: ${request.id}, status: ${request.status}`);
+    }
+  }
   
-  if (requestIndex === -1) {
+  if (!request) {
     console.log(`Request not found: ${id}`);
     return res.status(404).json({ error: 'Leave request not found' });
   }
   
-  const request = leaveRequests[requestIndex];
-  
   console.log(`Current request status: ${request.status}`);
   
-  if (request.status !== 'csp-review') {
+  if (request.status !== 'csp-review' && request.status !== 'pending-csp-review') {
     console.log(`Invalid status for CSP review: ${request.status}`);
     return res.status(400).json({ error: 'Request is not in CSP review status' });
   }
@@ -577,6 +1088,12 @@ app.post('/api/leave-requests/:id/csp-review', (req, res) => {
     request.cspApprovedAt = new Date().toISOString();
     request.cspApprovedBy = cspName;
     request.cspNotes = notes;
+    
+    // Initialize history array if it doesn't exist
+    if (!request.history) {
+      request.history = [];
+    }
+    
     request.history.push({
       action: 'csp-approved',
       actor: cspName || 'CSP',
@@ -610,6 +1127,15 @@ app.post('/api/leave-requests/:id/csp-review', (req, res) => {
       leaveType: request.leaveType
     });
     
+    // Send email notification to client
+    const clientEmail = req.body.clientEmail || request.clientEmail;
+    if (clientEmail) {
+      console.log(`📧 Sending CSP approval email to client: ${clientEmail}`);
+      await sendCSPApprovalToClientEmail(request, clientEmail, cspName);
+    } else {
+      console.log('⚠️  No client email found for notification');
+    }
+    
     // Send Slack notification
     const integrationSettingsPath = path.join(__dirname, 'integrationSettings.json');
     if (fs.existsSync(integrationSettingsPath)) {
@@ -628,6 +1154,12 @@ app.post('/api/leave-requests/:id/csp-review', (req, res) => {
     request.cspRejectedAt = new Date().toISOString();
     request.cspRejectedBy = cspName;
     request.cspNotes = notes;
+    
+    // Initialize history array if it doesn't exist
+    if (!request.history) {
+      request.history = [];
+    }
+    
     request.history.push({
       action: 'csp-rejected',
       actor: cspName || 'CSP',
@@ -636,6 +1168,13 @@ app.post('/api/leave-requests/:id/csp-review', (req, res) => {
     });
     
     console.log(`Creating notification for team member: ${request.teamMember}`);
+    
+    // Send email notification for CSP rejection
+    await sendLeaveNotificationEmails('csp-rejection', request, {
+      cspName: cspName,
+      notes: notes
+    });
+    
     // Notify team member of rejection
     createNotification({
       type: 'request_denied',
@@ -652,31 +1191,94 @@ app.post('/api/leave-requests/:id/csp-review', (req, res) => {
     console.log(`Request ${id} rejection complete`);
   }
   
-  leaveRequests[requestIndex] = request;
-  fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
+  // Save to MongoDB if that's where we found it
+  if (foundInMongo && isMongoConnected()) {
+    try {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      const updateData = {
+        status: request.status,
+        cspApprovedAt: request.cspApprovedAt,
+        cspApprovedBy: request.cspApprovedBy,
+        cspRejectedAt: request.cspRejectedAt,
+        cspRejectedBy: request.cspRejectedBy,
+        cspNotes: request.cspNotes,
+        cspReviewedAt: new Date().toISOString(),
+        history: request.history
+      };
+      
+      await LeaveRequest.updateOne(mongoQuery, { $set: updateData });
+      console.log(`MongoDB: Updated leave request ${id} with status ${request.status}`);
+    } catch (mongoErr) {
+      console.error('MongoDB update error:', mongoErr.message);
+    }
+  }
+  
+  // Also save to JSON file if it exists there
+  if (requestIndex !== -1) {
+    leaveRequests[requestIndex] = request;
+    fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
+  }
   
   console.log(`Sending success response for request ${id}`);
   res.json({ success: true, request });
 });
 
 // STEP 4a: CSP Marks Client Approval (Offline - Email/Call/Meeting)
-app.post('/api/leave-requests/:id/mark-client-approved', (req, res) => {
+app.post('/api/leave-requests/:id/mark-client-approved', async (req, res) => {
   const { id } = req.params;
   const { approvalMethod, notes, clientName, cspName } = req.body;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const filePath = FILE_PATHS.leaveRequests;
   
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: 'No leave requests found' });
+  console.log(`Mark Client Approved endpoint called - ID: ${id}, Client: ${clientName}`);
+  
+  let request = null;
+  let requestIndex = -1;
+  let leaveRequests = [];
+  let foundInMongo = false;
+  
+  // First try MongoDB
+  if (isMongoConnected()) {
+    try {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      const mongoRequest = await LeaveRequest.findOne(mongoQuery).lean();
+      if (mongoRequest) {
+        request = { ...mongoRequest, id: mongoRequest._id?.toString() || mongoRequest.requestId, history: mongoRequest.history || [] };
+        foundInMongo = true;
+        console.log(`Found request in MongoDB: ${request.id}, status: ${request.status}`);
+      }
+    } catch (mongoErr) {
+      console.error('MongoDB lookup error:', mongoErr.message);
+    }
   }
   
-  let leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const requestIndex = leaveRequests.findIndex(r => r.id === id);
+  // Fallback to JSON file
+  if (!request && fs.existsSync(filePath)) {
+    leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    requestIndex = leaveRequests.findIndex(r => r.id === id);
+    if (requestIndex !== -1) {
+      request = leaveRequests[requestIndex];
+      console.log(`Found request in JSON: ${request.id}, status: ${request.status}`);
+    }
+  }
   
-  if (requestIndex === -1) {
+  if (!request) {
+    console.log(`Request not found: ${id}`);
     return res.status(404).json({ error: 'Leave request not found' });
   }
-  
-  const request = leaveRequests[requestIndex];
   
   if (request.status !== 'pending-client-approval') {
     return res.status(400).json({ error: 'Request is not pending client approval' });
@@ -688,12 +1290,63 @@ app.post('/api/leave-requests/:id/mark-client-approved', (req, res) => {
   request.clientApprovedBy = clientName || 'Client';
   request.clientApprovalMethod = approvalMethod || 'offline'; // email, call, meeting, system
   request.clientNotes = notes;
+  if (!request.history) request.history = [];
   request.history.push({
     action: 'client-approved-offline',
     actor: cspName || 'CSP',
     timestamp: new Date().toISOString(),
     note: `Client approved via ${approvalMethod || 'offline method'}. ${notes || ''}`
   });
+
+  // Save to MongoDB if that's where we found it
+  if (foundInMongo && isMongoConnected()) {
+    try {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      const updateData = {
+        status: request.status,
+        clientApprovedAt: request.clientApprovedAt,
+        clientApprovedBy: request.clientApprovedBy,
+        clientApprovalMethod: request.clientApprovalMethod,
+        clientNotes: request.clientNotes,
+        history: request.history
+      };
+      
+      await LeaveRequest.updateOne(mongoQuery, { $set: updateData });
+      console.log(`MongoDB: Updated leave request ${id} with status ${request.status}`);
+    } catch (mongoErr) {
+      console.error('MongoDB update error:', mongoErr.message);
+    }
+  }
+  
+  // Also save to JSON file if it exists there
+  if (requestIndex !== -1) {
+    leaveRequests[requestIndex] = request;
+    fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
+  }
+
+  // Send email notifications for client approval
+  console.log('📧 Sending client approval notifications');
+  await sendClientApprovalToPayrollEmail(request, clientName || 'Client');
+  
+  // Notify CSP via email
+  if (request.assignedToEmail) {
+    console.log(`📧 Notifying CSP ${request.assignedToEmail} of client approval`);
+    const { sendEmail } = await import('./emailService.js');
+    await sendEmail({
+      to: request.assignedToEmail,
+      subject: `✅ Client Approved: ${request.teamMember} - ${request.leaveType}`,
+      html: `<div style="font-family: Arial, sans-serif;"><h3>✅ Client Approval Confirmed</h3><p><strong>${clientName || 'Client'}</strong> has approved the following leave request:</p><ul><li><strong>Employee:</strong> ${request.teamMember}</li><li><strong>Type:</strong> ${request.leaveType}</li><li><strong>Duration:</strong> ${request.days} days</li><li><strong>Dates:</strong> ${request.startDate} to ${request.endDate}</li></ul><p><strong>Next Step:</strong> Please send the complete payroll package to payroll.</p></div>`,
+      text: `${clientName || 'Client'} has approved ${request.teamMember}'s leave request. Please send the payroll package.`,
+      metadata: { type: 'client_approved_notify_csp', requestId: id }
+    });
+  }
 
   // Notify CSP confirmation
   createNotification({
@@ -722,30 +1375,207 @@ app.post('/api/leave-requests/:id/mark-client-approved', (req, res) => {
     leaveType: request.leaveType
   });
 
-  leaveRequests[requestIndex] = request;
-  fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
-  
+  console.log(`Sending success response for mark-client-approved ${id}`);
   res.json({ success: true, request });
 });
 
+// ===== SIGNATURE ENDPOINTS =====
+
+// Add team member signature to leave request
+app.post('/api/leave-requests/:id/sign/team-member', async (req, res) => {
+  const { id } = req.params;
+  const { signature, signerName } = req.body;
+  
+  console.log(`Team Member Signature endpoint called - ID: ${id}, Signer: ${signerName}`);
+  
+  if (!signature) {
+    return res.status(400).json({ error: 'Signature is required' });
+  }
+  
+  try {
+    let request = null;
+    
+    if (isMongoConnected()) {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      request = await LeaveRequest.findOneAndUpdate(
+        mongoQuery,
+        {
+          teamMemberSignature: signature,
+          teamMemberSignedAt: new Date(),
+          $push: {
+            history: {
+              action: 'team-member-signed',
+              actor: signerName || 'Team Member',
+              timestamp: new Date().toISOString(),
+              note: 'Team member signed the leave request'
+            }
+          }
+        },
+        { new: true }
+      ).lean();
+      
+      if (request) {
+        console.log(`✅ Team member signature added for request ${id}`);
+        return res.json({ success: true, request: { ...request, id: request._id?.toString() } });
+      }
+    }
+    
+    // Fallback to JSON file
+    const filePath = FILE_PATHS.leaveRequests;
+    if (fs.existsSync(filePath)) {
+      const leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const requestIndex = leaveRequests.findIndex(r => r.id === id);
+      if (requestIndex !== -1) {
+        leaveRequests[requestIndex].teamMemberSignature = signature;
+        leaveRequests[requestIndex].teamMemberSignedAt = new Date().toISOString();
+        if (!leaveRequests[requestIndex].history) leaveRequests[requestIndex].history = [];
+        leaveRequests[requestIndex].history.push({
+          action: 'team-member-signed',
+          actor: signerName || 'Team Member',
+          timestamp: new Date().toISOString(),
+          note: 'Team member signed the leave request'
+        });
+        fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
+        return res.json({ success: true, request: leaveRequests[requestIndex] });
+      }
+    }
+    
+    return res.status(404).json({ error: 'Leave request not found' });
+  } catch (error) {
+    console.error('Error adding team member signature:', error);
+    return res.status(500).json({ error: 'Failed to add signature' });
+  }
+});
+
+// Add CSP signature to leave request
+app.post('/api/leave-requests/:id/sign/csp', async (req, res) => {
+  const { id } = req.params;
+  const { signature, signerName } = req.body;
+  
+  console.log(`CSP Signature endpoint called - ID: ${id}, Signer: ${signerName}`);
+  
+  if (!signature) {
+    return res.status(400).json({ error: 'Signature is required' });
+  }
+  
+  try {
+    let request = null;
+    
+    if (isMongoConnected()) {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      request = await LeaveRequest.findOneAndUpdate(
+        mongoQuery,
+        {
+          cspSignature: signature,
+          cspSignedAt: new Date(),
+          $push: {
+            history: {
+              action: 'csp-signed',
+              actor: signerName || 'CSP',
+              timestamp: new Date().toISOString(),
+              note: 'CSP signed the leave request upon approval'
+            }
+          }
+        },
+        { new: true }
+      ).lean();
+      
+      if (request) {
+        console.log(`✅ CSP signature added for request ${id}`);
+        return res.json({ success: true, request: { ...request, id: request._id?.toString() } });
+      }
+    }
+    
+    // Fallback to JSON file
+    const filePath = FILE_PATHS.leaveRequests;
+    if (fs.existsSync(filePath)) {
+      const leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      const requestIndex = leaveRequests.findIndex(r => r.id === id);
+      if (requestIndex !== -1) {
+        leaveRequests[requestIndex].cspSignature = signature;
+        leaveRequests[requestIndex].cspSignedAt = new Date().toISOString();
+        if (!leaveRequests[requestIndex].history) leaveRequests[requestIndex].history = [];
+        leaveRequests[requestIndex].history.push({
+          action: 'csp-signed',
+          actor: signerName || 'CSP',
+          timestamp: new Date().toISOString(),
+          note: 'CSP signed the leave request upon approval'
+        });
+        fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
+        return res.json({ success: true, request: leaveRequests[requestIndex] });
+      }
+    }
+    
+    return res.status(404).json({ error: 'Leave request not found' });
+  } catch (error) {
+    console.error('Error adding CSP signature:', error);
+    return res.status(500).json({ error: 'Failed to add signature' });
+  }
+});
+
 // STEP 4b: CSP Marks Client Rejection (Offline - Email/Call/Meeting)
-app.post('/api/leave-requests/:id/mark-client-rejected', (req, res) => {
+app.post('/api/leave-requests/:id/mark-client-rejected', async (req, res) => {
   const { id } = req.params;
   const { approvalMethod, notes, clientName, cspName } = req.body;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const filePath = FILE_PATHS.leaveRequests;
   
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: 'No leave requests found' });
+  console.log(`Mark Client Rejected endpoint called - ID: ${id}, Client: ${clientName}`);
+  
+  let request = null;
+  let requestIndex = -1;
+  let leaveRequests = [];
+  let foundInMongo = false;
+  
+  // First try MongoDB
+  if (isMongoConnected()) {
+    try {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      const mongoRequest = await LeaveRequest.findOne(mongoQuery).lean();
+      if (mongoRequest) {
+        request = { ...mongoRequest, id: mongoRequest._id?.toString() || mongoRequest.requestId, history: mongoRequest.history || [] };
+        foundInMongo = true;
+        console.log(`Found request in MongoDB: ${request.id}, status: ${request.status}`);
+      }
+    } catch (mongoErr) {
+      console.error('MongoDB lookup error:', mongoErr.message);
+    }
   }
   
-  let leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const requestIndex = leaveRequests.findIndex(r => r.id === id);
+  // Fallback to JSON file
+  if (!request && fs.existsSync(filePath)) {
+    leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    requestIndex = leaveRequests.findIndex(r => r.id === id);
+    if (requestIndex !== -1) {
+      request = leaveRequests[requestIndex];
+      console.log(`Found request in JSON: ${request.id}, status: ${request.status}`);
+    }
+  }
   
-  if (requestIndex === -1) {
+  if (!request) {
+    console.log(`Request not found: ${id}`);
     return res.status(404).json({ error: 'Leave request not found' });
   }
-  
-  const request = leaveRequests[requestIndex];
   
   if (request.status !== 'pending-client-approval') {
     return res.status(400).json({ error: 'Request is not pending client approval' });
@@ -757,11 +1587,50 @@ app.post('/api/leave-requests/:id/mark-client-rejected', (req, res) => {
   request.clientRejectedBy = clientName || 'Client';
   request.clientApprovalMethod = approvalMethod || 'offline';
   request.clientNotes = notes;
+  if (!request.history) request.history = [];
   request.history.push({
     action: 'client-rejected-offline',
     actor: cspName || 'CSP',
     timestamp: new Date().toISOString(),
     note: `Client rejected via ${approvalMethod || 'offline method'}. ${notes || ''}`
+  });
+
+  // Save to MongoDB if that's where we found it
+  if (foundInMongo && isMongoConnected()) {
+    try {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      const updateData = {
+        status: request.status,
+        clientRejectedAt: request.clientRejectedAt,
+        clientRejectedBy: request.clientRejectedBy,
+        clientApprovalMethod: request.clientApprovalMethod,
+        clientNotes: request.clientNotes,
+        history: request.history
+      };
+      
+      await LeaveRequest.updateOne(mongoQuery, { $set: updateData });
+      console.log(`MongoDB: Updated leave request ${id} with status ${request.status}`);
+    } catch (mongoErr) {
+      console.error('MongoDB update error:', mongoErr.message);
+    }
+  }
+  
+  // Also save to JSON file if it exists there
+  if (requestIndex !== -1) {
+    leaveRequests[requestIndex] = request;
+    fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
+  }
+
+  // Send email notifications for client rejection
+  await sendLeaveNotificationEmails('client-rejection', request, {
+    notes: notes
   });
 
   // Notify CSP confirmation
@@ -792,9 +1661,7 @@ app.post('/api/leave-requests/:id/mark-client-rejected', (req, res) => {
     leaveType: request.leaveType
   });
 
-  leaveRequests[requestIndex] = request;
-  fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
-  
+  console.log(`Sending success response for mark-client-rejected ${id}`);
   res.json({ success: true, request });
 });
 
@@ -803,7 +1670,7 @@ app.post('/api/leave-requests/:id/mark-client-rejected', (req, res) => {
 app.post('/api/leave-requests/:id/client-approval', (req, res) => {
   const { id } = req.params;
   const { approved, notes, clientName } = req.body;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const filePath = FILE_PATHS.leaveRequests;
   
   if (!fs.existsSync(filePath)) {
     return res.status(404).json({ error: 'No leave requests found' });
@@ -911,116 +1778,149 @@ app.post('/api/leave-requests/:id/client-approval', (req, res) => {
 });
 */
 
-// STEP 5: CSP Sends to Payroll (after client approval)
+// STEP 5: CSP Sends to Payroll (after client approval) - ENHANCED WITH COMPLETE PACKAGE
 app.post('/api/leave-requests/:id/send-to-payroll', async (req, res) => {
   const { id } = req.params;
-  const { cspName, notes, generateDocument } = req.body;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const { cspName, notes } = req.body;
+  const filePath = FILE_PATHS.leaveRequests;
   
-  if (!fs.existsSync(filePath)) {
-    return res.status(404).json({ error: 'No leave requests found' });
+  console.log(`Send to Payroll endpoint called - ID: ${id}, CSP: ${cspName}`);
+  
+  let request = null;
+  let requestIndex = -1;
+  let leaveRequests = [];
+  let foundInMongo = false;
+  
+  // First try MongoDB
+  if (isMongoConnected()) {
+    try {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      const mongoRequest = await LeaveRequest.findOne(mongoQuery).lean();
+      if (mongoRequest) {
+        request = { ...mongoRequest, id: mongoRequest._id?.toString() || mongoRequest.requestId, history: mongoRequest.history || [] };
+        foundInMongo = true;
+        console.log(`Found request in MongoDB: ${request.id}, status: ${request.status}`);
+      }
+    } catch (mongoErr) {
+      console.error('MongoDB lookup error:', mongoErr.message);
+    }
   }
   
-  let leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  const requestIndex = leaveRequests.findIndex(r => r.id === id);
+  // Fallback to JSON file
+  if (!request && fs.existsSync(filePath)) {
+    leaveRequests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    requestIndex = leaveRequests.findIndex(r => r.id === id);
+    if (requestIndex !== -1) {
+      request = leaveRequests[requestIndex];
+      console.log(`Found request in JSON: ${request.id}, status: ${request.status}`);
+    }
+  }
   
-  if (requestIndex === -1) {
+  if (!request) {
+    console.log(`Request not found: ${id}`);
     return res.status(404).json({ error: 'Leave request not found' });
   }
-  
-  const request = leaveRequests[requestIndex];
   
   if (request.status !== 'client-approved') {
     return res.status(400).json({ error: 'Request must be client-approved before sending to payroll' });
   }
-  
-  // Generate export document if requested
-  let documentPath = null;
-  if (generateDocument !== false) {
-    try {
-      // Export to Excel for payroll
-      const exportPath = path.join(__dirname, 'exports', `leave_${id}_${Date.now()}.xlsx`);
-      const ExcelJS = require('exceljs');
-      const workbook = new ExcelJS.Workbook();
-      const worksheet = workbook.addWorksheet('Leave Request');
-      
-      // Add headers
-      worksheet.columns = [
-        { header: 'Employee Name', key: 'employeeName', width: 20 },
-        { header: 'Leave Type', key: 'leaveType', width: 15 },
-        { header: 'Start Date', key: 'startDate', width: 12 },
-        { header: 'End Date', key: 'endDate', width: 12 },
-        { header: 'Days', key: 'days', width: 8 },
-        { header: 'Reason', key: 'reason', width: 30 },
-        { header: 'Status', key: 'status', width: 15 },
-        { header: 'Client Approved', key: 'clientApproved', width: 15 }
-      ];
-      
-      // Add request data
-      worksheet.addRow({
-        employeeName: request.employeeName || request.teamMember,
-        leaveType: request.leaveType,
-        startDate: request.startDate,
-        endDate: request.endDate,
-        days: request.days,
-        reason: request.reason,
-        status: 'Client Approved',
-        clientApproved: new Date(request.clientApprovedAt).toLocaleDateString()
-      });
-      
-      // Create exports directory if it doesn't exist
-      const exportsDir = path.join(__dirname, 'exports');
-      if (!fs.existsSync(exportsDir)) {
-        fs.mkdirSync(exportsDir, { recursive: true });
-      }
-      
-      await workbook.xlsx.writeFile(exportPath);
-      documentPath = `/api/leave-requests/${id}/download-export`;
-      request.exportDocument = exportPath;
-      
-    } catch (exportError) {
-      console.error('Document generation error:', exportError);
-      // Continue without document if export fails
+
+  console.log('📦 Creating comprehensive payroll package for:', request.id);
+
+  // Generate comprehensive payroll package (ZIP with official form + supporting docs)
+  let packageResult = null;
+  try {
+    const { createPayrollPackage } = await import('./payrollPackageGenerator.js');
+    packageResult = await createPayrollPackage(request);
+    
+    if (packageResult.success) {
+      console.log('✅ Payroll package created successfully');
+      request.payrollPackagePath = packageResult.zipPath;
+      request.payrollPackageUrl = packageResult.downloadUrl;
+    } else {
+      console.error('❌ Package generation failed:', packageResult.error);
     }
+  } catch (packageError) {
+    console.error('❌ Error generating payroll package:', packageError);
+    // Continue without package if generation fails
   }
   
-  // Send to payroll
+  // Update request status
   request.status = 'payroll-processing';
   request.sentToPayrollAt = new Date().toISOString();
   request.sentToPayrollBy = cspName;
+  if (!request.history) request.history = [];
   request.history.push({
     action: 'sent-to-payroll',
     actor: cspName || 'CSP',
     timestamp: new Date().toISOString(),
-    note: notes || 'Sent to payroll for processing',
-    documentGenerated: !!documentPath
+    note: notes || 'Comprehensive payroll package sent for processing',
+    packageGenerated: !!packageResult?.success,
+    packageUrl: packageResult?.downloadUrl
   });
   
-  leaveRequests[requestIndex] = request;
-  fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
+  // Save to MongoDB if that's where we found it
+  if (foundInMongo && isMongoConnected()) {
+    try {
+      const mongoose = await import('mongoose');
+      let mongoQuery = {};
+      if (mongoose.default.Types.ObjectId.isValid(id)) {
+        mongoQuery = { _id: id };
+      } else {
+        mongoQuery = { $or: [{ requestId: id }, { id: id }] };
+      }
+      
+      const updateData = {
+        status: request.status,
+        sentToPayrollAt: request.sentToPayrollAt,
+        sentToPayrollBy: request.sentToPayrollBy,
+        payrollPackagePath: request.payrollPackagePath,
+        payrollPackageUrl: request.payrollPackageUrl,
+        history: request.history
+      };
+      
+      await LeaveRequest.updateOne(mongoQuery, { $set: updateData });
+      console.log(`MongoDB: Updated leave request ${id} with status ${request.status}`);
+    } catch (mongoErr) {
+      console.error('MongoDB update error:', mongoErr.message);
+    }
+  }
+  
+  // Also save to JSON file if it exists there
+  if (requestIndex !== -1) {
+    leaveRequests[requestIndex] = request;
+    fs.writeFileSync(filePath, JSON.stringify(leaveRequests, null, 2));
+  }
   
   // Send to payroll system
   try {
     await sendApprovedLeaveToPayroll(request);
     
-    // Notify payroll
+    // Notify payroll with package download link
     createNotification({
       type: 'payroll_processing',
-      title: 'New Leave Request for Processing',
-      message: `${request.teamMember} - ${request.leaveType}: ${request.days} days (${request.startDate} to ${request.endDate}). Client approved. ${documentPath ? 'Document available for download.' : ''}`,
+      title: '📦 New Leave Request Package - Ready for Processing',
+      message: `${request.teamMember} - ${request.leaveType}: ${request.days} days (${request.startDate} to ${request.endDate}). Complete package includes official form, summary sheet, and all supporting documents.`,
       recipientRole: 'payroll',
       relatedId: id,
       priority: 'high',
       teamMember: request.teamMember,
       leaveType: request.leaveType,
-      actionUrl: documentPath
+      actionUrl: packageResult?.downloadUrl
     });
     
     // Notify CSP confirmation
     createNotification({
       type: 'sent_to_payroll',
-      title: 'Request Sent to Payroll',
-      message: `${request.teamMember}'s leave request has been sent to payroll for processing.`,
+      title: '✅ Package Sent to Payroll',
+      message: `${request.teamMember}'s complete leave request package has been sent to payroll for processing.`,
       recipientRole: 'csp',
       recipient: cspName,
       recipientEmail: request.assignedToEmail,
@@ -1030,11 +1930,28 @@ app.post('/api/leave-requests/:id/send-to-payroll', async (req, res) => {
       leaveType: request.leaveType
     });
     
+    // 📧 Send email notification to payroll with package download link
+    if (packageResult?.success && packageResult?.downloadUrl) {
+      console.log('📧 Sending payroll package email notification');
+      const fullPackageUrl = `${process.env.VITE_API_URL || 'http://localhost:4000'}${packageResult.downloadUrl}`;
+      await sendPayrollPackageEmail(request, fullPackageUrl, cspName || 'CSP');
+    } else {
+      console.log('⚠️  Package not generated, skipping email notification');
+    }
+    
+    // Send email notification to payroll with package link
+    if (packageResult?.success && packageResult?.downloadUrl) {
+      console.log('📧 Sending payroll package email notification');
+      const fullPackageUrl = `${process.env.VITE_API_URL || 'http://localhost:4000'}${packageResult.downloadUrl}`;
+      await sendPayrollPackageEmail(request, fullPackageUrl, cspName);
+    }
+    
     res.json({ 
       success: true, 
       request, 
-      message: 'Request sent to payroll successfully',
-      documentUrl: documentPath
+      message: 'Complete payroll package sent successfully',
+      packageUrl: packageResult?.downloadUrl,
+      packageDetails: packageResult?.contents
     });
   } catch (error) {
     console.error('Error sending to payroll:', error);
@@ -1045,7 +1962,7 @@ app.post('/api/leave-requests/:id/send-to-payroll', async (req, res) => {
 // Download individual leave request export document
 app.get('/api/leave-requests/:id/download-export', (req, res) => {
   const { id } = req.params;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const filePath = FILE_PATHS.leaveRequests;
   
   if (!fs.existsSync(filePath)) {
     return res.status(404).json({ error: 'No leave requests found' });
@@ -1165,10 +2082,34 @@ app.post('/api/leave-requests/export', async (req, res) => {
   }
 });
 
+// Download payroll package ZIP
+app.get('/api/payroll-packages/:filename', async (req, res) => {
+  const { filename } = req.params;
+  
+  // Security: Prevent directory traversal
+  if (filename.includes('..') || filename.includes('/') || filename.includes('\\')) {
+    return res.status(400).json({ error: 'Invalid filename' });
+  }
+  
+  const packagePath = path.join(__dirname, 'exports', 'payroll_packages', filename);
+  
+  if (!fs.existsSync(packagePath)) {
+    return res.status(404).json({ error: 'Package not found' });
+  }
+  
+  // Send the ZIP file
+  res.download(packagePath, filename, (err) => {
+    if (err) {
+      console.error('Download error:', err);
+      res.status(500).json({ error: 'Failed to download package' });
+    }
+  });
+});
+
 // Generate and download leave request document without sending to payroll
 app.post('/api/leave-requests/:id/generate-export', async (req, res) => {
   const { id } = req.params;
-  const filePath = path.join(__dirname, 'leaveRequests.json');
+  const filePath = FILE_PATHS.leaveRequests;
   
   if (!fs.existsSync(filePath)) {
     return res.status(404).json({ error: 'No leave requests found' });
@@ -1251,14 +2192,14 @@ if (fs.existsSync(TOKEN_PATH)) {
 }
 
 // Register new user
-app.post('/api/register', (req, res) => {
+app.post('/api/register', async (req, res) => {
   const { name, email, password, role } = req.body;
   if (!name || !email || !password || !role) {
     return res.status(400).json({ error: 'Missing fields' });
   }
   
-  // Validate allowed roles
-  const allowedRoles = ['admin', 'csp', 'finance', 'payroll', 'manager', 'user'];
+  // Validate allowed roles (including team-member)
+  const allowedRoles = ['admin', 'csp', 'finance', 'payroll', 'manager', 'user', 'team-member'];
   if (!allowedRoles.includes(role)) {
     return res.status(400).json({ error: `Invalid role. Allowed: ${allowedRoles.join(', ')}` });
   }
@@ -1267,8 +2208,51 @@ app.post('/api/register', (req, res) => {
     return res.status(400).json({ error: 'CSPs must use @zimworx.com email' });
   }
   
+  // For team-member role, verify email domain and existence in database
+  let cspEmail = null;
+  let cspName = null;
+  let clientName = null;
+  
+  if (role === 'team-member') {
+    const isValidDomain = email.endsWith('@zimworx.org') || email.endsWith('@zimworx.net');
+    if (!isValidDomain) {
+      return res.status(400).json({ 
+        error: 'Team members must use @zimworx.org or @zimworx.net email' 
+      });
+    }
+    
+    try {
+      const teamMember = await TeamMember.findOne({ 
+        email: email.toLowerCase() 
+      }).lean();
+      
+      if (!teamMember) {
+        return res.status(403).json({ 
+          error: 'Your email is not registered as a team member. Please contact your CSP or admin.' 
+        });
+      }
+      
+      // Auto-assign CSP and client from team member data
+      cspEmail = teamMember.csp || null;
+      cspName = teamMember.cspName || null;
+      clientName = teamMember.clientName || teamMember.client || null;
+      
+      console.log(`Team member ${email} auto-assigned to CSP: ${cspEmail}, Client: ${clientName}`);
+    } catch (err) {
+      console.error('Error checking team member:', err);
+    }
+  }
+  
   try {
-    const success = registerUser({ name, email, password, role });
+    const success = await registerUser({ 
+      name, 
+      email, 
+      password, 
+      role,
+      cspEmail,
+      cspName,
+      clientName
+    });
     if (!success) {
       return res.status(409).json({ error: 'User already exists' });
     }
@@ -1280,7 +2264,7 @@ app.post('/api/register', (req, res) => {
 });
 
 // Login
-app.post('/api/login', (req, res) => {
+app.post('/api/login', async (req, res) => {
   const { email, password } = req.body;
   console.log('Login attempt:', { email, hasPassword: !!password });
   
@@ -1290,7 +2274,7 @@ app.post('/api/login', (req, res) => {
   }
   
   try {
-    const user = validateLogin(email, password);
+    const user = await validateLogin(email, password);
     if (!user) {
       console.log('Invalid credentials for:', email);
       return res.status(401).json({ error: 'Invalid credentials' });
@@ -1326,14 +2310,14 @@ app.post('/api/verify-session', (req, res) => {
 });
 
 // Password reset
-app.post('/api/reset-password', (req, res) => {
+app.post('/api/reset-password', async (req, res) => {
   const { email, newPassword } = req.body;
   if (!email || !newPassword) {
     return res.status(400).json({ error: 'Missing fields' });
   }
   
   try {
-    const success = resetPassword(email, newPassword);
+    const success = await resetPassword(email, newPassword);
     if (!success) {
       return res.status(404).json({ error: 'User not found' });
     }
@@ -1344,9 +2328,14 @@ app.post('/api/reset-password', (req, res) => {
   }
 });
 
-// Get team member metadata (for CSP filtering)
-app.get('/api/team-member-meta', (req, res) => {
+// Get team member metadata (for CSP filtering) - MongoDB version
+app.get('/api/team-member-meta', async (req, res) => {
   try {
+    if (isMongoConnected()) {
+      const teamMembers = await TeamMember.find({}).lean();
+      return res.json(teamMembers);
+    }
+    // Fallback to JSON file
     const filePath = path.join(__dirname, 'teamMemberMeta.json');
     if (!fs.existsSync(filePath)) {
       return res.json([]);
@@ -1744,13 +2733,13 @@ app.get('/api/team-members', (req, res) => {
     const teamMembers = JSON.parse(data);
     
     // Filter by CSP if user is CSP role
-    if (user && user.role === 'csp' && user.cspName) {
+    if (user && user.role === 'csp' && user.email) {
       // Load metadata to check CSP assignments
-      const metaPath = path.join(__dirname, 'teamMemberMeta.json');
+      const metaPath = FILE_PATHS.teamMemberMeta;
       if (fs.existsSync(metaPath)) {
         const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
         const allowedNames = metaData
-          .filter(m => m.csp === user.cspName)
+          .filter(m => m.csp === user.email)
           .map(m => m.teamMemberName);
         const filtered = teamMembers.filter(name => allowedNames.includes(name));
         return res.json({ teamMembers: filtered });
@@ -1766,26 +2755,19 @@ app.get('/api/team-members', (req, res) => {
 });
 
 // Get detailed team member information with PTO balances
-app.get('/api/team-members-details', (req, res) => {
+app.get('/api/team-members-details', async (req, res) => {
   try {
     const user = getUserFromRequest(req);
     
-    // Read team member metadata (contains actual member info)
-    const metaPath = path.join(__dirname, 'teamMemberMeta.json');
-    if (!fs.existsSync(metaPath)) {
-      return res.json({ teamMembers: [] });
-    }
-    
-    let teamMemberMeta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
-    
-    // Skip header row if present (where teamMemberName is "Client Name")
-    teamMemberMeta = teamMemberMeta.filter(m => m.teamMemberName !== 'Client Name');
+    // Get team members from MongoDB
+    let query = {};
     
     // Filter by CSP if user is CSP role
-    if (user && user.role === 'csp' && user.cspName) {
-      teamMemberMeta = teamMemberMeta.filter(m => m.csp === user.cspName);
+    if (user && user.role === 'csp' && user.email) {
+      query.csp = user.email;
     }
-    // Directors see all team members
+    
+    const teamMemberDocs = await TeamMember.find(query).lean();
     
     // Read leave requests to calculate PTO
     const leaveRequestsPath = path.join(__dirname, 'leaveRequests.json');
@@ -1795,9 +2777,8 @@ app.get('/api/team-members-details', (req, res) => {
     }
 
     // Build detailed team member info
-    const teamMembers = teamMemberMeta.map((meta, index) => {
-      // The actual team member name is in employeeId field (due to data structure issue)
-      const memberName = meta.employeeId || meta.teamMemberName;
+    const teamMembers = teamMemberDocs.map((member) => {
+      const memberName = member.teamMemberName;
       
       // Find all leave requests for this member
       const memberLeaves = leaveRequests.filter(lr => 
@@ -1807,6 +2788,11 @@ app.get('/api/team-members-details', (req, res) => {
       // Calculate PTO from actual approved leaves
       const approvedLeaves = memberLeaves.filter(lr => 
         lr.status === 'approved' || lr.status === 'client-approved'
+      );
+      
+      // Count pending leave requests
+      const pendingLeaves = memberLeaves.filter(lr => 
+        lr.status === 'pending' || lr.status === 'csp-approved' || lr.status === 'awaiting-client'
       );
       
       let usedDays = 0;
@@ -1823,8 +2809,23 @@ app.get('/api/team-members-details', (req, res) => {
         }
       });
       
-      // Default annual PTO (can be customized per employee later)
-      const accruedDays = meta.annualPTO || 12;
+      // Calculate pending days
+      let pendingDays = 0;
+      pendingLeaves.forEach(leave => {
+        if (leave.startDate && leave.endDate) {
+          const start = new Date(leave.startDate);
+          const end = new Date(leave.endDate);
+          const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
+          if (days > 0 && days < 365) { // Sanity check
+            pendingDays += days;
+          }
+        } else if (leave.days && typeof leave.days === 'number') {
+          pendingDays += leave.days;
+        }
+      });
+      
+      // Default annual PTO
+      const accruedDays = 20;
       const remainingDays = Math.max(0, accruedDays - usedDays);
       
       // Check current status
@@ -1834,7 +2835,7 @@ app.get('/api/team-members-details', (req, res) => {
       let currentStatus = 'available';
       let currentLeave = undefined;
       
-      // Check for approved leave (reuse approvedLeaves from above)
+      // Check for approved leave
       const activeLeave = approvedLeaves.find(lr => {
         const start = new Date(lr.startDate);
         const end = new Date(lr.endDate);
@@ -1855,48 +2856,28 @@ app.get('/api/team-members-details', (req, res) => {
           endDate: end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
           days
         };
-      } else {
-        // Check for pending leave
-        const pendingLeaves = memberLeaves.filter(lr => 
-          lr.status === 'pending' || lr.status === 'csp-review' || lr.status === 'pending-client-approval'
-        );
-        const upcomingPending = pendingLeaves.find(lr => {
-          const start = new Date(lr.startDate);
-          start.setHours(0, 0, 0, 0);
-          return start >= today;
-        });
-        
-        if (upcomingPending) {
-          currentStatus = 'pending';
-          const start = new Date(upcomingPending.startDate);
-          const end = new Date(upcomingPending.endDate);
-          const days = Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)) + 1;
-          
-          currentLeave = {
-            type: upcomingPending.leaveType || 'vacation',
-            startDate: start.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-            endDate: end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
-            days
-          };
-        }
       }
       
       return {
-        id: `member-${index + 1}`,
+        id: member._id,
         name: memberName,
-        email: meta.email || meta.csp || `${memberName.toLowerCase().replace(/\s+/g, '.')}@zimworx.org`,
-        department: meta.department || 'Operations',
-        client: meta.teamMemberName || 'Unassigned',
+        email: member.email,
+        department: 'Operations',
+        client: member.clientName,
+        currentStatus,
+        currentLeave,
         ptoBalance: {
           accrued: accruedDays,
           used: usedDays,
-          remaining: remainingDays
-        },
-        currentStatus,
-        currentLeave
+          pending: pendingDays,
+          remaining: remainingDays,
+          clientPTO: Math.ceil(accruedDays * 0.5),
+          zimworxPTO: Math.floor(accruedDays * 0.5),
+          specialLeave: 12
+        }
       };
     });
-    
+
     res.json({ teamMembers });
   } catch (error) {
     console.error('Team members details fetch error:', error);
@@ -2355,12 +3336,12 @@ app.get('/api/notifications', (req, res) => {
     }
     
     // Filter by CSP if user is CSP role
-    if (user && user.role === 'csp' && user.cspName) {
-      const metaPath = path.join(__dirname, 'teamMemberMeta.json');
+    if (user && user.role === 'csp' && user.email) {
+      const metaPath = FILE_PATHS.teamMemberMeta;
       if (fs.existsSync(metaPath)) {
         const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
         const allowedNames = metaData
-          .filter(m => m.csp === user.cspName)
+          .filter(m => m.csp === user.email)
           .map(m => m.teamMemberName);
         // Filter notifications related to user's team members
         notifications = notifications.filter(n => 
@@ -2437,6 +3418,73 @@ app.delete('/api/notifications/:id', (req, res) => {
   }
 });
 
+// Get email logs for traceability
+app.get('/api/email-logs', (req, res) => {
+  try {
+    const { requestId, status, type, since, limit = 100 } = req.query;
+    
+    const filters = {};
+    if (requestId) filters.requestId = requestId;
+    if (status) filters.status = status;
+    if (type) filters.type = type;
+    if (since) filters.since = since;
+    
+    let logs = getEmailLogs(filters);
+    
+    // Limit results
+    if (limit) {
+      logs = logs.slice(0, parseInt(limit));
+    }
+    
+    res.json({
+      count: logs.length,
+      logs: logs
+    });
+  } catch (error) {
+    console.error('Error fetching email logs:', error);
+    res.status(500).json({ error: 'Failed to fetch email logs' });
+  }
+});
+
+// Get email settings
+app.get('/api/email-settings', (req, res) => {
+  try {
+    const settingsPath = path.join(__dirname, 'emailSettings.json');
+    if (fs.existsSync(settingsPath)) {
+      const settings = JSON.parse(fs.readFileSync(settingsPath, 'utf8'));
+      // Don't send password to client
+      delete settings.smtpPassword;
+      res.json(settings);
+    } else {
+      res.json({ enabled: false });
+    }
+  } catch (error) {
+    console.error('Error fetching email settings:', error);
+    res.status(500).json({ error: 'Failed to fetch email settings' });
+  }
+});
+
+// Update email settings
+app.put('/api/email-settings', (req, res) => {
+  try {
+    const settingsPath = path.join(__dirname, 'emailSettings.json');
+    const newSettings = req.body;
+    
+    // Validate settings
+    if (!newSettings.smtpHost || !newSettings.smtpPort) {
+      return res.status(400).json({ error: 'SMTP host and port are required' });
+    }
+    
+    fs.writeFileSync(settingsPath, JSON.stringify(newSettings, null, 2));
+    
+    console.log('✅ Email settings updated');
+    res.json({ success: true, message: 'Email settings updated successfully' });
+  } catch (error) {
+    console.error('Error updating email settings:', error);
+    res.status(500).json({ error: 'Failed to update email settings' });
+  }
+});
+
 // Create upcoming leave reminders (can be called by scheduled job)
 app.post('/api/notifications/create-reminders', (req, res) => {
   try {
@@ -2485,6 +3533,7 @@ app.post('/api/notifications/create-reminders', (req, res) => {
 // Get analytics data
 app.get('/api/analytics', (req, res) => {
   try {
+    const user = getUserFromRequest(req);
     const { timeRange = 'year', department = 'all' } = req.query;
     const leaveRequestsPath = path.join(__dirname, 'leaveRequests.json');
     const teamMembersPath = path.join(__dirname, 'teamMembers.json');
@@ -2500,8 +3549,20 @@ app.get('/api/analytics', (req, res) => {
       });
     }
 
-    const leaveRequests = JSON.parse(fs.readFileSync(leaveRequestsPath, 'utf8'));
+    let leaveRequests = JSON.parse(fs.readFileSync(leaveRequestsPath, 'utf8'));
     const teamMembers = JSON.parse(fs.readFileSync(teamMembersPath, 'utf8'));
+    
+    // Filter by CSP if user is CSP role
+    if (user && user.role === 'csp' && user.email) {
+      const metaPath = FILE_PATHS.teamMemberMeta;
+      if (fs.existsSync(metaPath)) {
+        const metaData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+        const allowedNames = metaData
+          .filter(m => m.csp === user.email)
+          .map(m => m.teamMemberName);
+        leaveRequests = leaveRequests.filter(req => allowedNames.includes(req.teamMember) || allowedNames.includes(req.teamMemberName));
+      }
+    }
     
     // Filter by department if specified
     let filteredRequests = leaveRequests;
@@ -3111,7 +4172,7 @@ async function updateAbsenteeismTracker(leaveRequest) {
     
     // Get team member metadata for CSP, Client, and Country
     let teamMemberMeta = null;
-    const metaPath = path.join(__dirname, 'teamMemberMeta.json');
+    const metaPath = FILE_PATHS.teamMemberMeta;
     if (fs.existsSync(metaPath)) {
       const allMeta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
       teamMemberMeta = allMeta.find(m => m.teamMemberName === leaveRequest.teamMember);
@@ -3419,6 +4480,142 @@ app.post('/api/sync/single-csp-sheet', async (req, res) => {
       cspEmail,
       cspName,
       spreadsheetId,
+      range || 'Team Member Work Details!A2:I'
+    );
+    
+    res.json({ 
+      success: true, 
+      message: `✅ Synced ${result.count} team members from ${cspName}'s sheet`,
+      ...result
+    });
+  } catch (error) {
+    console.error('Sync error:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// ✨ NEW: Sync from centralized master sheet (RECOMMENDED for single master sheet)
+app.post('/api/sync/centralized-sheet', async (req, res) => {
+  try {
+    const { spreadsheetId, range, csvUrl, useMapping } = req.body;
+    
+    // Load or use provided client-to-CSP mapping
+    let clientToCspMapping = {};
+    if (useMapping !== false) {
+      try {
+        clientToCspMapping = loadClientCspMapping();
+        console.log(`📋 Loaded client-to-CSP mapping for ${Object.keys(clientToCspMapping).length} clients`);
+      } catch (error) {
+        console.warn('⚠️  Could not load clientToCspMapping.json, proceeding without CSP assignments');
+      }
+    }
+    
+    let result;
+    
+    // Option 1: Sync from published CSV URL (like the one you provided)
+    if (csvUrl) {
+      console.log('🔄 Syncing from published CSV URL...');
+      result = await syncFromPublishedCsv(csvUrl, clientToCspMapping);
+    }
+    // Option 2: Sync from Google Sheet ID with auth
+    else if (spreadsheetId) {
+      console.log('🔄 Syncing from Google Sheet...');
+      result = await syncFromCentralizedSheet(
+        spreadsheetId,
+        range || 'Sheet1!A2:L',
+        clientToCspMapping
+      );
+    }
+    else {
+      return res.status(400).json({
+        error: 'Either csvUrl or spreadsheetId is required',
+        examples: {
+          publishedCsv: {
+            csvUrl: 'https://docs.google.com/spreadsheets/d/e/2PACX-.../pub?output=csv'
+          },
+          googleSheet: {
+            spreadsheetId: '1abc...xyz',
+            range: 'Sheet1!A2:L'
+          }
+        }
+      });
+    }
+    
+    res.json({
+      success: true,
+      message: `✅ Synced ${result.totalCount} team members from centralized sheet`,
+      totalTeamMembers: result.totalCount,
+      totalCSPs: result.totalCSPs,
+      totalClients: result.totalClients,
+      cspSummary: result.cspSummary,
+      unmappedClients: result.teamMemberMeta
+        .filter(tm => tm.csp === 'unassigned@zimworx.org')
+        .map(tm => tm.clientName)
+        .filter((v, i, a) => a.indexOf(v) === i) // unique
+    });
+  } catch (error) {
+    console.error('Centralized sheet sync error:', error);
+    res.status(500).json({ error: error.message, stack: error.stack });
+  }
+});
+
+// ✨ NEW: Sync from multi-tab Google Sheet (each tab = CSP)
+app.post('/api/sync/multi-tab-sheet', async (req, res) => {
+  try {
+    const { spreadsheetId } = req.body;
+    
+    if (!spreadsheetId) {
+      return res.status(400).json({
+        error: 'spreadsheetId is required',
+        example: {
+          spreadsheetId: '1IF74fahAyeRS6TcDlvB4cfKPnuS4zznbz9vZOT7zKpw'
+        },
+        description: 'This endpoint syncs from a Google Sheet with multiple tabs where each tab name = CSP name'
+      });
+    }
+    
+    console.log('🔄 Starting multi-tab sheet sync...');
+    console.log(`📋 Spreadsheet ID: ${spreadsheetId}`);
+    
+    const result = await syncFromMultiTabSheet(spreadsheetId);
+    
+    res.json({
+      success: true,
+      message: `✅ Synced ${result.totalTeamMembers} team members from ${result.totalCSPs} CSP tabs`,
+      totalTeamMembers: result.totalTeamMembers,
+      totalCSPs: result.totalCSPs,
+      totalClients: result.totalClients,
+      cspSummary: result.cspSummary,
+      tabs: result.cspSummary.map(csp => ({
+        tabName: csp.cspName,
+        cspEmail: csp.cspEmail,
+        teamMembers: csp.teamMemberCount,
+        clients: csp.clients.length
+      }))
+    });
+  } catch (error) {
+    console.error('Multi-tab sheet sync error:', error);
+    res.status(500).json({ 
+      error: error.message, 
+      stack: error.stack,
+      help: 'Make sure google-credentials.json is configured and the spreadsheet is accessible'
+    });
+  }
+});
+
+// Sync individual CSP sheet
+app.post('/api/sync/csp-sheet', async (req, res) => {
+  try {
+    const { cspName, cspEmail, cspSheetId, range } = req.body;
+    
+    if (!cspName || !cspEmail || !cspSheetId) {
+      return res.status(400).json({ error: 'cspName, cspEmail, and cspSheetId are required' });
+    }
+    
+    const result = await syncCSPSheet(
+      cspName,
+      cspEmail,
+      cspSheetId,
       range || 'Team Member Work Details!A2:I'
     );
     
@@ -4218,7 +5415,7 @@ app.post('/api/email-webhook/leave-request', async (req, res) => {
     const teamMemberName = teamMemberEmail.split('@')[0].replace(/\./g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     
     // Create leave request
-    const filePath = path.join(__dirname, 'leaveRequests.json');
+    const filePath = FILE_PATHS.leaveRequests;
     let leaveRequests = [];
     
     if (fs.existsSync(filePath)) {
@@ -4459,8 +5656,8 @@ app.get('/api/sync/absenteeism-sheets-status', (req, res) => {
 app.post('/api/sync/absenteeism-from-sheets', async (req, res) => {
   try {
     const user = getUserFromRequest(req);
-    if (!user || (user.role !== 'admin' && user.role !== 'manager')) {
-      return res.status(403).json({ error: 'Only admins/managers can sync absenteeism data' });
+    if (!user || (user.role !== 'admin' && user.role !== 'director' && user.role !== 'manager')) {
+      return res.status(403).json({ error: 'Only admins/directors/managers can sync absenteeism data' });
     }
 
     const { sheetsApiUrl } = req.body;
@@ -4538,7 +5735,7 @@ app.post('/api/sync/absenteeism-from-sheets', async (req, res) => {
 app.get('/api/sync/absenteeism-status', (req, res) => {
   try {
     const user = getUserFromRequest(req);
-    if (!user || (user.role !== 'admin' && user.role !== 'manager')) {
+    if (!user || (user.role !== 'admin' && user.role !== 'director' && user.role !== 'manager')) {
       return res.status(403).json({ error: 'Unauthorized' });
     }
 
@@ -4557,13 +5754,75 @@ app.get('/api/sync/absenteeism-status', (req, res) => {
 
 // Absenteeism Reports API
 
+// Get CSP-specific absenteeism data from master spreadsheet
+app.get('/api/absenteeism-reports/master-sync', async (req, res) => {
+  try {
+    const user = getUserFromRequest(req);
+    
+    const spreadsheetId = process.env.ABSENTEEISM_SPREADSHEET_ID;
+    const apiKey = process.env.GOOGLE_SHEETS_API_KEY;
+    const sheetName = process.env.ABSENTEEISM_SHEET_NAME || 'Sheet1';
+
+    if (!spreadsheetId || !apiKey) {
+      return res.status(400).json({ 
+        error: 'Master absenteeism spreadsheet not configured', 
+        message: 'Please set ABSENTEEISM_SPREADSHEET_ID and GOOGLE_SHEETS_API_KEY in .env file' 
+      });
+    }
+
+    // CSPs only see their own data, admins/directors see all
+    const cspEmail = (user && user.role === 'csp') ? user.email : null;
+    
+    console.log(`[API] Fetching master absenteeism data for: ${cspEmail || 'ALL (Admin)'}`);
+    
+    const result = await getCSPAbsenteeismData(spreadsheetId, apiKey, cspEmail, sheetName);
+    
+    if (!result.success) {
+      return res.status(500).json({ 
+        error: 'Failed to fetch absenteeism data', 
+        message: result.error 
+      });
+    }
+
+    // Optionally save to database
+    if (result.records && result.records.length > 0 && req.query.saveToDb === 'true') {
+      console.log(`[API] Saving ${result.records.length} records to database...`);
+      let savedCount = 0;
+      for (const record of result.records) {
+        try {
+          await createAbsenteeismReport(record);
+          savedCount++;
+        } catch (err) {
+          console.warn(`[API] Failed to save record:`, err.message);
+        }
+      }
+      console.log(`[API] Saved ${savedCount}/${result.records.length} records to database`);
+      result.savedToDb = savedCount;
+    }
+
+    res.json({ 
+      success: true, 
+      data: result.records,
+      totalRecords: result.totalNormalized,
+      filteredRecords: result.filteredCount,
+      cspFilter: result.cspFilter,
+      syncedAt: result.syncedAt,
+      fromCache: result.fromCache,
+      savedToDb: result.savedToDb || 0
+    });
+  } catch (error) {
+    console.error('[API] Error fetching master absenteeism data:', error);
+    res.status(500).json({ error: 'Failed to fetch absenteeism data' });
+  }
+});
+
 // Get all absenteeism reports (with CSP filtering)
 app.get('/api/absenteeism-reports', async (req, res) => {
   try {
     const user = getUserFromRequest(req);
     // Allow unauthenticated access to view synced data
     // Use DB
-    const reports = await getAbsenteeismReports(user && user.role === 'csp' ? user.name : null);
+    const reports = await getAbsenteeismReports(user && user.role === 'csp' && user.email ? user.email : null);
     res.json({ success: true, data: reports || [] });
   } catch (error) {
     console.error('Error fetching absenteeism reports:', error);
@@ -4575,12 +5834,12 @@ app.get('/api/absenteeism-reports', async (req, res) => {
 app.post('/api/absenteeism-reports', async (req, res) => {
   try {
     const user = getUserFromRequest(req);
-    if (!user || (user.role !== 'csp' && user.role !== 'admin')) {
-      return res.status(403).json({ error: 'Only CSPs can create reports' });
+    if (!user || (user.role !== 'csp' && user.role !== 'admin' && user.role !== 'director')) {
+      return res.status(403).json({ error: 'Only CSPs/Directors can create reports' });
     }
     const reportData = req.body;
-    // ensure csp is set to creator
-    reportData.csp = user.name;
+    // ensure csp is set to creator's email
+    reportData.csp = user.email;
     const created = await createAbsenteeismReport(reportData);
     res.json({ success: true, id: created.id, data: created });
   } catch (error) {
@@ -4593,15 +5852,15 @@ app.post('/api/absenteeism-reports', async (req, res) => {
 app.put('/api/absenteeism-reports/:id', async (req, res) => {
   try {
     const user = getUserFromRequest(req);
-    if (!user || (user.role !== 'csp' && user.role !== 'admin')) {
-      return res.status(403).json({ error: 'Only CSPs can update reports' });
+    if (!user || (user.role !== 'csp' && user.role !== 'admin' && user.role !== 'director')) {
+      return res.status(403).json({ error: 'Only CSPs/Directors can update reports' });
     }
 
     const { id } = req.params;
     // fetch existing to verify ownership
-    const existing = (await getAbsenteeismReports(user.role === 'csp' ? user.name : null)).find(r => r.id === id);
+    const existing = (await getAbsenteeismReports(user.role === 'csp' && user.email ? user.email : null)).find(r => r.id === id);
     if (!existing) return res.status(404).json({ error: 'Report not found' });
-    if (user.role === 'csp' && existing.csp !== user.name) return res.status(403).json({ error: 'You can only update your own reports' });
+    if (user.role === 'csp' && existing.csp !== user.email) return res.status(403).json({ error: 'You can only update your own reports' });
 
     const updated = await updateAbsenteeismReport(id, req.body);
     res.json({ success: true, data: updated });
@@ -4615,14 +5874,14 @@ app.put('/api/absenteeism-reports/:id', async (req, res) => {
 app.delete('/api/absenteeism-reports/:id', async (req, res) => {
   try {
     const user = getUserFromRequest(req);
-    if (!user || (user.role !== 'csp' && user.role !== 'admin')) {
-      return res.status(403).json({ error: 'Only CSPs can delete reports' });
+    if (!user || (user.role !== 'csp' && user.role !== 'admin' && user.role !== 'director')) {
+      return res.status(403).json({ error: 'Only CSPs/Directors can delete reports' });
     }
 
     const { id } = req.params;
-    const existing = (await getAbsenteeismReports(user.role === 'csp' ? user.name : null)).find(r => r.id === id);
+    const existing = (await getAbsenteeismReports(user.role === 'csp' && user.email ? user.email : null)).find(r => r.id === id);
     if (!existing) return res.status(404).json({ error: 'Report not found' });
-    if (user.role === 'csp' && existing.csp !== user.name) return res.status(403).json({ error: 'You can only delete your own reports' });
+    if (user.role === 'csp' && existing.csp !== user.email) return res.status(403).json({ error: 'You can only delete your own reports' });
 
     await deleteAbsenteeismReport(id);
     res.json({ success: true, message: 'Report deleted' });
@@ -4636,8 +5895,8 @@ app.delete('/api/absenteeism-reports/:id', async (req, res) => {
 app.post('/api/absenteeism-reports/export', async (req, res) => {
   try {
     const user = getUserFromRequest(req);
-    if (!user || (user.role !== 'csp' && user.role !== 'admin')) {
-      return res.status(403).json({ error: 'Only CSPs can export reports' });
+    if (!user || (user.role !== 'csp' && user.role !== 'admin' && user.role !== 'director')) {
+      return res.status(403).json({ error: 'Only CSPs/Directors can export reports' });
     }
 
     const { entries, csp } = req.body;
@@ -4926,7 +6185,7 @@ app.get('/api/csp/my-requests', (req, res) => {
   }
   
   try {
-    const filePath = path.join(__dirname, 'leaveRequests.json');
+    const filePath = FILE_PATHS.leaveRequests;
     if (!fs.existsSync(filePath)) {
       return res.json([]);
     }
@@ -5006,7 +6265,7 @@ app.get('/api/absenteeism/auto-generate', (req, res) => {
     }
     
     // Read team member metadata
-    const metaPath = path.join(__dirname, 'teamMemberMeta.json');
+    const metaPath = FILE_PATHS.teamMemberMeta;
     let teamMemberMeta = [];
     if (fs.existsSync(metaPath)) {
       teamMemberMeta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
@@ -5322,17 +6581,18 @@ app.get('/health', (req, res) => {
 });
 
 // Get US Federal Holidays
-app.get('/api/holidays/:year', (req, res) => {
+app.get('/api/holidays/:year', async (req, res) => {
   try {
     const year = parseInt(req.params.year);
-    const holidays = getUSFederalHolidayNames(year);
+    const holidays = await getUSFederalHolidayNames(year);
     
     res.json({
       year,
       holidays: holidays.map(h => ({
         date: h.date.toISOString().split('T')[0],
         name: h.name,
-        dayOfWeek: h.date.toLocaleDateString('en-US', { weekday: 'long' })
+        dayOfWeek: h.date.toLocaleDateString('en-US', { weekday: 'long' }),
+        region: h.region || 'us'
       })),
       count: holidays.length
     });
@@ -5343,17 +6603,18 @@ app.get('/api/holidays/:year', (req, res) => {
 });
 
 // Get current year holidays
-app.get('/api/holidays', (req, res) => {
+app.get('/api/holidays', async (req, res) => {
   try {
     const year = new Date().getFullYear();
-    const holidays = getUSFederalHolidayNames(year);
+    const holidays = await getUSFederalHolidayNames(year);
     
     res.json({
       year,
       holidays: holidays.map(h => ({
         date: h.date.toISOString().split('T')[0],
         name: h.name,
-        dayOfWeek: h.date.toLocaleDateString('en-US', { weekday: 'long' })
+        dayOfWeek: h.date.toLocaleDateString('en-US', { weekday: 'long' }),
+        region: h.region || 'us'
       })),
       count: holidays.length
     });
@@ -5363,18 +6624,92 @@ app.get('/api/holidays', (req, res) => {
   }
 });
 
-// Initialize DB and then start server
-dbInit().then(() => {
-  console.log('Database initialized (absenteeism_reports)');
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Backend server running on http://0.0.0.0:${PORT}`);
-    console.log(`Access from network: http://<your-ip>:${PORT}`);
-  });
-}).catch(err => {
-  console.error('Failed to initialize database:', err);
-  // still start server but warn
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Backend server running on http://0.0.0.0:${PORT} (DB init failed)`);
-    console.log(`Access from network: http://<your-ip>:${PORT}`);
-  });
+// Force refresh holidays from Google Sheets
+app.post('/api/holidays/refresh', async (req, res) => {
+  try {
+    const user = getUserFromRequest(req);
+    if (!user || (user.role !== 'admin' && user.role !== 'director' && user.role !== 'csp')) {
+      return res.status(403).json({ error: 'Only admins/directors/CSPs can refresh holidays' });
+    }
+    
+    // Clear cache to force refresh
+    const { clearHolidaysCache } = await import('./holidays.js');
+    clearHolidaysCache();
+    
+    const year = new Date().getFullYear();
+    const holidays = await getUSFederalHolidayNames(year);
+    
+    res.json({
+      success: true,
+      message: 'Holidays refreshed from Google Sheets',
+      year,
+      count: holidays.length,
+      holidays: holidays.map(h => ({
+        date: h.date.toISOString().split('T')[0],
+        name: h.name
+      }))
+    });
+  } catch (error) {
+    console.error('Error refreshing holidays:', error);
+    res.status(500).json({ error: 'Failed to refresh holidays' });
+  }
 });
+
+// Get nightly sync status and logs
+app.get('/api/sync/status', (req, res) => {
+  try {
+    const logPath = path.join(__dirname, 'syncLog.json');
+    
+    if (!fs.existsSync(logPath)) {
+      return res.json({
+        lastSync: null,
+        status: 'No sync logs found',
+        history: [],
+        nextScheduledSync: '2:00 AM daily'
+      });
+    }
+    
+    const logs = JSON.parse(fs.readFileSync(logPath, 'utf-8'));
+    const lastLog = logs[logs.length - 1];
+    
+    res.json({
+      lastSync: lastLog,
+      history: logs.slice(-10).reverse(), // Last 10 syncs, most recent first
+      nextScheduledSync: '2:00 AM daily',
+      totalSyncs: logs.length
+    });
+  } catch (error) {
+    console.error('Error reading sync status:', error);
+    res.status(500).json({ error: 'Failed to read sync status' });
+  }
+});
+
+// Initialize MongoDB and PostgreSQL, then start server
+async function startServer() {
+  try {
+    // Connect to MongoDB
+    await connectMongoDB();
+    console.log('✅ MongoDB connected successfully');
+  } catch (mongoErr) {
+    console.error('⚠️ MongoDB connection failed:', mongoErr.message);
+    console.log('Server will continue with JSON file fallback');
+  }
+
+  try {
+    // Initialize PostgreSQL (for absenteeism reports)
+    await dbInit();
+    console.log('✅ PostgreSQL initialized (absenteeism_reports)');
+  } catch (pgErr) {
+    console.error('⚠️ PostgreSQL init failed:', pgErr.message);
+  }
+
+  app.listen(PORT, '0.0.0.0', () => {
+    console.log(`🚀 Backend server running on http://0.0.0.0:${PORT}`);
+    console.log(`   Access from network: http://<your-ip>:${PORT}`);
+    console.log(`   MongoDB: ${isMongoConnected() ? 'Connected' : 'Disconnected (using JSON fallback)'}`);
+  });
+}
+
+startServer();
+
+

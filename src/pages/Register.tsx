@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const roles = [
   { value: 'csp', label: 'Client Success Partner (CSP)' },
+  { value: 'director', label: 'Client Success Director' },
   { value: 'admin', label: 'Admin' },
   { value: 'user', label: 'Team Member' }
 ];

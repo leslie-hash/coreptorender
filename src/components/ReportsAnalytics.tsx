@@ -38,8 +38,12 @@ const ReportsAnalytics: React.FC = () => {
   const fetchAnalytics = async () => {
     try {
       const response = await fetch(
-        `/api/analytics?timeRange=${timeRange}&department=${departmentFilter}`,
-        { credentials: 'include' }
+        `/api/analytics?timeRange=${timeRange}&department=${departmentFilter}&_t=${Date.now()}`,
+        { 
+          cache: 'no-store',
+          headers: { 'Cache-Control': 'no-cache' },
+          credentials: 'include' 
+        }
       );
       if (response.ok) {
         const data = await response.json();

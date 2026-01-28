@@ -234,3 +234,58 @@ export function getAbsenteeismCacheMetadata() {
   }
   return null;
 }
+
+/**
+ * Get CSP-specific absenteeism data from master spreadsheet
+ * Filters records by CSP email when user is a CSP
+ * 
+ * @param {string} spreadsheetId - Master spreadsheet ID
+ * @param {string} apiKey - Google Sheets API Key
+ * @param {string} cspEmail - CSP email to filter by (optional for admins)
+ * @param {string} sheetName - Sheet name (default: "Sheet1")
+ * @returns {Promise<object>} Filtered records for the CSP
+ */
+export async function getCSPAbsenteeismData(spreadsheetId, apiKey, cspEmail = null, sheetName = 'Sheet1') {
+  try {
+    console.log(`[CSP ABSENTEEISM] Fetching data for CSP: ${cspEmail || 'ALL (Admin)'}`);
+    
+    // Fetch all records from master sheet
+    const result = await readAbsenteeismFromGoogleSheets(spreadsheetId, apiKey, sheetName);
+    
+    if (!result.success || !result.records) {
+      return result;
+    }
+
+    // Filter by CSP if email provided
+    let filteredRecords = result.records;
+    if (cspEmail) {
+      filteredRecords = result.records.filter(record => {
+        // Match by CSP email (case-insensitive)
+        const recordCSP = (record.csp || '').toLowerCase().trim();
+        const filterCSP = cspEmail.toLowerCase().trim();
+        return recordCSP === filterCSP || recordCSP.includes(filterCSP);
+      });
+      console.log(`[CSP ABSENTEEISM] Filtered ${result.records.length} records to ${filteredRecords.length} for ${cspEmail}`);
+    }
+
+    return {
+      success: true,
+      totalFetched: result.totalFetched,
+      totalNormalized: result.totalNormalized,
+      filteredCount: filteredRecords.length,
+      records: filteredRecords,
+      syncedAt: result.syncedAt,
+      source: result.source,
+      cspFilter: cspEmail || 'none (admin view)',
+      fromCache: result.fromCache || false
+    };
+  } catch (error) {
+    console.error('[CSP ABSENTEEISM] Error:', error.message);
+    return {
+      success: false,
+      error: error.message,
+      records: []
+    };
+  }
+}
+

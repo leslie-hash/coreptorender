@@ -108,8 +108,8 @@ export default function SystemSettings() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900">System Settings</h2>
-          <p className="text-sm text-gray-600 mt-1">Configure system-wide settings and preferences</p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">System Settings</h2>
+          <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">Configure system-wide settings and preferences</p>
         </div>
         <Button onClick={handleSave} disabled={saving}>
           {saving ? (

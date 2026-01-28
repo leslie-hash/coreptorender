@@ -141,11 +141,19 @@ export default function LeaveRequestForm({ onClose, onSubmit }: LeaveRequestForm
         {ptoBalance && (
           <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-md">
             <p className="text-sm font-semibold text-blue-800 mb-1">PTO Balance for {formData.teamMemberName}:</p>
-            <div className="flex gap-4 text-sm text-blue-700">
-              <span>Annual: <strong>{ptoBalance.annualPTO}</strong> days</span>
-              <span>Used: <strong>{ptoBalance.usedPTO}</strong> days</span>
-              <span>Remaining: <strong className={ptoBalance.remainingPTO < 5 ? 'text-red-600' : ''}>{ptoBalance.remainingPTO}</strong> days</span>
-            </div>
+            {ptoBalance.annualPTO !== undefined ? (
+              // Full balance for CSPs/Admins
+              <div className="flex gap-4 text-sm text-blue-700">
+                <span>Annual: <strong>{ptoBalance.annualPTO}</strong> days</span>
+                <span>Used: <strong>{ptoBalance.usedPTO}</strong> days</span>
+                <span>Remaining: <strong className={ptoBalance.remainingPTO < 5 ? 'text-red-600' : ''}>{ptoBalance.remainingPTO}</strong> days</span>
+              </div>
+            ) : (
+              // Simplified for team members - only remaining
+              <div className="text-sm text-blue-700">
+                <span>Remaining: <strong className={ptoBalance.remainingPTO < 5 ? 'text-red-600' : 'text-green-700'}>{ptoBalance.remainingPTO || ptoBalance.remaining}</strong> days available</span>
+              </div>
+            )}
           </div>
         )}
         {loadingBalance && (

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useAppContext } from '@/contexts/AppContext';
 import { getApiUrl } from '@/utils/api';
-import { Calendar, Users, Database, FileText, BarChart3, Bell, Plus, UsersRound, CalendarDays, TrendingUp, Mail, Search, Zap, ChevronDown, ChevronRight, Home, User, LogOut, Menu, X, ClipboardCheck, FileDown, RefreshCw, HelpCircle, Link2, Settings, CheckSquare, Send, ClipboardList } from 'lucide-react';
+import { Calendar, Users, Database, FileText, BarChart3, Bell, Plus, UsersRound, CalendarDays, TrendingUp, Mail, Search, Zap, ChevronDown, ChevronRight, Home, User, LogOut, Menu, X, ClipboardCheck, FileDown, RefreshCw, HelpCircle, Link2, Settings, CheckSquare, Send, ClipboardList, History } from 'lucide-react';
 import StatusCard from './StatusCard';
 import ApprovalHistory from './ApprovalHistory';
 import ActivityFeed from './ActivityFeed';
 import LeaveRequestForm from './LeaveRequestForm';
 import ApprovalWorkflow from './ApprovalWorkflow';
 import CSPReviewWorkflow from './CSPReviewWorkflow';
+import ThemeToggle from './ThemeToggle';
 import OfficialLeaveForm from './OfficialLeaveForm';
 import MyLeaveRequests from './MyLeaveRequests';
 import AttendanceTracker from './AttendanceTracker';
@@ -33,6 +34,9 @@ import AllRequestsView from './AllRequestsView';
 import ClientApprovalMarking from './ClientApprovalMarking';
 import SendToPayrollView from './SendToPayrollView';
 import HelpDocumentation from './HelpDocumentation';
+import PTOHistory from './PTOHistory';
+import HolidaysView from './HolidaysView';
+import RecentActivityDashboard from './RecentActivityDashboard';
 import { Badge } from './ui/badge';
 
 interface Notification {
@@ -109,7 +113,7 @@ export default function AppLayout() {
   useEffect(() => {
     const fetchUnreadCount = async () => {
       try {
-        const response = await fetch('/api/notifications', {
+        const response = await fetch(getApiUrl('/api/notifications'), {
           credentials: 'include',
         });
         if (response.ok) {
@@ -172,6 +176,9 @@ export default function AppLayout() {
   }, []);
 
   const handleLogout = () => {
+    // Clear all cached data
+    localStorage.clear();
+    sessionStorage.clear();
     setUser(null);
     setToken(null);
     setUserRole('');
@@ -228,7 +235,7 @@ export default function AppLayout() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex transition-colors">
       {/* Mobile Overlay */}
       {sidebarOpen && (
         <div 
@@ -238,23 +245,23 @@ export default function AppLayout() {
       )}
       
       {/* Sidebar - Persistent on desktop, overlay on mobile */}
-      <aside className={`fixed md:static inset-y-0 left-0 z-50 w-72 bg-gradient-to-b from-blue-50 via-sky-50 to-blue-50 shadow-xl md:shadow-lg flex flex-col py-6 px-4 overflow-y-auto border-r border-blue-200 transform md:transform-none transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
+      <aside className={`fixed md:static inset-y-0 left-0 z-50 w-72 bg-gradient-to-b from-blue-50 via-sky-50 to-blue-50 dark:from-gray-800 dark:via-gray-850 dark:to-gray-900 shadow-xl md:shadow-lg flex flex-col py-6 px-4 overflow-y-auto border-r border-blue-200 dark:border-gray-700 transform md:transform-none transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}`}>
         {/* Mobile Close Button */}
         <button
           onClick={() => setSidebarOpen(false)}
-          className="md:hidden absolute top-4 right-4 p-2 rounded-lg hover:bg-blue-100 transition-colors"
+          className="md:hidden absolute top-4 right-4 p-2 rounded-lg hover:bg-blue-100 dark:hover:bg-gray-700 transition-colors"
         >
-          <X className="w-5 h-5 text-blue-700" />
+          <X className="w-5 h-5 text-blue-700 dark:text-gray-300" />
         </button>
         
         {/* Sidebar Header */}
-        <div className="mb-7 pb-6 border-b border-blue-200">
+        <div className="mb-7 pb-6 border-b border-blue-200 dark:border-gray-700">
           <div className="flex flex-col items-center justify-center">
             {/* CorePTO Logo - Bee Themed */}
             <div className="flex items-center justify-center gap-1.5 mb-3">
-              <span className="text-3xl font-extrabold bg-gradient-to-br from-gray-800 via-gray-700 to-gray-600 bg-clip-text text-transparent tracking-tight leading-none">Core</span>
+              <span className="text-3xl font-extrabold bg-gradient-to-br from-gray-800 via-gray-700 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-300 bg-clip-text text-transparent tracking-tight leading-none">Core</span>
               <div className="relative flex items-center justify-center">
-                <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="2.5"/>
                   <circle cx="12" cy="12" r="3.5" fill="currentColor"/>
                 </svg>
@@ -272,7 +279,7 @@ export default function AppLayout() {
           {isTeamMember ? (
             <>
               <button
-                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${!activeModule || activeModule === 'official-form' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${!activeModule || activeModule === 'official-form' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                 onClick={() => setActiveModule('official-form')}
               >
                 {(!activeModule || activeModule === 'official-form') && (
@@ -282,7 +289,7 @@ export default function AppLayout() {
                 <span className="font-medium text-sm relative z-10">Submit Leave Request</span>
               </button>
               <button
-                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'my-requests' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'my-requests' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                 onClick={() => setActiveModule('my-requests')}
               >
                 {activeModule === 'my-requests' && (
@@ -292,7 +299,27 @@ export default function AppLayout() {
                 <span className="font-medium text-sm relative z-10">My Leave Requests</span>
               </button>
               <button
-                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'notifications' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'pto-history' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                onClick={() => setActiveModule('pto-history')}
+              >
+                {activeModule === 'pto-history' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                )}
+                <History className={`w-5 h-5 transition-all duration-300 group-hover:scale-110 relative z-10 ${activeModule === 'pto-history' ? 'animate-bounce-subtle drop-shadow-glow-white' : ''}`} />
+                <span className="font-medium text-sm relative z-10">PTO History</span>
+              </button>
+              <button
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'holidays' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                onClick={() => setActiveModule('holidays')}
+              >
+                {activeModule === 'holidays' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                )}
+                <Calendar className={`w-5 h-5 transition-all duration-300 group-hover:scale-110 relative z-10 ${activeModule === 'holidays' ? 'animate-bounce-subtle drop-shadow-glow-white' : ''}`} />
+                <span className="font-medium text-sm relative z-10">Observed Holidays</span>
+              </button>
+              <button
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'notifications' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                 onClick={() => setActiveModule('notifications')}
               >
                 {activeModule === 'notifications' && (
@@ -311,9 +338,24 @@ export default function AppLayout() {
             <>
               {/* CSP/Admin View - Simplified PTO Workflow */}
               
+              {/* Dashboard */}
+              <button
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'dashboard' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                onClick={() => setActiveModule('dashboard')}
+              >
+                {activeModule === 'dashboard' && (
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                )}
+                <Home className={`w-5 h-5 transition-all duration-300 group-hover:scale-110 relative z-10 ${activeModule === 'dashboard' ? 'animate-bounce-subtle drop-shadow-glow-white' : ''}`} />
+                <div className="flex-1 relative z-10">
+                  <div className="font-medium text-sm">Dashboard</div>
+                  <div className="text-xs opacity-75">Recent activity</div>
+                </div>
+              </button>
+
               {/* Step 1 & 2: Receive & Review Requests */}
               <button
-                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'csp-review' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'csp-review' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                 onClick={() => setActiveModule('csp-review')}
               >
                 {activeModule === 'csp-review' && (
@@ -327,7 +369,7 @@ export default function AppLayout() {
               </button>
 
               <button
-                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'all-requests' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'all-requests' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                 onClick={() => setActiveModule('all-requests')}
               >
                 {activeModule === 'all-requests' && (
@@ -339,7 +381,7 @@ export default function AppLayout() {
 
               {/* Team Members & PTO Balances (Combined) */}
               <button
-                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'team' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'team' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                 onClick={() => setActiveModule('team')}
               >
                 {activeModule === 'team' && (
@@ -354,7 +396,7 @@ export default function AppLayout() {
 
               {/* Absenteeism Report */}
               <button
-                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'absenteeism' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'absenteeism' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                 onClick={() => setActiveModule('absenteeism')}
               >
                 {activeModule === 'absenteeism' && (
@@ -369,7 +411,7 @@ export default function AppLayout() {
 
               {/* Notifications */}
               <button
-                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'notifications' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'notifications' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                 onClick={() => setActiveModule('notifications')}
               >
                 {activeModule === 'notifications' && (
@@ -392,9 +434,9 @@ export default function AppLayout() {
               {/* Admin Panel (Admin/Director only) */}
               {isAdmin && (
                 <>
-                  <div className="my-3 border-t border-gray-200"></div>
+                  <div className="my-3 border-t border-gray-200 dark:border-gray-700"></div>
                   <button
-                    className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'admin' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 hover:shadow-3d-hover hover:transform-3d-hover'}`}
+                    className={`relative flex items-center gap-3 w-full text-left px-4 py-3 rounded-lg transition-all duration-200 group overflow-hidden ${activeModule === 'admin' ? 'bg-gradient-to-br from-blue-600 via-blue-700 to-blue-600 text-white shadow-3d-active transform-3d-active' : 'text-blue-900 dark:text-blue-100 hover:bg-gradient-to-br hover:from-blue-100 hover:to-blue-100 dark:hover:from-blue-900/50 dark:hover:to-blue-900/50 hover:shadow-3d-hover hover:transform-3d-hover'}`}
                     onClick={() => setActiveModule('admin')}
                   >
                     {activeModule === 'admin' && (
@@ -413,39 +455,29 @@ export default function AppLayout() {
         </nav>
 
         {/* User Info Section - Moved to Bottom */}
-        <div className="mt-auto pt-4 border-t border-blue-200">
-          <div className="p-3 bg-blue-50 rounded-lg border border-blue-100">
+        <div className="mt-auto pt-4 border-t border-blue-200 dark:border-gray-700">
+          <div className="p-3 bg-blue-50 dark:bg-gray-800 rounded-lg border border-blue-100 dark:border-gray-700">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white font-semibold">
                 {user?.name?.charAt(0)?.toUpperCase() || 'U'}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-semibold text-blue-900 truncate">{user?.name || 'User'}</p>
-                <p className="text-xs text-blue-700 truncate">{user?.email || ''}</p>
+                <p className="text-sm font-semibold text-blue-900 dark:text-blue-100 truncate">{user?.name || 'User'}</p>
+                <p className="text-xs text-blue-700 dark:text-blue-300 truncate">{user?.email || ''}</p>
               </div>
             </div>
             <div className="flex items-center justify-between mb-3">
-              <span className="text-xs px-2.5 py-1 bg-blue-200 text-blue-900 rounded-md font-medium">
-                {user?.role === 'director' ? 'Director' : user?.role === 'csp' ? 'CSP' : user?.role === 'admin' ? 'Admin' : user?.role === 'finance' ? 'Finance' : user?.role === 'payroll' ? 'Payroll' : user?.role === 'manager' ? 'Manager' : 'User'}
+              <span className="text-xs px-2.5 py-1 bg-blue-200 dark:bg-blue-900 text-blue-900 dark:text-blue-100 rounded-md font-medium">
+                {user?.role === 'director' ? 'Client Success Director' : user?.role === 'csp' ? 'CSP' : user?.role === 'admin' ? 'Admin' : user?.role === 'finance' ? 'Finance' : user?.role === 'payroll' ? 'Payroll' : user?.role === 'manager' ? 'Manager' : 'User'}
               </span>
               <button
                 onClick={handleLogout}
-                className="text-xs text-blue-800 hover:text-blue-900 flex items-center gap-1 hover:bg-blue-200 px-2.5 py-1 rounded-md transition-colors"
+                className="text-xs text-blue-800 dark:text-blue-200 hover:text-blue-900 dark:hover:text-blue-100 flex items-center gap-1 hover:bg-blue-200 dark:hover:bg-blue-900 px-2.5 py-1 rounded-md transition-colors"
                 title="Logout"
               >
                 <LogOut className="w-3.5 h-3.5" />
                 Logout
               </button>
-            </div>
-            <div className="flex items-center justify-center pt-2 border-t border-blue-200">
-              <img 
-                src="/go-beyond.jpg" 
-                alt="Go Beyond" 
-                className="h-12 w-auto object-contain"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
             </div>
           </div>
         </div>
@@ -454,24 +486,24 @@ export default function AppLayout() {
       {/* Main Content Area */}
       <main className="flex-1 flex flex-col overflow-hidden">
         {/* Top Header Bar */}
-        <div className="bg-white border-b border-gray-200 shadow-sm">
+        <div className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 shadow-sm">
           <div className="flex items-center justify-between px-6 py-4">
             {/* Hamburger for Mobile */}
             <button
               onClick={() => setSidebarOpen(true)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
-              <Menu className="w-6 h-6 text-gray-700" />
+              <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
             </button>
 
             {/* Search and Actions */}
             <div className="flex items-center gap-3 flex-1">
-              <div className="hidden sm:flex items-center bg-gray-50 rounded-lg px-4 py-2 border border-gray-200 focus-within:border-blue-500 focus-within:bg-white transition-all max-w-md">
+              <div className="hidden sm:flex items-center bg-gray-50 dark:bg-gray-700 rounded-lg px-4 py-2 border border-gray-200 dark:border-gray-600 focus-within:border-blue-500 focus-within:bg-white dark:focus-within:bg-gray-600 transition-all max-w-md">
                 <Search className="w-4 h-4 text-gray-400" />
                 <input
                   type="text"
                   placeholder="Search requests, members..."
-                  className="ml-3 bg-transparent outline-none text-sm flex-1 placeholder-gray-400"
+                  className="ml-3 bg-transparent outline-none text-sm flex-1 placeholder-gray-400 dark:text-gray-200"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={handleSearch}
@@ -481,14 +513,15 @@ export default function AppLayout() {
               <div className="flex-1"></div>
               <button
                 onClick={openHelpDocs}
-                className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-600"
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors text-gray-600 dark:text-gray-300"
                 title="Help & Documentation"
               >
                 <HelpCircle className="w-5 h-5" />
               </button>
+              <ThemeToggle />
               <button
                 onClick={() => setActiveModule('notifications')}
-                className="relative p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-600"
+                className="relative p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300"
                 title="Notifications"
               >
                 <Bell className="w-5 h-5" />
@@ -512,6 +545,10 @@ export default function AppLayout() {
                   <NotificationsCenter onNavigate={setActiveModule} />
                 ) : activeModule === 'my-requests' ? (
                   <MyLeaveRequests />
+                ) : activeModule === 'pto-history' ? (
+                  <PTOHistory />
+                ) : activeModule === 'holidays' ? (
+                  <HolidaysView />
                 ) : (
                   <OfficialLeaveForm />
                 )}
@@ -525,15 +562,26 @@ export default function AppLayout() {
                   <div className="mb-8">
                     <AdminPanel />
                   </div>
+                ) : activeModule === 'dashboard' ? (
+                  /* Dashboard - Full Width */
+                  <div className="w-full">
+                    <RecentActivityDashboard />
+                  </div>
                 ) : (!activeModule || activeModule === 'csp-review') ? (
-                  /* Review Queue - Full Width */
-                  <div key="csp-review-section" className="mb-8">
-                    <CSPReviewWorkflow key={`csp-review-${reviewQueueKey}`} />
+                  /* Review Queue - With Recent Activity Sidebar */
+                  <div key="csp-review-section" className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+                    <div className="lg:col-span-3">
+                      <CSPReviewWorkflow key={`csp-review-${reviewQueueKey}`} />
+                    </div>
+                    <div className="hidden lg:block">
+                      <ActivityFeed />
+                    </div>
                   </div>
                 ) : (
                   /* Other Module Views */
-                  <div className={activeModule === 'all-requests' || activeModule === 'absenteeism' || activeModule === 'help' ? 'w-full' : 'grid grid-cols-1 lg:grid-cols-3 gap-6'}>
-                    <div className={activeModule === 'all-requests' || activeModule === 'absenteeism' || activeModule === 'help' ? 'w-full' : 'lg:col-span-2 space-y-6'}>
+                  <div className={activeModule === 'all-requests' || activeModule === 'absenteeism' || activeModule === 'help' || activeModule === 'team' || activeModule === 'notifications' || activeModule === 'dashboard' ? 'w-full' : 'grid grid-cols-1 lg:grid-cols-3 gap-6'}>
+                    <div className={activeModule === 'all-requests' || activeModule === 'absenteeism' || activeModule === 'help' || activeModule === 'team' || activeModule === 'notifications' || activeModule === 'dashboard' ? 'w-full' : 'lg:col-span-2 space-y-6'}>
+                      {activeModule === 'dashboard' && <RecentActivityDashboard />}
                       {activeModule === 'all-requests' && <AllRequestsView />}
                       {activeModule === 'calendar' && <CalendarView />}
                       {activeModule === 'team' && <TeamMembersList />}
@@ -556,7 +604,7 @@ export default function AppLayout() {
                       {activeModule === 'reports' && <ReportGenerator />}
                       {activeModule === 'reminders' && <RemindersDashboard />}
                     </div>
-                    {activeModule !== 'all-requests' && activeModule !== 'absenteeism' && activeModule !== 'help' && (
+                    {activeModule !== 'all-requests' && activeModule !== 'absenteeism' && activeModule !== 'help' && activeModule !== 'team' && activeModule !== 'notifications' && activeModule !== 'dashboard' && (
                       <div className="hidden lg:block">
                         <ActivityFeed />
                       </div>
@@ -577,7 +625,7 @@ export default function AppLayout() {
         )}
 
         {/* Footer */}
-        <footer className="bg-gradient-to-r from-blue-50 via-sky-50 to-blue-50 border-t border-blue-200 py-3 px-6">
+        <footer className="bg-gradient-to-r from-blue-50 via-sky-50 to-blue-50 dark:from-gray-800 dark:via-gray-850 dark:to-gray-900 border-t border-blue-200 dark:border-gray-700 py-3 px-6">
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-4">
               <img 
@@ -596,10 +644,9 @@ export default function AppLayout() {
                   e.currentTarget.style.display = 'none';
                 }}
               />
-              <span className="text-xs text-blue-800">© 2025 ZimWorx. All rights reserved.</span>
+              <span className="text-xs text-blue-800 dark:text-blue-300">© 2025 ZimWorx. All rights reserved.</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-blue-700">
-              <RefreshCw className="w-3.5 h-3.5" />
+            <div className="flex items-center gap-2 text-xs text-blue-700 dark:text-blue-400">
               <span>Last synced: {formatRefreshTime(lastRefreshTime)}</span>
             </div>
           </div>

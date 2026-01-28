@@ -6,7 +6,7 @@
   "ptoUpdateRange": "PTO Update!A2:BJ",
   "autoSync": true,
   "syncIntervalMinutes": 15,
-  "lastSync": "2026-01-05T15:04:12.630Z",
+  "lastSync": "2026-01-07T12:09:06.355Z",
   "cspSettings": {
     "Tsungi": {
       "spreadsheetId": "1XYwfboWvDpwQc43HakjEtybt1kxKEWt59Zlv8xK-_Es",
@@ -31,7 +31,7 @@
       "leaveTrackerRange": "Leave Tracker!A1:Z",
       "absenteeismRange": "Absenteesim tracker !A1:AH1000",
       "ptoUpdateRange": "PTO Update!A2:BJ",
-      "lastSync": "2026-01-05T15:11:07.180Z",
+      "lastSync": "2026-01-21T11:26:28.361Z",
       "lastSyncBy": "tsungirirai.samhungu@zimworx.com"
     }
   }

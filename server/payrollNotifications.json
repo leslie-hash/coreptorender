@@ -143,5 +143,85 @@
     "subject": "APPROVED: Leave Request for Getrude Nyemba",
     "excelDocument": null,
     "status": "sent"
+  },
+  {
+    "id": "1767705152867",
+    "leaveRequestId": "1765280430572",
+    "teamMember": "Shawn Buka",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2026-01-06T13:12:32.867Z",
+    "subject": "APPROVED: Leave Request for Shawn Buka",
+    "excelDocument": null,
+    "status": "sent"
+  },
+  {
+    "id": "1768310911746",
+    "leaveRequestId": "Lauryn",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2026-01-13T13:28:31.746Z",
+    "subject": "APPROVED: Leave Request for undefined",
+    "excelDocument": null,
+    "status": "sent"
+  },
+  {
+    "id": "1768311057577",
+    "leaveRequestId": "Nyasha",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2026-01-13T13:30:57.577Z",
+    "subject": "APPROVED: Leave Request for undefined",
+    "excelDocument": null,
+    "status": "sent"
+  },
+  {
+    "id": "1768325020313",
+    "leaveRequestId": "Tinashe",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2026-01-13T17:23:40.313Z",
+    "subject": "APPROVED: Leave Request for undefined",
+    "excelDocument": null,
+    "status": "sent"
+  },
+  {
+    "id": "1768325022867",
+    "leaveRequestId": "Tatenda",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2026-01-13T17:23:42.867Z",
+    "subject": "APPROVED: Leave Request for undefined",
+    "excelDocument": null,
+    "status": "sent"
+  },
+  {
+    "id": "1769166955174",
+    "leaveRequestId": "69734e7f504a808707384f65",
+    "teamMember": "Paidaishe Mbishi",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2026-01-23T11:15:55.174Z",
+    "subject": "APPROVED: Leave Request for Paidaishe Mbishi",
+    "excelDocument": null,
+    "status": "sent"
+  },
+  {
+    "id": "1769168544057",
+    "leaveRequestId": "69734e7f504a808707384f65",
+    "teamMember": "Paidaishe Mbishi",
+    "sentTo": [
+      "leslie@zimworx.com"
+    ],
+    "sentAt": "2026-01-23T11:42:24.057Z",
+    "subject": "APPROVED: Leave Request for Paidaishe Mbishi",
+    "excelDocument": null,
+    "status": "sent"
   }
 ]

@@ -63,15 +63,15 @@ export default function CSPSheetSync() {
   return (
     <div className="space-y-6">
       {/* Test Single CSP Sync */}
-      <div className="border border-gray-200 rounded-lg p-6">
+      <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6">
         <div className="flex items-center gap-2 mb-4">
           <FileSpreadsheet className="w-5 h-5 text-blue-600" />
-          <h4 className="text-lg font-semibold text-gray-900">Test Single CSP Sheet Sync</h4>
+          <h4 className="text-lg font-semibold text-gray-900 dark:text-white">Test Single CSP Sheet Sync</h4>
         </div>
         
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               CSP Email <span className="text-red-500">*</span>
             </label>
             <input
@@ -79,12 +79,12 @@ export default function CSPSheetSync() {
               value={cspEmail}
               onChange={(e) => setCspEmail(e.target.value)}
               placeholder="csp@zimworx.com"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               CSP Name <span className="text-red-500">*</span>
             </label>
             <input
@@ -92,12 +92,12 @@ export default function CSPSheetSync() {
               value={cspName}
               onChange={(e) => setCspName(e.target.value)}
               placeholder="Jane Doe"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Spreadsheet ID <span className="text-red-500">*</span>
             </label>
             <input
@@ -105,15 +105,15 @@ export default function CSPSheetSync() {
               value={spreadsheetId}
               onChange={(e) => setSpreadsheetId(e.target.value)}
               placeholder="1XYwfboWvDpwQc43HakjEtybt1kxKEWt59Zlv8xK-_Es"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
             />
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
               From URL: docs.google.com/spreadsheets/d/<strong>SPREADSHEET_ID</strong>/edit
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Range (optional)
             </label>
             <input
@@ -121,7 +121,7 @@ export default function CSPSheetSync() {
               value={range}
               onChange={(e) => setRange(e.target.value)}
               placeholder="Team Member Work Details!A2:I"
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
             />
           </div>
 
@@ -145,34 +145,34 @@ export default function CSPSheetSync() {
         <div
           className={`border rounded-lg p-6 ${
             result.success
-              ? 'bg-green-50 border-green-200'
-              : 'bg-red-50 border-red-200'
+              ? 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-700'
+              : 'bg-red-50 dark:bg-red-900/20 border-red-200 dark:border-red-700'
           }`}
         >
           <div className="flex items-start gap-3">
             {result.success ? (
-              <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="w-6 h-6 text-green-600 dark:text-green-400 flex-shrink-0 mt-0.5" />
             ) : (
-              <XCircle className="w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" />
+              <XCircle className="w-6 h-6 text-red-600 dark:text-red-400 flex-shrink-0 mt-0.5" />
             )}
             <div className="flex-1">
               <h5
                 className={`font-semibold mb-2 ${
-                  result.success ? 'text-green-900' : 'text-red-900'
+                  result.success ? 'text-green-900 dark:text-green-200' : 'text-red-900 dark:text-red-200'
                 }`}
               >
                 {result.success ? 'Sync Successful!' : 'Sync Failed'}
               </h5>
               <p
                 className={`text-sm mb-3 ${
-                  result.success ? 'text-green-800' : 'text-red-800'
+                  result.success ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'
                 }`}
               >
                 {result.message}
               </p>
 
               {result.success && result.teamMemberCount !== undefined && (
-                <div className="flex items-center gap-2 text-sm text-green-700">
+                <div className="flex items-center gap-2 text-sm text-green-700 dark:text-green-300">
                   <Users className="w-4 h-4" />
                   <span>
                     <strong>{result.teamMemberCount}</strong> team members synced for{' '}
@@ -182,32 +182,32 @@ export default function CSPSheetSync() {
               )}
 
               {!result.success && result.error && (
-                <div className="mt-2 p-3 bg-red-100 border border-red-200 rounded text-sm text-red-800">
+                <div className="mt-2 p-3 bg-red-100 dark:bg-red-900/40 border border-red-200 dark:border-red-700 rounded text-sm text-red-800 dark:text-red-200">
                   <strong>Error:</strong> {result.error}
                 </div>
               )}
 
               {result.success && result.teamMembers && result.teamMembers.length > 0 && (
                 <div className="mt-4">
-                  <h6 className="text-sm font-semibold text-green-900 mb-2">
+                  <h6 className="text-sm font-semibold text-green-900 dark:text-green-200 mb-2">
                     Team Members Preview:
                   </h6>
-                  <div className="bg-white border border-green-200 rounded-md p-3 max-h-60 overflow-y-auto">
+                  <div className="bg-white dark:bg-gray-800 border border-green-200 dark:border-green-700 rounded-md p-3 max-h-60 overflow-y-auto">
                     <ul className="space-y-2 text-sm">
                       {result.teamMembers.slice(0, 10).map((member, index) => (
-                        <li key={index} className="flex items-start gap-2 text-gray-700">
-                          <span className="text-green-600">•</span>
+                        <li key={index} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                          <span className="text-green-600 dark:text-green-400">•</span>
                           <div>
                             <strong>{member.teamMemberName}</strong> ({member.role})
                             <br />
-                            <span className="text-xs text-gray-500">
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
                               Client: {member.clientName} | Email: {member.email}
                             </span>
                           </div>
                         </li>
                       ))}
                       {result.teamMembers.length > 10 && (
-                        <li className="text-gray-500 italic">
+                        <li className="text-gray-500 dark:text-gray-400 italic">
                           ... and {result.teamMembers.length - 10} more
                         </li>
                       )}
@@ -221,12 +221,12 @@ export default function CSPSheetSync() {
       )}
 
       {/* Instructions */}
-      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+      <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-blue-900">
+          <AlertCircle className="w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 mt-0.5" />
+          <div className="text-sm text-blue-900 dark:text-blue-200">
             <h6 className="font-semibold mb-2">Before syncing:</h6>
-            <ol className="list-decimal list-inside space-y-1 text-blue-800">
+            <ol className="list-decimal list-inside space-y-1 text-blue-800 dark:text-blue-300">
               <li>Share the Google Sheet with the service account email (found in google-credentials.json)</li>
               <li>Ensure the sheet has a tab named "Team Member Work Details"</li>
               <li>Verify columns A-I contain: Client Name | Team member | Role | Email | Anydesk | Work Station | Floor | Work Start Time | Time Zone</li>

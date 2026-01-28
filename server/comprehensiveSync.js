@@ -154,10 +154,10 @@ export async function syncAllSheets(spreadsheetId) {
     const ptoSyncResult = await syncPTOBalancesFromSheets(spreadsheetId, 'PTO Update!A2:BJ');
     console.log(`✓ PTO Balances: Synced ${ptoSyncResult.count} employees`);
 
-    // Sync absenteeism grid data
+    // Sync absenteeism grid data (from 2024 onwards for historical tracking)
     console.log('Syncing absenteeism tracker (grid format)...');
-    const absenteeismSyncResult = await syncAbsenteeismGrid(spreadsheetId, 'Absenteesim tracker !A1:AH1000');
-    console.log(`✓ Absenteeism Grid: Synced ${absenteeismSyncResult.count} records`);
+    const absenteeismSyncResult = await syncAbsenteeismGrid(spreadsheetId, 'Absenteesim tracker !A1:AH1000', 2024);
+    console.log(`✓ Absenteeism Grid: Synced ${absenteeismSyncResult.count} records from 2024 onwards`);
 
     // Cross-reference and enrich data
     const enrichedTeamMembers = enrichTeamMemberData(

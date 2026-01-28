@@ -6,6 +6,16 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Centralized file paths
+const FILE_PATHS = {
+  leaveRequests: path.join(__dirname, 'leaveRequests.json'),
+  teamMemberMeta: path.join(__dirname, 'teamMemberMeta.json'),
+  users: path.join(__dirname, 'users.json'),
+  emailSettings: path.join(__dirname, 'emailSettings.json'),
+  integrationSettings: path.join(__dirname, 'integrationSettings.json'),
+  approvalHistory: path.join(__dirname, 'approvalHistory.json')
+};
+
 /**
  * Helper function to safely parse JSON files (removes BOM)
  */
@@ -147,6 +157,26 @@ export async function syncCSPSheet(cspEmail, cspName, spreadsheetId, range = 'Te
     });
 
     console.log(`✅ Synced ${teamMembers.length} team members from ${cspName}'s sheet`);
+    
+    // Persist to teamMemberMeta.json - merge with existing data from other CSPs
+    const metaPath = FILE_PATHS.teamMemberMeta;
+    let existingData = [];
+    if (fs.existsSync(metaPath)) {
+      try {
+        existingData = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+        // Remove existing entries from this CSP to avoid duplicates
+        existingData = existingData.filter(m => m.csp !== cspName && m.cspName !== cspName);
+      } catch (e) {
+        console.log('Could not read existing teamMemberMeta.json, starting fresh');
+        existingData = [];
+      }
+    }
+    
+    // Merge new data with existing
+    const mergedData = [...existingData, ...teamMembers];
+    fs.writeFileSync(metaPath, JSON.stringify(mergedData, null, 2));
+    console.log(`📁 Saved ${mergedData.length} total team members to teamMemberMeta.json`);
+    
     return { teamMembers, count: teamMembers.length };
   } catch (error) {
     console.error(`Error syncing ${cspName}'s sheet:`, error.message);
@@ -456,7 +486,8 @@ export async function validateSheetConnection(spreadsheetId) {
 
 /**
  * Sync PTO balances from Google Sheets "PTO Update" tab
- * Pulls current month's data: Client, NAME, Current PTO, Total Taken, Leave Balance
+ * Pulls historical monthly data: Client, NAME, Current PTO, Total Taken, Leave Balance
+ * Stores complete monthly history from June 2024 onwards
  */
 export async function syncPTOBalancesFromSheets(spreadsheetId, range = 'PTO Update!A2:BJ') {
   try {
@@ -475,7 +506,6 @@ export async function syncPTOBalancesFromSheets(spreadsheetId, range = 'PTO Upda
     }
 
     // Determine current month column indices
-    // December 2025 columns: Days Accrued (col 26), Current PTO (col 27), Total Taken (col 28), Leave Balance (col 29)
     const currentMonth = new Date().getMonth(); // 0-11 (December = 11)
     const currentYear = new Date().getFullYear();
     
@@ -486,15 +516,56 @@ export async function syncPTOBalancesFromSheets(spreadsheetId, range = 'PTO Upda
     const columnsPerMonth = 4;
     const currentMonthStartCol = baseColumn + (monthsSinceJune2024 * columnsPerMonth);
     
+    // Define month mapping (June 2024 to November 2025)
+    const months = [
+      { year: 2024, month: 6, name: 'June 2024', colOffset: 0 },
+      { year: 2024, month: 7, name: 'July 2024', colOffset: 4 },
+      { year: 2024, month: 8, name: 'August 2024', colOffset: 8 },
+      { year: 2024, month: 9, name: 'September 2024', colOffset: 12 },
+      { year: 2024, month: 10, name: 'October 2024', colOffset: 16 },
+      { year: 2024, month: 11, name: 'November 2024', colOffset: 20 },
+      { year: 2024, month: 12, name: 'December 2024', colOffset: 24 },
+      { year: 2025, month: 1, name: 'January 2025', colOffset: 28 },
+      { year: 2025, month: 2, name: 'February 2025', colOffset: 32 },
+      { year: 2025, month: 3, name: 'March 2025', colOffset: 36 },
+      { year: 2025, month: 4, name: 'April 2025', colOffset: 40 },
+      { year: 2025, month: 5, name: 'May 2025', colOffset: 44 },
+      { year: 2025, month: 6, name: 'June 2025', colOffset: 48 },
+      { year: 2025, month: 7, name: 'July 2025', colOffset: 52 },
+      { year: 2025, month: 8, name: 'August 2025', colOffset: 56 },
+      { year: 2025, month: 9, name: 'September 2025', colOffset: 60 },
+      { year: 2025, month: 10, name: 'October 2025', colOffset: 64 },
+      { year: 2025, month: 11, name: 'November 2025', colOffset: 68 },
+    ];
+    
     const ptoData = rows.map(row => {
       const client = row[0]?.trim();
       const name = row[1]?.trim();
       const startDate = row[2]?.trim();
       
-      // Get current month's data
-      const currentPTO = parseFloat(row[currentMonthStartCol + 1]) || 20; // Current PTO as of month
-      const totalTaken = parseFloat(row[currentMonthStartCol + 2]) || 0; // Total taken as of month
-      const leaveBalance = parseFloat(row[currentMonthStartCol + 3]) || currentPTO - totalTaken; // Leave balance
+      // Get current month's data for quick access
+      const currentPTO = parseFloat(row[currentMonthStartCol + 1]) || 20;
+      const totalTaken = parseFloat(row[currentMonthStartCol + 2]) || 0;
+      const leaveBalance = parseFloat(row[currentMonthStartCol + 3]) || currentPTO - totalTaken;
+      
+      // Extract historical monthly data
+      const monthlyHistory = months.map(monthInfo => {
+        const colStart = baseColumn + monthInfo.colOffset;
+        const daysAccrued = parseFloat(row[colStart]) || 0;
+        const currentPTOMonth = parseFloat(row[colStart + 1]) || 0;
+        const totalTakenMonth = parseFloat(row[colStart + 2]) || 0;
+        const leaveBalanceMonth = parseFloat(row[colStart + 3]) || 0;
+        
+        return {
+          year: monthInfo.year,
+          month: monthInfo.month,
+          monthName: monthInfo.name,
+          daysAccrued: daysAccrued,
+          currentPTO: currentPTOMonth,
+          totalTaken: totalTakenMonth,
+          leaveBalance: leaveBalanceMonth
+        };
+      }).filter(m => m.currentPTO > 0 || m.totalTaken > 0); // Filter out empty months
       
       return {
         employeeId: name,
@@ -502,12 +573,13 @@ export async function syncPTOBalancesFromSheets(spreadsheetId, range = 'PTO Upda
         startDate: startDate,
         annualPTO: currentPTO,
         usedPTO: totalTaken,
-        remainingPTO: leaveBalance
+        remainingPTO: leaveBalance,
+        monthlyHistory: monthlyHistory
       };
     }).filter(item => item.employeeId); // Filter out empty rows
 
     // Merge with existing teamMemberMeta.json
-    const metaPath = path.join(__dirname, 'teamMemberMeta.json');
+    const metaPath = FILE_PATHS.teamMemberMeta;
     let teamMemberMeta = [];
     
     if (fs.existsSync(metaPath)) {
@@ -525,6 +597,7 @@ export async function syncPTOBalancesFromSheets(spreadsheetId, range = 'PTO Upda
         member.annualPTO = ptoRecord.annualPTO;
         member.currentUsedPTO = ptoRecord.usedPTO;
         member.currentRemainingPTO = ptoRecord.remainingPTO;
+        member.ptoMonthlyHistory = ptoRecord.monthlyHistory; // Store complete history
         member.ptoLastSynced = new Date().toISOString();
       }
     });
@@ -532,10 +605,11 @@ export async function syncPTOBalancesFromSheets(spreadsheetId, range = 'PTO Upda
     // Save updated metadata
     fs.writeFileSync(metaPath, JSON.stringify(teamMemberMeta, null, 2));
 
-    console.log(`✅ Synced PTO balances for ${ptoData.length} employees from Google Sheets`);
+    console.log(`✅ Synced PTO balances with historical data for ${ptoData.length} employees from Google Sheets`);
     return { ptoData, count: ptoData.length };
   } catch (error) {
     console.error('Error syncing PTO balances:', error.message);
     throw error;
   }
 }
+

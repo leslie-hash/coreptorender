@@ -1,688 +1,2938 @@
 [
-    {
-        "name":  "Test User",
-        "email":  "test@example.com",
-        "password":  "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
-        "role":  "user",
-        "cspName":  null
-    },
-    {
-        "name":  "Admin User",
-        "email":  "admin@zimworx.com",
-        "password":  "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
-        "role":  "admin",
-        "cspName":  null
-    },
-    {
-        "name":  "CSP User",
-        "email":  "csp@zimworx.com",
-        "password":  "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
-        "role":  "csp",
-        "cspName":  "CSP User"
-    },
-    {
-        "name":  "Leslie Chasinda",
-        "email":  "leslie@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "csp",
-        "cspName":  "Leslie Chasinda"
-    },
-    {
-        "name":  "Tsungirirai Samhungu",
-        "email":  "tsungirirai.samhungu@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "csp",
-        "cspName":  "Tsungirirai Samhungu"
-    },
-    {
-        "name":  "Director User",
-        "email":  "director@zimworx.com",
-        "password":  "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
-        "role":  "director",
-        "cspName":  null
-    },
-    {
-        "name":  "Shawn Buka",
-        "email":  "shawn.buka@zimworx.com",
-        "password":  "$2b$10$ZoaqYn2RNzZvvFX7vzBNF.JObt0uQmxSLMbpvbathyGFkhbRD4P5i",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Laurette Paswera",
-        "email":  "laurette.paswera@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tsitsi Geza",
-        "email":  "tsitsi.geza@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Nigel Nyoni",
-        "email":  "nigel.nyoni@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tatenda Gusha",
-        "email":  "tatenda.gusha@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Roy Kagoro",
-        "email":  "roy.kagoro@zimworx.com",
-        "password":  "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Sharon Mutsvunguma",
-        "email":  "sharon.mutsvunguma@zimworx.com",
-        "password":  "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tadiwa Chibwe",
-        "email":  "tadiwa.chibwe@zimworx.com",
-        "password":  "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Debra Hlabangana",
-        "email":  "debra.hlabangana@zimworx.com",
-        "password":  "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Getrude Nyemba",
-        "email":  "getrude.nyemba@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Miriro Dzuda",
-        "email":  "miriro.dzuda@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tafadzwa Mapfumo",
-        "email":  "tafadzwa.mapfumo@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ndumiso Ndebele",
-        "email":  "theo.ndebele@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Hillary Mudondo",
-        "email":  "hillary.mudondo@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tadiwanashe Chibwe",
-        "email":  "tadiwanashe.chibwe@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Nyasha Majoko",
-        "email":  "nyasha.majoko@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Getrude Nyemba",
-        "email":  "getrude.nyemba@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Munyaradzi Musarurwa",
-        "email":  "munyaradzi.musarurwa@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Fridah Mutyambizi",
-        "email":  "fridah.mutyambizi@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Sean Chakuchichi",
-        "email":  "sean.chakuchichi@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Patra Moyo",
-        "email":  "patra.moyo@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Kudakwashe Eli Kunira",
-        "email":  "kudakwashe.kunira@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tafara Pesanai",
-        "email":  "tafara.pesanai@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tinashe Gambara",
-        "email":  "tinashe.gambara@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Fadzaishe Gura",
-        "email":  "fadzaishe.gura@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Nigel Deda",
-        "email":  "nigel.deda@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ryan Hambury",
-        "email":  "ryan.hambury@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Joseph Hove",
-        "email":  "joseph.hove@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Munyaradzi Ngondonga",
-        "email":  "munyaradzi.ngondonga@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tamanda Mandeya",
-        "email":  "tamanda.mandeya@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Rudolph Matanga",
-        "email":  "rudolph.matanga@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Chido Mawire",
-        "email":  "chido.mawire@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Irene Nyaundi",
-        "email":  "irene.nyaundi@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ngaatendwe Muchapirei",
-        "email":  "ngaatendwe.muchapirei@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Seth Moyo",
-        "email":  "seth.moyo@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Mutsa Machamire",
-        "email":  "mutsa.machamire@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Lisa Takaona",
-        "email":  "lisa.takaona@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tinotenda Mubvumbi",
-        "email":  "tinotenda.mubvumbi@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Mandlaenkosi Hlatshwayo",
-        "email":  "mandlaenkosi.hlatshwayo@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Mufaro Chinwada",
-        "email":  "mufaro.chinwada@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tanya Chigombe",
-        "email":  "tanya.chigombe@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Gary Bandah",
-        "email":  "gary.banda@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Makanaka Mutapi",
-        "email":  "makanaka.mutapi@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tadiwanashe Mhlanga",
-        "email":  "tadiwanashe.mhlanga@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Eugene Sigauke",
-        "email":  "eugene.sigauke@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ruvarashe Nyakatswau",
-        "email":  "ruvarashe.nyakatswau@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Munotida Sibanda",
-        "email":  "munotida.sibanda@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Fikile Amanda Mkandla",
-        "email":  "fikile.mkandla@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Adrian Panashe Magwenzi",
-        "email":  "adrian.magwenzi@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Wadzanayi Dangirwa",
-        "email":  "wadzanayi.dangirwa@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Paidamoyo Kufa",
-        "email":  "paidamoyo.kufa@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "McShemier Tinotenda Machimbidza",
-        "email":  "mcshemier.machimbidza@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Rudo Mazvimba",
-        "email":  "rudo.mazvimba@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Rumbidzai Shamuyedova",
-        "email":  "rumbidzai.shamuyedova@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Nyaradzo Musindo",
-        "email":  "nyaradzo.musindo@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tendai Zaranyika",
-        "email":  "tendai.zaranyika@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Thondlana Noreen",
-        "email":  "noreen.thondhlana@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Denise Chiwandire",
-        "email":  "denise.chiwandire@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Precious Mumbure",
-        "email":  "precious.mumbure@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Takudzwa Goniwa",
-        "email":  "takudzwa.goniwa@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Sean Chikobvu",
-        "email":  "sean.chikobvu@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ruth Mushaninga",
-        "email":  "ruth.mushaninga@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Isabel Mapanga",
-        "email":  "isabel.mapanga@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Michelle Bure",
-        "email":  "michelle.bureh@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Anesu Mlambo",
-        "email":  "anesu.mlambo@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ronal Javier Alpizar Saravia",
-        "email":  "ronal.alpizar@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Cinthya Morales",
-        "email":  "cinthya.morales@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Kimberly Mwendamberi",
-        "email":  "kimberly.mwendamberi@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ashleigh Satiya",
-        "email":  "ashleigh.satiya@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Thelma Shava",
-        "email":  "thelma.shava@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Mutsa Kashangura",
-        "email":  "mutsa.kashangura@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Michelle Muzondo",
-        "email":  "michelle.muzondo@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Silvia Castillo Ramirez",
-        "email":  "silvia.castillo@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ariana Nunez Canales",
-        "email":  "ariana.nunez@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Bryan Steven Villegas Ordonez",
-        "email":  "bryan.villlegas@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Daniel Eduardo Castro Santana",
-        "email":  "daniel.castro@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Ruvimbo Dzwairo",
-        "email":  "ruvimbo.dzwairo@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Runnies Manja",
-        "email":  "runnies.manja@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Amanda Samarkande",
-        "email":  "amanda.samakande@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Natasha Makweche",
-        "email":  "natasha.makweche@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Michelle Machiha",
-        "email":  "michelle.machiha@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Chelsea Choto",
-        "email":  "chelsea.choto@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Nyasha Makoni",
-        "email":  "nyasha.makoni@zimworx.com",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Tungamirai Makoni",
-        "email":  "Tungamira.makoni@zimworx.org",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "name":  "Sharon Nyamande",
-        "email":  "sharon.nyamande@zimworx.net",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "team-member",
-        "cspName":  null
-    },
-    {
-        "email":  "tendai.senga@zimworx.com",
-        "cspName":  "Tendai Senga",
-        "name":  "Tendai Senga",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "csp"
-    },
-    {
-        "email":  "rudo.takaendisa@zimworx.com",
-        "cspName":  "Rudo Takaendisa",
-        "name":  "Rudo Takaendisa",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "csp"
-    },
-    {
-        "email":  "moses.mushaikwa@zimworx.com",
-        "cspName":  "Moses Mushaikwa",
-        "name":  "Moses Mushaikwa",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "csp"
-    },
-    {
-        "email":  "miranda.chirove@zimworx.com",
-        "cspName":  "Miranda Chirove",
-        "name":  "Miranda Chirove",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "csp"
-    },
-    {
-        "email":  "gladness.njanji@zimworx.com",
-        "cspName":  "Gladness Njanji",
-        "name":  "Gladness Njanji",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "csp"
-    },
-    {
-        "email":  "joseph.ayema@zimworx.com",
-        "cspName":  "Joseph Ayema",
-        "name":  "Joseph Ayema",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "csp"
-    },
-    {
-        "email":  "csd@zimworx.com",
-        "cspName":  null,
-        "name":  "CSD",
-        "password":  "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
-        "role":  "director"
-    }
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
+    "role": "user",
+    "cspName": null
+  },
+  {
+    "name": "Admin User",
+    "email": "admin@zimworx.com",
+    "password": "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
+    "role": "admin",
+    "cspName": null
+  },
+  {
+    "name": "CSP User",
+    "email": "csp@zimworx.com",
+    "password": "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
+    "role": "csp",
+    "cspName": "CSP User"
+  },
+  {
+    "name": "Leslie Chasinda",
+    "email": "leslie@zimworx.com",
+    "password": "$2b$10$u3S6gjamDS4IUQqo7z8KHuANG0uNxw6WiRhYI8a/N6LQ4TGbRKawi",
+    "role": "csp",
+    "cspName": "Leslie Chasinda"
+  },
+  {
+    "name": "Tsungirirai Samhungu",
+    "email": "tsungirirai.samhungu@zimworx.com",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "csp",
+    "cspName": "Tsungirirai Samhungu"
+  },
+  {
+    "name": "Director User",
+    "email": "director@zimworx.com",
+    "password": "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
+    "role": "director",
+    "cspName": null
+  },
+  {
+    "name": "Shawn Buka",
+    "email": "shawn.buka@zimworx.org",
+    "password": "$2b$10$ZoaqYn2RNzZvvFX7vzBNF.JObt0uQmxSLMbpvbathyGFkhbRD4P5i",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Laurette Paswera",
+    "email": "laurette.paswera@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tsitsi Geza",
+    "email": "tsitsi.geza@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Nigel Nyoni",
+    "email": "nigel.nyoni@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tatenda Gusha",
+    "email": "tatenda.gusha@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Roy Kagoro",
+    "email": "roy.kagoro@zimworx.org",
+    "password": "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Sharon Mutsvunguma",
+    "email": "sharon.mutsvunguma@zimworx.org",
+    "password": "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tadiwa Chibwe",
+    "email": "tadiwa.chibwe@zimworx.org",
+    "password": "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Debra Hlabangana",
+    "email": "debra.hlabangana@zimworx.org",
+    "password": "$2b$10$Jolk1euN2rY/QuPu5mUygOcDFBi8hCr0oyIIEtONAMP7ZxecQah5y",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Getrude Nyemba",
+    "email": "getrude.nyemba@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Miriro Dzuda",
+    "email": "miriro.dzuda@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tafadzwa Mapfumo",
+    "email": "tafadzwa.mapfumo@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ndumiso Ndebele",
+    "email": "theo.ndebele@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Hillary Mudondo",
+    "email": "hillary.mudondo@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tadiwanashe Chibwe",
+    "email": "tadiwanashe.chibwe@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Nyasha Majoko",
+    "email": "nyasha.majoko@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Getrude Nyemba",
+    "email": "getrude.nyemba@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Munyaradzi Musarurwa",
+    "email": "munyaradzi.musarurwa@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Fridah Mutyambizi",
+    "email": "fridah.mutyambizi@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Sean Chakuchichi",
+    "email": "sean.chakuchichi@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Patra Moyo",
+    "email": "patra.moyo@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Kudakwashe Eli Kunira",
+    "email": "kudakwashe.kunira@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tafara Pesanai",
+    "email": "tafara.pesanai@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tinashe Gambara",
+    "email": "tinashe.gambara@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Fadzaishe Gura",
+    "email": "fadzaishe.gura@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Nigel Deda",
+    "email": "nigel.deda@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ryan Hambury",
+    "email": "ryan.hambury@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Joseph Hove",
+    "email": "joseph.hove@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Munyaradzi Ngondonga",
+    "email": "munyaradzi.ngondonga@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tamanda Mandeya",
+    "email": "tamanda.mandeya@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Rudolph Matanga",
+    "email": "rudolph.matanga@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Chido Mawire",
+    "email": "chido.mawire@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Irene Nyaundi",
+    "email": "irene.nyaundi@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ngaatendwe Muchapirei",
+    "email": "ngaatendwe.muchapirei@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Seth Moyo",
+    "email": "seth.moyo@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Mutsa Machamire",
+    "email": "mutsa.machamire@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Lisa Takaona",
+    "email": "lisa.takaona@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tinotenda Mubvumbi",
+    "email": "tinotenda.mubvumbi@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Mandlaenkosi Hlatshwayo",
+    "email": "mandlaenkosi.hlatshwayo@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Mufaro Chinwada",
+    "email": "mufaro.chinwada@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tanya Chigombe",
+    "email": "tanya.chigombe@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Gary Bandah",
+    "email": "gary.banda@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Makanaka Mutapi",
+    "email": "makanaka.mutapi@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tadiwanashe Mhlanga",
+    "email": "tadiwanashe.mhlanga@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Eugene Sigauke",
+    "email": "eugene.sigauke@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ruvarashe Nyakatswau",
+    "email": "ruvarashe.nyakatswau@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Munotida Sibanda",
+    "email": "munotida.sibanda@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Fikile Amanda Mkandla",
+    "email": "fikile.mkandla@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Adrian Panashe Magwenzi",
+    "email": "adrian.magwenzi@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Wadzanayi Dangirwa",
+    "email": "wadzanayi.dangirwa@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Paidamoyo Kufa",
+    "email": "paidamoyo.kufa@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "McShemier Tinotenda Machimbidza",
+    "email": "mcshemier.machimbidza@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Rudo Mazvimba",
+    "email": "rudo.mazvimba@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Rumbidzai Shamuyedova",
+    "email": "rumbidzai.shamuyedova@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Nyaradzo Musindo",
+    "email": "nyaradzo.musindo@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tendai Zaranyika",
+    "email": "tendai.zaranyika@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Thondlana Noreen",
+    "email": "noreen.thondhlana@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Denise Chiwandire",
+    "email": "denise.chiwandire@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Precious Mumbure",
+    "email": "precious.mumbure@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Takudzwa Goniwa",
+    "email": "takudzwa.goniwa@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Sean Chikobvu",
+    "email": "sean.chikobvu@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ruth Mushaninga",
+    "email": "ruth.mushaninga@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Isabel Mapanga",
+    "email": "isabel.mapanga@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Michelle Bure",
+    "email": "michelle.bureh@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Anesu Mlambo",
+    "email": "anesu.mlambo@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ronal Javier Alpizar Saravia",
+    "email": "ronal.alpizar@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Cinthya Morales",
+    "email": "cinthya.morales@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Kimberly Mwendamberi",
+    "email": "kimberly.mwendamberi@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ashleigh Satiya",
+    "email": "ashleigh.satiya@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Thelma Shava",
+    "email": "thelma.shava@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Mutsa Kashangura",
+    "email": "mutsa.kashangura@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Michelle Muzondo",
+    "email": "michelle.muzondo@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Silvia Castillo Ramirez",
+    "email": "silvia.castillo@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ariana Nunez Canales",
+    "email": "ariana.nunez@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Bryan Steven Villegas Ordonez",
+    "email": "bryan.villlegas@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Daniel Eduardo Castro Santana",
+    "email": "daniel.castro@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Ruvimbo Dzwairo",
+    "email": "ruvimbo.dzwairo@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Runnies Manja",
+    "email": "runnies.manja@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Amanda Samarkande",
+    "email": "amanda.samakande@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Natasha Makweche",
+    "email": "natasha.makweche@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Michelle Machiha",
+    "email": "michelle.machiha@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Chelsea Choto",
+    "email": "chelsea.choto@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Nyasha Makoni",
+    "email": "nyasha.makoni@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Tungamirai Makoni",
+    "email": "Tungamira.makoni@zimworx.org",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "name": "Sharon Nyamande",
+    "email": "sharon.nyamande@zimworx.net",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "team-member",
+    "cspName": null
+  },
+  {
+    "email": "tendai.senga@zimworx.com",
+    "cspName": "Tendai Senga",
+    "name": "Tendai Senga",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "csp"
+  },
+  {
+    "email": "rudo.takaendisa@zimworx.com",
+    "cspName": "Rudo Takaendisa",
+    "name": "Rudo Takaendisa",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "csp"
+  },
+  {
+    "email": "moses.mushaikwa@zimworx.com",
+    "cspName": "Moses Mushaikwa",
+    "name": "Moses Mushaikwa",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "csp"
+  },
+  {
+    "email": "miranda.chirove@zimworx.com",
+    "cspName": "Miranda Chirove",
+    "name": "Miranda Chirove",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "csp"
+  },
+  {
+    "email": "gladness.njanji@zimworx.com",
+    "cspName": "Gladness Njanji",
+    "name": "Gladness Njanji",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "csp"
+  },
+  {
+    "email": "joseph.ayema@zimworx.com",
+    "cspName": "Joseph Ayema",
+    "name": "Joseph Ayema",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "csp"
+  },
+  {
+    "email": "csd@zimworx.com",
+    "cspName": null,
+    "name": "CSD",
+    "password": "$2b$10$D86.SH3g7KiEEeko9CyMU.AFuTd37QvucSbWfQuEflbdZSBhxvznC",
+    "role": "director"
+  },
+  {
+    "name": "Sandisiwe Nkala",
+    "email": "sandisiwe.nkala@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.528Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tafadzwa Zata",
+    "email": "tafadzwa.zata@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tendai Nharaunda",
+    "email": "timothy.zisengwe@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Munashe Zengeni",
+    "email": "munashe.zengeni@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tashinga Henry Kajiva",
+    "email": "tashinga.kajiva@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Shaun Mare",
+    "email": "kimberly.dacosta@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Munashe Machaka",
+    "email": "munashe.machaka@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Nosizo Mpofu",
+    "email": "nosizo.mpofu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tapiwanashe Mwafuka",
+    "email": "tapiwanashe.mwafuka@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Fungai Nyamayaro",
+    "email": "fungai.nyamayaro@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Bernadette Nyazuwa",
+    "email": "bernadette.nyazuwa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Douglas Makonza",
+    "email": "douglas.makonza@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Eddington Mapuranga",
+    "email": "eddington.mapuranga@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Geoffrey Mukaronda",
+    "email": "geoffrey.mukaronda@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Hillary Kembo",
+    "email": "hillary.kembo@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Kudzanayi Saramunda",
+    "email": "kudzanayi.saramunda@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Leeroy Shoriwa",
+    "email": "leeroy.shoriwa@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Leonard Katsukunya",
+    "email": "leonard.katsukunya@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Natasha Moyo",
+    "email": "natasha.moyo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Shaveh Zvobgo",
+    "email": "shaveh.zvobgo@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Simbarashe Goni",
+    "email": "simbarashe.goni@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tichaona Mutogo",
+    "email": "tichaona.mutogo@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Webster Musiiwa",
+    "email": "webster.musiiwa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Chengeto Shoniwa",
+    "email": "chengeto.shoniwa@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Delane Knight",
+    "email": "delane.knight@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Gillian Makaza",
+    "email": "gillian.makaza@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Henrietta Ruzvidzo Govati",
+    "email": "henrietta.ruzvidzo@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Kimberly Mlambane",
+    "email": "kimberly.mlambane@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Nyasha Mutikori",
+    "email": "nyasha.mutikori@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Takudzwa Gutsa",
+    "email": "takudzwa.gutsa@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tapiwa Mjawe",
+    "email": "tamukudza.pasimupindu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Teurai Chitanda",
+    "email": "teurai.chitanda@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tiffany Sibanda",
+    "email": "tiffany.sibanda@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Danielle Chikupo",
+    "email": "danielle.chikupo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Malvin Dhlora",
+    "email": "malvin.dhlora@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Sandra Makarutsa",
+    "email": "sandra.makarutsa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Sandra Mushambi",
+    "email": "sandra.mushambi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tanyaradzwa Mukwamba",
+    "email": "tanyaradzwa.mukwamba@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Tatenda Marylyn Munyaka",
+    "email": "tatenda.munyaka@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Hayley Moffitt",
+    "email": "hayley@globalimagingusa.com",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Joseph Ayema",
+    "cspEmail": "joseph.ayema@zimworx.com"
+  },
+  {
+    "name": "Steve Ngandu",
+    "email": "steve.ngandu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Kasonde Kabuswe",
+    "email": "kasonde.kabuswe@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Ashley Goromonzi",
+    "email": "ashley.goromonzi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Paidaishe Mbishi",
+    "email": "paidaishe.mbishi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Meltah Guni",
+    "email": "meltah.guni@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Sibusisiwe Dodo",
+    "email": "sibusisiwe.dodo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Tafadzwa Chanakira",
+    "email": "tafadzwa.chanakira@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Tasha Jiro",
+    "email": "tasha.jiro@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Vongai Durango",
+    "email": "lilian.kangai@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Lubasi Madiri",
+    "email": "lubasi.madiri@zimworx.com",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Sally Hungwe",
+    "email": "sally.hungwe@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Lilian Kangai",
+    "email": "lilian.kangai@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Michael Tandi",
+    "email": "michael.tandi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Takudzwa Gutsa",
+    "email": "takudzwa.gutsa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Jabulani Mudzova",
+    "email": "jabulani.mudzova@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Ella Chikoto",
+    "email": "ella.chikoto@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Eugune Kusangaya",
+    "email": "eugune.kasangaya@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Sharon Tsangamidzi",
+    "email": "sharon.tsangamidzi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Chaza Mushondwa",
+    "email": "chaza.mushondwa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Mike",
+    "cspEmail": "mike@zimworx.com"
+  },
+  {
+    "name": "Harris Mwandemange",
+    "email": "harrismwandemange@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Temwani Mbewe",
+    "email": "temwani.mbewe@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Stephanie Chipeni",
+    "email": "stephanie.chipeni@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Takunda Gawe",
+    "email": "takunda.gawe@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Lisencia Nyamukapa",
+    "email": "lisencia.nyamukapa@zimworx.org.",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Bwembya Mulenga",
+    "email": "bwembya.mulenga@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Graham Kumwenda",
+    "email": "graham.kumwenda@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Esther",
+    "email": "esther.ngandu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Tanatswa Gwande",
+    "email": "tanatswa.gwande@gmail.com,",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Chenai Chihambakwe",
+    "email": "chenai.chihambakwe@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Jordan Gombakomba",
+    "email": "jordan.gombakomba@zimworx.org        263 781 822 557",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Godfrey Sipanera",
+    "email": "godfrey.sipanera@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Ashley Kanhai",
+    "email": "ashley.kanhai@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "lisa.makurumidze@zimworx.com",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "Anele.Chinembiri@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "sylvester.matiengs@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.529Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "namakando.dutton@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "nomagugu.sibanda@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "lj.j@yahoo.com",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "Joan.nhamoinesu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "farai.kufa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "joel.valverde@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "Sharon.sakonda@zimwrx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "rumbidzai.muchemeyi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "bernadette.mukarakate@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "chitsidzochangu.chiketa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "gertrude.katiyo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "vimbai.viano@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "tanatswa.tinargwo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "gamuchirai.wuta@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "meltah.guni@zimworx.com",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "yolander.mushore@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "Vanessa.chaza@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "mercy.marara@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "makanaka.katerere@zimworx.com",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "thulisiwe.nyathi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "monalissa.zambuko@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "nevado.ali@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "2",
+    "email": "clara.barure@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "chantelle.marufu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "darlington.mhungu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.530Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "tinevimbo.mukodza@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "8",
+    "email": "geannina.matarrita@zimworx.net ext 802",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "catherine.mhizha@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "david.gondongwe@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "lisa.phiri@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "jodell.satiya@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "panashe.nyawasha@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "chido.chipise@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "farai.kufa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "fadzai.chiweshe@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "best.dipuka@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "tafadzwa.muchingame@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "adelyn.makoni@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "rufaro.rushwaya@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "yolander.kasipo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "satiate.makochera@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "lynnette.sauramba@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "tadiwa.ganagana@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "farai.masumbuko@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "sandra.katerere@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "tadiwa.ganagana@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "farai.gutsa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "jordan.ncube@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "sylvester.gurumunde@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "nelly.mchanga@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "panashe.sinyoro@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "2",
+    "email": "natasha.chironda@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "robin.nyajeka@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "chido.takwanisa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "leah.zibowa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "lisa.sharpe@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "kirstee.mudede@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "paula.muparutsa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "2",
+    "email": "isabella.fernando@zimwrox.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "chimwemwe.shana@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "3",
+    "email": "eddie.phiri@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "4",
+    "email": "wezi.bota@zimowrx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "lucy.phiri@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "1",
+    "email": "valarie.mweemba@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "2",
+    "email": "katai.kalumba@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Petra Langeveldt",
+    "cspEmail": "petra.langeveldt@zimworx.com"
+  },
+  {
+    "name": "Godwin Chikosi",
+    "email": "godwin.chikosi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Abigail Akim",
+    "email": "abigail.akim@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Anesu Ruvire",
+    "email": "anesu.ruvire@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Ulukile Setoboli",
+    "email": "ulukile.setoboli@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Pamela Mhlanga",
+    "email": "pamela.mhlanga@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Nigel T Damu",
+    "email": "nigel.damu@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Dale Chiwutsi",
+    "email": "dale.takudzwa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Panashe Charlene",
+    "email": "charlene.nyemba@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Nicole Dzumbunu",
+    "email": "nicole.dzumbunu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Audrey Gaka",
+    "email": "audrey.gaka@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Panashe Sithole",
+    "email": "panashe.sithole@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Ayan Manjonjori",
+    "email": "ayan.manjonjori@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Denzel Sigauke",
+    "email": "denzel.sigauke@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Panashe Mapfumo",
+    "email": "panashe.mapfumo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Nyasha Kwenda",
+    "email": "nyasha.kwenda@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Hilary Mashanda",
+    "email": "hillary.mashanda@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Lloyd Shoniwa",
+    "email": "lloyd.shoniwa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Munashe Gundu",
+    "email": "munashe.gundu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Colbert Zvenhamo",
+    "email": "colbert.zvenhamo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Ruvimbo Chiridza",
+    "email": "ruvimbo.chiridza@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Patrick Gwatiringa",
+    "email": "patrick.gwatiringa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Elvis Mwaona",
+    "email": "elvis.mwaona@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Felix Chimambo",
+    "email": "felix.chimambo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Tatenda Mutanhaurwa",
+    "email": "tatenda.mutanhaurwa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Dennis Mukonoweshuro",
+    "email": "dennis.mukonoweshuro@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Lynda Chihwayi",
+    "email": "lynda.chihwayi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Dumisani Sithole",
+    "email": "dumisani.sithole@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Melinda Rudo Pedzi",
+    "email": "melinda.pedzi@zimworx.org .",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Jeniel Chifamba",
+    "email": "jeniel.chifamba@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Brian Mpofu",
+    "email": "brian.mpofu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Farai Mbirimi",
+    "email": "farai.mbirimi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Lindsay Mutiza",
+    "email": "lindsay.mutiza@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Great joy Washoma",
+    "email": "greatjoy.washoma@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Shepherd Kalichenga",
+    "email": "shepherd.kalinchenga@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Harry Muzambi",
+    "email": "harry.muzambi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Tazodzwa Basvi",
+    "email": "Tazodzwa.basvi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "David Gondongwe",
+    "email": "david.gondogwe@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Kerapatsi Setoboli",
+    "email": "kerapetsi.setoboli@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Amanda Taonezvi",
+    "email": "amanda.taonezvi@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Blessing Mujuru",
+    "email": "blessing.mujuru@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Mitchell Mudzimurema",
+    "email": "mitchell.mudzimurema@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Nigel Tototo",
+    "email": "nigel.tototo@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Shylet Ganyaupfu",
+    "email": "shylet.ganyaupfu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Mehluli Chinembiri",
+    "email": "mehluli.chinembiri@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Catherine Taru",
+    "email": "catherine.taru@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Bakhehiwe Chuma",
+    "email": "bakhethiwe.chuma@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Ruvimbo Juliana Magarira",
+    "email": "ruvimbo.magarira@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Grace Chitsa",
+    "email": "grace.chitsa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Vimbai Taruvinga",
+    "email": "vimbai.taruvinga@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Tinotenda Gwatidzo",
+    "email": "tinotenda.gwatidzo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Zahra White",
+    "email": "zahra.white@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Tafadzwa Manjova",
+    "email": "tafadzwa.manjova@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Miranda Matuswa",
+    "email": "miranda.mataswa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Stephanie Mapanga",
+    "email": "stephanie.mapanga@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Angel BerthaMasitera",
+    "email": "angel-bertha.masitera@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Mwiza Ngwira",
+    "email": "mwiza.ngwira@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Primrose Muzarabani",
+    "email": "primrose.muzarabani@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Nyasha Kwenda",
+    "email": "nyasha.kwenda@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Panashe Munyaradzi",
+    "email": "panashe.munyaradzi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Benhildah Zvobgo",
+    "email": "benhildah.zvobgo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.532Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Honour Parerenyatwa",
+    "email": "honour.parerenyatwa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Tendai Wandayi",
+    "cspEmail": "tendai.wandayi@zimworx.com"
+  },
+  {
+    "name": "Victor Mabutho",
+    "email": "victor.mabutho@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Ashleigh Kuziwa Mukosera",
+    "email": "ashleigh.mukosera@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Cleopatra Dhlamini",
+    "email": "cleopatra.dhlamini@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Amanda Mbudzi",
+    "email": "amanda.mbudzi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Rutendo Chiyaka",
+    "email": "rutendo.chiyaka@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Simbarashe Tafa",
+    "email": "simbarashe.tafa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Tendai Marivadze",
+    "email": "tendai.marivadze@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Vanessa Nyikadzino",
+    "email": "vanessa.nyikadzino@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Valerie Muswerakuenda",
+    "email": "vimbai.muswerakuenda@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Lionel Huvaya",
+    "email": "lionel.huvaya@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Manasseh Gunzo",
+    "email": "manasseh.gunzo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Aminatta Mohammed Diallo",
+    "email": "aminatta.diallo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Venus Machingauta",
+    "email": "venus.machingauta@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Ryayne Mhike",
+    "email": "ryayne.mhike@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Isabel Shoko",
+    "email": "isabel.shoko@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Rachel Velapi",
+    "email": "rachel.velapi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Delane Knight",
+    "email": "delane.knight@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Sharmaine Taruvinga",
+    "email": "sharmaine.taruvinga@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Norlene Mkwemba",
+    "email": "norlene.mwemba@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Wayne Tanyaradzwa Mapfumo",
+    "email": "wayne.mapfumo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Caroline Mpofu",
+    "email": "caroline.mpofu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Marco Ramirez",
+    "email": "marco.ruiz@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Grace Nyangwande",
+    "email": "grace.nyangwande@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Tino Maposa",
+    "email": "tinotenda.maphosa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Brandon Dalion",
+    "email": "brandon.dalion@zimworx.ord",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Thatshelwe Dewah",
+    "email": "thatshelwe.dewah@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Kathleen Picado",
+    "email": "katherine.picado@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Ernesto Chamorro",
+    "email": "ernesto.chamorro@zimworx.net",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Susan Zendera",
+    "email": "susan.zendera@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Ndesa Kasimba 10/8/2025",
+    "email": "ndesa.kasimba@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Mukuni Ireen Ndhlovu 10/9/2025",
+    "email": "mukuni.ndhlovu@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Nyasha Sherone Kupfuwamhandu",
+    "cspEmail": "nyasha.sherone.kupfuwamhandu@zimworx.com"
+  },
+  {
+    "name": "Rutendo Vimbai Dodzo",
+    "email": "rutendo.dodzo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Rudo",
+    "cspEmail": "rudo@zimworx.com"
+  },
+  {
+    "name": "Tanyaradzwa Mungoni",
+    "email": "tanyaradzwa.mungoni@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Rudo",
+    "cspEmail": "rudo@zimworx.com"
+  },
+  {
+    "name": "Dorcas Njovana",
+    "email": "dorcas.njovana@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Rudo",
+    "cspEmail": "rudo@zimworx.com"
+  },
+  {
+    "name": "Takunda Mukombachoto",
+    "email": "takunda.mukombachoto@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Rudo",
+    "cspEmail": "rudo@zimworx.com"
+  },
+  {
+    "name": "Tawonga Makuku",
+    "email": "tawonga.makuku@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Rudo",
+    "cspEmail": "rudo@zimworx.com"
+  },
+  {
+    "name": "Hibbert Mugadza",
+    "email": "hibbert.mugadza@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Rudo",
+    "cspEmail": "rudo@zimworx.com"
+  },
+  {
+    "name": "Michael Chimbetete",
+    "email": "michael.chimbetete@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Rudo",
+    "cspEmail": "rudo@zimworx.com"
+  },
+  {
+    "name": "Panashe Nyagwambo",
+    "email": "panashe.nyagwambo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Salma Chikwana",
+    "email": "salma.chikwana@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Runako Zawira",
+    "email": "runako.zawira@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Melissa Kutaura",
+    "email": "melissa.kutaura@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Rachel Mhiribidi",
+    "email": "rachel.mhiribidi@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Ruvimbo Pondo",
+    "email": "ruvimbo.pondo@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Michelle Mahala",
+    "email": "michelle.mahala@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Anotida Miranda Makanihwa",
+    "email": "anotida. makaniwa@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Emmanuel Marira",
+    "email": "emmanuel.marira@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Patronella Hove",
+    "email": "patronella.hove@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  },
+  {
+    "name": "Nyasha Nyatsanga",
+    "email": "nyasha.nyatsanga@zimworx.org",
+    "password": "$2b$10$aegkBN.Dhh5HD/8BljyMmuDCboXuALC3/dqvDHU17VvZvKo/KpS9C",
+    "role": "team-member",
+    "createdAt": "2026-01-22T13:13:49.535Z",
+    "cspName": "Audrey Gangeni",
+    "cspEmail": "audrey.gangeni@zimworx.com"
+  }
 ]

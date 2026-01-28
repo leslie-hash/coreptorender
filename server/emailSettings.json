@@ -1,14 +1,22 @@
 {
-  "enabled": false,
+  "enabled": true,
+  "testMode": true,
   "smtpHost": "smtp.gmail.com",
   "smtpPort": 587,
   "smtpUser": "",
   "smtpPassword": "",
-  "fromEmail": "noreply@company.com",
-  "fromName": "Team Leave Management",
+  "fromEmail": "noreply@zimworx.com",
+  "fromName": "LeavePoint - Team Leave Management",
   "payrollRecipients": [
     "leslie@zimworx.com"
   ],
+  "teamExperienceEmail": "teamexperience@zimworx.org",
+  "testEmailRecipients": {
+    "teamMember": "team.member.test@zimworx.com",
+    "csp": "csp.test@zimworx.com",
+    "client": "client.test@zimworx.com",
+    "payroll": "leslie@zimworx.com"
+  },
   "notifications": {
     "newRequest": true,
     "approval": true,
@@ -20,6 +28,8 @@
     "enabled": true,
     "frequency": "daily",
     "time": "09:00",
-    "recipients": []
+    "recipients": [
+      "leslie@zimworx.com"
+    ]
   }
 }

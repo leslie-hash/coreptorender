@@ -112,11 +112,12 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
 
   const fetchDepartments = async () => {
     try {
-      const response = await fetch('/api/team-members', {
+      const response = await fetch('/api/team-members-details', {
         credentials: 'include',
       });
       if (response.ok) {
-        const members: Array<{ department?: string; [key: string]: unknown }> = await response.json();
+        const data = await response.json();
+        const members: Array<{ department?: string; [key: string]: unknown }> = data.teamMembers || [];
         const uniqueDepts = Array.from(new Set(members.map((m) => m.department || 'N/A')));
         setDepartments(uniqueDepts as string[]);
       }
@@ -129,7 +130,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
     setLoading(true);
     try {
       const [teamResponse, leaveResponse] = await Promise.all([
-        fetch('/api/team-members', { credentials: 'include' }),
+        fetch('/api/team-members-details', { credentials: 'include' }),
         fetch('/api/leave-requests?limit=1000', { credentials: 'include' })
       ]);
 
@@ -138,12 +139,14 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
       // Search team members
       if (filters.searchIn === 'all' || filters.searchIn === 'team_members') {
         if (teamResponse.ok) {
-          const members: Array<{ name: string; email: string; department?: string; [key: string]: unknown }> = await teamResponse.json();
+          const data = await teamResponse.json();
+          const members: Array<{ id: string; name: string; email: string; department?: string; client?: string; ptoBalance?: { remaining: number }; currentStatus?: string; [key: string]: unknown }> = data.teamMembers || [];
           const filteredMembers = members.filter((member) => {
             const matchesQuery = searchQuery.length === 0 || 
               member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
               member.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-              (member.department && member.department.toLowerCase().includes(searchQuery.toLowerCase()));
+              (member.department && member.department.toLowerCase().includes(searchQuery.toLowerCase())) ||
+              (member.client && member.client.toLowerCase().includes(searchQuery.toLowerCase()));
             
             const matchesDept = filters.department === 'all' || member.department === filters.department;
             
@@ -154,7 +157,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
             type: 'team_member' as const,
             id: String(member.id),
             title: member.name,
-            subtitle: `${member.email} • ${member.department || 'N/A'}`,
+            subtitle: `${member.email} • ${member.client || 'N/A'} • ${member.department || 'N/A'}`,
             metadata: member,
             relevance: calculateRelevance(member.name, searchQuery)
           })));
@@ -229,47 +232,47 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'approved': return 'bg-green-100 text-green-800';
-      case 'rejected': return 'bg-red-100 text-red-800';
-      case 'pending': return 'bg-yellow-100 text-yellow-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case 'approved': return 'bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-300';
+      case 'rejected': return 'bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300';
+      case 'pending': return 'bg-yellow-100 dark:bg-yellow-900/50 text-yellow-800 dark:text-yellow-300';
+      default: return 'bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300';
     }
   };
 
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-3xl font-bold tracking-tight">Global Search</h2>
-        <p className="text-muted-foreground">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white">Global Search</h2>
+        <p className="text-muted-foreground dark:text-gray-400">
           Search team members, leave requests, and apply advanced filters
         </p>
       </div>
 
       {/* Main Search Bar */}
-      <Card>
+      <Card className="dark:bg-gray-800 dark:border-gray-700">
         <CardContent className="pt-6">
           <div className="space-y-4">
             <div className="flex gap-2">
               <div className="relative flex-1">
-                <Search className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground" />
+                <Search className="absolute left-3 top-2.5 h-5 w-5 text-muted-foreground dark:text-gray-400" />
                 <Input
                   placeholder="Search by name, email, department, leave type..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 text-lg h-12"
+                  className="pl-10 text-lg h-12 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
                 />
               </div>
               <Button
                 variant={showAdvanced ? 'default' : 'outline'}
                 onClick={() => setShowAdvanced(!showAdvanced)}
-                className="h-12"
+                className={`h-12 ${!showAdvanced ? 'dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700' : ''}`}
               >
                 <Filter className="h-4 w-4 mr-2" />
                 Filters
                 {showAdvanced ? <ChevronUp className="h-4 w-4 ml-2" /> : <ChevronDown className="h-4 w-4 ml-2" />}
               </Button>
               {(searchQuery || filters.department !== 'all' || filters.status !== 'all') && (
-                <Button variant="ghost" onClick={clearFilters} className="h-12">
+                <Button variant="ghost" onClick={clearFilters} className="h-12 dark:text-gray-200 dark:hover:bg-gray-700">
                   <X className="h-4 w-4 mr-2" />
                   Clear
                 </Button>
@@ -278,15 +281,15 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
 
             {/* Advanced Filters */}
             {showAdvanced && (
-              <div className="p-4 bg-gray-50 rounded-lg space-y-4 border">
+              <div className="p-4 bg-gray-50 dark:bg-gray-900 rounded-lg space-y-4 border dark:border-gray-700">
                 <div className="grid grid-cols-3 gap-4">
                   <div>
-                    <Label>Search In</Label>
+                    <Label className="dark:text-gray-300">Search In</Label>
                     <Select value={filters.searchIn} onValueChange={(value) => setFilters({ ...filters, searchIn: value as 'all' | 'team_members' | 'leave_requests' })}>
-                      <SelectTrigger>
+                      <SelectTrigger className="dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="dark:bg-gray-800 dark:border-gray-700">
                         <SelectItem value="all">All</SelectItem>
                         <SelectItem value="team_members">Team Members Only</SelectItem>
                         <SelectItem value="leave_requests">Leave Requests Only</SelectItem>
@@ -295,12 +298,12 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
                   </div>
 
                   <div>
-                    <Label>Department</Label>
+                    <Label className="dark:text-gray-300">Department</Label>
                     <Select value={filters.department} onValueChange={(value) => setFilters({ ...filters, department: value })}>
-                      <SelectTrigger>
+                      <SelectTrigger className="dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="dark:bg-gray-800 dark:border-gray-700">
                         <SelectItem value="all">All Departments</SelectItem>
                         {departments.map(dept => (
                           <SelectItem key={dept} value={dept}>{dept}</SelectItem>
@@ -310,12 +313,12 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
                   </div>
 
                   <div>
-                    <Label>Status</Label>
+                    <Label className="dark:text-gray-300">Status</Label>
                     <Select value={filters.status} onValueChange={(value) => setFilters({ ...filters, status: value })}>
-                      <SelectTrigger>
+                      <SelectTrigger className="dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="dark:bg-gray-800 dark:border-gray-700">
                         <SelectItem value="all">All Status</SelectItem>
                         <SelectItem value="pending">Pending</SelectItem>
                         <SelectItem value="approved">Approved</SelectItem>
@@ -327,12 +330,12 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
 
                 <div className="grid grid-cols-3 gap-4">
                   <div>
-                    <Label>Leave Type</Label>
+                    <Label className="dark:text-gray-300">Leave Type</Label>
                     <Select value={filters.leaveType} onValueChange={(value) => setFilters({ ...filters, leaveType: value })}>
-                      <SelectTrigger>
+                      <SelectTrigger className="dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200">
                         <SelectValue />
                       </SelectTrigger>
-                      <SelectContent>
+                      <SelectContent className="dark:bg-gray-800 dark:border-gray-700">
                         <SelectItem value="all">All Types</SelectItem>
                         <SelectItem value="vacation">Vacation</SelectItem>
                         <SelectItem value="sick">Sick</SelectItem>
@@ -343,33 +346,35 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
                   </div>
 
                   <div>
-                    <Label>Date From</Label>
+                    <Label className="dark:text-gray-300">Date From</Label>
                     <Input
                       type="date"
                       value={filters.dateFrom}
                       onChange={(e) => setFilters({ ...filters, dateFrom: e.target.value })}
+                      className="dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200"
                     />
                   </div>
 
                   <div>
-                    <Label>Date To</Label>
+                    <Label className="dark:text-gray-300">Date To</Label>
                     <Input
                       type="date"
                       value={filters.dateTo}
                       onChange={(e) => setFilters({ ...filters, dateTo: e.target.value })}
+                      className="dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200"
                     />
                   </div>
                 </div>
 
                 {/* Save Preset */}
-                <div className="pt-4 border-t">
-                  <Label>Save Filter Preset</Label>
+                <div className="pt-4 border-t dark:border-gray-700">
+                  <Label className="dark:text-gray-300">Save Filter Preset</Label>
                   <div className="flex gap-2 mt-2">
                     <Input
                       placeholder="Preset name..."
                       value={presetName}
                       onChange={(e) => setPresetName(e.target.value)}
-                      className="flex-1"
+                      className="flex-1 dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200 dark:placeholder-gray-400"
                     />
                     <Button onClick={savePreset} disabled={!presetName.trim()}>
                       <Save className="h-4 w-4 mr-2" />
@@ -385,24 +390,24 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
 
       {/* Saved Presets */}
       {presets.length > 0 && (
-        <Card>
+        <Card className="dark:bg-gray-800 dark:border-gray-700">
           <CardHeader>
-            <CardTitle className="text-lg">Saved Filter Presets</CardTitle>
-            <CardDescription>Quick access to your favorite filter combinations</CardDescription>
+            <CardTitle className="text-lg dark:text-white">Saved Filter Presets</CardTitle>
+            <CardDescription className="dark:text-gray-400">Quick access to your favorite filter combinations</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-2">
               {presets.map((preset) => (
-                <div key={preset.id} className="flex items-center gap-1 bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                <div key={preset.id} className="flex items-center gap-1 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-700">
                   <button
                     onClick={() => loadPreset(preset)}
-                    className="text-sm font-medium text-blue-700 hover:text-blue-900"
+                    className="text-sm font-medium text-blue-700 dark:text-blue-300 hover:text-blue-900 dark:hover:text-blue-100"
                   >
                     {preset.name}
                   </button>
                   <button
                     onClick={() => deletePreset(preset.id)}
-                    className="text-blue-400 hover:text-red-600"
+                    className="text-blue-400 dark:text-blue-500 hover:text-red-600 dark:hover:text-red-400"
                   >
                     <X className="h-3 w-3" />
                   </button>
@@ -414,23 +419,23 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
       )}
 
       {/* Search Results */}
-      <Card>
+      <Card className="dark:bg-gray-800 dark:border-gray-700">
         <CardHeader>
-          <CardTitle className="flex items-center justify-between">
+          <CardTitle className="flex items-center justify-between dark:text-white">
             <span>Search Results</span>
-            <Badge variant="secondary">{results.length} result{results.length !== 1 ? 's' : ''}</Badge>
+            <Badge variant="secondary" className="dark:bg-gray-700 dark:text-gray-200">{results.length} result{results.length !== 1 ? 's' : ''}</Badge>
           </CardTitle>
         </CardHeader>
         <CardContent>
           {loading ? (
             <div className="flex items-center justify-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500 dark:border-blue-400"></div>
             </div>
           ) : results.length === 0 ? (
-            <div className="text-center py-12 text-muted-foreground">
-              <Search className="h-12 w-12 mx-auto mb-4 opacity-20" />
-              <p className="text-lg font-medium">No results found</p>
-              <p className="text-sm">Try adjusting your search query or filters</p>
+            <div className="text-center py-12 text-muted-foreground dark:text-gray-400">
+              <Search className="h-12 w-12 mx-auto mb-4 opacity-20 dark:opacity-30" />
+              <p className="text-lg font-medium dark:text-gray-300">No results found</p>
+              <p className="text-sm dark:text-gray-500">Try adjusting your search query or filters</p>
             </div>
           ) : (
             <ScrollArea className="h-[500px]">
@@ -438,20 +443,20 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
                 {results.map((result) => (
                   <div
                     key={result.id}
-                    className="p-4 border rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+                    className="p-4 border dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer dark:bg-gray-800/50"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex items-start gap-3 flex-1">
                         <div className="mt-1">
                           {result.type === 'team_member' ? (
-                            <User className="h-5 w-5 text-blue-500" />
+                            <User className="h-5 w-5 text-blue-500 dark:text-blue-400" />
                           ) : (
-                            <FileText className="h-5 w-5 text-green-500" />
+                            <FileText className="h-5 w-5 text-green-500 dark:text-green-400" />
                           )}
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-semibold">{result.title}</h3>
-                          <p className="text-sm text-muted-foreground">{result.subtitle}</p>
+                          <h3 className="font-semibold dark:text-white">{result.title}</h3>
+                          <p className="text-sm text-muted-foreground dark:text-gray-400">{result.subtitle}</p>
                           {result.type === 'leave_request' && result.metadata && (
                             <div className="mt-2 flex gap-2">
                               <Badge className={getStatusColor(String(result.metadata.status))}>
@@ -464,7 +469,7 @@ const GlobalSearch: React.FC<GlobalSearchProps> = ({ initialQuery = '' }) => {
                           )}
                         </div>
                       </div>
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-xs dark:bg-gray-700 dark:text-gray-300">
                         {result.type === 'team_member' ? 'Team Member' : 'Leave Request'}
                       </Badge>
                     </div>

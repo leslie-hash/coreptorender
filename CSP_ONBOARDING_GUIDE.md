@@ -15,7 +15,7 @@
 
 ## 📋 **Executive Summary**
 
-**CorePTO** is ZimWorx's intelligent leave management platform that automates the entire PTO approval workflow—from submission to payroll integration. This guide equips Client Success Partners (CSPs) with everything needed to manage their teams efficiently.
+**CorePTO** is a leave management platform that automates the entire PTO approval workflow—from submission to payroll integration. This guide equips Client Success Partners (CSPs) with everything needed to manage their teams efficiently.
 
 ### **Why CorePTO Matters:**
 

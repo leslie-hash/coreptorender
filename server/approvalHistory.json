@@ -1,266 +1,147 @@
 [
   {
-    "id": "AH0184",
-    "employeeName": "Mandlaenkosi Hlatshwayo",
+    "id": "AH0145",
+    "employeeName": "Mufaro Chantelle Chinwada",
     "leaveType": "Leave",
-    "startDate": "11/28/2025",
-    "endDate": "12/2/2025",
+    "startDate": "08/28/2025",
+    "endDate": "08/29/2025",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0185",
+    "id": "AH0146",
     "employeeName": "Mutsa  Machamire",
     "leaveType": "Leave",
-    "startDate": "11/28/2025",
-    "endDate": "11/28/2025",
-    "days": 1,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0186",
-    "employeeName": "Name Surname",
-    "leaveType": "Leave",
-    "startDate": "Start of leave",
-    "endDate": "End of leave",
-    "days": null,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0187",
-    "employeeName": "Lisa  Takaona",
-    "leaveType": "Leave",
-    "startDate": "12/22/2025",
-    "endDate": "12/29/2025",
-    "days": 5,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0188",
-    "employeeName": "Amanda Mkandla",
-    "leaveType": "Leave",
-    "startDate": "12/17/2025",
-    "endDate": "12/19/2025",
+    "startDate": "08/13/2025",
+    "endDate": "08/15/2025",
     "days": 3,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0189",
-    "employeeName": "Adrian Magwenzi",
+    "id": "AH0147",
+    "employeeName": "Mutsa  Machamire",
     "leaveType": "Leave",
-    "startDate": "12/10/2025",
-    "days": 3,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0190",
-    "employeeName": "Tinotenda Mubvumbi",
-    "leaveType": "Leave",
-    "startDate": "12/31/2025",
-    "endDate": "12/31/2025",
+    "startDate": "08/29/2025",
+    "endDate": "08/29/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0191",
-    "employeeName": "Wadzanayi Dangirwa",
+    "id": "AH0148",
+    "employeeName": "Amanda Fikile  Mkandla",
     "leaveType": "Leave",
-    "startDate": "12/29/2025",
-    "endDate": "12/30/2025",
+    "startDate": "08/01/2025",
+    "endDate": "08/01/2025",
+    "days": 1,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0149",
+    "employeeName": "Munotida  Sibanda",
+    "leaveType": "Leave",
+    "startDate": "08/21/2025",
+    "endDate": "08/22/2025",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0192",
-    "employeeName": "Tinashe  Gambara",
+    "id": "AH0150",
+    "employeeName": "Ruth  Mushaninga",
     "leaveType": "Leave",
-    "startDate": "12/26",
-    "endDate": "12/26/2025",
-    "days": 1,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0193",
-    "employeeName": "Joy Kupamupindi",
-    "leaveType": "Leave",
-    "startDate": "12/19/2025",
-    "endDate": "12/19/2025",
-    "days": 1,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0194",
-    "employeeName": "Joy Kupamupindi",
-    "leaveType": "Leave",
-    "startDate": "12/26/2025",
-    "endDate": "12/26/2025",
-    "days": 1,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0195",
-    "employeeName": "Paidamoyo Kufa",
-    "leaveType": "Leave",
-    "startDate": "12/30/2025",
-    "endDate": "01/02/2026",
-    "days": 3,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0196",
-    "employeeName": "Chido  Mawire",
-    "leaveType": "Leave",
-    "startDate": "12/01/2025",
-    "endDate": "12/10/2025",
-    "days": 8,
-    "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0197",
-    "employeeName": "Irene  Nyaundi",
-    "leaveType": "Leave",
-    "startDate": "12/26/2025",
-    "endDate": "01/02/2026",
+    "startDate": "08/04/2025",
+    "endDate": "08/08/2025",
     "days": 5,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0198",
-    "employeeName": "Ashleigh Satiya",
+    "id": "AH0151",
+    "employeeName": "Ngaatendwe Muchapirei",
     "leaveType": "Leave",
-    "startDate": "12/22/2025",
-    "endDate": "12/24/2025",
-    "days": 3,
-    "status": "rejected",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0199",
-    "employeeName": "Ashleigh Satiya",
-    "leaveType": "Leave",
-    "startDate": "12/30/2025",
-    "endDate": "12/31/2025",
+    "startDate": "08/14/2025",
+    "endDate": "08/15/2025",
     "days": 2,
-    "status": "rejected",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0200",
-    "employeeName": "Nigel Deda",
-    "leaveType": "Leave",
-    "startDate": "12/18/2025",
-    "endDate": "12/18/2025",
-    "days": 1,
-    "status": "rejected",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
-    "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
-  },
-  {
-    "id": "AH0201",
-    "employeeName": "Tambudzai Dube",
-    "leaveType": "Leave",
-    "startDate": "12/24/2025",
-    "endDate": "12/24/2025",
-    "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0202",
-    "employeeName": "Allan Chimangah",
+    "id": "AH0152",
+    "employeeName": "Tinashe Gambara",
     "leaveType": "Leave",
-    "startDate": "12/26/2025",
-    "endDate": "12/26/2025",
-    "days": 1,
+    "startDate": "08/14/2025",
+    "endDate": "08/15/2025",
+    "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0203",
-    "employeeName": "Amanda  Samakande",
+    "id": "AH0153",
+    "employeeName": "Denise Chiwandire",
     "leaveType": "Leave",
-    "startDate": "12/01/2025",
-    "endDate": "12/01/2025",
-    "days": 1,
+    "startDate": "08/19/2025",
+    "endDate": "08/21/2025",
+    "days": 3,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0204",
-    "employeeName": "Name Surname",
+    "id": "AH0154",
+    "employeeName": "Joseph  Hove",
     "leaveType": "Leave",
-    "startDate": "Start of leave",
-    "endDate": "End of leave",
+    "startDate": "08/18/2025",
+    "endDate": "08/19/2025",
+    "days": 2,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0155",
+    "employeeName": "Name  Surname",
+    "leaveType": "Leave",
+    "startDate": "Start of Leave ",
+    "endDate": "End of Leave ",
     "days": null,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0205",
-    "employeeName": "Sharon Nyamande",
+    "id": "AH0156",
+    "employeeName": "Ruth Mushaninga",
     "leaveType": "Leave",
-    "startDate": "01/12/2025",
-    "endDate": "01/23/2025",
-    "days": 10,
+    "startDate": "09/08/2025",
+    "endDate": "09/08/2025",
+    "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.168Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.168Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0157",
@@ -270,9 +151,9 @@
     "endDate": "09/08/2025",
     "days": 3,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.166Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0158",
@@ -282,9 +163,9 @@
     "endDate": "09/01/2025",
     "days": 1,
     "status": "rejected",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0159",
@@ -294,9 +175,9 @@
     "endDate": "09/15/2025",
     "days": 1,
     "status": "rejected",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0160",
@@ -306,9 +187,9 @@
     "endDate": "09/12/2025",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0161",
@@ -318,9 +199,9 @@
     "endDate": "09/15/2025",
     "days": 2,
     "status": "rejected",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0162",
@@ -330,9 +211,9 @@
     "endDate": "09/22/2025",
     "days": 1,
     "status": "rejected",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0163",
@@ -342,9 +223,9 @@
     "endDate": "09/01/2025",
     "days": 1,
     "status": "rejected",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0164",
@@ -354,9 +235,9 @@
     "endDate": "09/19/2025",
     "days": 8,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0165",
@@ -366,9 +247,9 @@
     "endDate": "End of leave",
     "days": null,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0166",
@@ -378,9 +259,9 @@
     "endDate": "10/29/2025",
     "days": 3,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0167",
@@ -390,9 +271,9 @@
     "endDate": "10/01/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0168",
@@ -402,9 +283,9 @@
     "endDate": "10/17/2025",
     "days": 6,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0169",
@@ -414,9 +295,9 @@
     "endDate": "10/10/2025",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0170",
@@ -426,9 +307,9 @@
     "endDate": "10/24/2025",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0171",
@@ -438,9 +319,9 @@
     "endDate": "10/31/25",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0172",
@@ -450,9 +331,9 @@
     "endDate": "End of leave",
     "days": null,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0173",
@@ -462,9 +343,9 @@
     "endDate": "11/25/2025",
     "days": 4,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0174",
@@ -474,9 +355,9 @@
     "endDate": "11/17/2025",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0175",
@@ -486,9 +367,9 @@
     "endDate": "11/17/2025",
     "days": 3,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0176",
@@ -498,9 +379,9 @@
     "endDate": "11/28/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0177",
@@ -510,9 +391,9 @@
     "endDate": "11/28/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0178",
@@ -522,9 +403,9 @@
     "endDate": "11/28/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0179",
@@ -534,9 +415,9 @@
     "endDate": "11/28/2025",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0180",
@@ -546,9 +427,9 @@
     "endDate": "11/26/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0181",
@@ -558,9 +439,9 @@
     "endDate": "11/28/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0182",
@@ -570,9 +451,9 @@
     "endDate": "11/28/2025",
     "days": 2,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
     "id": "AH0183",
@@ -582,20 +463,139 @@
     "endDate": "11/14/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.167Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.167Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
   },
   {
-    "id": "AH0011",
-    "employeeName": "Fadzaishe Gura",
+    "id": "AH0184",
+    "employeeName": "Mandlaenkosi Hlatshwayo",
     "leaveType": "Leave",
-    "startDate": "30 August 2024",
-    "endDate": "30 August 2024",
+    "startDate": "11/28/2025",
+    "endDate": "12/2/2025",
+    "days": 2,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0185",
+    "employeeName": "Mutsa  Machamire",
+    "leaveType": "Leave",
+    "startDate": "11/28/2025",
+    "endDate": "11/28/2025",
     "days": 1,
     "status": "approved",
-    "approvalDate": "2026-01-05T15:11:07.166Z",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
     "comment": "",
-    "timestamp": "2026-01-05T15:11:07.166Z"
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0186",
+    "employeeName": "Name Surname",
+    "leaveType": "Leave",
+    "startDate": "Start of leave",
+    "endDate": "End of leave",
+    "days": null,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0187",
+    "employeeName": "Lisa  Takaona",
+    "leaveType": "Leave",
+    "startDate": "12/22/2025",
+    "endDate": "12/29/2025",
+    "days": 5,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0188",
+    "employeeName": "Amanda Mkandla",
+    "leaveType": "Leave",
+    "startDate": "12/17/2025",
+    "endDate": "12/19/2025",
+    "days": 3,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0189",
+    "employeeName": "Adrian Magwenzi",
+    "leaveType": "Leave",
+    "startDate": "12/10/2025",
+    "days": 3,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0190",
+    "employeeName": "Tinotenda Mubvumbi",
+    "leaveType": "Leave",
+    "startDate": "12/31/2025",
+    "endDate": "12/31/2025",
+    "days": 1,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0191",
+    "employeeName": "Wadzanayi Dangirwa",
+    "leaveType": "Leave",
+    "startDate": "12/29/2025",
+    "endDate": "12/30/2025",
+    "days": 2,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0192",
+    "employeeName": "Tinashe  Gambara",
+    "leaveType": "Leave",
+    "startDate": "12/26",
+    "endDate": "12/26/2025",
+    "days": 1,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0193",
+    "employeeName": "Joy Kupamupindi",
+    "leaveType": "Leave",
+    "startDate": "12/19/2025",
+    "endDate": "12/19/2025",
+    "days": 1,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
+  },
+  {
+    "id": "AH0194",
+    "employeeName": "Joy Kupamupindi",
+    "leaveType": "Leave",
+    "startDate": "12/26/2025",
+    "endDate": "12/26/2025",
+    "days": 1,
+    "status": "approved",
+    "approvalDate": "2026-01-21T11:26:28.347Z",
+    "comment": "",
+    "timestamp": "2026-01-21T11:26:28.347Z"
   }
 ]

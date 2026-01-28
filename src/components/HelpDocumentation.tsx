@@ -112,7 +112,7 @@ export default function HelpDocumentation() {
               <li>Check for policy compliance</li>
               <li>For sick leave, verify sick note is uploaded</li>
               <li>Add review notes if needed</li>
-              <li>Click <strong>"Verify & Forward to Client"</strong> or <strong>"Reject"</strong></li>
+              <li>Click <strong>"Ready to Submit"</strong> or <strong>"Reject"</strong></li>
             </ul>
             
             <h4>Step 2: Client Approval</h4>

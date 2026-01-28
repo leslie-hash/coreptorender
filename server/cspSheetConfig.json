@@ -1,0 +1,70 @@
+{
+  "masterSheet": {
+    "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+    "sheetGid": "1620072412",
+    "range": "A:Z",
+    "description": "Master sheet containing all CSPs, team members, and clients"
+  },
+  "cspSheets": [
+    {
+      "cspEmail": "leslie@zimworx.com",
+      "cspName": "Leslie Chasinda",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "tsungirirai.samhungu@zimworx.com",
+      "cspName": "Tsungirirai Samhungu",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "anele@zimworx.com",
+      "cspName": "Anele Nkomo",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "csp@zimworx.com",
+      "cspName": "CSP User",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "tendai.senga@zimworx.com",
+      "cspName": "Tendai Senga",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "rudo.takaendisa@zimworx.com",
+      "cspName": "Rudo Takaendisa",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "moses.mushaikwa@zimworx.com",
+      "cspName": "Moses Mushaikwa",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "miranda.chirove@zimworx.com",
+      "cspName": "Miranda Chirove",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "gladness.njanji@zimworx.com",
+      "cspName": "Gladness Njanji",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    },
+    {
+      "cspEmail": "joseph.ayema@zimworx.com",
+      "cspName": "Joseph Ayema",
+      "spreadsheetId": "1Jzu-uUuq4JhV2u85Fn7r31nabJVEyoDrt5Q5pDhNgC8",
+      "range": "Team Member Work Details!A2:I"
+    }
+  ]
+}

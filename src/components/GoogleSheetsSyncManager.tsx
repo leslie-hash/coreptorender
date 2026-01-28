@@ -200,17 +200,17 @@ export default function GoogleSheetsSyncManager() {
 
   return (
     <div className="p-6 space-y-4">
-      <h1 className="text-2xl font-bold">Google Sheets Sync</h1>
+      <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Google Sheets Sync</h1>
 
       {message && (
-        <Alert className={message.type === 'success' ? 'border-green-500 bg-green-50' : 'border-red-500 bg-red-50'}>
+        <Alert className={message.type === 'success' ? 'border-green-500 bg-green-50 dark:bg-green-900/20' : 'border-red-500 bg-red-50 dark:bg-red-900/20'}>
           <AlertDescription className="flex items-center gap-2">
             {message.type === 'success' ? (
-              <CheckCircle2 className="w-4 h-4 text-green-600" />
+              <CheckCircle2 className="w-4 h-4 text-green-600 dark:text-green-400" />
             ) : (
-              <XCircle className="w-4 h-4 text-red-600" />
+              <XCircle className="w-4 h-4 text-red-600 dark:text-red-400" />
             )}
-            {message.text}
+            <span className={message.type === 'success' ? 'text-green-800 dark:text-green-200' : 'text-red-800 dark:text-red-200'}>{message.text}</span>
           </AlertDescription>
         </Alert>
       )}
@@ -258,9 +258,9 @@ export default function GoogleSheetsSyncManager() {
           </div>
 
           {sheetInfo && (
-            <div className="mt-3 p-3 bg-green-50 border border-green-200 rounded-lg text-sm">
-              <p className="font-medium text-green-900">✅ {sheetInfo.title}</p>
-              <p className="text-xs text-green-700 mt-1">
+            <div className="mt-3 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 rounded-lg text-sm">
+              <p className="font-medium text-green-900 dark:text-green-200">✅ {sheetInfo.title}</p>
+              <p className="text-xs text-green-700 dark:text-green-300 mt-1">
                 Sheets: {Array.isArray(sheetInfo.sheets) ? sheetInfo.sheets.join(', ') : String(sheetInfo.sheets)}
               </p>
             </div>
@@ -284,10 +284,10 @@ export default function GoogleSheetsSyncManager() {
       </Card>
 
       {/* Sync Actions */}
-      <Card className="border-2 border-blue-200 bg-blue-50">
+      <Card className="border-2 border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/20">
         <CardHeader>
           <CardTitle className="text-lg flex items-center gap-2">
-            <Sheet className="w-5 h-5 text-blue-600" />
+            <Sheet className="w-5 h-5 text-blue-600 dark:text-blue-400" />
             Comprehensive Sync (All 4 Tabs)
           </CardTitle>
           <CardDescription>

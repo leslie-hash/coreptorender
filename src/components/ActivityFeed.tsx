@@ -101,69 +101,69 @@ export default function ActivityFeed() {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
       {/* Header with Actions */}
-      <div className="border-b border-gray-200 px-6 py-4 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-bold text-gray-900 flex items-center gap-2">
-            <TrendingUp className="w-6 h-6 text-blue-600" />
+      <div className="border-b border-gray-200 dark:border-gray-700 px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-800">
+        <div className="flex items-center justify-between mb-2">
+          <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+            <TrendingUp className="w-5 h-5 text-blue-600 dark:text-blue-400" />
             Recent Activity
           </h3>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <button
               onClick={() => setShowStats(!showStats)}
-              className="p-2 hover:bg-white rounded-lg transition-colors"
+              className="p-1.5 hover:bg-white dark:hover:bg-gray-600 rounded-lg transition-colors"
               title="Toggle statistics"
             >
-              <Filter className="w-4 h-4 text-gray-600" />
+              <Filter className="w-4 h-4 text-gray-600 dark:text-gray-300" />
             </button>
             <button
               onClick={fetchActivities}
               disabled={loading}
-              className="p-2 hover:bg-white rounded-lg transition-colors disabled:opacity-50"
+              className="p-1.5 hover:bg-white dark:hover:bg-gray-600 rounded-lg transition-colors disabled:opacity-50"
               title="Refresh"
             >
-              <RefreshCw className={`w-4 h-4 text-gray-600 ${loading ? 'animate-spin' : ''}`} />
+              <RefreshCw className={`w-4 h-4 text-gray-600 dark:text-gray-300 ${loading ? 'animate-spin' : ''}`} />
             </button>
           </div>
         </div>
 
-        {/* Statistics Bar */}
+        {/* Statistics Bar - 2x2 grid for sidebar */}
         {showStats && activities.length > 0 && (
-          <div className="grid grid-cols-4 gap-3">
-            <div className="bg-white rounded-lg px-3 py-2 text-center">
-              <div className="text-lg font-bold text-gray-900">{stats.total}</div>
-              <div className="text-xs text-gray-600">Total</div>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="bg-white dark:bg-gray-600 rounded-lg px-2 py-1.5 text-center">
+              <div className="text-sm font-bold text-gray-900 dark:text-white">{stats.total}</div>
+              <div className="text-xs text-gray-600 dark:text-gray-300">Total</div>
             </div>
-            <div className="bg-green-50 rounded-lg px-3 py-2 text-center">
-              <div className="text-lg font-bold text-green-700">{stats.approved}</div>
-              <div className="text-xs text-green-600">Approved</div>
+            <div className="bg-green-50 dark:bg-green-900/30 rounded-lg px-2 py-1.5 text-center">
+              <div className="text-sm font-bold text-green-700 dark:text-green-400">{stats.approved}</div>
+              <div className="text-xs text-green-600 dark:text-green-400">Approved</div>
             </div>
-            <div className="bg-red-50 rounded-lg px-3 py-2 text-center">
-              <div className="text-lg font-bold text-red-700">{stats.rejected}</div>
-              <div className="text-xs text-red-600">Rejected</div>
+            <div className="bg-red-50 dark:bg-red-900/30 rounded-lg px-2 py-1.5 text-center">
+              <div className="text-sm font-bold text-red-700 dark:text-red-400">{stats.rejected}</div>
+              <div className="text-xs text-red-600 dark:text-red-400">Rejected</div>
             </div>
-            <div className="bg-yellow-50 rounded-lg px-3 py-2 text-center">
-              <div className="text-lg font-bold text-yellow-700">{stats.pending}</div>
-              <div className="text-xs text-yellow-600">Pending</div>
+            <div className="bg-yellow-50 dark:bg-yellow-900/30 rounded-lg px-2 py-1.5 text-center">
+              <div className="text-sm font-bold text-yellow-700 dark:text-yellow-400">{stats.pending}</div>
+              <div className="text-xs text-yellow-600 dark:text-yellow-400">Pending</div>
             </div>
           </div>
         )}
       </div>
 
       {/* Filter Bar */}
-      <div className="px-6 py-3 bg-gray-50 border-b border-gray-200">
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-gray-600 font-medium">Filter:</span>
-          <div className="flex gap-1">
+      <div className="px-4 py-2 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+        <div className="flex flex-wrap items-center gap-1">
+          <span className="text-xs text-gray-600 dark:text-gray-300 font-medium mr-1">Filter:</span>
+          <div className="flex flex-wrap gap-1">
             {['all', 'approved', 'rejected', 'pending'].map((status) => (
               <button
                 key={status}
                 onClick={() => setFilterStatus(status)}
-                className={`px-3 py-1 text-xs font-semibold rounded-full transition-colors ${
+                className={`px-2 py-0.5 text-xs font-semibold rounded-full transition-colors ${
                   filterStatus === status
                     ? 'bg-blue-600 text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-300'
+                    : 'bg-white dark:bg-gray-600 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-500 border border-gray-300 dark:border-gray-500'
                 }`}
               >
                 {status.charAt(0).toUpperCase() + status.slice(1)}
@@ -174,85 +174,79 @@ export default function ActivityFeed() {
       </div>
 
       {/* Activity List */}
-      <div className="p-6">
+      <div className="p-3 dark:bg-gray-800">
         {loading ? (
-          <div className="flex items-center justify-center py-8">
-            <RefreshCw className="w-8 h-8 text-blue-600 animate-spin" />
+          <div className="flex items-center justify-center py-6">
+            <RefreshCw className="w-6 h-6 text-blue-600 animate-spin" />
           </div>
         ) : error ? (
-          <div className="text-center py-8">
-            <XCircle className="w-12 h-12 text-red-500 mx-auto mb-2" />
-            <div className="text-red-500 font-semibold">{error}</div>
+          <div className="text-center py-6">
+            <XCircle className="w-10 h-10 text-red-500 mx-auto mb-2" />
+            <div className="text-red-500 text-sm font-semibold">{error}</div>
           </div>
         ) : filteredActivities.length === 0 ? (
-          <div className="text-center py-8">
-            <Clock className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-            <div className="text-gray-500">
+          <div className="text-center py-6">
+            <Clock className="w-10 h-10 text-gray-400 dark:text-gray-500 mx-auto mb-2" />
+            <div className="text-gray-500 dark:text-gray-400 text-sm">
               {filterStatus === 'all' ? 'No recent activity.' : `No ${filterStatus} activities.`}
             </div>
           </div>
         ) : (
-          <div className="space-y-3 max-h-[600px] overflow-y-auto pr-2">
+          <div className="space-y-2 max-h-[500px] overflow-y-auto pr-1">
             {filteredActivities.map((activity) => {
               const Icon = iconMap[activity.status];
               return (
                 <div 
                   key={activity.id} 
-                  className="group flex items-start gap-4 p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-md transition-all cursor-pointer bg-white hover:bg-blue-50/30"
+                  className="group p-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-md transition-all cursor-pointer bg-white dark:bg-gray-700 hover:bg-blue-50/30 dark:hover:bg-gray-600"
                 >
-                  {/* Avatar with Initials */}
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-sm shadow-sm">
-                      {getInitials(activity.employeeName)}
+                  {/* Top row: Avatar, Name, Status Icon */}
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white font-bold text-xs shadow-sm">
+                        {getInitials(activity.employeeName)}
+                      </div>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-semibold text-sm text-gray-900 dark:text-white truncate" title={activity.employeeName}>
+                        {activity.employeeName}
+                      </h4>
+                    </div>
+                    <div className={`flex-shrink-0 p-1.5 rounded-full ${colorMap[activity.status]}`}>
+                      <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-2 mb-2">
-                      <div className="flex-1">
-                        <h4 className="font-bold text-gray-900 truncate" title={activity.employeeName}>
-                          {activity.employeeName}
-                        </h4>
-                        <div className="flex items-center gap-2 mt-0.5">
-                          <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${badgeColorMap[activity.status]}`}>
-                            {activity.status.charAt(0).toUpperCase() + activity.status.slice(1)}
-                          </span>
-                          <span className="text-xs text-gray-600">
-                            {activity.leaveType}
-                          </span>
-                        </div>
-                      </div>
-                      <div className={`flex-shrink-0 p-2 rounded-full ${colorMap[activity.status]}`}>
-                        <Icon className="w-5 h-5" />
-                      </div>
-                    </div>
+                  {/* Status and Leave Type */}
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${badgeColorMap[activity.status]}`}>
+                      {activity.status.charAt(0).toUpperCase() + activity.status.slice(1)}
+                    </span>
+                    <span className="text-xs text-gray-600 dark:text-gray-300 truncate">
+                      {activity.leaveType}
+                    </span>
+                  </div>
 
-                    {/* Leave Details */}
-                    <div className="flex items-center gap-4 text-xs text-gray-600 mb-2">
-                      <div className="flex items-center gap-1">
-                        <Calendar className="w-3.5 h-3.5" />
-                        <span>{activity.startDate} - {activity.endDate}</span>
-                      </div>
-                      <span className="font-semibold text-gray-700">
-                        {activity.days} day{activity.days !== 1 ? 's' : ''}
-                      </span>
-                    </div>
+                  {/* Leave Details */}
+                  <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-300 mb-1">
+                    <Calendar className="w-3 h-3 flex-shrink-0" />
+                    <span className="truncate">{activity.startDate} - {activity.endDate}</span>
+                    <span className="font-semibold text-gray-700 dark:text-gray-200 flex-shrink-0">
+                      ({activity.days}d)
+                    </span>
+                  </div>
 
-                    {/* Comment */}
-                    {activity.comment && (
-                      <div className="text-xs text-gray-600 italic bg-gray-50 rounded px-2 py-1 mb-2">
-                        "{activity.comment}"
-                      </div>
-                    )}
-
-                    {/* Timestamp */}
-                    <div className="flex items-center gap-1 text-xs text-gray-500">
-                      <Clock className="w-3 h-3" />
-                      <span>{getRelativeTime(activity.timestamp)}</span>
-                      <span className="text-gray-400">•</span>
-                      <span>{new Date(activity.timestamp).toLocaleString()}</span>
+                  {/* Comment */}
+                  {activity.comment && (
+                    <div className="text-xs text-gray-600 dark:text-gray-300 italic bg-gray-50 dark:bg-gray-600 rounded px-2 py-1 mb-1 truncate" title={activity.comment}>
+                      "{activity.comment}"
                     </div>
+                  )}
+
+                  {/* Timestamp */}
+                  <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
+                    <Clock className="w-3 h-3 flex-shrink-0" />
+                    <span>{getRelativeTime(activity.timestamp)}</span>
                   </div>
                 </div>
               );
